@@ -1,0 +1,71 @@
+---
+// src/pages/nosotros/danilo-alvarez.astro
+import Layout from '../../layouts/Layout.astro';
+
+const pageTitle = 'Danilo Álvarez - Dag Klassical BCT';
+const pageDescription = 'Productor musical, ingeniero de sonido y ganador de dos Latin Grammy. Director artístico de Dag Klassical.';
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <article class="max-w-6xl mx-auto px-4 py-8">
+    <div class="flex flex-col md:flex-row gap-8">
+      <!-- Imagen a la izquierda -->
+      <div class="md:w-1/3 flex justify-center md:justify-start">
+        <img
+          src="/artists/profile-personas-01.webp"
+          alt="Danilo Álvarez"
+          class="w-64 h-64 rounded-full object-cover shadow-md border-4 border-platinum"
+          onerror="this.src='/artists/profile-personas-01.jpg'"
+        />
+      </div>
+
+      <!-- Contenido a la derecha -->
+      <div class="md:w-2/3 prose prose-slate max-w-none">
+        <h1 class="text-3xl font-bold mb-4">Danilo Álvarez Carrillo</h1>
+
+        <p class="text-lg mb-6 text-slate-600">
+          Productor musical, ingeniero de sonido, músico y autor venezolano, reconocido internacionalmente por su trabajo en la grabación de orquestas sinfónicas y su contribución a la música culta latinoamericana.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">Reconocimientos</h2>
+        <ul class="list-disc pl-5 space-y-2 mb-6">
+          <li><strong>Dos Latin Grammy</strong>: en 2017 (mejor álbum tropical por <em>Bidimensional</em> con Guaco y la Orquesta Sinfónica Simón Bolívar) y en 2019 (mejor álbum de música clásica por <em>Regreso</em> con la Orquesta Nueva Filarmonía).</li>
+          <li><strong>Premio Latinoamericano de Oro</strong> (2019) como ingeniero y productor musical de mayor influencia en Venezuela.</li>
+        </ul>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">Trayectoria</h2>
+        <p class="mb-4">
+          Graduado del Conservatorio de Música Simón Bolívar con especialización en grabación de orquestas sinfónicas (<em>Tonmeister</em>), fue ingeniero de sonido principal del Sistema Nacional de Orquestas y Coros de Venezuela durante más de 15 años.
+        </p>
+        <p class="mb-4">
+          Ha colaborado con figuras de talla mundial como Gustavo Dudamel, Claudio Abbado, Luciano Pavarotti, Daniel Barenboim, Philip Glass, y orquestas como la Los Angeles Philharmonic, la Sinfónica Simón Bolívar y la Filarmónica de Caracas.
+        </p>
+        <p class="mb-4">
+          Su labor lo ha llevado a trabajar en más de 25 países, participando en prestigiosos eventos como los BBC Proms en Londres, el Festival de Salzburgo y la Temporada de Ópera de La Scala en Milán.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">Docencia y Legado</h2>
+        <p class="mb-4">
+          Profesor activo de la “Cátedra del Arte de la grabación y la producción musical” en el Centro de Acción Social por la Música, ha impartido numerosas masterclasses internacionales sobre grabación y mezcla orquestal.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">Rol en Dag Klassical</h2>
+        <p class="mb-4">
+          Hoy día es el <strong>director artístico y productor principal</strong> del sello discográfico <strong>Dag Klassical</strong>, donde combina su excelencia técnica con la innovación en formatos digitales verificables en blockchain.
+        </p>
+        <p class="mb-4">
+          Cada obra publicada bajo DAG Klassical refleja su compromiso con la autenticidad, la alta fidelidad y la preservación del patrimonio musical iberoamericano.
+        </p>
+
+        <!-- Metadatos inmutables -->
+        <div class="mt-12 p-4 border-t border-platinum text-sm text-slate-600">
+          <h3 class="font-semibold mb-2">Metadatos Inmutables</h3>
+          <p><strong>UUID:</strong> urn:uuid:00ffeedd-ccbb-aa99-8877-665544332211</p>
+          <p><strong>Timestamp:</strong> 2025-11-22T09:00:01Z</p>
+          <p><strong>Operador:</strong> adrian.prado@elsistema.web</p>
+          <p><strong>Fuente:</strong> Adaptado de Wikipedia (<a href="https://es.wikipedia.org/wiki/Danilo_%C3%81lvarez" target="_blank" class="text-platinum hover:underline">https://es.wikipedia.org/wiki/Danilo_Álvarez</a>)</p>
+        </div>
+      </div>
+    </div>
+  </article>
+</Layout>

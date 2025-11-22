@@ -1,20 +1,20 @@
 [
   {
-    "id": "dag-klassical",
-    "name": "Dag Klassical",
-    "role": "Orquesta Sinfónica",
-    "bio": "Ensemble de música clásica contemporánea especializado en la integración de tecnología digital y performance en vivo.",
-    "avatar": "/artists/dag-klassical.jpg",
-    "website": "https://dagklassical.com",
+    "id": "art-teodor-dore",
+    "name": "Teodor Doré",
+    "role": "Compositor Contemporáneo y Pianista",
+    "bio": "El pianista y compositor Teodor Doré creció en las cautivadoras costas del Mar Negro, en Crimea. Estudió en el Conservatorio Liceu de Barcelona, España. Se ha consolidado como una figura prominente en la escena musical académica contemporánea de Londres, siendo reconocido como una estrella en ascenso.",
+    "avatar": "/artists/profile-teodor-dore-01.webp",
+    "website": "https://teodordore.com/",
     "social": {
-      "instagram": "@dagklassical",
-      "twitter": "@dagklassical"
+      "instagram": "",
+      "twitter": ""
     },
-    "releases": ["mc-2025-sinfonia-digital", "mc-2026-sonata-violin", "mc-2026-obertura-digital"],
+    "releases": ["mc-2025-february-night-01"],
     "metadata": {
       "uuid": "urn:uuid:11223344-5566-7788-99aa-bbccddeeff00",
       "timestamp": "2025-11-22T09:00:00Z",
-      "operator": "adrian.prado@elsistema.web"
+      "operator": "cto@dagklassical.com"
     }
   },
   {
