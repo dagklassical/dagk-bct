@@ -2,12 +2,19 @@
 // src/pages/blockchain/tecnologia.astro
 import Layout from '../../layouts/Layout.astro';
 import MetadataSection from '../../components/MetadataSection.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 
+const breadcrumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Blockchain', href: '/blockchain/' },
+  { label: 'Tecnología', href: '/blockchain/tecnologia/' },
+];
 const pageTitle = 'Tecnología Blockchain - Dag Klassical BCT';
 const pageDescription = 'Proceso de certificación inmutable de Music Cards en la red Polygon. Autenticidad, trazabilidad y valor garantizado.';
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
+  <Breadcrumb items={breadcrumbs} />
   <article class="max-w-4xl mx-auto px-4 py-8">
     <header class="text-center mb-12">
       <h1 class="text-4xl font-advent font-bold mb-4">Certificación Blockchain</h1>

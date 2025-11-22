@@ -1,0 +1,25 @@
+---
+// src/components/Breadcrumb.astro
+export interface Props {
+  items: { label: string; href: string }[];
+}
+const { items } = Astro.props;
+---
+
+<nav aria-label="Breadcrumb" class="max-w-6xl mx-auto px-4 py-3">
+  <ol class="flex flex-wrap items-center text-sm text-slate-600 font-light">
+    {items.map((item, index) => (
+      <li key={index} class="flex items-center">
+        {index > 0 && (
+          <span class="mx-2 text-platinum">/</span>
+        )}
+        <a 
+          href={item.href} 
+          class="hover:text-dag-burgundy transition-colors"
+        >
+          {item.label}
+        </a>
+      </li>
+    ))}
+  </ol>
+</nav>

@@ -1,12 +1,19 @@
 ---
 // src/pages/nosotros/danilo-alvarez.astro
 import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 
+const breadcrumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Nosotros', href: '/nosotros/' },
+  { label: 'Danilo Álvarez', href: '/nosotros/danilo-alvarez/' },
+];
 const pageTitle = 'Danilo Álvarez - Dag Klassical BCT';
 const pageDescription = 'Productor musical, ingeniero de sonido y ganador de dos Latin Grammy. Director artístico de Dag Klassical.';
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
+  <Breadcrumb items={breadcrumbs} />
   <article class="max-w-6xl mx-auto px-4 py-8">
     <div class="flex flex-col md:flex-row gap-8">
       <!-- Imagen a la izquierda -->
