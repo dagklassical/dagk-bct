@@ -2,34 +2,32 @@
 // src/pages/musica/colecciones/[id].astro
 import Layout from '../../../layouts/Layout.astro';
 import releases from '../../../data/releases.json';
+import artists from '../../../data/artists.json';
 
-// 1. Define las rutas estáticas basadas en releases.json
+// Genera una página estática para cada lanzamiento
 export async function getStaticPaths() {
-  // Asegúrate de que 'releases' no esté vacío
-  if (!releases || !Array.isArray(releases)) {
-    throw new Error("El archivo releases.json no contiene un array válido.");
-  }
-
-  // Genera una ruta para cada release en el JSON
   return releases.map(release => ({
-    params: { id: release.id }, // El 'id' aquí debe coincidir con [id].astro
-    props: { release }, // Pasa el objeto 'release' como prop
+    params: { id: release.id },
+    props: { release }
   }));
 }
 
-// 2. Recibe el 'id' de la URL y el 'release' ya filtrado de getStaticPaths
+// Obtiene los datos del lanzamiento y sus artistas
 const { id } = Astro.params;
-// En build time, Astro ya pasó el 'release' correcto vía props
 const release = Astro.props.release;
 
-// Validación: Si no se encontró el release (aunque getStaticPaths debería garantizarlo), redirige
 if (!release) {
-  // Esto no debería pasar si getStaticPaths es correcto, pero es buena práctica
   return Astro.redirect('/musica/discografia');
 }
 
+// Busca los nombres de los artistas por sus IDs
+const artistNames = release.artistIds.map(artistId => {
+  const artist = artists.find(a => a.id === artistId);
+  return artist ? artist.name : artistId;
+}).join(', ');
+
 const pageTitle = `${release.title} - Discografía`;
-const pageDescription = `Detalles de la colección "${release.title}" por ${release.artistId}.`;
+const pageDescription = release.description || `Detalles de la colección "${release.title}" por ${artistNames}.`;
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
@@ -40,40 +38,46 @@ const pageDescription = `Detalles de la colección "${release.title}" por ${rele
           src={release.coverImage}
           alt={release.title}
           class="w-full rounded-lg shadow-md"
-          // Opcional: placeholder
-          // src="https://placehold.co/300/cccccc/999999?text=Cover"
+          onerror="this.src='https://placehold.co/300x300/cccccc/999999?text=Cover'"
         />
       </div>
       <div class="md:w-2/3">
         <h1 class="text-3xl font-bold mb-2">{release.title}</h1>
-        <p class="text-xl text-slate-600 mb-2">por {release.artistId}</p>
-        <p class="text-slate-500 mb-4">{release.genre} • {new Date(release.releaseDate).toLocaleDateString('es-VE')} • {release.type}</p>
+        <p class="text-xl text-slate-600 mb-2">por {artistNames}</p>
+        <p class="text-slate-500 mb-4">
+          {release.genre} • {new Date(release.releaseDate).toLocaleDateString('es-VE')} • {release.type}
+        </p>
+        {release.description && (
+          <p class="mb-6 text-slate-700">{release.description}</p>
+        )}
 
         <section class="mb-6">
           <h2 class="text-xl font-semibold mb-3">Tracklist</h2>
           <ul class="list-disc pl-5 space-y-1">
             {release.tracks.map(track => (
-              <li key={track.title}>{track.title} <span class="text-slate-500">({track.duration})</span></li>
+              <li key={track.title}>
+                {track.title} <span class="text-slate-500">({track.duration})</span>
+              </li>
             ))}
           </ul>
         </section>
 
         <section>
-          <h2 class="text-xl font-semibold mb-3">Music Cards Disponibles</h2>
+          <h2 class="text-xl font-semibold mb-3">Music Cards Asociadas</h2>
           {release.musicCards.length > 0 ? (
-            release.musicCards.map(card => (
-              <div key={card.cardId} class="border border-platinum p-4 rounded-lg bg-white shadow-sm mb-3">
-                <p><strong>ID:</strong> {card.cardId}</p>
-                <p><strong>Edición:</strong> {card.edition} ({card.available}/{card.totalSupply} disponibles)</p>
-                <p><strong>Blockchain:</strong> {card.blockchain}</p>
-                <p><strong>Token ID:</strong> {card.tokenId}</p>
-                <button class="mt-2 bg-platinum text-white px-4 py-2 rounded hover:bg-opacity-80">
-                  Adquirir (Próximamente)
-                </button>
-              </div>
-            ))
+            <div class="space-y-2">
+              {release.musicCards.map(cardId => (
+                <a
+                  key={cardId}
+                  href={`/blockchain/music-cards/${cardId}`}
+                  class="block bg-white p-3 rounded border border-platinum hover:bg-gray95 transition-colors"
+                >
+                  Ver Music Card: {cardId}
+                </a>
+              ))}
+            </div>
           ) : (
-            <p>No hay Music Cards disponibles para esta colección aún.</p>
+            <p>No hay Music Cards asociadas a esta obra.</p>
           )}
         </section>
       </div>
@@ -85,7 +89,6 @@ const pageDescription = `Detalles de la colección "${release.title}" por ${rele
       <p><strong>UUID:</strong> {release.metadata.uuid}</p>
       <p><strong>Timestamp:</strong> {release.metadata.timestamp}</p>
       <p><strong>Operador:</strong> {release.metadata.operator}</p>
-      <p><strong>SHA256 (Placeholder):</strong> {release.metadata.sha256}</p>
     </div>
   </article>
 </Layout>

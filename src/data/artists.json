@@ -1,0 +1,89 @@
+[
+  {
+    "id": "dag-klassical",
+    "name": "Dag Klassical",
+    "role": "Orquesta Sinfónica",
+    "bio": "Ensemble de música clásica contemporánea especializado en la integración de tecnología digital y performance en vivo.",
+    "avatar": "/artists/dag-klassical.jpg",
+    "website": "https://dagklassical.com",
+    "social": {
+      "instagram": "@dagklassical",
+      "twitter": "@dagklassical"
+    },
+    "releases": ["mc-2025-sinfonia-digital", "mc-2026-sonata-violin", "mc-2026-obertura-digital"],
+    "metadata": {
+      "uuid": "urn:uuid:11223344-5566-7788-99aa-bbccddeeff00",
+      "timestamp": "2025-11-22T09:00:00Z",
+      "operator": "adrian.prado@elsistema.web"
+    }
+  },
+  {
+    "id": "danilo-alvarez",
+    "name": "Danilo Álvarez",
+    "role": "Compositor y Pianista",
+    "bio": "Compositor venezolano reconocido por su trabajo en música electroacústica y su enfoque en la identidad sonora latinoamericana.",
+    "avatar": "/artists/danilo-alvarez.jpg",
+    "website": "https://daniloalvarez.com",
+    "social": {
+      "instagram": "@daniloalvarezmusica",
+      "youtube": "DaniloAlvarezOfficial"
+    },
+    "releases": ["mc-2025-concierto-electro", "mc-2026-cantata-latina"],
+    "metadata": {
+      "uuid": "urn:uuid:00ffeedd-ccbb-aa99-8877-665544332211",
+      "timestamp": "2025-11-22T09:00:01Z",
+      "operator": "adrian.prado@elsistema.web"
+    }
+  },
+  {
+    "id": "ensemble-dag",
+    "name": "Ensemble DAG",
+    "role": "Grupo de Música de Cámara",
+    "bio": "Cuarteto de cuerdas residente de Dag Klassical, dedicado a la interpretación de obras contemporáneas.",
+    "avatar": "/artists/ensemble-dag.jpg",
+    "website": "https://dagklassical.com/ensemble",
+    "social": {
+      "instagram": "@ensemble_dag"
+    },
+    "releases": ["mc-2026-cuarteto-cuerdas"],
+    "metadata": {
+      "uuid": "urn:uuid:aabbccdd-eeff-0011-2233-445566778899",
+      "timestamp": "2025-11-22T09:00:02Z",
+      "operator": "adrian.prado@elsistema.web"
+    }
+  },
+  {
+    "id": "marta-ramirez",
+    "name": "Marta Ramírez",
+    "role": "Violinista",
+    "bio": "Violinista solista internacional con enfoque en repertorio clásico y contemporáneo.",
+    "avatar": "/artists/marta-ramirez.jpg",
+    "website": "https://martaramirez.com",
+    "social": {
+      "instagram": "@martaramirezviolin"
+    },
+    "releases": ["mc-2026-sonata-violin"],
+    "metadata": {
+      "uuid": "urn:uuid:99887766-5544-3322-1100-fedcba987654",
+      "timestamp": "2025-11-22T09:00:03Z",
+      "operator": "adrian.prado@elsistema.web"
+    }
+  },
+  {
+    "id": "coro-venezolano",
+    "name": "Coro Venezolano DAG",
+    "role": "Coro Sinfónico",
+    "bio": "Coro residente de Dag Klassical, especializado en repertorio coral latinoamericano.",
+    "avatar": "/artists/coro-venezolano.jpg",
+    "website": "https://dagklassical.com/coro",
+    "social": {
+      "instagram": "@coro_venezolano_dag"
+    },
+    "releases": ["mc-2026-cantata-latina"],
+    "metadata": {
+      "uuid": "urn:uuid:13579246-80ab-cdef-1357-924680abcedf",
+      "timestamp": "2025-11-22T09:00:04Z",
+      "operator": "adrian.prado@elsistema.web"
+    }
+  }
+]
