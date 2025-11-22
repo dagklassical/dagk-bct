@@ -1,7 +1,7 @@
 ---
 // src/layouts/Layout.astro
 import MetadataSection from '../components/MetadataSection.astro';
-import '../styles/globals.css'; // Asegúrate de que este archivo exista
+import '../styles/globals.css';
 
 export interface Props {
   title: string;
@@ -9,29 +9,103 @@ export interface Props {
 }
 
 const { title, description = 'Proyecto Dag Klassical BCT' } = Astro.props;
+
+const navItems = [
+  { label: 'Música', href: '/musica/' },
+  { label: 'Blockchain', href: '/blockchain/' },
+  { label: 'Inversión', href: '/inversion/' },
+  { label: 'Nosotros', href: '/nosotros/' },
+  { label: 'Noticias', href: '/noticias/' },
+  { label: 'Contacto', href: '/contacto/' },
+];
 ---
 
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
   </head>
-  <body class="min-h-screen bg-gray95 text-slate-800"> <!-- bg-gray95 o bg-ivory -->
-    <header class="py-4 border-b border-platinum">
-      <div class="container mx-auto px-4 flex justify-center">
-        <img src="/logo-dagklassical-orig-001.svg" alt="Dag Klassical" class="h-12" />
+  <body class="min-h-screen bg-gray95 text-slate-800 flex flex-col">
+    <!-- Header sticky -->
+    <header class="sticky top-0 z-50 bg-gray95 border-b border-platinum shadow-sm">
+      <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+        <!-- Logo -->
+        <a href="/" class="flex items-center">
+          <img 
+            src="/logo-dagklassical-orig-001.svg" 
+            alt="Dag Klassical" 
+            class="h-16"
+          />
+        </a>
+
+        <!-- Menú desktop + lupa a la derecha -->
+        <div class="flex items-center gap-6">
+          <nav class="hidden md:flex space-x-6">
+            {navItems.map(item => (
+              <a
+                key={item.href}
+                href={item.href}
+                class="font-medium text-slate-700 hover:text-platinum transition-colors"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
+          <!-- Lupa (siempre visible) -->
+          <button 
+            aria-label="Buscar" 
+            class="p-2 text-slate-600 hover:text-platinum transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </button>
+
+          <!-- Hamburguesa (solo en móvil) -->
+          <button 
+            id="mobile-menu-toggle" 
+            class="md:hidden p-2 rounded-md hover:bg-platinum hover:bg-opacity-10"
+            aria-label="Toggle navigation"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
       </div>
+
+      <!-- Menú móvil (oculto por defecto) -->
+      <nav 
+        id="mobile-menu" 
+        class="hidden md:hidden container mx-auto px-4 pb-4 space-y-2"
+      >
+        {navItems.map(item => (
+          <a
+            key={item.href}
+            href={item.href}
+            class="block py-2 px-4 rounded-lg bg-white border border-platinum text-slate-700 hover:bg-gray95 font-medium"
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
     </header>
 
-    <main class="container mx-auto px-4 py-8 flex flex-col items-center justify-center min-h-[calc(100vh-200px)]">
-      <slot />
-    </main>
+    <main class="flex-grow"><slot /></main>
 
-    <footer class="py-4 border-t border-platinum text-center text-sm text-slate-600">
+    <footer class="py-6 border-t border-platinum text-center text-sm text-slate-600 bg-white">
       <p>&copy; {new Date().getFullYear()} Dag Klassical. Todos los derechos reservados.</p>
       <MetadataSection />
     </footer>
+
+    <script>
+      document.getElementById('mobile-menu-toggle').addEventListener('click', () => {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+      });
+    </script>
   </body>
 </html>
