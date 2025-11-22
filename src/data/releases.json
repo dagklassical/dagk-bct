@@ -1,0 +1,62 @@
+[
+  {
+    "id": "mc-2025-symphony-digital",
+    "title": "Sinfonía Digital",
+    "artistId": "dag-klassical",
+    "genre": "música-clásica-contemporánea",
+    "releaseDate": "2025-11-22",
+    "type": "álbum",
+    "status": "lanzado",
+    "musicCards": [
+      {
+        "cardId": "mc-2025-symphony-001",
+        "edition": "limited",
+        "totalSupply": 100,
+        "available": 87,
+        "blockchain": "polygon",
+        "tokenId": "123456"
+      }
+    ],
+    "metadata": {
+      "uuid": "urn:uuid:f47ac10b-58cc-4372-a567-0e02b2c3d479",
+      "timestamp": "2025-11-22T08:00:00Z",
+      "operator": "adrian.prado@elsistema.web",
+      "sha256": "a1b2c3d4e5f6..."
+    },
+    "coverImage": "/covers/sinfonia-digital.jpg",
+    "tracks": [
+      { "title": "Movimiento I", "duration": "5:32" },
+      { "title": "Movimiento II", "duration": "7:15" }
+    ]
+  },
+  {
+    "id": "mc-2025-concerto-electro",
+    "title": "Concierto Electroacústico",
+    "artistId": "danilo-alvarez",
+    "genre": "electroacústica",
+    "releaseDate": "2025-12-15",
+    "type": "álbum",
+    "status": "próximo",
+    "musicCards": [
+      {
+        "cardId": "mc-2025-concerto-001",
+        "edition": "standard",
+        "totalSupply": 500,
+        "available": 500,
+        "blockchain": "polygon",
+        "tokenId": "123457"
+      }
+    ],
+    "metadata": {
+      "uuid": "urn:uuid:87654321-58cc-4372-a567-0e02b2c3d478",
+      "timestamp": "2025-11-22T08:00:01Z",
+      "operator": "adrian.prado@elsistema.web",
+      "sha256": "f6e5d4c3b2a1..."
+    },
+    "coverImage": "/covers/concerto-electro.jpg",
+    "tracks": [
+      { "title": "Resonancia", "duration": "6:45" },
+      { "title": "Frecuencia", "duration": "4:20" }
+    ]
+  }
+]

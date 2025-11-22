@@ -1,0 +1,7 @@
+/* src/styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Tus colores personalizados ya están definidos en tailwind.config.cjs */
+/* No necesitas definir .bg-ivory aquí si ya están en la configuración */
