@@ -2,12 +2,81 @@
 // src/pages/blockchain/index.astro
 import Layout from '../../layouts/Layout.astro';
 
-const pageTitle = 'Blockchain - dagk-bct';
-const pageDescription = 'Tecnología blockchain para seguridad y autenticidad.';
+const pageTitle = 'Blockchain - Dag Klassical BCT';
+const pageDescription = 'Tecnología blockchain aplicada a la música clásica: autenticidad, trazabilidad y valor garantizado para coleccionistas e inversores.';
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
-  <h1 class="text-3xl font-bold mb-4">Blockchain</h1>
-  <p>Descubre cómo usamos blockchain para garantizar la autenticidad.</p>
-  <!-- Aquí irá el contenido específico -->
+  <!-- Hero Section -->
+  <section class="text-center py-16 bg-gray95">
+    <h1 class="text-4xl md:text-5xl font-bold mb-6">Blockchain & Music Cards</h1>
+    <p class="text-xl max-w-3xl mx-auto text-slate-700 mb-8">
+      Cada Music Card es un activo digital único, certificado en blockchain, con valor atado al legado del artista y respaldado por metadatos inmutables.
+    </p>
+    <div class="space-x-4">
+      <a href="/blockchain/music-cards" class="bg-platinum text-white px-6 py-3 rounded-lg hover:bg-opacity-80 transition-colors">
+        Explorar Music Cards
+      </a>
+      <a href="/blockchain/tecnologia" class="inline-block bg-slate-800 text-white px-6 py-3 rounded-lg hover:bg-slate-700 transition-colors">
+        Cómo funciona
+      </a>
+    </div>
+  </section>
+
+  <!-- Valor para el coleccionista -->
+  <section class="py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-semibold text-center mb-12">¿Por qué una Music Card?</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="p-6 bg-white rounded-lg shadow-md border border-platinum text-center">
+          <h3 class="text-xl font-bold mb-3">Autenticidad Garantizada</h3>
+          <p>Cada Music Card tiene un hash único e irreplicable en Polygon. No puede ser falsificada.</p>
+        </div>
+        <div class="p-6 bg-white rounded-lg shadow-md border border-platinum text-center">
+          <h3 class="text-xl font-bold mb-3">Valor Atado al Artista</h3>
+          <p>El valor de tu inversión crece con la popularidad y el legado del compositor o intérprete.</p>
+        </div>
+        <div class="p-6 bg-white rounded-lg shadow-md border border-platinum text-center">
+          <h3 class="text-xl font-bold mb-3">Calidad de Estudio Maestro</h3>
+          <p>Audio en formato FLAC 24-bit/192kHz, partituras digitales y contenido exclusivo detrás de cámaras.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tecnología -->
+  <section class="py-16 bg-gray95">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-semibold mb-6">Tecnología Polygon</h2>
+      <p class="text-lg max-w-3xl mx-auto mb-8">
+        Usamos la red Polygon por su rapidez, bajo costo y compromiso con la sostenibilidad (bajas emisiones de carbono).
+      </p>
+      <div class="inline-block bg-white px-6 py-4 rounded-lg border border-platinum">
+        <p class="font-mono text-sm">Contrato verificable en Polygonscan</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Llamado a la acción -->
+  <section class="py-16">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-semibold mb-6">¿Eres coleccionista o inversor?</h2>
+      <p class="text-lg mb-8">
+        Adquiere una Music Card y sé parte de la revolución de la música clásica verificable.
+      </p>
+      <a href="/blockchain/music-cards" class="bg-platinum text-slate-800 px-8 py-4 rounded-lg hover:bg-opacity-80 transition-colors font-semibold">
+        Ir al Marketplace
+      </a>
+    </div>
+  </section>
+
+  <!-- Metadatos inmutables (pequeño widget) -->
+  <section class="py-8">
+    <div class="max-w-md mx-auto bg-white p-4 rounded-lg shadow border border-platinum text-center">
+      <h3 class="font-semibold mb-2">Certificación Blockchain</h3>
+      <p>UUID: <span class="font-mono">urn:uuid:...</span></p>
+      <p>Red: Polygon</p>
+      <p>Operador: adrian.prado@elsistema.web</p>
+    </div>
+  </section>
 </Layout>

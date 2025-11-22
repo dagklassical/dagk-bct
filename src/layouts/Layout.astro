@@ -26,10 +26,12 @@ const navItems = [
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
   </head>
-  <body class="min-h-screen bg-gray95 text-slate-800 flex flex-col">
+  <body class="font-['Montserrat'] min-h-screen bg-gray95 text-slate-800 flex flex-col">
     <!-- Header sticky -->
-    <header class="sticky top-0 z-50 bg-gray95 border-b border-platinum shadow-sm">
+    <header class="sticky top-0 z-50 bg-platinum/80 border-b border-dag-burgundy shadow-sm">
       <div class="container mx-auto px-4 py-3 flex items-center justify-between">
         <!-- Logo -->
         <a href="/" class="flex items-center">
@@ -47,7 +49,7 @@ const navItems = [
               <a
                 key={item.href}
                 href={item.href}
-                class="font-medium text-slate-700 hover:text-platinum transition-colors"
+                class="font-medium text-slate-700 hover:text-dag-burgundy  transition-colors"
               >
                 {item.label}
               </a>
