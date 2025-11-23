@@ -9,7 +9,7 @@ const pageDescription = 'Compositores, directores e intérpretes que conforman e
 
 <Layout title={pageTitle} description={pageDescription}>
   <section class="text-center py-16 bg-gray95">
-    <h1 class="text-4xl md:text-5xl font-bold mb-6">Artistas</h1>
+    <h1 class="text-h1 md:text-5xl font-advent mb-6">Artistas</h1>
     <p class="text-xl max-w-3xl mx-auto text-slate-700 mb-8">
       Cada obra en Dag Klassical nace de la visión de creadores excepcionales. Conoce a quienes dan vida a nuestra música.
     </p>
@@ -28,7 +28,7 @@ const pageDescription = 'Compositores, directores e intérpretes que conforman e
               <img
                 src={artist.avatar || '/artists/profile-placeholder.webp'}
                 alt={artist.name}
-                class="w-16 h-16 rounded-full object-cover border-2 border-platinum"
+                class="w-16 h-16 rounded-sm object-cover border-2 border-platinum"
                 onerror="this.src='/artists/profile-placeholder.webp'"
               />
               <div class="text-left">

@@ -2,7 +2,7 @@
   {
     "id": "mc-2025-february-night",
     "title": "February Night",
-    "artistIds": ["dag-klassical"],
+    "artistIds": ["art-teodor-dore"],
     "genre": "música-clásica-contemporánea",
     "releaseDate": "2025-11-22",
     "type": "álbum",
@@ -18,7 +18,7 @@
     "metadata": {
       "uuid": "urn:uuid:f47ac10b-58cc-4372-a567-0e02b2c3d479",
       "timestamp": "2025-11-22T08:00:00Z",
-      "operator": "adrian.prado@elsistema.web"
+      "operator": "cto@dagklassical.com"
     }
   },
   {

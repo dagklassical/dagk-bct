@@ -18,21 +18,21 @@
     }
   },
   {
-    "id": "danilo-alvarez",
-    "name": "Danilo Álvarez",
+    "id": "gerardo-gerulewicz",
+    "name": "Gerardo Gerulewicz",
     "role": "Compositor y Pianista",
     "bio": "Compositor venezolano reconocido por su trabajo en música electroacústica y su enfoque en la identidad sonora latinoamericana.",
-    "avatar": "/artists/danilo-alvarez.jpg",
-    "website": "https://daniloalvarez.com",
+    "avatar": "/artists/profile-gerardo-gerulewicz-01.webp",
+    
     "social": {
-      "instagram": "@daniloalvarezmusica",
-      "youtube": "DaniloAlvarezOfficial"
+      "instagram": "@gerulewicz",
+      "youtube": "@PianoAguinaldo"
     },
     "releases": ["mc-2025-concierto-electro", "mc-2026-cantata-latina"],
     "metadata": {
       "uuid": "urn:uuid:00ffeedd-ccbb-aa99-8877-665544332211",
       "timestamp": "2025-11-22T09:00:01Z",
-      "operator": "adrian.prado@elsistema.web"
+      "operator": "cto@dagklassical.com"
     }
   },
   {
@@ -49,7 +49,7 @@
     "metadata": {
       "uuid": "urn:uuid:aabbccdd-eeff-0011-2233-445566778899",
       "timestamp": "2025-11-22T09:00:02Z",
-      "operator": "adrian.prado@elsistema.web"
+      "operator": "cto@dagklassical.com"
     }
   },
   {
@@ -66,7 +66,7 @@
     "metadata": {
       "uuid": "urn:uuid:99887766-5544-3322-1100-fedcba987654",
       "timestamp": "2025-11-22T09:00:03Z",
-      "operator": "adrian.prado@elsistema.web"
+      "operator": "cto@dagklassical.com"
     }
   },
   {
@@ -83,7 +83,7 @@
     "metadata": {
       "uuid": "urn:uuid:13579246-80ab-cdef-1357-924680abcedf",
       "timestamp": "2025-11-22T09:00:04Z",
-      "operator": "adrian.prado@elsistema.web"
+      "operator": "cto@dagklassical.com"
     }
   }
 ]
