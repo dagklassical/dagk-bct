@@ -1,5 +1,8 @@
-<!-- src/components/Footer.astro -->
-<footer class="bg-dag-burgundy text-white">
+---
+// src/components/Footer.astro
+import { Instagram, Twitter, Youtube } from 'lucide-astro';
+---
+ <footer class="bg-dag-burgundy text-white">
   <!-- Contenido principal -->
   <div class="max-w-6xl mx-auto px-4 py-12">
     <!-- Fila única: logo + contenido alineado como en el header -->
@@ -30,15 +33,19 @@
           </ul>
         </div>
         <div>
-          <h3 class="font-advent text-sm font-semibold mb-4 uppercase tracking-wider text-white">Contacto</h3>
-          <address class="not-italic text-sm text-white/90 space-y-3">
-            <p>cto@dagklassical.com</p>
-            <div class="flex space-x-4 mt-2">
-              <a href="#" class="text-white/70 hover:text-white">IG</a>
-              <a href="#" class="text-white/70 hover:text-white">X</a>
-            </div>
-          </address>
-        </div>
+  <h3 class="font-advent text-sm font-semibold mb-4 uppercase tracking-wider text-white">Contacto</h3>
+  <address class="not-italic text-sm text-white/90 space-y-3">
+    <p><a href="mailto:cto@dagklassical.com">cto@dagklassical.com</a></p>
+    <div class="flex space-x-4 mt-2">
+      <a href="https://instagram.com/dagklassical" class="text-white/70 hover:text-white transition-colors" aria-label="Instagram">
+      <Instagram size="20" /></a>
+      <a href="https://twitter.com/dagklassical" class="text-white/70 hover:text-white transition-colors" aria-label="Twitter">
+      <Twitter size="20" /></a>
+      <a href="https://youtube.com/@dagklassical" class="text-white/70 hover:text-white transition-colors" aria-label="YouTube">
+      <Youtube size="20" /></a>
+</div>
+  </address>
+</div>
       </div>
     </div>
   </div>

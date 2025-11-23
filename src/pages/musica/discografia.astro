@@ -1,14 +1,23 @@
 ---
 // src/pages/musica/discografia.astro
+import './/../../styles/globals.css';
 import Layout from '../../layouts/Layout.astro';
 import releases from '../../data/releases.json'; // Importa los datos
+import Breadcrumb from '../../components/Breadcrumb.astro';
 
+const breadcrumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Discografía', href: '/discografia/' },
+];
 const pageTitle = 'Discografía - dagk-bct';
 const pageDescription = 'Catálogo completo de lanzamientos musicales con Music Cards verificables.';
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
-  <h1 class="text-3xl font-bold mb-6 text-center">Discografía</h1>
+  <Breadcrumb items={breadcrumbs} />
+<!-- Contenedor principal -->
+  <div class="max-w-6xl mx-auto px-4 py-8">
+  <h1 class="text-h1 font-advent mb-6 text-center">Discografía</h1>
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     {releases.map((release) => (
@@ -16,11 +25,11 @@ const pageDescription = 'Catálogo completo de lanzamientos musicales con Music 
         <img
           src={release.coverImage}
           alt={`${release.title} de ${release.artistId}`}
-          class="w-full h-48 object-cover rounded-md mb-4"
+          class="w-full h-80 object-cover rounded-md mb-4"
           // Opcional: usa un placeholder si no tienes las imágenes
           // src="https://placehold.co/300/cccccc/999999?text=Cover"
         />
-        <h2 class="text-xl font-semibold mb-1">{release.title}</h2>
+        <h2 class="text-h2 font-advent mb-1">{release.title}</h2>
         <p class="text-slate-600 mb-1">por {release.artistId}</p>
         <p class="text-sm text-slate-500 mb-2">{release.genre}</p>
         <p class="text-sm mb-3">
@@ -40,5 +49,6 @@ const pageDescription = 'Catálogo completo de lanzamientos musicales con Music 
         </a>
       </article>
     ))}
+  </div>
   </div>
 </Layout>

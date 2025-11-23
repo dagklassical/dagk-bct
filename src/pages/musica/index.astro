@@ -1,11 +1,18 @@
 ---
 // src/pages/musica/index.astro
 import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+
+const breadcrumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Música', href: '/musica/' },
+];
 const pageTitle = 'Música - Dag Klassical BCT';
 const pageDescription = 'Catálogo de obras musicales verificables en blockchain, desde música clásica hasta contemporánea.';
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
+  <Breadcrumb items={breadcrumbs} />
   <section class="text-center py-16 bg-gray95">
     <h1 class="text-h1 font-advent mb-6">Música Verificable</h1>
     <p class="text-xl max-w-3xl mx-auto text-slate-700 mb-8">

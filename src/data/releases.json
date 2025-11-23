@@ -8,7 +8,7 @@
     "type": "álbum",
     "status": "lanzado",
     "description": "Primera obra sinfónica que fusiona orquesta acústica con procesamiento digital en tiempo real.",
-    "coverImage": "/covers/sinfonia-digital.jpg",
+    "coverImage": "/covers/cover-february-night-01.webp",
     "tracks": [
       { "title": "Movimiento I: Códigos", "duration": "5:32" },
       { "title": "Movimiento II: Resonancia", "duration": "7:15" },
@@ -22,47 +22,47 @@
     }
   },
   {
-    "id": "mc-2025-concierto-electro",
-    "title": "Concierto Electroacústico",
-    "artistIds": ["danilo-alvarez"],
-    "genre": "electroacústica",
+    "id": "mc-2025-piano-aguinaldo",
+    "title": "Piano Aguinaldo",
+    "artistIds": ["gerardo-gerulewics"],
+    "genre": "música-tradicional",
     "releaseDate": "2025-12-15",
     "type": "álbum",
-    "status": "próximo",
-    "description": "Obra para piano preparado y electrónica en vivo, grabada en el Teatro Teresa Carreño.",
-    "coverImage": "/covers/concierto-electro.jpg",
+    "status": "lanzado",
+    "description": "Música decembrina tradicional venezolana. Arreglos: Gerardo Gerulewicz, Interprete: Piano: Gerardo Gerulewicz, Featured: Bajo: Simón Calero",
+    "coverImage": "/covers/cover-piano-aguinaldo-01.webp",
     "tracks": [
       { "title": "Resonancia", "duration": "6:45" },
       { "title": "Frecuencia", "duration": "4:20" },
       { "title": "Silencio Activo", "duration": "8:12" }
     ],
-    "musicCards": ["mc-2025-concierto-std"],
+    "musicCards": ["mc-2025-piano-aguinaldo"],
     "metadata": {
       "uuid": "urn:uuid:87654321-58cc-4372-a567-0e02b2c3d478",
       "timestamp": "2025-11-22T08:00:01Z",
-      "operator": "adrian.prado@elsistema.web"
+      "operator": "cto@dagklassical.com"
     }
   },
   {
-    "id": "mc-2026-cuarteto-cuerdas",
-    "title": "Cuarteto de Cuerdas No. 1",
-    "artistIds": ["ensemble-dag"],
+    "id": "mc-2026-schubert",
+    "title": "Schubert",
+    "artistIds": ["goulnara-galimchina"],
     "genre": "música-de-cámara",
     "releaseDate": "2026-01-20",
     "type": "álbum",
-    "status": "preventa",
-    "description": "Composición íntima para cuarteto de cuerdas, explorando texturas y silencios.",
-    "coverImage": "/covers/cuarteto-cuerdas.jpg",
+    "status": "lanzado",
+    "description": "Sonata para piano D960 y Momentos musicales D780 Nros. 1, 2, 4, y 6. Interprete: Piano: Goulnara Golímchina",
+    "coverImage": "/covers/cover-schubert-01.webp",
     "tracks": [
       { "title": "I. Adagio", "duration": "4:10" },
       { "title": "II. Allegro con fuoco", "duration": "3:55" },
       { "title": "III. Lento", "duration": "5:30" }
     ],
-    "musicCards": ["mc-2026-cuarteto-std", "mc-2026-cuarteto-premium"],
+    "musicCards": ["mc-2025-schubert", "mc-2026-cuarteto-premium"],
     "metadata": {
       "uuid": "urn:uuid:12345678-58cc-4372-a567-0e02b2c3d477",
       "timestamp": "2025-11-22T08:00:02Z",
-      "operator": "adrian.prado@elsistema.web"
+      "operator": "cto@dagklassical.com"
     }
   },
   {

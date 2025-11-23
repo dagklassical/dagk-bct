@@ -1,12 +1,18 @@
 ---
 // src/pages/blockchain/index.astro
 import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 
+const breadcrumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Blockchain', href: '/blockchain/' },
+];
 const pageTitle = 'Blockchain - Dag Klassical BCT';
 const pageDescription = 'Tecnología blockchain aplicada a la música clásica: autenticidad, trazabilidad y valor garantizado para coleccionistas e inversores.';
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
+<Breadcrumb items={breadcrumbs} />
   <!-- Hero Section -->
   <section class="text-center py-16 bg-gray95">
     <h1 class="text-h1 font-advent">Blockchain & Music Cards</h1>
