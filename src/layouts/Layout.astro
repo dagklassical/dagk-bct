@@ -1,5 +1,6 @@
 ---
 // src/layouts/Layout.astro
+import Footer from '../components/Footer.astro';
 import MetadataSection from '../components/MetadataSection.astro';
 import '../styles/globals.css';
 
@@ -32,7 +33,7 @@ const navItems = [
   <body class="font-['Montserrat'] min-h-screen bg-gray95 text-slate-800 flex flex-col">
     <!-- Header sticky -->
     <header class="sticky top-0 z-50 bg-platinum/80 border-b border-dag-burgundy shadow-sm">
-      <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="container max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
         <!-- Logo -->
         <a href="/" class="flex items-center">
           <img 
@@ -98,10 +99,7 @@ const navItems = [
 
     <main class="flex-grow"><slot /></main>
 
-    <footer class="py-6 border-t border-platinum text-center text-sm text-slate-600 bg-white">
-      <p>&copy; {new Date().getFullYear()} Dag Klassical. Todos los derechos reservados.</p>
-      <MetadataSection />
-    </footer>
+    <Footer />
 
     <script>
       document.getElementById('mobile-menu-toggle').addEventListener('click', () => {

@@ -4,4 +4,11 @@
 @tailwind utilities;
 
 /* Tus colores personalizados ya están definidos en tailwind.config.cjs */
-/* No necesitas definir .bg-ivory aquí si ya están en la configuración */
+@layer components {
+  .btn-primary {
+    @apply bg-dag-burgundy text-white px-6 py-3 rounded-lg hover:bg-opacity-80 transition-colors;
+  }
+  .btn-secondary {
+    @apply bg-dag-black text-white px-6 py-3 rounded-lg hover:bg-opacity-80 transition-colors;
+  }
+}
