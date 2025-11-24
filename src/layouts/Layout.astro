@@ -3,6 +3,7 @@
 import Footer from '../components/Footer.astro';
 import MetadataSection from '../components/MetadataSection.astro';
 import '../styles/globals.css';
+import ScrollToTop from '../components/ScrollToTop.astro';
 
 export interface Props {
   title: string;
@@ -107,5 +108,6 @@ const navItems = [
         menu.classList.toggle('hidden');
       });
     </script>
+    <ScrollToTop client:load />
   </body>
 </html>
