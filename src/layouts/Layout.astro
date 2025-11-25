@@ -1,143 +1,43 @@
 ---
-// src/layouts/Layout.astro
+import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import MetadataSection from '../components/MetadataSection.astro';
 import '../styles/globals.css';
-
-export interface Props {
-  title: string;
-  description?: string;
-}
-
-const { title, description = 'Proyecto Dag Klassical BCT' } = Astro.props;
-
-const navItems = [
-  { label: 'Música', href: '/musica/' },
-  { label: 'Blockchain', href: '/blockchain/' },
-  { label: 'Inversión', href: '/inversion/' },
-  { label: 'Nosotros', href: '/nosotros/' },
-  { label: 'Noticias', href: '/noticias/' },
-  { label: 'Contacto', href: '/contacto/' },
-];
 ---
 
 <html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>{Astro.props.title || 'Dag Klassical BCT'}</title>
+    <meta name="description" content={Astro.props.description || 'Tecnología Blockchain aplicada a la música clásica.'} />
+    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@400;500;600;700&family=Montserrat:ital,wght@0,300;0,400;1,300&family=Source+Code+Pro:wght@300;400;500&display=swap" rel="stylesheet">
   </head>
-  <body class="font-['Montserrat'] min-h-screen bg-gray95 text-slate-800 flex flex-col">
-    <!-- Header sticky -->
-    <header class="sticky top-0 z-50 bg-platinum/80 border-b border-dag-burgundy shadow-sm">
-      <div class="container max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-        <!-- Logo -->
-        <a href="/" class="flex items-center">
-          <img 
-            src="/logo-dagklassical-orig-001.svg" 
-            alt="Dag Klassical" 
-            class="h-16"
-          />
-        </a>
-
-        <!-- Menú desktop + lupa a la derecha -->
-        <div class="flex items-center gap-6">
-          <nav class="hidden md:flex space-x-6">
-            {navItems.map(item => (
-              <a
-                key={item.href}
-                href={item.href}
-                class="font-medium text-slate-700 hover:text-dag-burgundy  transition-colors"
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-
-          <!-- Lupa (siempre visible) -->
-          <button 
-            aria-label="Buscar" 
-            class="p-2 text-slate-600 hover:text-platinum transition-colors"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-          </button>
-
-          <!-- Hamburguesa (solo en móvil) -->
-          <button 
-            id="mobile-menu-toggle" 
-            class="md:hidden p-2 rounded-md hover:bg-platinum hover:bg-opacity-10"
-            aria-label="Toggle navigation"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- Menú móvil (oculto por defecto) -->
-      <nav 
-        id="mobile-menu" 
-        class="hidden md:hidden container mx-auto px-4 pb-4 space-y-2"
-      >
-        {navItems.map(item => (
-          <a
-            key={item.href}
-            href={item.href}
-            class="block py-2 px-4 rounded-lg bg-white border border-platinum text-slate-700 hover:bg-gray95 font-medium"
-          >
-            {item.label}
-          </a>
-        ))}
-      </nav>
-    </header>
-
+  <body class="font-['Montserrat'] min-h-screen bg-gray95 flex flex-col">
+    <Header />
     <main class="flex-grow"><slot /></main>
-
     <Footer />
+<!-- Scroll to top -->
+  <div 
+    id="scroll-to-top" 
+    class="fixed bottom-6 right-6 bg-dag-black/50 text-white p-3 rounded-full shadow-lg opacity-0 pointer-events-none transition-opacity duration-300 z-40 hover:bg-dag-black/90"
+    aria-label="Volver arriba"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+      <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
+    </svg>
+  </div>
 
-    <script>
-      document.getElementById('mobile-menu-toggle').addEventListener('click', () => {
-        const menu = document.getElementById('mobile-menu');
-        menu.classList.toggle('hidden');
-      });
-    </script>
-    <!-- Scroll-to-top button -->
-<div 
-  id="scroll-to-top" 
-  class="fixed bottom-6 right-6 bg-dag-burgundy text-white p-3 rounded-full shadow-lg opacity-0 pointer-events-none transition-opacity duration-300 z-40 hover:bg-opacity-90"
-  aria-label="Volver arriba"
->
-  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-    <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
-  </svg>
-</div>
-
-<script>
-  (function() {
-    const button = document.getElementById('scroll-to-top');
-    if (!button) return;
-
-    const toggleVisibility = () => {
-      if (window.scrollY > 400) {
-        button.classList.remove('opacity-0', 'pointer-events-none');
-      } else {
-        button.classList.add('opacity-0', 'pointer-events-none');
-      }
-    };
-
-    const scrollToTop = () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
-
-    window.addEventListener('scroll', toggleVisibility);
-    button.addEventListener('click', scrollToTop);
-  })();
-</script>
+  <script>
+    (function() {
+      const button = document.getElementById('scroll-to-top');
+      if (!button) return;
+      const toggle = () => {
+        button.classList.toggle('opacity-0', window.scrollY < 400);
+        button.classList.toggle('pointer-events-none', window.scrollY < 400);
+      };
+      window.addEventListener('scroll', toggle);
+      button.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    })();
+  </script>
   </body>
 </html>

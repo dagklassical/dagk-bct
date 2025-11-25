@@ -1,23 +1,14 @@
 ---
 // src/components/MetadataSection.astro
-const generateUUID = () => {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-    const r = Math.random() * 16 | 0;
-    const v = c === 'x' ? r : (r & 0x3 | 0x8);
-    return v.toString(16);
-  });
-};
-
-// Usa el UUID y fecha que mencionaste (puedes personalizarlo por página si lo deseas)
 const metadata = {
-  uuid: '8e696d63-f750-4c66-8a0d-3b322added17',
-  timestamp: '2025-11-22T18:25:58.903Z',
+  uuid: 'urn:uuid:11223344-5566-7788-99aa-bbccddeeff00',
+  timestamp: '2025-11-22T09:00:00Z',
   operator: 'cto@dagklassical.com',
 };
 ---
 
-<!-- Ficha de metadatos inmutables - estilo compacto -->
-<div class="mt-6 p-2 border border-platinum rounded text-xs text-slate-600 font-light leading-tight max-w-md">
-  <p class="mb-1"><strong>UUID:</strong> {metadata.uuid}</p>
-  <p class="mb-1">{metadata.timestamp} | {metadata.operator}</p>
+<!-- Sello inmutable discreto -->
+<div class="mt-6 mx-auto p-2 max-w-fit bg-platinum border border-dag-burgundy/30 rounded text-xs text-slate-600 font-['Source_Code_Pro'] leading-tight">
+  <p>UUID: {metadata.uuid}</p>
+  <p>Fecha: {metadata.timestamp} | {metadata.operator}</p>
 </div>
