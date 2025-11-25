@@ -1,0 +1,178 @@
+---
+// src/pages/blockchain/acceso/gerulewicz-aguinaldo.astro
+import Layout from '../../../layouts/Layout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+
+const breadcrumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Blockchain', href: '/blockchain/' },
+  { label: 'Music Cards', href: '/blockchain/music-cards/' },
+  { label: 'Piano Aguinaldo – Gerardo Gerulewicz', href: '/blockchain/music-cards/mc-2025-gerulewicz-aguinaldo-std' },
+  { label: 'Contenido Exclusivo', href: '/blockchain/acceso/gerulewicz-aguinaldo' },
+];
+
+const pageTitle = 'Contenido Exclusivo: Piano Aguinaldo – Gerardo Gerulewicz';
+const pageDescription = 'Acceso exclusivo para poseedores de la Music Card. Audio FLAC, partitura digital y notas del compositor.';
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <Breadcrumb items={breadcrumbs} />
+
+  <article class="max-w-4xl mx-auto px-4 py-12">
+    <header class="text-center mb-12">
+     <div class="mb-12">
+  <img 
+    src="/hero/hero-gg-tocando-kolendy-embajada-polonia.webp" 
+    alt="Piano Aguinaldo – Gerardo Gerulewicz"
+    class="w-full rounded-lg shadow-xl"
+    onerror="this.src='/covers/gerulewicz-aguinaldo.jpg'"
+  />
+</div>
+    </header>
+
+    <!-- Advertencia: demo funcional -->
+    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-12 rounded">
+      <p class="text-sm text-blue-700">
+        <strong>Nota para poseedores:</strong> Este contenido es exclusivo para quienes poseen la Music Card verificada en blockchain.
+      </p>
+    </div>
+
+   <!-- Tracklist completa -->
+<section class="mb-16">
+  <h2 class="text-2xl font-advent font-semibold mb-6 text-center">Tracklist</h2>
+  <div class="bg-white p-6 rounded-lg border border-platinum">
+    <ol class="space-y-3">
+      <li class="flex justify-between border-b border-slate-100 pb-2">
+        <span>1. Corre Caballito</span>
+        <a href="/protected/gerulewicz-piano-aguinaldo/corre-caballito.flac" class="text-dag-burgundy hover:underline text-sm">FLAC</a>
+      </li>
+      <li class="flex justify-between border-b border-slate-100 pb-2">
+        <span>2. Din, Din, Din</span>
+        <a href="/protected/gerulewicz-piano-aguinaldo/din-din-din.flac" class="text-dag-burgundy hover:underline text-sm">FLAC</a>
+      </li>
+      <li class="flex justify-between border-b border-slate-100 pb-2">
+        <span>3. Niño Lindo</span>
+        <a href="/protected/gerulewicz-piano-aguinaldo/nino-lindo.flac" class="text-dag-burgundy hover:underline text-sm">FLAC</a>
+      </li>
+      <li class="flex justify-between border-b border-slate-100 pb-2">
+        <span>4. Pascua Florida</span>
+        <a href="/protected/gerulewicz-piano-aguinaldo/pascua-florida.flac" class="text-dag-burgundy hover:underline text-sm">FLAC</a>
+      </li>
+      <li class="flex justify-between border-b border-slate-100 pb-2">
+        <span>5. Venid Pastorcillos</span>
+        <a href="/protected/gerulewicz-piano-aguinaldo/venid-pastorcillos.flac" class="text-dag-burgundy hover:underline text-sm">FLAC</a>
+      </li>
+      <li class="flex justify-between border-b border-slate-100 pb-2">
+        <span>6. Precioso Querube</span>
+        <a href="/protected/gerulewicz-piano-aguinaldo/precioso-querube.flac" class="text-dag-burgundy hover:underline text-sm">FLAC</a>
+      </li>
+      <li class="flex justify-between border-b border-slate-100 pb-2">
+        <span>7. Casta Paloma</span>
+        <a href="/protected/gerulewicz-piano-aguinaldo/casta-paloma.flac" class="text-dag-burgundy hover:underline text-sm">FLAC</a>
+      </li>
+      <li class="flex justify-between border-b border-slate-100 pb-2">
+        <span>8. Sublime Ideal</span>
+        <a href="/protected/gerulewicz-piano-aguinaldo/sublime-ideal.flac" class="text-dag-burgundy hover:underline text-sm">FLAC</a>
+      </li>
+      <li class="flex justify-between border-b border-slate-100 pb-2">
+        <span>9. De Contento</span>
+        <a href="/protected/gerulewicz-piano-aguinaldo/de-contento.flac" class="text-dag-burgundy hover:underline text-sm">FLAC</a>
+      </li>
+      <li class="flex justify-between border-b border-slate-100 pb-2">
+        <span>10. Salve Salve</span>
+        <a href="/protected/gerulewicz-piano-aguinaldo/salve-salve.flac" class="text-dag-burgundy hover:underline text-sm">FLAC</a>
+      </li>
+      <li class="flex justify-between border-b border-slate-100 pb-2">
+        <span>11. A Ti Te Cantamos</span>
+        <a href="/protected/gerulewicz-piano-aguinaldo/a-ti-te-cantamos.flac" class="text-dag-burgundy hover:underline text-sm">FLAC</a>
+      </li>
+      <li class="flex justify-between border-b border-slate-100 pb-2">
+        <span>12. La Cabra Mocha</span>
+        <a href="/protected/gerulewicz-piano-aguinaldo/la-cabra-mocha.flac" class="text-dag-burgundy hover:underline text-sm">FLAC</a>
+      </li>
+      <li class="flex justify-between border-b border-slate-100 pb-2">
+        <span>13. Aguinaldo Margariteño</span>
+        <a href="/protected/gerulewicz-piano-aguinaldo/aguinaldo-margariteno.flac" class="text-dag-burgundy hover:underline text-sm">FLAC</a>
+      </li>
+      <li class="flex justify-between border-b border-slate-100 pb-2">
+        <span>14. Cantemos</span>
+        <a href="/protected/gerulewicz-piano-aguinaldo/cantemos.flac" class="text-dag-burgundy hover:underline text-sm">FLAC</a>
+      </li>
+      <li class="flex justify-between">
+        <span>15. Canción De Cuna (Himno Nacional)</span>
+        <a href="/protected/gerulewicz-piano-aguinaldo/cancion-de-cuna.flac" class="text-dag-burgundy hover:underline text-sm">FLAC</a>
+      </li>
+    </ol>
+    <div class="mt-6 pt-4 border-t border-slate-200 flex justify-between font-semibold">
+      <span>Total</span>
+      <span>68:32</span>
+    </div>
+  </div>
+</section>
+
+    <!-- Audio: FLAC descargable -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-advent font-semibold mb-6 text-center">Descarga en Alta Resolución</h2>
+      <div class="bg-white p-6 rounded-lg border border-platinum text-center">
+        <p class="mb-4 text-slate-700">
+          Archivo FLAC 24-bit/192kHz • Calidad de estudio maestro • Tamaño: 150 MB
+        </p>
+        <a 
+          href="/protected/gerulewicz-piano-aguinaldo.flac" 
+          download
+          class="inline-block bg-dag-burgundy text-white px-8 py-4 rounded-lg hover:bg-opacity-80 transition-colors font-medium text-lg"
+        >
+          Descargar FLAC
+        </a>
+        <p class="mt-3 text-sm text-slate-500">
+          Disponible exclusivamente para poseedores de la Music Card.
+        </p>
+      </div>
+    </section>
+
+    <!-- Partitura y Notas -->
+    <section class="grid md:grid-cols-2 gap-8 mb-16">
+      <div class="bg-white p-6 rounded-lg border border-platinum">
+        <h3 class="text-xl font-semibold mb-3">Partitura Digital</h3>
+        <p class="mb-4">Partitura completa en PDF, firmada por Gerardo Gerulewicz.</p>
+        <a href="/protected/gerulewicz-partitura.pdf" class="text-dag-burgundy hover:underline font-medium">
+          Ver Partitura →
+        </a>
+      </div>
+      <div class="bg-white p-6 rounded-lg border border-platinum prose prose-slate max-w-none">
+        <h3 class="text-xl font-semibold mb-3">Notas del Compositor</h3>
+        <p>
+          <em>"Una versión para piano fresca y refinada de los aguinaldos venezolanos del siglo XIX... con sutiles toques de Jazz y armonías renovadas."</em>
+        </p>
+        <p class="mt-2">
+          — Gerardo Gerulewicz
+        </p>
+      </div>
+    </section>
+
+    <!-- Créditos -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-advent font-semibold mb-6 text-center">Créditos</h2>
+      <div class="bg-white p-6 rounded-lg border border-platinum">
+        <p><strong>Piano y arreglos:</strong> Gerardo Gerulewicz</p>
+        <p><strong>Mezcla y mastering:</strong> Danilo Álvarez</p>
+        <p><strong>Arte:</strong> Leo Gerulewicz</p>
+        <p><strong>Diseño:</strong> Lorien Gascón Rojas</p>
+        <p class="mt-4 text-sm text-slate-600">
+          Mezclado y masterizado en Mansa Studio, Lechería, Venezuela. MMXXIII
+        </p>
+      </div>
+    </section>
+
+    <!-- Metadatos inmutables -->
+    <div class="mt-12 p-6 border-t border-platinum text-sm text-slate-600 bg-gray95 rounded-lg">
+      <h3 class="font-semibold mb-2">Metadatos Inmutables</h3>
+      <p><strong>UUID:</strong> urn:uuid:b2c3d4e5-6789-01ab-cdef-234567890003</p>
+      <p><strong>Timestamp:</strong> 2025-11-25T10:00:00Z</p>
+      <p><strong>Operador:</strong> cto@dagklassical.com</p>
+      <p class="mt-2 text-xs">
+        Music Card ID: <code>mc-2025-gerulewicz-aguinaldo-std</code>
+      </p>
+    </div>
+  </article>
+</Layout>

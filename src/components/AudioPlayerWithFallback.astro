@@ -1,0 +1,41 @@
+---
+// src/components/AudioPlayerWithFallback.astro
+export interface Props {
+  srcFlac: string;
+  srcMp3: string;
+  title: string;
+}
+const { srcFlac, srcMp3, title } = Astro.props;
+---
+
+<div 
+  class="audio-player-wrapper mb-6"
+  data-src-flac="{srcFlac}"
+  data-src-mp3="{srcMp3}"
+>
+  <audio controls class="w-full rounded-lg border border-platinum">
+    Tu navegador no soporta audio HTML5.
+  </audio>
+  <p class="text-sm text-slate-600 mt-2">{title}</p>
+</div>
+
+<script>
+  document.querySelectorAll('.audio-player-wrapper').forEach(wrapper => {
+    const audio = wrapper.querySelector('audio');
+    const source = document.createElement('source');
+    const srcFlac = wrapper.dataset.srcFlac;
+    const srcMp3 = wrapper.dataset.srcMp3;
+
+    const canPlayFLAC = audio.canPlayType('audio/flac');
+    if (canPlayFLAC === 'probably' || canPlayFLAC === 'maybe') {
+      source.src = srcFlac;
+      source.type = 'audio/flac';
+    } else {
+      source.src = srcMp3;
+      source.type = 'audio/mpeg';
+    }
+
+    audio.appendChild(source);
+    audio.load();
+  });
+</script>
