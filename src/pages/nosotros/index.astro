@@ -1,11 +1,16 @@
 ---
 // src/pages/nosotros/index.astro
 import Layout from '../../layouts/Layout.astro';
+
+const breadcrumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Nosotros', href: '/nosotros/' },
+];
 const pageTitle = 'Nosotros - Dag Klassical BCT';
 const pageDescription = 'Dag Klassical: misión, visión y compromiso con la música culta verificable en blockchain.';
 ---
 
-<Layout title={pageTitle} description={pageDescription}>
+<Layout title={pageTitle} description={pageDescription} breadcrumbs={breadcrumbs}>
   <section class="text-center py-16 bg-dag-burgundy/20">
     <h1 class="text-h1 md:text-5xl font-advent">Nosotros</h1>
     <p class="text-xl max-w-3xl mx-auto text-slate-700 mb-8">

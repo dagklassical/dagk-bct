@@ -1,6 +1,8 @@
 ---
+// src/layouts/Layout.astro
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
 import '../styles/globals.css';
 ---
 
@@ -15,29 +17,40 @@ import '../styles/globals.css';
   <body class="font-['Montserrat'] min-h-screen bg-gray95 flex flex-col">
     <Header />
     <main class="flex-grow"><slot /></main>
-    <Footer />
-<!-- Scroll to top -->
-  <div 
-    id="scroll-to-top" 
-    class="fixed bottom-6 right-6 bg-dag-black/50 text-white p-3 rounded-full shadow-lg opacity-0 pointer-events-none transition-opacity duration-300 z-40 hover:bg-dag-black/90"
-    aria-label="Volver arriba"
-  >
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-      <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
-    </svg>
-  </div>
 
-  <script>
-    (function() {
-      const button = document.getElementById('scroll-to-top');
-      if (!button) return;
-      const toggle = () => {
-        button.classList.toggle('opacity-0', window.scrollY < 400);
-        button.classList.toggle('pointer-events-none', window.scrollY < 400);
-      };
-      window.addEventListener('scroll', toggle);
-      button.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-    })();
-  </script>
+    <!-- Franja de migas de pan SOBRE el footer -->
+    {Astro.props.breadcrumbs && Astro.props.breadcrumbs.length > 0 && (
+      <div class="bg-slate-800 text-white py-1">
+        <div class="max-w-6xl mx-auto px-4">
+          <Breadcrumb items={Astro.props.breadcrumbs} />
+        </div>
+      </div>
+    )}
+
+    <Footer />
+
+    <!-- Scroll to top -->
+    <div 
+      id="scroll-to-top" 
+      class="fixed bottom-6 right-6 bg-dag-black/50 text-white p-3 rounded-full shadow-lg opacity-0 pointer-events-none transition-opacity duration-300 z-40 hover:bg-dag-black/90"
+      aria-label="Volver arriba"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
+      </svg>
+    </div>
+
+    <script>
+      (function() {
+        const button = document.getElementById('scroll-to-top');
+        if (!button) return;
+        const toggle = () => {
+          button.classList.toggle('opacity-0', window.scrollY < 400);
+          button.classList.toggle('pointer-events-none', window.scrollY < 400);
+        };
+        window.addEventListener('scroll', toggle);
+        button.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      })();
+    </script>
   </body>
 </html>

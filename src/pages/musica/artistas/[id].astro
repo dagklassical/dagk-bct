@@ -3,7 +3,7 @@
 import Layout from '../../../layouts/Layout.astro';
 import artists from '../../../data/artists.json';
 import releases from '../../../data/releases.json';
-import Breadcrumb from '../../../components/Breadcrumb.astro';
+import MetadataSection from '../../../components/MetadataSection.astro';
 
 // Genera una página estática para cada artista
 export async function getStaticPaths() {
@@ -35,15 +35,14 @@ const breadcrumbs = [
 ];
 ---
 
-<Layout title={pageTitle} description={pageDescription}>
- <Breadcrumb items={breadcrumbs} /> 
-  <article class="max-w-4xl mx-auto p-4">
+<Layout title={pageTitle} description={pageDescription} breadcrumbs={breadcrumbs}> 
+  <article class="max-w-4xl mx-auto px-4 py-10">
     <div class="flex flex-col md:flex-row gap-6">
       <div class="md:w-1/3 text-center">
         <img
           src={artist.avatar}
           alt={artist.name}
-          class="w-64 h-80 rounded-md mx-auto shadow-md object-cover mt-4"
+          class="w-64 h-82 rounded-md mx-auto shadow-md object-cover mt-4"
           onerror="this.src='https://placehold.co/200x200/cccccc/999999?text=Avatar'"
         />
       </div>
@@ -95,11 +94,6 @@ const breadcrumbs = [
     </div>
 
     <!-- Metadatos inmutables -->
-    <div class="mt-8 p-4 border-t border-platinum text-sm text-slate-600">
-      <h3 class="font-semibold mb-2">Metadatos Inmutables</h3>
-      <p><strong>UUID:</strong> {artist.metadata.uuid}</p>
-      <p><strong>Timestamp:</strong> {artist.metadata.timestamp}</p>
-      <p><strong>Operador:</strong> {artist.metadata.operator}</p>
-    </div>
+    <MetadataSection />
   </article>
 </Layout>

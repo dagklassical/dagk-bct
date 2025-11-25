@@ -1,10 +1,10 @@
 [
   {
-    "id": "art-teodor-dore",
+    "id": "teodor-dore",
     "name": "Teodor Doré",
     "role": "Compositor Contemporáneo y Pianista",
     "bio": "El pianista y compositor Teodor Doré creció en las cautivadoras costas del Mar Negro, en Crimea. Estudió en el Conservatorio Liceu de Barcelona, España. Se ha consolidado como una figura prominente en la escena musical académica contemporánea de Londres, siendo reconocido como una estrella en ascenso.",
-    "avatar": "/artists/profile-teodor-dore-01.webp",
+    "avatar": "/artists/profile-teodor-dore-02.webp",
     "website": "https://teodordore.com/",
     "social": {
       "instagram": "",
@@ -22,7 +22,7 @@
     "name": "Gerardo Gerulewicz",
     "role": "Compositor y Pianista",
     "bio": "Compositor venezolano reconocido por su trabajo en música electroacústica y su enfoque en la identidad sonora latinoamericana.",
-    "avatar": "/artists/profile-gerardo-gerulewicz-01.webp",
+    "avatar": "/artists/profile-gerardo-gerulewicz-02.webp",
     
     "social": {
       "instagram": "@gerulewicz",
@@ -36,16 +36,16 @@
     }
   },
   {
-    "id": "ensemble-dag",
-    "name": "Ensemble DAG",
-    "role": "Grupo de Música de Cámara",
-    "bio": "Cuarteto de cuerdas residente de Dag Klassical, dedicado a la interpretación de obras contemporáneas.",
-    "avatar": "/artists/ensemble-dag.jpg",
+    "id": "frank-di-polo",
+    "name": "Frank Di Polo",
+    "role": "Violinista, Violista, Educador musical",
+    "bio": "Reconocido violinista y viola venezolano, cofundador del Sistema Nacional de Orquestas y Coros Juveniles e Infantiles de Venezuela junto a José Antonio Abreu. Destacado por su virtuosismo y su dedicación a la educación musical, ha sido fundamental en el desarrollo de orquestas juveniles en Latinoamérica y El Caribe. Además de su carrera como músico, es un prolífico documentalista de 'El Sistema' a través de fotografías y videos. ",
+    "avatar": "/artists/profile-frank-di-polo-02.webp",
     "website": "https://dagklassical.com/ensemble",
     "social": {
-      "instagram": "@ensemble_dag"
+      "instagram": "@frank_di_polo"
     },
-    "releases": ["mc-2026-cuarteto-cuerdas"],
+    "releases": ["mc-2026-tema-con-variazioni"],
     "metadata": {
       "uuid": "urn:uuid:aabbccdd-eeff-0011-2233-445566778899",
       "timestamp": "2025-11-22T09:00:02Z",
@@ -53,11 +53,11 @@
     }
   },
   {
-    "id": "marta-ramirez",
-    "name": "Marta Ramírez",
-    "role": "Violinista",
+    "id": "ruben-riera",
+    "name": "Rubén Riera",
+    "role": "Guitarrista",
     "bio": "Violinista solista internacional con enfoque en repertorio clásico y contemporáneo.",
-    "avatar": "/artists/marta-ramirez.jpg",
+    "avatar": "/artists/profile-ruben-riera-01.webp",
     "website": "https://martaramirez.com",
     "social": {
       "instagram": "@martaramirezviolin"
@@ -70,11 +70,28 @@
     }
   },
   {
-    "id": "coro-venezolano",
-    "name": "Coro Venezolano DAG",
-    "role": "Coro Sinfónico",
+    "id": "filip-bandzak",
+    "name": "Filip Bandzak",
+    "role": "Cantante lírico",
     "bio": "Coro residente de Dag Klassical, especializado en repertorio coral latinoamericano.",
-    "avatar": "/artists/ensemble-dag.jpg",
+    "avatar": "/artists/profile-filip-bandzak-02.webp",
+    "website": "https://dagklassical.com/coro",
+    "social": {
+      "instagram": "@coro_venezolano_dag"
+    },
+    "releases": ["mc-2026-cantata-latina"],
+    "metadata": {
+      "uuid": "urn:uuid:13579246-80ab-cdef-1357-924680abcedf",
+      "timestamp": "2025-11-22T09:00:04Z",
+      "operator": "cto@dagklassical.com"
+    }
+  },
+  {
+    "id": "nareh-arghamanyan",
+    "name": "Nareh Arghamanyan",
+    "role": "Pianista",
+    "bio": "Coro residente de Dag Klassical, especializado en repertorio coral latinoamericano.",
+    "avatar": "/artists/profile-nareh-arghamanyan-02.webp",
     "website": "https://dagklassical.com/coro",
     "social": {
       "instagram": "@coro_venezolano_dag"

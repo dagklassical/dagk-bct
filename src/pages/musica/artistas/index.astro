@@ -3,14 +3,19 @@
 import Layout from '../../../layouts/Layout.astro';
 import artists from '../../../data/artists.json';
 
+const breadcrumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Música', href: '/musica/' },
+  { label: 'Artistas', href: '/musica/artistas/' },
+];
 const pageTitle = 'Artistas - Dag Klassical BCT';
 const pageDescription = 'Compositores, directores e intérpretes que conforman el alma artística de Dag Klassical.';
 ---
 
-<Layout title={pageTitle} description={pageDescription}>
-  <section class="text-center py-16 bg-gray95">
+<Layout title={pageTitle} description={pageDescription} breadcrumbs={breadcrumbs}>
+  <section class="text-center py-20 bg-black/15">
     <h1 class="text-h1 md:text-5xl font-advent mb-6">Artistas</h1>
-    <p class="text-xl max-w-3xl mx-auto text-slate-700 mb-8">
+    <p class="text-xl max-w-3xl mx-auto text-slate-700 mb-6 ">
       Cada obra en Dag Klassical nace de la visión de creadores excepcionales. Conoce a quienes dan vida a nuestra música.
     </p>
   </section>
@@ -22,7 +27,7 @@ const pageDescription = 'Compositores, directores e intérpretes que conforman e
           <a
             key={artist.id}
             href={`/musica/artistas/${artist.id}`}
-            class="block p-6 bg-white rounded-lg shadow-md border border-platinum hover:bg-gray95 transition-colors"
+            class="block p-6 bg-white rounded-md shadow-md border border-platinum hover:bg-gray95 transition-colors"
           >
             <div class="flex items-center gap-4">
               <img
@@ -32,7 +37,7 @@ const pageDescription = 'Compositores, directores e intérpretes que conforman e
                 onerror="this.src='/artists/profile-placeholder.webp'"
               />
               <div class="text-left">
-                <h2 class="text-xl font-bold">{artist.name}</h2>
+                <h3 class="text-h3 font-advent">{artist.name}</h3>
                 <p class="text-slate-600 text-sm">{artist.role}</p>
               </div>
             </div>

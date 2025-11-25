@@ -1,13 +1,79 @@
 ---
 // src/pages/blockchain/tickets.astro
 import Layout from '../../layouts/Layout.astro';
+import MetadataSection from '../../components/MetadataSection.astro';
 
-const pageTitle = 'Tickets - dagk-bct';
-const pageDescription = 'Reserva tus tickets únicos y verificables.';
+const breadcrumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Blockchain', href: '/blockchain/' },
+  { label: 'Tickets', href: '/blockchain/tickets/' },
+];
+
+const pageTitle = 'Tickets Verificables - Dag Klassical BCT';
+const pageDescription = 'Acceso único, autenticidad garantizada y valor coleccionable para conciertos y eventos exclusivos.';
 ---
 
-<Layout title={pageTitle} description={pageDescription}>
-  <h1 class="text-3xl font-bold mb-4">Music Cards</h1>
-  <p>Explora nuestro marketplace de Music Cards.</p>
-  <!-- Aquí irá el contenido específico del marketplace -->
+<Layout title={pageTitle} description={pageDescription} breadcrumbs={breadcrumbs}>
+
+  <article class="max-w-4xl mx-auto px-4 py-12">
+    <header class="text-center mb-12">
+      <h1 class="text-4xl font-advent font-bold mb-4">Tickets Verificables</h1>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+        Acceso único, autenticidad garantizada y valor coleccionable para conciertos y eventos exclusivos.
+      </p>
+    </header>
+
+    <!-- Beneficios -->
+    <section class="grid md:grid-cols-2 gap-8 mb-12">
+      <div class="p-6 bg-white rounded-lg border border-platinum">
+        <h3 class="text-xl font-advent font-semibold mb-3">Autenticidad Garantizada</h3>
+        <p>Cada ticket tiene un <strong>UUID único</strong> y un <strong>hash inmutable</strong> registrado en la red Polygon. No puede ser falsificado ni duplicado.</p>
+      </div>
+      <div class="p-6 bg-white rounded-lg border border-platinum">
+        <h3 class="text-xl font-advent font-semibold mb-3">Valor Coleccionable</h3>
+        <p>Ediciones limitadas con <strong>beneficios exclusivos</strong>: acceso a meet & greet, contenido detrás de cámaras, partituras firmadas y más.</p>
+      </div>
+      <div class="p-6 bg-white rounded-lg border border-platinum">
+        <h3 class="text-xl font-advent font-semibold mb-3">Reventa Segura</h3>
+        <p>Transacciones trazables y verificables en marketplace autorizado. La cadena de custodia se mantiene intacta en cada transferencia.</p>
+      </div>
+      <div class="p-6 bg-white rounded-lg border border-platinum">
+        <h3 class="text-xl font-advent font-semibold mb-3">Acceso Prioritario</h3>
+        <p>Los poseedores de tickets verificados reciben <strong>acceso anticipado</strong> a lanzamientos, preventas y eventos privados del sello.</p>
+      </div>
+    </section>
+
+    <!-- Estado actual -->
+    <section class="bg-gray95 p-8 rounded-lg border border-platinum text-center">
+      <h2 class="text-2xl font-advent font-semibold mb-4">Próximos Eventos</h2>
+      <p class="mb-6 text-slate-700">
+        Estamos preparando una serie de <strong>conciertos exclusivos</strong> con artistas del sello Dag Klassical en 2026.
+      </p>
+      <p class="mb-6 text-slate-600">
+        Cada evento contará con <strong>edición limitada de tickets verificables</strong>, con beneficios únicos según la categoría (Estándar, Premium, Legendario).
+      </p>
+      <a href="/contacto/comercial" class="bg-dag-burgundy text-white px-6 py-3 rounded-lg hover:bg-opacity-80 transition-colors font-medium inline-block">
+        Interés en Tickets Exclusivos
+      </a>
+      <p class="mt-4 text-slate-600">
+        Regístrate para ser notificado cuando los tickets estén disponibles.
+      </p>
+    </section>
+
+    <!-- ¿Qué es un Ticket Verificable? -->
+    <section class="mt-12">
+      <h2 class="text-2xl font-advent font-semibold mb-4 text-center">¿Qué es un Ticket Verificable?</h2>
+      <p class="text-slate-700 mb-4">
+        Un Ticket Verificable de Dag Klassical es un <strong>activo digital coleccionable</strong> emitido en la red Polygon que concede acceso a un evento físico o virtual.
+      </p>
+      <p class="text-slate-700">
+        Al igual que una Music Card, cada ticket incluye metadatos inmutables (UUID, timestamp, operador) y puede ser transferido o revendido con total seguridad.
+      </p>
+    </section>
+
+    <!-- Metadatos inmutables -->
+    <div class="mt-12">
+    <MetadataSection />
+    </div>
+  </article>
 </Layout>

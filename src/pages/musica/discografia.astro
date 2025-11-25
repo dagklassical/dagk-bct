@@ -3,21 +3,21 @@
 import './/../../styles/globals.css';
 import Layout from '../../layouts/Layout.astro';
 import releases from '../../data/releases.json'; // Importa los datos
-import Breadcrumb from '../../components/Breadcrumb.astro';
 
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
-  { label: 'Discografía', href: '/discografia/' },
+  { label: 'Música', href: '/musica/'},
+  { label: 'Discografía', href: '/musica/discografia/' },
 ];
+
 const pageTitle = 'Discografía - dagk-bct';
 const pageDescription = 'Catálogo completo de lanzamientos musicales con Music Cards verificables.';
 ---
 
-<Layout title={pageTitle} description={pageDescription}>
-  <Breadcrumb items={breadcrumbs} />
+<Layout title={pageTitle} description={pageDescription} breadcrumbs={breadcrumbs}>
 <!-- Contenedor principal -->
-  <div class="max-w-6xl mx-auto px-4 py-8">
-  <h1 class="text-h1 font-advent mb-6 text-center">Discografía</h1>
+  <div class="max-w-6xl mx-auto px-4 py-10 mb-8">
+  <h1 class="text-h1 font-advent mb-8 text-center">Discografía</h1>
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     {releases.map((release) => (

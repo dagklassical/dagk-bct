@@ -1,7 +1,7 @@
 ---
 // src/pages/blockchain/index.astro
 import Layout from '../../layouts/Layout.astro';
-import Breadcrumb from '../../components/Breadcrumb.astro';
+import MetadataSection from '../../components/MetadataSection.astro';
 
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
@@ -11,7 +11,7 @@ const pageTitle = 'Blockchain - Dag Klassical BCT';
 const pageDescription = 'Tecnología blockchain aplicada a la música clásica: autenticidad, trazabilidad y valor garantizado para coleccionistas e inversores.';
 ---
 
-<Layout title={pageTitle} description={pageDescription}>
+<Layout title={pageTitle} description={pageDescription} breadcrumbs={breadcrumbs}>
   <!-- Hero Section -->
   <section class="text-center py-16 bg-gray95">
     <h1 class="text-h1 font-advent">Blockchain & Music Cards</h1>
@@ -64,7 +64,7 @@ const pageDescription = 'Tecnología blockchain aplicada a la música clásica: 
 
   <!-- Llamado a la acción -->
   <section class="py-16">
-    <div class="max-w-4xl mx-auto px-4 text-center">
+    <div class="max-w-4xl mx-auto px-4 text-center mb-16">
       <h2 class="text-h2 font-advent mb-8">¿Eres coleccionista o inversor?</h2>
       <p class="text-lg mb-8">
         Adquiere una Music Card y sé parte de la revolución de la música clásica verificable.
@@ -73,16 +73,6 @@ const pageDescription = 'Tecnología blockchain aplicada a la música clásica: 
         Ir al Marketplace
       </a>
     </div>
+   <MetadataSection /> 
   </section>
-
-  <!-- Metadatos inmutables (pequeño widget) -->
-  <section class="py-8">
-    <div class="max-w-md mx-auto bg-white p-4 rounded-lg shadow border border-platinum text-center">
-      <h3 class="font-semibold mb-2">Certificación Blockchain</h3>
-      <p>UUID: <span class="font-mono">urn:uuid:...</span></p>
-      <p>Red: Polygon</p>
-      <p>Operador: cto@dagklassical.com</p>
-    </div>
-  </section>
-  <Breadcrumb items={breadcrumbs} />
 </Layout>

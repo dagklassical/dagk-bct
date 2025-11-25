@@ -3,9 +3,14 @@
 import MetadataSection from '../components/MetadataSection.astro';
 import Layout from '../layouts/Layout.astro';
 import '../styles/globals.css'; // Asegura Tailwind
+
+const breadcrumbs = [
+  { label: 'Inicio', href: '/' },
+];
 ---
 
-<Layout title="Dag Klassical BCT" description="Tecnología Blockchain aplicada a la música digital verificable.">
+
+<Layout title="Dag Klassical BCT" description="Tecnología Blockchain aplicada a la música digital verificable." breadcrumbs={breadcrumbs}>
   <!-- Hero Section -->
   <section class="text-center py-16 bg-gray95">
     <img src="/logo-dagklassical-orig-001.svg" alt="Dag Klassical" class="h-24 mx-auto mb-6" />
@@ -58,6 +63,6 @@ import '../styles/globals.css'; // Asegura Tailwind
         Contacto
       </a>
     </div>
-    <div class="mt-6"><MetadataSection /></div>
+    <div class="mt-16"><MetadataSection /></div>
   </section>
 </Layout>

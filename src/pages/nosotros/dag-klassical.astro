@@ -1,13 +1,53 @@
 ---
-// src/pages/blockchain/lanzamientos.astro
+// src/pages/nosotros/dag-klassical.astro
 import Layout from '../../layouts/Layout.astro';
+import MetadataSection from '../../components/MetadataSection.astro';
 
-const pageTitle = 'Lanzamientos - dagk-bct';
-const pageDescription = 'Colecciona Music Cards únicas y verificables.';
+const breadcrumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Nosotros', href: '/nosotros/' },
+  { label: 'Dag Klassical', href: '/nosotros/dag-klassical/' },
+];
+
+const pageTitle = 'DAG Klassical - Sobre Nosotros';
+const pageDescription = 'Sello discográfico vanguardista dedicado a la música clásica, jazz y contemporánea con certificación blockchain.';
 ---
 
-<Layout title={pageTitle} description={pageDescription}>
-  <h1 class="text-3xl font-bold mb-4">Lanzamientos</h1>
-  <p>Explora nuestro marketplace de Music Cards.</p>
-  <!-- Aquí irá el contenido específico del marketplace -->
+<Layout title={pageTitle} description={pageDescription} breadcrumbs={breadcrumbs}>
+  <article class="max-w-4xl mx-auto px-4 py-12">
+    <header class="text-center mb-12">
+      <h1 class="text-h1 font-advent font-bold mb-4">DAG Klassical</h1>
+      <div class="w-24 h-px bg-dag-burgundy mx-auto mb-6"></div>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+        Sello vanguardista que se ha convertido en plataforma para el talento musical consolidado y emergente.
+      </p>
+    </header>
+
+    <!-- Misión -->
+    <section class="mb-12">
+      <h2 class="text-h2 font-advent font-semibold mb-4">Misión</h2>
+      <p class="text-slate-700">
+        Producir y difundir música clásica, jazz y contemporánea con los más altos estándares técnicos y artísticos, fomentando el intercambio cultural entre creadores venezolanos e internacionales. Nos dedicamos a preservar la autenticidad de cada obra, mientras innovamos en formatos digitales para llegar a audiencias globales.
+      </p>
+    </section>
+
+    <!-- Visión -->
+    <section class="mb-12">
+      <h2 class="text-h2 font-advent font-semibold mb-4">Visión</h2>
+      <p class="text-slate-700">
+        Ser el referente indiscutible de la música culta en Iberoamérica, reconocido por su aporte al desarrollo del sector musical y por posicionar a Venezuela como epicentro de talento, innovación y diversidad sonora. Honramos el pasado e inspiramos el futuro en un mundo donde cada nota cuenta.
+      </p>
+    </section>
+
+    <!-- Propuesta de valor (opcional pero poderosa) -->
+    <section class="bg-gray95 p-6 rounded-lg border border-platinum">
+      <h3 class="font-advent text-xl font-semibold mb-3">Tecnología y Tradición</h3>
+      <p class="text-slate-700">
+        En Dag Klassical, unimos la excelencia artística con la innovación tecnológica. Cada lanzamiento se certifica en blockchain, garantizando autenticidad, trazabilidad y valor para coleccionistas e inversores.
+      </p>
+    </section>
+
+    <!-- Metadatos inmutables -->
+    <MetadataSection />
+  </article>
 </Layout>

@@ -2,7 +2,6 @@
 // src/pages/blockchain/tecnologia.astro
 import Layout from '../../layouts/Layout.astro';
 import MetadataSection from '../../components/MetadataSection.astro';
-import Breadcrumb from '../../components/Breadcrumb.astro';
 
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
@@ -13,9 +12,8 @@ const pageTitle = 'Tecnología Blockchain - Dag Klassical BCT';
 const pageDescription = 'Proceso de certificación inmutable de Music Cards en la red Polygon. Autenticidad, trazabilidad y valor garantizado.';
 ---
 
-<Layout title={pageTitle} description={pageDescription}>
-  <Breadcrumb items={breadcrumbs} />
-  <article class="max-w-4xl mx-auto px-4 py-8">
+<Layout title={pageTitle} description={pageDescription} breadcrumbs={breadcrumbs}>
+  <article class="max-w-4xl mx-auto px-4 py-8 mb-10">
     <header class="text-center mb-12">
       <h1 class="text-h1 font-advent">Certificación Blockchain</h1>
       <p class="text-lg text-slate-600 max-w-2xl mx-auto">
@@ -29,7 +27,7 @@ const pageDescription = 'Proceso de certificación inmutable de Music Cards en l
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
         {['Creación', 'Mastering', 'Certificación', 'Distribución'].map((step, i) => (
           <div key={i} class="text-center">
-            <div class="w-12 h-12 rounded-full bg-platinum text-white flex items-center justify-center mx-auto mb-3 font-bold">
+            <div class="w-12 h-12 rounded-full bg-dag-black/20 text-white flex items-center justify-center mx-auto mb-3 font-bold hover:bg-dag-burgundy/80">
               {i + 1}
             </div>
             <h3 class="font-medium">{step}</h3>
@@ -41,25 +39,18 @@ const pageDescription = 'Proceso de certificación inmutable de Music Cards en l
     <!-- Explicación detallada -->
     <section class="prose prose-slate max-w-none mb-12">
       <h2 class="font-advent text-h2 mb-4">Cómo funciona</h2>
-
-      <h3>1. Creación de la Obra</h3>
-      <p>
+      <h3 class="text-h3 font-advent">1. Creación de la Obra</h3>
+      <p class="pl-6">
         La obra musical es producida, grabada y masterizada por Danilo Álvarez y el equipo de Dag Klassical, con estándares de estudio maestro.
       </p>
-
-      <h3>2. Generación de Metadatos Inmutables</h3>
-      <p>
-        Antes del minting, se genera un objeto con UUID, timestamp, operador y hash SHA256 del contenido. Este conjunto es irrepetible y público.
+      <h3 class="text-h3 font-advent py-1">2. Generación de Metadatos Inmutables</h3>
+      <p class="pl-6">Antes del minting, se genera un objeto con UUID, timestamp, operador y hash SHA256 del contenido. Este conjunto es irrepetible y público.
       </p>
-
-      <h3>3. Registro en Blockchain (Polygon)</h3>
-      <p>
-        Se despliega un smart contract (ERC-1155 o ERC-721) en la red Polygon. Cada Music Card recibe un Token ID único, y su hash se registra en la transacción.
+      <h3 class="text-h3 font-advent py-1">3. Registro en Blockchain (Polygon)</h3>
+      <p class="pl-6">Se despliega un smart contract (ERC-1155 o ERC-721) en la red Polygon. Cada Music Card recibe un Token ID único, y su hash se registra en la transacción.
       </p>
-
-      <h3>4. Vinculación con el Activo Digital</h3>
-      <p>
-        La Music Card incluye un código QR que enlaza al audio en FLAC 24-bit/192kHz, partitura digital y página de verificación en Polygonscan.
+      <h3 class="text-h3 font-advent py-1">4. Vinculación con el Activo Digital</h3>
+      <p class="pl-6">La Music Card incluye un código QR que enlaza al audio en FLAC 24-bit/192kHz, partitura digital y página de verificación en Polygonscan.
       </p>
     </section>
 
@@ -71,7 +62,7 @@ const pageDescription = 'Proceso de certificación inmutable de Music Cards en l
       <p><strong>Hash de contenido:</strong> <code class="text-xs bg-slate-100 p-1 rounded">a1b2c3d4e5f6...</code></p>
       <p><strong>Fecha:</strong> 23 de noviembre de 2025, 14:30 UTC</p>
       <p class="mt-2">
-        <a href="https://polygonscan.com/token/0x7a8d...?a=1001" target="_blank" class="text-platinum hover:underline font-medium">
+        <a href="https://polygonscan.com/token/0x7a8d...?a=1001" target="_blank" class="text-dag-burgundy hover:underline font-medium">
           Ver en Polygonscan →
         </a>
       </p>
@@ -101,8 +92,6 @@ const pageDescription = 'Proceso de certificación inmutable de Music Cards en l
     </section>
 
     <!-- Ficha de metadatos inmutables -->
-    <div class="text-center">
-      <MetadataSection />
-    </div>
+     <MetadataSection />
   </article>
 </Layout>
