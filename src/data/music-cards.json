@@ -1,0 +1,51 @@
+[
+  {
+    "id": "mc-2025-gerulewicz-aguinaldo-std",
+    "title": "Music Card: Piano Aguinaldo – Gerardo Gerulewicz (Estándar)",
+    "edition": "Estándar",
+    "associatedRelease": "gerulewicz-piano-aguinaldo",
+    "totalSupply": 100,
+    "available": 85,
+    "blockchain": "Polygon",
+    "contractAddress": "0x7a8d9b4e2f3c1a0d6e5f4c3b2a1d0e9f8c7b6a5",
+    "tokenId": "2001",
+    "price": "0.12 MATIC",
+    "status": "available",
+    "benefits": [
+      "Audio FLAC 24-bit/192kHz",
+      "Partitura digital firmada",
+      "Acceso a lanzamiento exclusivo",
+      "Contenido detrás de cámaras"
+    ],
+    "cardImage": "/cards/mc-2025-gerulewicz-aguinaldo-std.webp",
+    "metadata": {
+      "uuid": "urn:uuid:a1b2c3d4-5678-90ab-cdef-123456789001",
+      "timestamp": "2025-11-25T10:00:00Z",
+      "operator": "cto@dagklassical.com"
+    }
+  },
+  {
+    "id": "mc-2025-ramirez-capitulos-std",
+    "title": "Music Card: Capítulos – Virginia Ramírez (Estándar)",
+    "edition": "Estándar",
+    "associatedRelease": "ramirez-capitulos",
+    "totalSupply": 200,
+    "available": 200,
+    "blockchain": "Polygon",
+    "contractAddress": "0x7a8d9b4e2f3c1a0d6e5f4c3b2a1d0e9f8c7b6a5",
+    "tokenId": "2101",
+    "price": "0.10 MATIC",
+    "status": "próximo",
+    "benefits": [
+      "Audio FLAC 24-bit/192kHz",
+      "Partitura digital",
+      "Notas del compositor"
+    ],
+    "cardImage": "/cards/ramirez-capitulos-std.webp",
+    "metadata": {
+      "uuid": "urn:uuid:b2c3d4e5-6789-01ab-cdef-234567890002",
+      "timestamp": "2025-11-25T10:00:01Z",
+      "operator": "cto@dagklassical.com"
+    }
+  }
+]

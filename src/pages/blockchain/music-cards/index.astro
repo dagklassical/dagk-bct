@@ -1,54 +1,59 @@
 ---
-// src/pages/blockchain/music-cards.astro
-import '../../../styles/globals.css';
+// src/pages/blockchain/music-cards/index.astro
 import Layout from '../../../layouts/Layout.astro';
-import releases from '../../../data/releases.json'; // Importa los datos
 import Breadcrumb from '../../../components/Breadcrumb.astro';
+import musicCards from '../../../data/music-cards.json';
+import releases from '../../../data/releases.json';
 
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
   { label: 'Blockchain', href: '/blockchain/' },
   { label: 'Music Cards', href: '/blockchain/music-cards/' },
 ];
-const pageTitle = 'Music Cards - dagk-bct';
-const pageDescription = 'Catálogo completo de lanzamientos musicales con Music Cards verificables.';
+
+const pageTitle = 'Music Cards - Dag Klassical BCT';
+const pageDescription = 'Catálogo de Music Cards verificables en blockchain. Activo digital único con valor coleccionable.';
 ---
 
-<Layout title={pageTitle} description={pageDescription}>
-  <Breadcrumb items={breadcrumbs} />
-  
-  <!-- Contenedor principal -->
-  <div class="max-w-6xl mx-auto px-4 py-8">
-    <h1 class="text-h1 font-advent mb-6 text-center">Music Cards</h1>
+<Layout title={pageTitle} description={pageDescription} breadcrumbs={breadcrumbs}>
+  <div class="max-w-4xl mx-auto px-4 py-12">
+    <header class="text-center mb-12">
+      <h1 class="text-h1 font-advent font-bold mb-4">Music Cards</h1>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+        Activo digital único, certificado en blockchain, con audio en FLAC, partitura y contenido exclusivo.
+      </p>
+    </header>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {releases.map((release) => (
-        <article key={release.id} class="border border-platinum rounded-lg p-4 bg-white shadow-md hover:shadow-lg transition-shadow duration-200">
-          <img
-            src={release.coverImage}
-            alt={`${release.title} de ${release.artistId}`}
-            class="w-full h-80 object-cover rounded-md mb-4"
-          />
-          <h3 class="text-h3 font-advent mb-1">{release.title}</h2>
-          <p class="text-slate-600 mb-1">por {release.artistId}</p>
-          <p class="text-sm text-slate-500 mb-2">{release.genre}</p>
-          <p class="text-sm mb-3">
-            <span class={`px-2 py-1 rounded-full text-xs ${
-              release.status === 'lanzado' ? 'bg-green-100 text-green-800' :
-              release.status === 'preventa' ? 'bg-yellow-100 text-yellow-800' :
-              'bg-blue-100 text-blue-800'
-            }`}>
-              {release.status}
-            </span>
-          </p>
-          <a
-            href={`/musica/colecciones/${release.id}`}
-            class="inline-block mt-2 bg-ivory text-slate-800 px-4 py-2 rounded hover:bg-opacity-80 border border-platinum"
-          >
-            Ver detalles
-          </a>
-        </article>
-      ))}
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {musicCards.map(card => {
+        const release = releases.find(r => r.id === card.associatedRelease);
+        return (
+          <article key={card.id} class="border border-platinum rounded-lg p-4 bg-white shadow-md hover:shadow-lg transition-shadow">
+            <img
+              src={card.cardImage}
+              alt={card.title}
+              class="w-full h-48 object-cover rounded-md mb-4"
+            />
+            <h2 class="text-h2 font-advent mb-2">{card.title}</h2>
+            <p class="text-slate-600 mb-2">por {release?.artistNames?.[0] || 'Artista'}</p>
+            <p class="text-sm mb-3">
+              <span class={`px-2 py-1 rounded-full text-xs ${
+                card.status === 'lanzado' ? 'bg-green-100 text-green-800' :
+                card.status === 'próximo' ? 'bg-yellow-100 text-yellow-800' :
+                'bg-blue-100 text-blue-800'
+              }`}>
+                {card.status}
+              </span>
+            </p>
+            <a
+              href={`/blockchain/music-cards/${card.id}`}
+              class="inline-block mt-2 bg-dag-burgundy text-white px-4 py-2 rounded hover:bg-opacity-80"
+            >
+              Ver Music Card
+            </a>
+          </article>
+        );
+      })}
     </div>
   </div>
 </Layout>

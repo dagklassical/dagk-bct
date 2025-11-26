@@ -44,27 +44,42 @@
     }
   },
   {
-    "id": "mc-2026-schubert",
-    "title": "Schubert",
-    "artistIds": ["goulnara-galimchina"],
-    "genre": "música-de-cámara",
-    "releaseDate": "2026-01-20",
-    "type": "álbum",
-    "status": "lanzado",
-    "description": "Sonata para piano D960 y Momentos musicales D780 Nros. 1, 2, 4, y 6. Interprete: Piano: Goulnara Golímchina",
-    "coverImage": "/covers/cover-schubert-01.webp",
-    "tracks": [
-      { "title": "I. Adagio", "duration": "4:10" },
-      { "title": "II. Allegro con fuoco", "duration": "3:55" },
-      { "title": "III. Lento", "duration": "5:30" }
-    ],
-    "musicCards": ["mc-2025-schubert", "mc-2026-cuarteto-premium"],
-    "metadata": {
-      "uuid": "urn:uuid:12345678-58cc-4372-a567-0e02b2c3d477",
-      "timestamp": "2025-11-22T08:00:02Z",
-      "operator": "cto@dagklassical.com"
-    }
-  },
+  "id": "gerulewicz-piano-aguinaldo",
+  "title": "Piano Aguinaldo – Gerardo Gerulewicz",
+  "artistIds": ["gerardo-gerulewicz"],
+  "genre": "música-navideña",
+  "releaseDate": "2025-12-01",
+  "type": "álbum",
+  "status": "lanzado",
+  "description": "Colección de aguinaldos venezolanos interpretados al piano por Gerardo Gerulewicz.",
+  "coverImage": "/covers/gerulewicz-aguinaldo-cover.webp",
+  "tracks": [
+    { "title": "Corre Caballito", "duration": "2:45", "demo": "/protected/demo/corre-caballito-demo.mp3" },
+    { "title": "Din, Din, Din", "duration": "3:10", "demo": "/protected/demo/din-din-din-demo.mp3" }, 
+    { "title": "Niño Lindo", "duration": "2:55", "demo": "/protected/demo/nino-lindo-demo.mp3" },
+    { "title": "Pascua Florida", "duration": "3:20", "demo": "/protected/demo/pascua-florida-demo.mp3" },
+    { "title": "Venid Pastorcillos", "duration": "3:00", "demo": "/protected/demo/venid-pastorcillos-demo.mp3" },
+    { "title": "Precioso Querube", "duration": "2:50", "demo": "/protected/demo/precioso-querube-demo.mp3" },
+    { "title": "Casta Paloma", "duration": "3:15", "demo": "/protected/demo/casta-paloma-demo.mp3" },
+    { "title": "Sublime Ideal", "duration": "3:30", "demo": "/protected/demo/sublime-ideal-demo.mp3" },
+    { "title": "De Contento", "duration": "2:40", "demo": "/protected/demo/de-contento-demo.mp3" },
+    { "title": "Salve Salve", "duration": "3:05", "demo": "/protected/demo/salve-salve-demo.mp3" },
+    { "title": "A Ti Te Cantamos", "duration": "2:55", "demo": "/protected/demo/a-ti-te-cantamos-demo.mp3" },
+    { "title": "La Cabra Mocha", "duration": "2:30", "demo": "/protected/demo/la-cabra-mocha-demo.mp3" },
+    { "title": "Aguinaldo Margariteño", "duration": "3:25", "demo": "/protected/demo/aguinaldo-margariteno-demo.mp3" },
+    { "title": "Cantemos", "duration": "2:50", "demo": "/protected/demo/cantemos-demo.mp3" },
+    { "title": "Canción De Cuna (Himno Nacional)", "duration": "4:00", "demo": "/protected/demo/himno-de-venezuela-cancion-de-cuna-demo.mp3" }
+  ],
+  "duration": "46:30",
+  "commentary": "Este álbum rinde homenaje a la tradición navideña venezolana, reinterpretada con sensibilidad pianística.",
+  "commentaryAuthor": "Gerardo Gerulewicz",
+  "musicCards": ["mc-2025-gerulewicz-aguinaldo-std"],
+  "metadata": {
+    "uuid": "urn:uuid:a1b2c3d4-5678-90ab-cdef-123456789002",
+    "timestamp": "2025-11-25T10:00:00Z",
+    "operator": "cto@dagklassical.com"
+  }
+},
   {
     "id": "mc-2026-sonata-violin",
     "title": "Sonata para Violín y Piano",

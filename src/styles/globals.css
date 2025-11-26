@@ -6,9 +6,12 @@
 /* Tus colores personalizados ya están definidos en tailwind.config.cjs */
 @layer components {
   .btn-primary {
-    @apply bg-dag-burgundy text-white px-6 py-3 rounded-lg hover:bg-opacity-80 transition-colors;
+    @apply bg-dag-burgundy text-white px-4 py-2 rounded-lg hover:bg-opacity-80 transition-colors font-medium;
   }
   .btn-secondary {
-    @apply bg-dag-black text-white px-6 py-3 rounded-lg hover:bg-opacity-80 transition-colors;
+    @apply bg-platinum text-slate-800 px-4 py-2 rounded-lg hover:bg-opacity-80 transition-colors font-medium;
+  }
+  .btn-tertiary {
+    @apply bg-dag-black text-white px-4 py-2 rounded-lg hover:bg-opacity-80 transition-colors font-medium;
   }
 }
