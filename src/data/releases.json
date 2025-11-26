@@ -42,9 +42,9 @@
   { "title": "Sublime Ideal", "duration": "3:30", "demo": "/protected/demo/gerulewicz/gerulewicz-aguinaldo-sublime-ideal-demo.mp3" },
   { "title": "De Contento", "duration": "2:40", "demo": "/protected/demo/gerulewicz/gerulewicz-aguinaldo-de-contento-demo.mp3" },
   { "title": "Salve Salve", "duration": "3:05", "demo": "/protected/demo/gerulewicz/gerulewicz-aguinaldo-salve-salve-demo.mp3" },
-  { "title": "A Ti Te Cantamos", "duration": "2:55", "demo": "/protected/demo/gerulewicz/gerulewicz-aguinaldo-a-ti-te-cantamos-demo.mp3" },
   { "title": "La Cabra Mocha", "duration": "2:30", "demo": "/protected/demo/gerulewicz/gerulewicz-aguinaldo-la-cabra-mocha-demo.mp3" },
-  { "title": "Aguinaldo Margariteño", "duration": "3:25", "demo": "/protected/demo/gerulewicz/gerulewicz-aguinaldo-aguinaldo-margariteno-demo.mp3" },
+  { "title": "Aguinaldo Margariteño", "duration": "3:25", "demo": "/protected/demo/gerulewicz/gerulewicz-aguinaldo-margariteno-demo.mp3" },
+  { "title": "Aguinaldo Caraqueño", "duration": "2:55", "demo": "/protected/demo/gerulewicz/gerulewicz-aguinaldo-caraqueño-demo.mp3" },
   { "title": "Cantemos", "duration": "2:50", "demo": "/protected/demo/gerulewicz/gerulewicz-aguinaldo-cantemos-demo.mp3" },
   { "title": "Canción De Cuna (Himno Nacional)", "duration": "4:00", "demo": "/protected/demo/gerulewicz/gerulewicz-aguinaldo-cancion-de-cuna-demo.mp3" }
   ],
