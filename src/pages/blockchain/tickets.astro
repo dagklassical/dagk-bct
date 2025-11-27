@@ -1,7 +1,7 @@
 ---
 // src/pages/blockchain/tickets.astro
 import Layout from '../../layouts/Layout.astro';
-import MetadataSection from '../../components/MetadataSection.astro';
+import ImmutableStamp from '../../components/ImmutableStamp.astro';
 
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
@@ -70,10 +70,5 @@ const pageDescription = 'Acceso único, autenticidad garantizada y valor colecci
         Al igual que una Music Card, cada ticket incluye metadatos inmutables (UUID, timestamp, operador) y puede ser transferido o revendido con total seguridad.
       </p>
     </section>
-
-    <!-- Metadatos inmutables -->
-    <div class="mt-12">
-    <MetadataSection />
-    </div>
   </article>
 </Layout>

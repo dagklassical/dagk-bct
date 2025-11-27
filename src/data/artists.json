@@ -18,24 +18,27 @@
     }
   },
   {
-    "id": "gerardo-gerulewicz",
-    "name": "Gerardo Gerulewicz",
-    "role": "Compositor y Pianista",
-    "bio": "Compositor venezolano reconocido por su trabajo en música electroacústica y su enfoque en la identidad sonora latinoamericana.",
-    "avatar": "/artists/profile-gerardo-gerulewicz-02.webp",
-    
-    "social": {
-      "instagram": "@gerulewicz",
-      "youtube": "@PianoAguinaldo"
-    },
-    "releases": ["mc-2025-concierto-electro", "mc-2026-cantata-latina"],
-    "metadata": {
-      "uuid": "urn:uuid:00ffeedd-ccbb-aa99-8877-665544332211",
-      "timestamp": "2025-11-22T09:00:01Z",
-      "operator": "cto@dagklassical.com"
-    }
+  "id": "gerardo-gerulewicz",
+  "name": "Gerardo Gerulewicz",
+  "role": "Compositor y Pianista",
+  "country": "Venezuela",
+  "city": "Caracas",
+  "genre": ["música-navideña", "piano-clásico"],
+  "bio": "Compositor venezolano reconocido por su trabajo en la reinterpretación pianística de los aguinaldos tradicionales, fusionando raíces populares con técnica clásica.",
+  "bioLong": "Gerardo Gerulewicz ha dedicado su carrera al rescate y renovación del repertorio navideño venezolano, llevando el piano a lo más alto de la tradición popular. Su álbum 'Piano Aguinaldo' es un homenaje sonoro a la identidad cultural del país, donde cada pieza —desde 'Corre Caballito' hasta 'Canción de Cuna'— se convierte en un puente entre lo ancestral y lo contemporáneo.",
+  "avatar": "/artists/profile-gerardo-gerulewicz-02.webp",
+  "social": {
+    "instagram": "https://instagram.com/gerulewicz",
+    "youtube": "https://youtube.com/@PianoAguinaldo"
   },
-  {
+  "releases": ["gerulewicz-piano-aguinaldo"],
+  "metadata": {
+    "uuid": "urn:uuid:00ffeedd-ccbb-aa99-8877-665544332211",
+    "timestamp": "2025-11-22T09:00:01Z",
+    "operator": "cto@dagklassical.com"
+  }
+},
+  { 
     "id": "frank-di-polo",
     "name": "Frank Di Polo",
     "role": "Violinista, Violista, Educador musical",
@@ -102,5 +105,66 @@
       "timestamp": "2025-11-22T09:00:04Z",
       "operator": "cto@dagklassical.com"
     }
+  },
+  {
+  "id": "jesus-anibal-bello",
+  "name": "Pbro. Jesús Aníbal Bello",
+  "role": "Sacerdote Salesiano y Músico",
+  "country": "Venezuela",
+  "city": "Valera, Edo. Trujillo",
+  "genre": ["música-cristiana", "adoración", "espiritual-contemporánea"],
+  "bio": "Sacerdote salesiano venezolano cuya pasión por la música y la fe se entrelazan en composiciones originales de evangelización sonora.",
+  "bioLong": "El Presbítero Salesiano Jesús Aníbal Bello nació en Puerto La Cruz, Venezuela. Su formación religiosa comenzó en Los Teques, y a lo largo de su ministerio ha servido en comunidades como Táriba (Táchira), Puerto La Cruz y actualmente Valera (Trujillo). A través de la música, el Pbro. Bello transforma la fe en canto, ofreciendo composiciones originales que invitan a la reflexión, la esperanza y el encuentro con lo sagrado. Su álbum “Te Haré Pescador” es un testimonio sonoro de su vocación sacerdotal y su amor por Cristo y la Virgen María.",
+  "avatar": "/artists/profile-jesus-anibal-bello.webp",
+  "social": {
+    "instagram": null,
+    "youtube": null,
+    "facebook": "https://www.facebook.com/padre.anibalbello"
+  },
+  "releases": ["jesus-anibal-bello-te-hare-pescador"],
+  "metadata": {
+    "uuid": "urn:uuid:$(uuidgen)",
+    "timestamp": "2025-11-27T16:00:00Z",
+    "operator": "cto@dagklassical.com"
   }
+},
+  {
+    "id": "virginia-ramirez",
+    "name": "Virginia Ramírez",
+    "role": "Pianista",
+    "bio": "Coro residente de Dag Klassical, especializado en repertorio coral latinoamericano.",
+    "avatar": "/artists/profile-virginia-ramirez-03.jpeg",
+    "website": "https://dagklassical.com/coro",
+    "social": {
+      "instagram": "@coro_venezolano_dag"
+    },
+    "releases": ["mc-2026-cantata-latina"],
+    "metadata": {
+      "uuid": "urn:uuid:13579246-80ab-cdef-1357-924680abcedf",
+      "timestamp": "2025-11-22T09:00:04Z",
+      "operator": "cto@dagklassical.com"
+    }
+  },
+  {
+  "id": "goulnara-golinchina",
+  "name": "Goulnara Golinchina",
+  "role": "Pianista",
+  "country": "Rusia",
+  "city": null,
+  "genre": ["música-clásica", "romanticismo"],
+  "bio": "Pianista rusa reconocida por sus interpretaciones profundas y técnicamente impecables del repertorio clásico y romántico.",
+  "bioLong": "Goulnara Golinchina se ha destacado por su sensibilidad y rigor en la interpretación de obras de Schubert, Chopin y otros maestros del piano. Su enfoque combina fidelidad histórica con una voz artística personal, lo que la convierte en una intérprete de referencia para el repertorio decimonónico.",
+  "avatar": "/artists/profile-goulnara-golinchina-01.webp",
+  "social": {
+    "instagram": null,
+    "youtube": null,
+    "facebook": null
+  },
+  "releases": ["goulnara-golinchina-schubert-d960-d780"],
+  "metadata": {
+    "uuid": "urn:uuid:$(uuidgen)",
+    "timestamp": "2025-11-27T16:00:00Z",
+    "operator": "cto@dagklassical.com"
+  }
+}
 ]

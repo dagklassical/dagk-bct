@@ -1,11 +1,11 @@
 ---
 // src/pages/musica/artistas/[id].astro
 import Layout from '../../../layouts/Layout.astro';
+import ImmutableStamp from '../../../components/ImmutableStamp.astro';
 import artists from '../../../data/artists.json';
 import releases from '../../../data/releases.json';
-import MetadataSection from '../../../components/MetadataSection.astro';
 
-// Genera una página estática para cada artista
+// ✅ Requerido para rutas dinámicas en Astro
 export async function getStaticPaths() {
   return artists.map(artist => ({
     params: { id: artist.id },
@@ -17,16 +17,14 @@ const { id } = Astro.params;
 const artist = Astro.props.artist;
 
 if (!artist) {
-  return Astro.redirect('/musica/discografia');
+  return Astro.redirect('/musica/artistas');
 }
 
-// Busca las obras asociadas al artista
-const artistReleases = releases.filter(release =>
-  release.artistIds.includes(artist.id)
+// Filtrar releases asociadas a este artista
+const artistReleases = releases.filter(r => 
+  Array.isArray(artist.releases) && artist.releases.includes(r.id)
 );
 
-const pageTitle = `${artist.name} - Artistas`;
-const pageDescription = artist.bio || `Perfil de ${artist.name}, ${artist.role}.`;
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
   { label: 'Música', href: '/musica/' },
@@ -35,8 +33,15 @@ const breadcrumbs = [
 ];
 ---
 
-<Layout title={pageTitle} description={pageDescription} breadcrumbs={breadcrumbs}> 
-  <article class="max-w-4xl mx-auto px-4 py-10">
+<Layout title={artist.name} description={artist.bio || `Perfil de ${artist.name}`} breadcrumbs={breadcrumbs}>
+  {/* Enlace de retorno */}
+  <div class="max-w-4xl mx-auto pt-8 px-4">
+    <a href="/musica/artistas" class="text-slate-700 hover:text-dag-burgundy flex items-center text-sm">
+      ← Volver a Artistas
+    </a>
+  </div>
+
+  <article class="max-w-4xl mx-auto px-4 pt-6 pb-10">
     <div class="flex flex-col md:flex-row gap-6">
       <div class="md:w-1/3 text-center">
         <img
@@ -94,6 +99,5 @@ const breadcrumbs = [
     </div>
 
     <!-- Metadatos inmutables -->
-    <MetadataSection />
   </article>
 </Layout>
