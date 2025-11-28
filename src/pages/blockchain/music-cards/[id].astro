@@ -1,7 +1,6 @@
 ---
 // src/pages/blockchain/music-cards/[id].astro
 import Layout from '../../../layouts/Layout.astro';
-// import Breadcrumb from '../../../components/Breadcrumb.astro';
 import ImmutableStamp from '../../../components/ImmutableStamp.astro';
 import musicCards from '../../../data/music-cards.json';
 import releases from '../../../data/releases.json';
@@ -9,10 +8,12 @@ import artists from '../../../data/artists.json';
 
 // Genera una página estática para cada Music Card
 export async function getStaticPaths() {
-  return musicCards.map(card => ({
-    params: { id: card.id },
-    props: { card }
-  }));
+  return musicCards
+    .filter(card => card.status === 'available') // solo públicas
+    .map(card => ({
+      params: { id: card.id },
+      props: { card }
+    }));
 }
 
 const { id } = Astro.params;
@@ -24,7 +25,7 @@ if (!card) {
 
 // Obtiene la obra asociada
 const release = releases.find(r => r.id === card.associatedRelease);
-const artist = artists.find(a => a.id === release?.artistIds[0]);
+const artist = artists.find(a => a.id === release?.artistIds?.[0]);
 
 // Migas de pan
 const breadcrumbs = [
@@ -44,47 +45,49 @@ const breadcrumbs = [
   >
     <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
       <div class="text-center text-white max-w-4xl px-4">
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-advent font-bold mb-2">{card.title}</h1>
-        {artist?.name && <p class="text-lg md:text-xl opacity-90">{artist.name}</p>}
+        <h1 class="text-3xl md:text-5xl font-advent font-bold mb-2">{card.title}</h1>
+        {artist?.name && <p class="text-lg md:text-xl">{artist.name}</p>}
       </div>
     </div>
   </section>
 
- <!-- Reproductor unificado -->
+  <!-- Reproductor interactivo -->
   <div class="max-w-3xl mx-auto px-4 -mt-6 mb-8">
     <div class="bg-white border border-platinum rounded-xl overflow-hidden shadow-sm">
-      <audio id="music-player" controls class="w-full h-16">
-        Tu navegador no soporta audio.
-      </audio>
+      <audio id="music-player" controls class="w-full h-16"></audio>
     </div>
   </div>
 
   <article class="max-w-4xl mx-auto px-4 pb-12">
 
-    <!-- Tracklist mejorado -->
-    {release?.tracks && release.tracks.length > 0 && (
-      <section class="mb-10">
-        <div class="text-center mb-6">
-          <h2 class="text-2xl font-advent font-semibold text-slate-800">Tracklist</h2>
-          {release.duration && (
-            <p class="text-slate-500 text-sm mt-1">Duración total: {release.duration}</p>
-          )}
+    <!-- Valor y disponibilidad -->
+    <section class="bg-dag-burgundy/10 border border-dag-burgundy/30 rounded-lg p-6 mb-8">
+      <div class="flex flex-wrap justify-between items-center">
+        <div>
+          <span class="inline-block px-3 py-1 bg-dag-burgundy text-white text-sm rounded mr-2">{card.edition}</span>
+          <span class="text-slate-600 text-sm">{card.available} de {card.totalSupply} disponibles</span>
         </div>
+        <div class="text-right">
+          <p class="text-lg font-bold">{card.price}</p>
+          <p class="text-xs text-slate-600">en {card.blockchain}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tracklist interactivo -->
+    {release?.tracks && (
+      <section class="mb-8">
+        <h2 class="text-2xl font-advent font-semibold mb-4 text-center">Tracklist</h2>
         <div class="bg-white p-5 rounded-lg border border-platinum">
           <ol class="space-y-2">
             {release.tracks.map((track, i) => (
               <li 
                 key={i}
                 data-demo={track.demo || '/protected/demo/corre-caballito-demo.mp3'}
-                class="flex justify-between items-center py-3 border-b border-slate-100 last:border-0 cursor-pointer hover:bg-slate-50 transition-colors"
+                class="flex justify-between items-center py-2 border-b border-slate-100 last:border-0 cursor-pointer hover:bg-slate-50"
               >
-                <div class="flex items-center gap-3">
-                  <span class="font-mono text-dag-burgundy font-medium w-6 text-right">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <span class="font-medium text-slate-800">{track.title}</span>
-                </div>
-                <span class="text-slate-500 font-mono tabular-nums text-sm">{track.duration}</span>
+                <span class="font-medium">{i + 1}. {track.title}</span>
+                <span class="text-slate-500 text-sm">{track.duration}</span>
               </li>
             ))}
           </ol>
@@ -92,103 +95,49 @@ const breadcrumbs = [
       </section>
     )}
 
-    <!-- Plataformas digitales (íconos mejorados) -->
-    <div class="text-center mb-10">
-      <p class="text-slate-600 mb-3">Escuchar en plataformas digitales:</p>
-      <div class="flex justify-center flex-wrap gap-3 md:gap-4">
-        {[
-          { name: 'Spotify', url: 'https://open.spotify.com/...', color: 'text-green-500 hover:text-green-600' },
-          { name: 'Apple Music', url: 'https://music.apple.com/...', color: 'text-black hover:text-gray-800' },
-          { name: 'YouTube', url: 'https://youtube.com/...', color: 'text-red-500 hover:text-red-600' },
-          { name: 'Tidal', url: 'https://tidal.com/...', color: 'text-blue-500 hover:text-blue-600' },
-          { name: 'Deezer', url: 'https://deezer.com/...', color: 'text-purple-500 hover:text-purple-600' }
-        ].map((platform) => (
-          <a
-            key={platform.name}
-            href={platform.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            title={`Escuchar en ${platform.name}`}
-            class={`block w-8 h-8 ${platform.color} transition-transform hover:scale-110`}
-            aria-label={`Escuchar en ${platform.name}`}
-          >
-            <svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24">
-              <path d={
-                platform.name === 'Spotify' ? 'M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.9 16.9c-.2.3-.5.5-.9.5-.4 0-.7-.2-.9-.5-.2-.3-.2-.6-.1-.9.1-.3.4-.5.8-.5.4 0 .7.2.9.5.2.3.2.6.1.9zm1.3-3c-.4.7-1.2 1.2-2.1 1.4-.9.2-1.9.1-2.7-.3-.8-.4-1.4-1-1.8-1.7-.4-.7-.5-1.5-.4-2.2.1-.7.4-1.4.9-2 .5-.6 1.2-1 1.9-1.2.7-.2 1.5-.2 2.2.1.7.3 1.3.8 1.7 1.4.4.6.6 1.3.5 2-.1.7-.4 1.4-.9 2z'
-                : platform.name === 'Apple Music' ? 'M17.027 15.16c-.13.974-.986 2.17-2.02 2.17-.763 0-1.15-.547-2.029-.547-.878 0-1.215.547-2.03.547-1.033 0-1.848-1.196-1.977-2.17-.195-1.456.986-2.243 2.03-2.243 1.044 0 1.269.846 2.313.846 1.044 0 2.363-.846 2.17-2.243-.13-1.033-.92-1.754-2.03-1.754-1.11 0-1.629.624-2.243.624-.614 0-1.196-.325-1.778-.325-.582 0-1.269.39-1.269 1.513 0 1.22.986 1.872 1.912 2.001.926.13 1.236.747 1.236 1.494 0 .747-.357 1.494-.94 1.494-.582 0-.94-.39-.94-1.11 0-.455.325-.779.779-.779.455 0 .779.325.779.779v.325c0 1.065.779 1.848 1.912 1.848 1.133 0 1.912-.783 1.912-1.848 0-.65-.293-1.17-.878-1.331M14.045 3.12c.68 0 1.197.552 1.197 1.236 0 .685-.518 1.197-1.197 1.197-.68 0-1.197-.512-1.197-1.197 0-.684.517-1.236 1.197-1.236'
-                : platform.name === 'YouTube' ? 'M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z'
-                : 'M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-2.222 16.667L6.444 7.333h2.222l1.667 5.208 1.444-5.208h2.222l-1.444 6.192 1.667 5.475H9.778l-1.667-5.475-1.444 5.475H4.444l1.667-6.667 1.667-5.479H5.556L4 16.667h5.778z'
-              } />
-            </svg>
-          </a>
-        ))}
+    <!-- Beneficios (solo anuncio) -->
+    <section class="grid md:grid-cols-2 gap-6 mb-8">
+      <div class="bg-white p-5 rounded-lg border border-platinum text-center">
+        <h3 class="font-semibold mb-2">Audio de Colección</h3>
+        <p class="text-sm text-slate-600 mb-3">FLAC 24-bit/192kHz</p>
+        <p class="text-xs text-slate-500">Acceso exclusivo tras adquisición</p>
       </div>
-    </div>
-
-    <!-- Descargas exclusivas -->
-    <section class="grid md:grid-cols-2 gap-6 mb-12">
-      <div class="bg-white p-6 rounded-lg border border-platinum text-center">
-        <h3 class="font-semibold mb-3">Descargar Álbum</h3>
-        <p class="text-sm text-slate-600 mb-4">FLAC 24-bit/192kHz • {card.totalSupply - card.available} de {card.totalSupply} adquiridas</p>
-        <a href="/protected/full/{card.id}.flac" class="bg-dag-burgundy text-white px-6 py-3 rounded-lg hover:bg-opacity-80 transition-colors font-medium">
-          Descargar FLAC
-        </a>
-      </div>
-      <div class="bg-white p-6 rounded-lg border border-platinum text-center">
-        <h3 class="font-semibold mb-3">Descargar Partitura</h3>
-        <p class="text-sm text-slate-600 mb-4">PDF firmado por {artist?.name}</p>
-        <a href="/protected/partituras/{card.id}.pdf" class="bg-platinum text-slate-800 px-6 py-3 rounded-lg hover:bg-opacity-80 transition-colors font-medium">
-          Ver Partitura
-        </a>
+      <div class="bg-white p-5 rounded-lg border border-platinum text-center">
+        <h3 class="font-semibold mb-2">Partitura Digital</h3>
+        <p class="text-sm text-slate-600 mb-3">Firmada por {artist?.name}</p>
+        <p class="text-xs text-slate-500">Incluida en esta edición</p>
       </div>
     </section>
 
-    <!-- Bio del artista -->
+    <!-- Biografía del artista -->
     {artist && (
-      <section class="mb-12 bg-gray95 p-6 rounded-lg">
-        <h3 class="text-xl font-semibold mb-3">Sobre {artist.name}</h3>
-        <p class="mb-4">{artist.bio}</p>
-        <a href={`/musica/artistas/${artist.id}`} class="text-dag-burgundy hover:underline font-medium">
-          Ver perfil completo →
+      <section class="mb-8 bg-gray95 p-5 rounded-lg">
+        <h3 class="text-xl font-semibold mb-2">Sobre {artist.name}</h3>
+        <p class="mb-3">{artist.bio}</p>
+        <a href={`/musica/artistas/${artist.id}`} class="text-dag-burgundy hover:underline text-sm">
+          Explorar su trayectoria →
         </a>
       </section>
     )}
 
     <!-- Comentario de la obra -->
     {release?.commentary && (
-      <section class="mb-12">
-        <blockquote class="italic border-l-4 border-dag-burgundy pl-4 py-2">
-          “{release.commentary}”
-          <footer class="mt-2 text-slate-600">— {release.commentaryAuthor}</footer>
-        </blockquote>
+      <section class="mb-8 italic border-l-4 border-dag-burgundy pl-4 py-2">
+        “{release.commentary}”
+        <footer class="mt-2 text-slate-600 text-sm">— {release.commentaryAuthor}</footer>
       </section>
     )}
 
-    <!-- Créditos -->
-    <section class="mb-12 bg-white p-6 rounded-lg border border-platinum">
-      <h3 class="text-xl font-semibold mb-3">Créditos</h3>
-      <p><strong>Piano y arreglos:</strong> {artist?.name}</p>
-      <p><strong>Mezcla y mastering:</strong> Danilo Álvarez</p>
-      <p class="mt-4 text-sm text-slate-600">
-        Mezclado y masterizado en Mansa Studio, Lechería, Venezuela. {new Date().getFullYear()}
-      </p>
+    <!-- Call to action: Comprar -->
+    <section class="text-center mb-8">
+      <a href="#" class="inline-block bg-dag-burgundy text-white px-8 py-4 rounded-lg hover:bg-opacity-90 transition-colors font-medium text-lg">
+        Adquirir esta Music Card
+      </a>
+      <p class="text-xs text-slate-500 mt-2">Certificada en {card.blockchain}. Incluye todos los beneficios exclusivos.</p>
     </section>
 
-    <!-- Valor de la Music Card -->
-    <section class="bg-dag-burgundy/10 border border-dag-burgundy/30 rounded-lg p-6 mb-12">
-      <h3 class="font-advent font-semibold mb-2">Valor Actual</h3>
-      <p class="text-lg font-bold">0.35 MATIC</p>
-      <p class="text-sm text-slate-600">
-        Basado en popularidad del artista y escasez ({card.edition}, {card.totalSupply} unidades).
-      </p>
-      <p class="text-xs text-slate-500 mt-2">
-        *Valor sujeto a actualización en tiempo real una vez integrado con Polygon.
-      </p>
-    </section>
-
-    <!-- Blockchain -->
-    <section class="mb-12 p-6 border border-platinum rounded-lg">
-      <h3 class="font-semibold mb-3">Verificación en Polygon</h3>
+    <!-- Información técnica -->
+    <section class="p-4 border-t border-platinum text-sm text-slate-600">
       <p><strong>Token ID:</strong> {card.tokenId}</p>
       <p><strong>Contrato:</strong> <code class="text-xs bg-slate-100 p-1 rounded">{card.contractAddress}</code></p>
       <a href={`https://polygonscan.com/token/${card.contractAddress}?a=${card.tokenId}`} target="_blank" class="text-sm text-dag-burgundy hover:underline">
@@ -196,30 +145,25 @@ const breadcrumbs = [
       </a>
     </section>
 
-    <!-- Metadatos inmutables -->
-    <div class="mt-8 p-4 border-t border-platinum text-sm text-slate-600 font-['Source_Code_Pro'] leading-tight">
-      <p>UUID: {card.metadata.uuid}</p>
-      <p>Timestamp: {card.metadata.timestamp}</p>
-      <p>Operador: {card.metadata.operator}</p>
-    </div>
+    <!-- Sello inmutable -->
+    <ImmutableStamp 
+      uuid={card.metadata.uuid}
+      timestamp={card.metadata.timestamp}
+      operator={card.metadata.operator}
+    />
   </article>
-  
-    <!-- Script para interactividad del reproductor -->
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const player = document.getElementById('music-player');
-        const trackItems = document.querySelectorAll('[data-demo]');
 
-        trackItems.forEach(item => {
-          item.addEventListener('click', () => {
-            const demoUrl = item.getAttribute('data-demo');
-            player.src = demoUrl;
-            player.load();
-            player.play().catch(e => {
-              console.warn("Reproducción automática bloqueada o archivo no encontrado:", e);
-            });
-          });
+  <!-- Script de interactividad -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const player = document.getElementById('music-player');
+      document.querySelectorAll('[data-demo]').forEach(item => {
+        item.addEventListener('click', () => {
+          player.src = item.getAttribute('data-demo');
+          player.load();
+          player.play().catch(e => console.warn("Reproducción fallida:", e));
         });
       });
-    </script>
+    });
+  </script>
 </Layout>
