@@ -10,7 +10,7 @@
       "instagram": "",
       "twitter": ""
     },
-    "releases": ["mc-2025-february-night-01"],
+    "releases": ["dore-february-night-01"],
     "metadata": {
       "uuid": "urn:uuid:11223344-5566-7788-99aa-bbccddeeff00",
       "timestamp": "2025-11-22T09:00:00Z",
@@ -194,28 +194,6 @@
   "metadata": {
     "uuid": "urn:uuid:$(uuidgen)",
     "timestamp": "2025-11-27T17:00:00Z",
-    "operator": "cto@dagklassical.com"
-  }
-},
-{
-  "id": "goulnara-golinchina",
-  "name": "Goulnara Golinchina",
-  "role": "Pianista",
-  "country": "Rusia",
-  "city": null,
-  "genre": ["música-clásica", "romanticismo"],
-  "bio": "Pianista rusa reconocida por sus interpretaciones profundas y técnicamente impecables del repertorio clásico y romántico.",
-  "bioLong": "Goulnara Golinchina se ha destacado por su sensibilidad y rigor en la interpretación de obras de Schubert, Chopin y otros maestros del piano. Su enfoque combina fidelidad histórica con una voz artística personal, lo que la convierte en una intérprete de referencia para el repertorio decimonónico.",
-  "avatar": "/artists/profile-goulnara-golinchina-01.webp",
-  "social": {
-    "instagram": null,
-    "youtube": null,
-    "facebook": null
-  },
-  "releases": ["goulnara-golinchina-schubert-d960-d780"],
-  "metadata": {
-    "uuid": "urn:uuid:$(uuidgen)",
-    "timestamp": "2025-11-27T16:00:00Z",
     "operator": "cto@dagklassical.com"
   }
 }

@@ -1,0 +1,77 @@
+---
+// src/pages/musica/discografia/completa.astro
+import Layout from '../../../layouts/Layout.astro';
+import releases from '../../../data/releases.json';
+import artists from '../../../data/artists.json';
+
+const artistMap = artists.reduce((acc, a) => ({ ...acc, [a.id]: a }), {});
+
+const breadcrumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Música', href: '/musica/' },
+  { label: 'Discografía', href: '/musica/discografia/' },
+  { label: 'Completa', href: '/musica/discografia/completa' },
+];
+---
+
+<Layout title="Toda la Discografía" description="Catálogo completo de obras en DAG Klassical" breadcrumbs={breadcrumbs}>
+
+  <header class="bg-white text-center mb-8 py-8 px-4">
+    <h1 class="text-h1 md:text-4xl font-advent">Toda la Discografía</h1>
+    <p class="text-slate-600 mt-2">
+      Explora el catálogo completo de obras musicales certificables como activos culturales inmutables.
+    </p>
+  </header>
+
+  <div class="max-w-6xl mx-auto px-4">
+    <!-- Mantiene el mismo grid que la página principal -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {releases.map(release => (
+        <a 
+          href={`/musica/discografia/${release.id}`} 
+          class="block group border border-slate-200 rounded-xl p-5 hover:border-dag-burgundy transition-colors bg-white shadow-sm"
+          key={release.id}
+        >
+          <div class="aspect-square w-full bg-slate-100 rounded-lg overflow-hidden mb-4">
+            {release.coverImage ? (
+              <img 
+                src={release.coverImage} 
+                alt={release.title}
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            ) : (
+              <div class="w-full h-full flex items-center justify-center text-slate-400 text-xs">
+                Sin portada
+              </div>
+            )}
+          </div>
+
+          <div class="px-3 space-y-1.5">
+            <h3 class="text-lg font-semibold text-slate-800 group-hover:text-dag-burgundy">
+              {release.title}
+            </h3>
+            
+            {release.artistIds?.[0] && (
+              <p class="text-slate-600 text-sm">
+                por {artistMap[release.artistIds[0]]?.name || 'Artista desconocido'}
+              </p>
+            )}
+
+            {release.genre && (
+              <p class="text-xs text-platinum bg-dag-burgundy/10 px-2 py-1 rounded inline-block">
+                {release.genre}
+              </p>
+            )}
+
+            {release.description && (
+              <p class="text-slate-600 text-sm line-clamp-2">
+                {release.description}
+              </p>
+            )}
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</Layout>
