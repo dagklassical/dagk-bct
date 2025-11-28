@@ -2,7 +2,7 @@
   {
     "id": "mc-2025-february-night",
     "title": "February Night",
-    "artistIds": ["art-teodor-dore"],
+    "artistIds": ["teodor-dore"],
     "genre": "música-clásica-contemporánea",
     "releaseDate": "2025-11-22",
     "type": "álbum",
@@ -59,67 +59,224 @@
   }
 },
   {
-    "id": "mc-2026-sonata-violin",
-    "title": "Sonata para Violín y Piano",
-    "artistIds": ["dag-klassical", "marta-ramirez"],
-    "genre": "música-clásica",
-    "releaseDate": "2026-03-10",
-    "type": "álbum",
-    "status": "próximo",
-    "description": "Diálogo entre violín y piano en una obra que rinde homenaje a la tradición clásica.",
-    "coverImage": "/covers/sonata-violin.jpg",
-    "tracks": [
-      { "title": "Allegro ma non troppo", "duration": "6:20" },
-      { "title": "Scherzo", "duration": "3:45" },
-      { "title": "Finale: Rondo", "duration": "5:10" }
-    ],
-    "musicCards": ["mc-2026-sonata-std"],
-    "metadata": {
-      "uuid": "urn:uuid:abcdef12-58cc-4372-a567-0e02b2c3d476",
-      "timestamp": "2025-11-22T08:00:03Z",
-      "operator": "adrian.prado@elsistema.web"
-    }
+  "id": "virginia-ramirez-capitulos",
+  "title": "Capítulos",
+  "artistIds": ["virginia-ramirez"],
+  "genre": "jazz",
+  "releaseDate": "2025-01-01",
+  "type": "álbum",
+  "status": "lanzado",
+  "description": "Una recopilación remasterizada de las piezas más emblemáticas de Virginia Ramírez, donde el jazz moderno se funde con la cadencia latinoamericana.",
+  "coverImage": "/covers/cover-capitulos-virginia-ramirez.png",
+  "demoAvailable": false,
+  "fullAlbumAvailable": false,
+  "sheetMusicAvailable": false,
+  "platforms": {
+    "spotify": null,
+    "apple": null,
+    "youtube": null,
+    "tidal": null,
+    "deezer": null
   },
-  {
-    "id": "mc-2026-obertura-digital",
-    "title": "Obertura Digital",
-    "artistIds": ["dag-klassical"],
-    "genre": "música-sinfónica",
-    "releaseDate": "2026-02-01",
-    "type": "single",
-    "status": "preventa",
-    "description": "Obertura electrónica creada para el estreno del concierto 'Futuro Sinfónico'.",
-    "coverImage": "/covers/obertura-digital.jpg",
-    "tracks": [
-      { "title": "Obertura Digital", "duration": "4:45" }
-    ],
-    "musicCards": ["mc-2026-obertura-std"],
-    "metadata": {
-      "uuid": "urn:uuid:fedcba98-58cc-4372-a567-0e02b2c3d475",
-      "timestamp": "2025-11-22T08:00:04Z",
-      "operator": "adrian.prado@elsistema.web"
-    }
-  },
-  {
-    "id": "mc-2026-cantata-latina",
-    "title": "Cantata Latinoamericana",
-    "artistIds": ["danilo-alvarez", "coro-venezolano"],
-    "genre": "música-coral",
-    "releaseDate": "2026-04-15",
-    "type": "álbum",
-    "status": "próximo",
-    "description": "Obra coral que fusiona ritmos latinoamericanos con armonías contemporáneas.",
-    "coverImage": "/covers/cantata-latina.jpg",
-    "tracks": [
-      { "title": "I. Invocación", "duration": "5:00" },
-      { "title": "II. Danza de la Tierra", "duration": "4:30" },
-      { "title": "III. Himno a la Esperanza", "duration": "6:20" }
-    ],
-    "musicCards": ["mc-2026-cantata-std"],
-    "metadata": {
-      "uuid": "urn:uuid:13579bdf-58cc-4372-a567-0e02b2c3d474",
-      "timestamp": "2025-11-22T08:00:05Z",
-      "operator": "adrian.prado@elsistema.web"
-    }
+  "tracks": [
+    { "title": "Capítulo I", "duration": "5:20" },
+    { "title": "Capítulo II", "duration": "4:45" },
+    { "title": "Capítulo III", "duration": "6:10" },
+    { "title": "Capítulo IV", "duration": "5:30" },
+    { "title": "Capítulo V", "duration": "4:55" }
+  ],
+  "duration": "26:40",
+  "commentary": "Más que una simple recopilación, 'Capítulos' es una declaración artística: una pausa para contemplar el camino recorrido y saborear los logros que han definido su sonido.",
+  "commentaryAuthor": "Virginia Ramírez",
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:$(uuidgen)",
+    "timestamp": "2025-11-27T18:00:00Z",
+    "operator": "cto@dagklassical.com"
   }
+},  
+{
+  "id": "academica-moscu-momentos-musicales-barroco-01",
+  "title": "Momentos Musicales Vol. 1 – Barroco Inglés",
+  "artistIds": ["academica-moscu"],
+  "genre": "música-clásica",
+  "releaseDate": "2025-01-01",
+  "type": "álbum",
+  "status": "lanzado",
+  "description": "Water Music de Georg Friedrich Händel, interpretada con frescura y rigor histórico por la Orquesta Académica de Moscú.",
+  "coverImage": "/covers/cover-academica-rusa-vol-01.webp",
+  "demoAvailable": false,
+  "fullAlbumAvailable": false,
+  "sheetMusicAvailable": false,
+  "platforms": {
+    "spotify": null,
+    "apple": null,
+    "youtube": null,
+    "tidal": null,
+    "deezer": null
+  },
+  "tracks": [
+    { "title": "Obertura", "duration": "4:20" },
+    { "title": "Adagio Staccato", "duration": "2:15" },
+    { "title": "Allegro Staccato", "duration": "3:00" },
+    { "title": "Andante - Allegro Staccato", "duration": "3:45" },
+    { "title": "A tempo di Minuetto", "duration": "2:50" },
+    { "title": "Air", "duration": "3:30" },
+    { "title": "Minuet", "duration": "2:20" },
+    { "title": "Bourrée", "duration": "2:40" },
+    { "title": "Hornpipe", "duration": "3:10" },
+    { "title": "Allegro Moderatto", "duration": "4:00" },
+    { "title": "Allegro (bonus track)", "duration": "3:25" }
+  ],
+  "duration": "35:15",
+  "commentary": "Water Music es una de las obras instrumentales más queridas del repertorio clásico. Aunque envuelta en leyenda, su belleza y vitalidad la convierten en un puente entre la corte inglesa del siglo XVIII y el oyente contemporáneo.",
+  "commentaryAuthor": "Orquesta Académica de Moscú",
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:$(uuidgen)",
+    "timestamp": "2025-11-27T17:00:00Z",
+    "operator": "cto@dagklassical.com"
+  }
+},
+  {
+  "id": "academica-moscu-momentos-musicales-nacionalismo-ruso-03",
+  "title": "Momentos Musicales Vol. 3 – Nacionalismo Ruso",
+  "artistIds": ["academica-moscu"],
+  "genre": "música-clásica",
+  "releaseDate": "2025-01-01",
+  "type": "álbum",
+  "status": "lanzado",
+  "description": "Tres obras maestras del nacionalismo ruso: Danzas Polovtsianas de Borodin, Gran Pascua Rusa de Rimski-Kórsakov y Una noche en el monte calvo de Músorgski.",
+  "coverImage": "/covers/cover-academica-rusa-vol-03.webp",
+  "demoAvailable": true,
+  "fullAlbumAvailable": false,
+  "sheetMusicAvailable": false,
+  "platforms": {
+    "spotify": null,
+    "apple": null,
+    "youtube": null,
+    "tidal": null,
+    "deezer": null
+  },
+  "tracks": [
+    { 
+      "title": "Danzas Polovtsianas", 
+      "composer": "Alexander Borodin",
+      "workCatalogue": "Príncipe Ígor, Acto II",
+      "duration": "12:30",
+      "demo": "/protected/demo/academica-moscu/momentos-musicales/vol-03/academica-moscu-momentos-musicales-nacionalismo-ruso-03-01-danzas-polovtsianas-demo.mp3"
+    },
+    { 
+      "title": "La Gran Pascua Rusa", 
+      "composer": "Nikolái Rimski-Kórsakov",
+      "workCatalogue": "Obertura de la Gran Pascua Rusa, Op. 36",
+      "duration": "14:20",
+      "demo": "/protected/demo/academica-moscu/momentos-musicales/vol-03/academica-moscu-momentos-musicales-nacionalismo-ruso-03-02-gran-pascua-rusa-demo.mp3"
+    },
+    { 
+      "title": "Una noche en el monte calvo", 
+      "composer": "Modest Músorgski",
+      "workCatalogue": "Una noche en el monte calvo (vers. Rimski-Kórsakov)",
+      "duration": "11:45",
+      "demo": "/protected/demo/academica-moscu/momentos-musicales/vol-03/academica-moscu-momentos-musicales-nacionalismo-ruso-03-03-noche-monte-calvo-demo.mp3"
+    }
+  ],
+  "duration": "38:35",
+  "commentary": "Estas tres obras encarnan el espíritu de 'Los Cinco', el grupo de compositores rusos que buscó crear una identidad musical autóctona. Entre lo sagrado, lo folclórico y lo diabólico, se teje un retrato sonoro del alma rusa del siglo XIX.",
+  "commentaryAuthor": "Orquesta Académica de Moscú",
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:$(uuidgen)",
+    "timestamp": "2025-11-27T17:00:00Z",
+    "operator": "cto@dagklassical.com"
+  }
+},
+  {
+  "id": "goulnara-golinchina-schubert-d960-d780",
+  "title": "Schubert: Sonata D960 & Momentos Musicales D780",
+  "artistIds": ["goulnara-golinchina"],
+  "genre": "música-clásica",
+  "releaseDate": "2025-01-01",
+  "type": "álbum",
+  "status": "lanzado",
+  "description": "Interpretación íntima y técnicamente impecable de la última sonata para piano de Schubert y una selección de sus Momentos Musicales, a cargo de la pianista rusa Goulnara Golinchina.",
+  "coverImage": "/covers/cover-schubert-01.webp",
+  "demoAvailable": true,
+  "fullAlbumAvailable": false,
+  "sheetMusicAvailable": false,
+  "platforms": {
+    "spotify": null,
+    "apple": null,
+    "youtube": null,
+    "tidal": null,
+    "deezer": null
+  },
+  "tracks": [
+  {
+    "title": "I. Molto moderato",
+    "composer": "Franz Schubert",
+    "workCatalogue": "Sonata D960",
+    "duration": "12:30",
+    "demo": "/protected/demo/goulnara-golinchina/schubert/goulnara-schubert-d960-01-moderato-demo.mp3"
+  },
+  {
+    "title": "II. Andante sostenuto",
+    "composer": "Franz Schubert",
+    "workCatalogue": "Sonata D960",
+    "duration": "8:45",
+    "demo": "/protected/demo/goulnara-golinchina/schubert/goulnara-schubert-d960-02-andante-demo.mp3"
+  },
+  {
+    "title": "III. Scherzo. Allegro vivace con delicatezza",
+    "composer": "Franz Schubert",
+    "workCatalogue": "Sonata D960",
+    "duration": "4:20",
+    "demo": "/protected/demo/goulnara-golinchina/schubert/goulnara-schubert-d960-03-scherzo-demo.mp3"
+  },
+  {
+    "title": "IV. Allegro, ma non troppo",
+    "composer": "Franz Schubert",
+    "workCatalogue": "Sonata D960",
+    "duration": "7:50",
+    "demo": "/protected/demo/goulnara-golinchina/schubert/goulnara-schubert-d960-04-allegro-demo.mp3"
+  },
+  {
+    "title": "Momento musical No. 1 en Do mayor",
+    "composer": "Franz Schubert",
+    "workCatalogue": "D780",
+    "duration": "3:40",
+    "demo": "/protected/demo/goulnara-golinchina/schubert/goulnara-schubert-d780-01-moderato-demo.mp3"
+  },
+  {
+    "title": "Momento musical No. 2 en La bemol mayor",
+    "composer": "Franz Schubert",
+    "workCatalogue": "D780",
+    "duration": "3:15",
+    "demo": "/protected/demo/goulnara-golinchina/schubert/goulnara-schubert-d780-02-andantino-demo.mp3"
+  },
+  {
+    "title": "Momento musical No. 4 en Fa menor",
+    "composer": "Franz Schubert",
+    "workCatalogue": "D780",
+    "duration": "2:50",
+    "demo": "/protected/demo/goulnara-golinchina/schubert/goulnara-schubert-d780-04-moderato-demo.mp3"
+  },
+  {
+    "title": "Momento musical No. 6 en La bemol mayor",
+    "composer": "Franz Schubert",
+    "workCatalogue": "D780",
+    "duration": "2:30",
+    "demo": "/protected/demo/goulnara-golinchina/schubert/goulnara-schubert-d780-06-allegretto-demo.mp3"
+  }
+],
+  "duration": "46:00",
+  "commentary": "Schubert en su máxima expresión lírica y estructural. La Sonata D960, compuesta semanas antes de su muerte, es un testamento sonoro de serenidad y despedida. Los Momentos Musicales, en tanto, capturan destellos de belleza introspectiva.",
+  "commentaryAuthor": "Goulnara Golinchina",
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:$(uuidgen)",
+    "timestamp": "2025-11-28T09:00:00Z",
+    "operator": "cto@dagklassical.com"
+  }
+}
 ]

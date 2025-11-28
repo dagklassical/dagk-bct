@@ -1,9 +1,8 @@
 ---
-// src/pages/musica/colecciones/[id].astro
+// src/pages/musica/discografia/[id].astro
 import Layout from '../../../layouts/Layout.astro';
 import releases from '../../../data/releases.json';
 import artists from '../../../data/artists.json';
-import Breadcrumb from '../../../components/Breadcrumb.astro';
 
 // Genera una página estática para cada lanzamiento
 export async function getStaticPaths() {
@@ -37,20 +36,25 @@ const breadcrumbs = [
 ];
 ---
 
-<Layout title={pageTitle} description={pageDescription}>
-  <Breadcrumb items={breadcrumbs} />
-  <article class="max-w-4xl mx-auto p-4">
+<Layout title={pageTitle} description={pageDescription} breadcrumbs={breadcrumbs}>
+  {/* Enlace de retorno */}
+  <div class="max-w-4xl mx-auto pt-8 px-4">
+    <a href="/musica/discografia" class="text-slate-700 hover:text-dag-burgundy flex items-center text-sm">
+      ← Volver a Discografía
+    </a>
+  </div>  
+  <article class="max-w-4xl mx-auto px-4 pt-6 pb-10">
     <div class="flex flex-col md:flex-row gap-6">
       <div class="md:w-1/3">
         <img
           src={release.coverImage}
           alt={release.title}
-          class="w-full rounded-lg shadow-md"
+          class="w-full rounded-md mx-auto shadow-md mt-4"
           onerror="this.src='https://placehold.co/300x300/cccccc/999999?text=Cover'"
         />
       </div>
       <div class="md:w-2/3">
-        <h1 class="text-3xl font-bold mb-2">{release.title}</h1>
+        <h1 class="text-h1 font-advent mb-2">{release.title}</h1>
         <p class="text-xl text-slate-600 mb-2">por {artistNames}</p>
         <p class="text-slate-500 mb-4">
           {release.genre} • {new Date(release.releaseDate).toLocaleDateString('es-VE')} • {release.type}
@@ -60,7 +64,7 @@ const breadcrumbs = [
         )}
 
         <section class="mb-6">
-          <h2 class="text-xl font-semibold mb-3">Tracklist</h2>
+          <h2 class="text-h2 font-advent mb-3">Tracklist</h2>
           <ul class="list-disc pl-5 space-y-1">
             {release.tracks.map(track => (
               <li key={track.title}>
@@ -71,7 +75,7 @@ const breadcrumbs = [
         </section>
 
         <section>
-          <h2 class="text-xl font-semibold mb-3">Music Cards Asociadas</h2>
+          <h2 class="text-h2 font-advent mb-3">Music Cards Asociadas</h2>
           {release.musicCards.length > 0 ? (
             <div class="space-y-2">
               {release.musicCards.map(cardId => (

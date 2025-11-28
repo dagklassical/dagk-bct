@@ -36,7 +36,7 @@ const breadcrumbs = [
           class="block group text-center"
           key={artist.id}
         >
-          <div class="aspect-[4/5] bg-slate-100 rounded-lg overflow-hidden border border-slate-200 group-hover:border-dag-burgundy transition-colors">
+          <div class="aspect-[4/5] bg-slate-100 rounded-lg overflow-hidden border border-slate-200 group-hover:border-dag-burgundy/40 transition-colors">
             {artist.avatar ? (
               <img 
                 src={artist.avatar} 
@@ -50,7 +50,7 @@ const breadcrumbs = [
               </div>
             )}
           </div>
-          <h3 class="mt-2 text-h3 font-advent text-slate-800 group-hover:text-dag-burgundy transition-colors">
+          <h3 class="leading-none mt-3 text-h3 font-advent text-slate-800 group-hover:text-dag-burgundy transition-colors">
             {artist.name}
           </h3>
         </a>

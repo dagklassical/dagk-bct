@@ -1,0 +1,89 @@
+---
+// src/pages/musica/discografia/index.astro
+import Layout from '../../../layouts/Layout.astro';
+import releases from '../../../data/releases.json';
+import artists from '../../../data/artists.json';
+
+const artistMap = artists.reduce((acc, a) => ({ ...acc, [a.id]: a }), {});
+
+const breadcrumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Música', href: '/musica/' },
+  { label: 'Discografía', href: '/musica/discografia/' },
+];
+---
+
+<Layout title="Discografía" description="Obras musicales completas en DAG Klassical" breadcrumbs={breadcrumbs}>
+
+  <header class="bg-white text-center mb-8 py-8 px-4">
+    <h1 class="text-h1 font-advent">Discografía</h1>
+    <p class="text-dag-burgundy mt-2">
+      Obras completas, remasterizadas y certificables como activos culturales inmutables.
+    </p>
+  </header>
+
+  <div class="max-w-6xl mx-auto px-4 mb-12">
+    <!-- Grid: 1 columna móvil, 3 tablet, 2 desktop -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+  {releases.slice(0, 6).map(release => (
+    <a 
+      href={`/musica/discografia/${release.id}`} 
+      class="block group border border-slate-200 rounded-md p-2 hover:border-dag-burgundy/30 transition-colors bg-white shadow-sm"
+      key={release.id}
+    >
+      <!-- Imagen cuadrada (1:1) encima -->
+      <div class="aspect-square w-full bg-platinum-100 rounded-md overflow-hidden mb-3">
+        {release.coverImage ? (
+          <img 
+            src={release.coverImage} 
+            alt={release.title}
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        ) : (
+          <div class="w-full h-full flex items-center justify-center text-slate-400 text-xs">
+            Sin portada
+          </div>
+        )}
+      </div>
+
+      <!-- ✅ Contenedor único para todo el texto debajo de la imagen -->
+      <div class="px-3 space-y-1.5 mb-2">
+        <h3 class="text-h3 font-advent group-hover:text-dag-burgundy">
+          {release.title}
+        </h3>
+        
+        {release.artistIds?.[0] && (
+          <p class="text-slate-600 text-sm">
+            por {artistMap[release.artistIds[0]]?.name || 'Artista desconocido'}
+          </p>
+        )}
+
+        {release.genre && (
+          <h4 class="text-xs text-dag-burgundy bg-dag-burgundy/10 py-1 rounded inline-block px-2">
+            {release.genre}
+          </h4>
+        )}
+
+        {release.description && (
+          <p class="text-slate-600 text-sm line-clamp-3">
+            {release.description}
+          </p>
+        )}
+      </div>
+    </a>
+  ))}
+</div>
+    <!-- Botón "Ver más" si hay más de 6 -->
+    {releases.length > 6 && (
+      <div class="text-center mt-8">
+        <a 
+          href="/musica/discografia/completa" 
+          class="inline-block px-6 py-3 bg-dag-burgundy text-white rounded-lg hover:bg-opacity-90 transition-colors font-medium"
+        >
+          Ver toda la discografía
+        </a>
+      </div>
+    )}
+  </div>
+</Layout>

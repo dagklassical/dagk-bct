@@ -129,23 +129,75 @@
   }
 },
   {
-    "id": "virginia-ramirez",
-    "name": "Virginia Ramírez",
-    "role": "Pianista",
-    "bio": "Coro residente de Dag Klassical, especializado en repertorio coral latinoamericano.",
-    "avatar": "/artists/profile-virginia-ramirez-03.jpeg",
-    "website": "https://dagklassical.com/coro",
-    "social": {
-      "instagram": "@coro_venezolano_dag"
-    },
-    "releases": ["mc-2026-cantata-latina"],
-    "metadata": {
-      "uuid": "urn:uuid:13579246-80ab-cdef-1357-924680abcedf",
-      "timestamp": "2025-11-22T09:00:04Z",
-      "operator": "cto@dagklassical.com"
-    }
+  "id": "virginia-ramirez",
+  "name": "Virginia Ramírez",
+  "role": "Pianista, Cantante y Artista Multidisciplinaria",
+  "country": "Venezuela",
+  "city": null,
+  "genre": ["jazz", "latin-jazz", "música-instrumental", "improvisación"],
+  "bio": "Artista venezolana cuyo lenguaje musical fusiona el jazz moderno con la riqueza rítmica y emocional de la tradición latinoamericana.",
+  "bioLong": "Virginia Ramírez es una artista creativa, valiente y atrevida, cuyo lenguaje se basa en el cambio y la experimentación. Se mueve intensamente entre el piano, el canto, la improvisación y las artes circenses, adentrándose en la esencia de la cultura venezolana con un sello propio y original. Su formación combina el rigor del conservatorio con la libertad del jazz y la música popular, resultando en una voz artística joven, vibrante y trascendental. Su álbum \"Capítulos\" reúne piezas emblemáticas remasterizadas, celebrando su evolución y consolidando su lugar como una de las voces más esenciales de la música instrumental latinoamericana contemporánea.",
+  "avatar": "/artists/profile-virginia-ramirez-01.jpeg",
+  "social": {
+    "instagram": null,
+    "youtube": null,
+    "facebook": null
   },
+  "releases": ["virginia-ramirez-capitulos"],
+  "metadata": {
+    "uuid": "urn:uuid:$(uuidgen)",
+    "timestamp": "2025-11-27T18:00:00Z",
+    "operator": "cto@dagklassical.com"
+  }
+},
   {
+  "id": "goulnara-golinchina",
+  "name": "Goulnara Golinchina",
+  "role": "Pianista",
+  "country": "Rusia",
+  "city": null,
+  "genre": ["música-clásica", "romanticismo"],
+  "bio": "Pianista rusa reconocida por sus interpretaciones profundas y técnicamente impecables del repertorio clásico y romántico.",
+  "bioLong": "Goulnara Golinchina se ha destacado por su sensibilidad y rigor en la interpretación de obras de Schubert, Chopin y otros maestros del piano. Su enfoque combina fidelidad histórica con una voz artística personal, lo que la convierte en una intérprete de referencia para el repertorio decimonónico.",
+  "avatar": "/artists/profile-goulnara-golinchina-01.webp",
+  "social": {
+    "instagram": null,
+    "youtube": null,
+    "facebook": null
+  },
+  "releases": ["goulnara-golinchina-schubert-d960-d780"],
+  "metadata": {
+    "uuid": "urn:uuid:$(uuidgen)",
+    "timestamp": "2025-11-27T16:00:00Z",
+    "operator": "cto@dagklassical.com"
+  }
+},
+{
+  "id": "academica-moscu",
+  "name": "Orquesta Académica de Moscú",
+  "role": "Ensemble sinfónico",
+  "country": "Rusia",
+  "city": "Moscú",
+  "genre": ["música-clásica", "nacionalismo-ruso", "barroco"],
+  "bio": "Jóvenes músicos rusos dedicados a reinterpretar el repertorio clásico con visión contemporánea, desde el nacionalismo ruso hasta el barroco inglés.",
+  "bioLong": "La Orquesta Académica de Moscú, fundada en 2003 por un grupo de jóvenes y apasionados músicos, se ha destacado por su enfoque innovador y virtuoso de la música clásica. Desde sus inicios, esta organización musical se ha dedicado a reinterpretar obras maestras del repertorio clásico, imprimiendo un sello distintivo que combina la tradición con una visión contemporánea. Además de sus presentaciones en vivo, ha incursionado en el mundo del cine como orquesta de sesión para bandas sonoras.",
+  "avatar": "/artists/profile-orquesta-academica-moscu-01.webp",
+  "social": {
+    "instagram": null,
+    "youtube": null,
+    "facebook": null
+  },
+  "releases": [
+    "academica-moscu-momentos-musicales-barroco-01",
+    "academica-moscu-momentos-musicales-nacionalismo-ruso-03"
+  ],
+  "metadata": {
+    "uuid": "urn:uuid:$(uuidgen)",
+    "timestamp": "2025-11-27T17:00:00Z",
+    "operator": "cto@dagklassical.com"
+  }
+},
+{
   "id": "goulnara-golinchina",
   "name": "Goulnara Golinchina",
   "role": "Pianista",
