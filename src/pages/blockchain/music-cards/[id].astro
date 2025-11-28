@@ -75,25 +75,29 @@ const breadcrumbs = [
     </section>
 
     <!-- Tracklist interactivo -->
-    {release?.tracks && (
-      <section class="mb-8">
-        <h2 class="text-2xl font-advent font-semibold mb-4 text-center">Tracklist</h2>
-        <div class="bg-white p-5 rounded-lg border border-platinum">
-          <ol class="space-y-2">
-            {release.tracks.map((track, i) => (
-              <li 
-                key={i}
-                data-demo={track.demo || '/protected/demo/corre-caballito-demo.mp3'}
-                class="flex justify-between items-center py-2 border-b border-slate-100 last:border-0 cursor-pointer hover:bg-slate-50"
-              >
-                <span class="font-medium">{i + 1}. {track.title}</span>
-                <span class="text-slate-500 text-sm">{track.duration}</span>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-    )}
+   <!-- Tracklist con estilo cebra -->
+{release?.tracks && release.tracks.length > 0 && (
+  <section class="mb-8">
+    <h3 class="text-h3 font-advent font-semibold mb-4 text-center">Tracklist</h2>
+    <div class="bg-white p-5 rounded-md">
+      <ol class="space-y-2">
+        {release.tracks.map((track, i) => (
+          <li 
+            key={i}
+            data-demo={track.demo || '/protected/demo/corre-caballito-demo.mp3'}
+            class={`flex justify-between items-center p-2 cursor-pointer hover:bg-slate-100 ${
+              i % 2 === 0 ? 'bg-white' : 'bg-platinum'
+            }`}
+            onclick={`playTrack('${track.demo || '/protected/demo/corre-caballito-demo.mp3'}')`}
+          >
+            <span class="font-medium">{i + 1}. {track.title}</span>
+            <span class="text-slate-500 text-sm">{track.duration}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+)}
 
     <!-- Beneficios (solo anuncio) -->
     <section class="grid md:grid-cols-2 gap-6 mb-8">

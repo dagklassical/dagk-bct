@@ -1,7 +1,7 @@
 [
   {
     "id": "mc-2025-gerulewicz-aguinaldo-std",
-    "title": "Music Card: Piano Aguinaldo",
+    "title": "Piano Aguinaldo",
     "edition": "Estándar",
     "associatedRelease": "gerulewicz-piano-aguinaldo",
     "totalSupply": 100,
@@ -26,7 +26,7 @@
   },
   {
     "id": "mc-2025-ramirez-capitulos-std",
-    "title": "Music Card: Capítulos",
+    "title": "Capítulos",
     "edition": "Estándar",
     "associatedRelease": "ramirez-capitulos",
     "totalSupply": 200,
@@ -47,5 +47,55 @@
       "timestamp": "2025-11-25T10:00:01Z",
       "operator": "cto@dagklassical.com"
     }
+  },
+  {
+  "id": "mc-2025-goulnara-schubert-std",
+  "title": "Schubert – Goulnara Galímchina",
+  "edition": "Estándar",
+  "associatedRelease": "goulnara-golinchina-schubert-d960-d780",
+  "totalSupply": 100,
+  "available": 100,
+  "blockchain": "Polygon",
+  "contractAddress": "0x0000000000000000000000000000000000000000",
+  "tokenId": "0",
+  "price": "0.10 MATIC",
+  "status": "available",
+  "benefits": [
+    "Audio FLAC 24-bit/192kHz",
+    "Notas interpretativas exclusivas",
+    "Acceso a masterclass privada",
+    "Certificación inmutable en blockchain"
+  ],
+  "cardImage": "/cards/mc-2025-goulnara-schubert.webp",
+  "metadata": {
+    "uuid": "urn:uuid:$(uuidgen)",
+    "timestamp": "2025-11-28T10:00:00Z",
+    "operator": "cto@dagklassical.com"
   }
+},
+{
+  "id": "mc-2025-teodor-dore-february-night-std",
+  "title": "February Night",
+  "edition": "Estándar",
+  "associatedRelease": "teodor-dore-february-night",
+  "totalSupply": 75,
+  "available": 75,
+  "blockchain": "Polygon",
+  "contractAddress": "0x0000000000000000000000000000000000000000",
+  "tokenId": "0",
+  "price": "0.15 MATIC",
+  "status": "available",
+  "benefits": [
+    "Audio FLAC 24-bit/192kHz",
+    "Libreto digital con cartas originales",
+    "Acceso a ensayo privado",
+    "Certificación inmutable en blockchain"
+  ],
+  "cardImage": "/cards/mc-2025-teodor-dore-february-night.webp",
+  "metadata": {
+    "uuid": "urn:uuid:$(uuidgen)",
+    "timestamp": "2025-11-28T11:00:00Z",
+    "operator": "cto@dagklassical.com"
+  }
+}
 ]

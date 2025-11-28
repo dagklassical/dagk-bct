@@ -1,59 +1,80 @@
 ---
 // src/pages/blockchain/music-cards/index.astro
 import Layout from '../../../layouts/Layout.astro';
-import Breadcrumb from '../../../components/Breadcrumb.astro';
 import musicCards from '../../../data/music-cards.json';
 import releases from '../../../data/releases.json';
+import artists from '../../../data/artists.json';
+
+// Mapas para lookup rápido
+const releaseMap = releases.reduce((acc, r) => ({ ...acc, [r.id]: r }), {});
+const artistMap = artists.reduce((acc, a) => ({ ...acc, [a.id]: a }), {});
+
+const availableCards = musicCards.filter(card => card.status === 'available');
 
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
   { label: 'Blockchain', href: '/blockchain/' },
   { label: 'Music Cards', href: '/blockchain/music-cards/' },
 ];
-
-const pageTitle = 'Music Cards - Dag Klassical BCT';
-const pageDescription = 'Catálogo de Music Cards verificables en blockchain. Activo digital único con valor coleccionable.';
 ---
 
-<Layout title={pageTitle} description={pageDescription} breadcrumbs={breadcrumbs}>
-  <div class="max-w-4xl mx-auto px-4 py-10">
-    <header class="text-center mb-12 bg-white">
-      <h1 class="text-h1 font-advent font-bold mb-4">Music Cards</h1>
-      <p class="text-lg text-slate-600 max-w-2xl mx-auto">
-        Activo digital único, certificado en blockchain, con contenido exclusivo.
-      </p>
-    </header>
+<Layout title="Music Cards en Oferta" description="Colecciona activos musicales verificables en blockchain" breadcrumbs={breadcrumbs}>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {musicCards.map(card => {
-        const release = releases.find(r => r.id === card.associatedRelease);
+  <header class="text-center mb-8 py-6 bg-white">
+    <h1 class="text-h1 font-advent">Music Cards en Oferta</h1>
+    <p class="text-dag-burgundy mt-2">
+      Ediciones limitadas, certificadas en blockchain, con beneficios únicos.
+    </p>
+  </header>
+
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {availableCards.map(card => {
+        const release = releaseMap[card.associatedRelease];
+        const artist = release?.artistIds?.[0] ? artistMap[release.artistIds[0]] : null;
         return (
-          <article key={card.id} class="border border-platinum rounded-lg p-4 bg-white shadow-md hover:shadow-lg transition-shadow">
-            <img
-              src={card.cardImage}
-              alt={card.title}
-              class="w-full h-48 object-cover rounded-md mb-4"
-            />
-            <h2 class="text-h2 font-advent mb-2">{card.title}</h2>
-            <p class="text-slate-600 mb-2">por {release?.artistNames?.[0] || 'Artista'}</p>
-            <p class="text-sm mb-3">
-              <span class={`px-2 py-1 rounded-full text-xs ${
-                card.status === 'lanzado' ? 'bg-green-100 text-green-800' :
-                card.status === 'próximo' ? 'bg-yellow-100 text-yellow-800' :
-                'bg-blue-100 text-blue-800'
-              }`}>
-                {card.status}
+          <a 
+            href={`/blockchain/music-cards/${card.id}`} 
+            class="block group border border-slate-200 rounded-md p-2 hover:border-dag-burgundy/40 transition-colors bg-white shadow-sm"
+            key={card.id}
+          >
+            <!-- Imagen de la Music Card -->
+            <div class="aspect-[3/4] bg-slate-100 rounded-md overflow-hidden mb-4">
+              {card.cardImage ? (
+                <img src={card.cardImage} alt={card.title} class="w-full h-full object-cover" />
+              ) : (
+                <div class="w-full h-full flex items-center justify-center text-slate-400 text-xs">
+                  Sin imagen
+                </div>
+              )}
+            </div>
+
+            <!-- Título y artista -->
+            <h3 class="text-h3 font-advent text-slate-800 group-hover:text-dag-burgundy">{card.title}</h3>
+            {artist && <p class="text-sm text-slate-600 mt-1">por {artist.name}</p>}
+
+            <!-- Edición y disponibilidad -->
+            <div class="mt-3 flex justify-between items-center text-sm">
+              <span class="px-2 py-1 bg-dag-burgundy/10 text-dag-burgundy rounded">
+                {card.edition}
               </span>
-            </p>
-            <a
-              href={`/blockchain/music-cards/${card.id}`}
-              class="inline-block mt-2 bg-dag-burgundy text-white px-4 py-2 rounded hover:bg-opacity-80"
-            >
-              Ver Music Card
-            </a>
-          </article>
+              <span class="text-slate-500">
+                {card.available} de {card.totalSupply}
+              </span>
+            </div>
+
+            <!-- Precio -->
+            <div class="mt-3 pt-3 border-t border-slate-100">
+              <p class="font-semibold text-lg">{card.price}</p>
+              <p class="text-xs text-slate-500">en {card.blockchain}</p>
+            </div>
+          </a>
         );
       })}
     </div>
+
+    {availableCards.length === 0 && (
+      <p class="text-center text-slate-500 py-10">No hay Music Cards disponibles en este momento.</p>
+    )}
   </div>
 </Layout>
