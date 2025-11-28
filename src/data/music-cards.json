@@ -50,7 +50,7 @@
   },
   {
   "id": "mc-2025-goulnara-schubert-std",
-  "title": "Schubert – Goulnara Galímchina",
+  "title": "Schubert",
   "edition": "Estándar",
   "associatedRelease": "goulnara-golinchina-schubert-d960-d780",
   "totalSupply": 100,
@@ -95,6 +95,31 @@
   "metadata": {
     "uuid": "urn:uuid:$(uuidgen)",
     "timestamp": "2025-11-28T11:00:00Z",
+    "operator": "cto@dagklassical.com"
+  }
+},
+{
+  "id": "mc-2025-academica-moscu-nacionalismo-std",
+  "title": "Momentos Musicales\nVol. 3",
+  "edition": "Estándar",
+  "associatedRelease": "academica-moscu-momentos-musicales-nacionalismo-ruso-03",
+  "totalSupply": 150,
+  "available": 150,
+  "blockchain": "Polygon",
+  "contractAddress": "0x0000000000000000000000000000000000000000",
+  "tokenId": "0",
+  "price": "0.20 MATIC",
+  "status": "available",
+  "benefits": [
+    "Audio FLAC 24-bit/192kHz",
+    "Libreto histórico sobre 'Los Cinco'",
+    "Acceso a documental exclusivo",
+    "Certificación inmutable en blockchain"
+  ],
+  "cardImage": "/cards/mc-2025-academica-moscu-nacionalismo.webp",
+  "metadata": {
+    "uuid": "urn:uuid:$(uuidgen)",
+    "timestamp": "2025-11-28T11:30:00Z",
     "operator": "cto@dagklassical.com"
   }
 }

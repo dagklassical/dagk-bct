@@ -1,14 +1,14 @@
 [
   {
   "id": "teodor-dore-february-night",
-  "title": "February Night – Teodor Doré",
+  "title": "February Night",
   "artistIds": ["teodor-dore"],
   "genre": "música-contemporánea",
   "releaseDate": "2025-02-14",
   "type": "álbum",
   "status": "lanzado",
   "description": "Una suite de nueve piezas inspiradas en las cartas del exilio ruso, los diarios de Rajmáninov y la soledad creativa en tiempos de guerra.",
-  "coverImage": "/covers/teodor-dore-february-night-cover.webp",
+  "coverImage": "/covers/cover-february-night-01.webp",
   "demoAvailable": true,
   "fullAlbumAvailable": false,
   "sheetMusicAvailable": false,
@@ -37,6 +37,43 @@
   "metadata": {
     "uuid": "urn:uuid:$(uuidgen)",
     "timestamp": "2025-11-28T11:00:00Z",
+    "operator": "cto@dagklassical.com"
+  }
+},
+  {
+  "id": "gerulewicz-piano-aguinaldo",
+  "title": "Piano Aguinaldo",
+  "artistIds": ["gerardo-gerulewicz"],
+  "genre": "música-navideña",
+  "releaseDate": "2025-12-01",
+  "type": "álbum",
+  "status": "lanzado",
+  "description": "Colección de aguinaldos venezolanos interpretados al piano por Gerardo Gerulewicz.",
+  "coverImage": "/covers/gerulewicz-piano-aguinaldo.webp",
+  "tracks": [
+  { "title": "Corre Caballito", "duration": "2:45", "demo": "/protected/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-corre-caballito-demo.mp3" },
+  { "title": "Din, Din, Din", "duration": "3:10", "demo": "/protected/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-din-din-din-demo.mp3" },
+  { "title": "Niño Lindo", "duration": "2:55", "demo": "/protected/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-nino-lindo-demo.mp3" },
+  { "title": "Pascua Florida", "duration": "3:20", "demo": "/protected/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-pascua-florida-demo.mp3" },
+  { "title": "Venid Pastorcillos", "duration": "3:00", "demo": "/protected/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-venid-pastorcillos-demo.mp3" },
+  { "title": "Precioso Querube", "duration": "2:50", "demo": "/protected/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-precioso-querube-demo.mp3" },
+  { "title": "Casta Paloma", "duration": "3:15", "demo": "/protected/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-casta-paloma-demo.mp3" },
+  { "title": "Sublime Ideal", "duration": "3:30", "demo": "/protected/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-sublime-ideal-demo.mp3" },
+  { "title": "De Contento", "duration": "2:40", "demo": "/protected/demo/gerardo-gerulewicz/gerulewicz-aguinaldo-de-contento-demo.mp3" },
+  { "title": "Salve Salve", "duration": "3:05", "demo": "/protected/demo/gerardo-gerulewicz/gerulewicz-aguinaldo-salve-salve-demo.mp3" },
+  { "title": "La Cabra Mocha", "duration": "2:30", "demo": "/protected/demo/gerardo-gerulewicz/gerulewicz-aguinaldo-la-cabra-mocha-demo.mp3" },
+  { "title": "Aguinaldo Margariteño", "duration": "3:25", "demo": "/protected/demo/gerardo-gerulewicz/gerulewicz-aguinaldo-margariteno-demo.mp3" },
+  { "title": "Aguinaldo Caraqueño", "duration": "2:55", "demo": "/protected/demo/gerardo-gerulewicz/gerulewicz-aguinaldo-caraqueño-demo.mp3" },
+  { "title": "Cantemos", "duration": "2:50", "demo": "/protected/demo/gerardo-gerulewicz/gerulewicz-aguinaldo-cantemos-demo.mp3" },
+  { "title": "Canción De Cuna (Himno Nacional)", "duration": "4:00", "demo": "/protected/demo/gerardo-gerulewicz/gerulewicz-aguinaldo-cancion-de-cuna-demo.mp3" }
+  ],
+  "duration": "46:30",
+  "commentary": "Este álbum rinde homenaje a la tradición navideña venezolana, reinterpretada con sensibilidad pianística.",
+  "commentaryAuthor": "Gerardo Gerulewicz",
+  "musicCards": ["mc-2025-gerulewicz-aguinaldo-std"],
+  "metadata": {
+    "uuid": "urn:uuid:a1b2c3d4-5678-90ab-cdef-123456789002",
+    "timestamp": "2025-11-25T10:00:00Z",
     "operator": "cto@dagklassical.com"
   }
 },
@@ -166,7 +203,7 @@
   "duration": "38:35",
   "commentary": "Estas tres obras encarnan el espíritu de 'Los Cinco', el grupo de compositores rusos que buscó crear una identidad musical autóctona. Entre lo sagrado, lo folclórico y lo diabólico, se teje un retrato sonoro del alma rusa del siglo XIX.",
   "commentaryAuthor": "Orquesta Académica de Moscú",
-  "musicCards": [],
+  "musicCards": ["mc-2025-academica-moscu-nacionalismo-std"],
   "metadata": {
     "uuid": "urn:uuid:$(uuidgen)",
     "timestamp": "2025-11-27T17:00:00Z",
@@ -254,7 +291,7 @@
   "duration": "46:00",
   "commentary": "Schubert en su máxima expresión lírica y estructural. La Sonata D960, compuesta semanas antes de su muerte, es un testamento sonoro de serenidad y despedida. Los Momentos Musicales, en tanto, capturan destellos de belleza introspectiva.",
   "commentaryAuthor": "Goulnara Golinchina",
-  "musicCards": [],
+  "musicCards": ["mc-2025-goulnara-schubert-std"],
   "metadata": {
     "uuid": "urn:uuid:$(uuidgen)",
     "timestamp": "2025-11-28T09:00:00Z",

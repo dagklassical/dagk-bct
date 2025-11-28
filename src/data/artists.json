@@ -1,22 +1,27 @@
 [
   {
-    "id": "teodor-dore",
-    "name": "Teodor Doré",
-    "role": "Compositor Contemporáneo y Pianista",
-    "bio": "El pianista y compositor Teodor Doré creció en las cautivadoras costas del Mar Negro, en Crimea. Estudió en el Conservatorio Liceu de Barcelona, España. Se ha consolidado como una figura prominente en la escena musical académica contemporánea de Londres, siendo reconocido como una estrella en ascenso.",
-    "avatar": "/artists/profile-teodor-dore-01.webp",
-    "website": "https://teodordore.com/",
-    "social": {
-      "instagram": "",
-      "twitter": ""
-    },
-    "releases": ["dore-february-night-01"],
-    "metadata": {
-      "uuid": "urn:uuid:11223344-5566-7788-99aa-bbccddeeff00",
-      "timestamp": "2025-11-22T09:00:00Z",
-      "operator": "cto@dagklassical.com"
-    }
+  "id": "teodor-dore",
+  "name": "Teodor Doré",
+  "role": "Compositor y Pianista",
+  "country": "Rusia",
+  "city": null,
+  "genre": ["música-contemporánea", "neorromanticismo", "diáspora-rusa"],
+  "bio": "Compositor ruso contemporáneo cuya obra explora la identidad en el exilio, la memoria histórica y el diálogo entre Oriente y Occidente.",
+  "bioLong": "Teodor Doré construye paisajes sonoros íntimos y épicos a la vez, inspirados en las cartas de emigrados rusos, los diarios de Rajmáninov y la nostalgia de una patria perdida. Su música, profundamente lírica y cargada de simbolismo, ha sido descrita como 'una carta musical desde el umbral del tiempo'.",
+  "avatar": "/artists/profile-teodor-dore-01.webp",
+  "social": {
+    "instagram": null,
+    "youtube": null,
+    "facebook": null
   },
+  "releases": ["teodor-dore-february-night"],
+  "musicCards": ["mc-2025-teodor-dore-february-night-std"],
+  "metadata": {
+    "uuid": "urn:uuid:$(uuidgen)",
+    "timestamp": "2025-11-28T11:00:00Z",
+    "operator": "cto@dagklassical.com"
+  }
+},
   {
   "id": "gerardo-gerulewicz",
   "name": "Gerardo Gerulewicz",
