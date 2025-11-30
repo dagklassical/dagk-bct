@@ -1,52 +1,128 @@
 ---
 // src/pages/nosotros/dag-klassical.astro
 import Layout from '../../layouts/Layout.astro';
-import ImmutableStamp from '../../components/ImmutableStamp.astro';
 
 const breadcrumbs = [
-  { label: 'Inicio', href: '/' },
-  { label: 'Nosotros', href: '/nosotros/' },
-  { label: 'Dag Klassical', href: '/nosotros/dag-klassical/' },
+ { label: 'Inicio', href: '/' },
+ { label: 'Nosotros', href: '/nosotros/' },
+ { label: 'DAG Klassical', href: '/dag-klassical/' },
 ];
-
-const pageTitle = 'DAG Klassical - Sobre Nosotros';
-const pageDescription = 'Sello discográfico vanguardista dedicado a la música clásica, jazz y contemporánea con certificación blockchain.';
 ---
 
-<Layout title={pageTitle} description={pageDescription} breadcrumbs={breadcrumbs}>
-  <article class="max-w-4xl mx-auto px-4 py-12">
-    <header class="text-center mb-12">
-      <h1 class="text-h1 font-advent font-bold mb-4">DAG Klassical</h1>
-      <div class="w-24 h-px bg-dag-burgundy mx-auto mb-6"></div>
-      <p class="text-lg text-slate-600 max-w-2xl mx-auto">
-        Sello vanguardista que se ha convertido en plataforma para el talento musical consolidado y emergente.
-      </p>
-    </header>
+<Layout title="Sobre Nosotros | DAG Klassical" description="Conoce la misión de DAG Klassical: fusionar la herencia de la música clásica con la innovación de la blockchain para crear un futuro sostenible para los artistas." breadcrumbs={breadcrumbs}>
+  <main>
+    <div class="max-w-5xl mx-auto px-4 py-12 space-y-20">
 
-    <!-- Misión -->
-    <section class="mb-12">
-      <h2 class="text-h2 font-advent font-semibold mb-4">Misión</h2>
-      <p class="text-slate-700">
-        Producir y difundir música clásica, jazz y contemporánea con los más altos estándares técnicos y artísticos, fomentando el intercambio cultural entre creadores venezolanos e internacionales. Nos dedicamos a preservar la autenticidad de cada obra, mientras innovamos en formatos digitales para llegar a audiencias globales.
-      </p>
-    </section>
+      <!-- ===================================
+           1. SECCIÓN HERO: La Gran Idea
+           =================================== -->
+      <section class="text-center">
+        <h1 class="text-h1 md:text-6xl font-advent font-bold text-slate-900 mb-4">
+          Donde la Tradición Encuentra la Innovación
+        </h1>
+        <p class="text-lg md:text-2xl text-slate-600 max-w-4xl mx-auto">
+          No solo preservamos la herencia de la música clásica; la reimaginamos para el siglo XXI, creando un ecosistema donde el arte y la tecnología convergen para empoderar a los artistas y conectar con audiencias globales.
+        </p>
+        <!-- Imagen conceptual que fusione lo clásico y lo digital -->
+        <div class="mt-12">
+          <img src="https://placehold.co/1200x600/0f172a/ffffff?text=Música+Clásica+en+la+Era+Digital" alt="Concepto de una partitura musical fusionada con circuitos digitales" class="w-full rounded-lg shadow-2xl object-cover" />
+        </div>
+      </section>
 
-    <!-- Visión -->
-    <section class="mb-12">
-      <h2 class="text-h2 font-advent font-semibold mb-4">Visión</h2>
-      <p class="text-slate-700">
-        Ser el referente indiscutible de la música culta en Iberoamérica, reconocido por su aporte al desarrollo del sector musical y por posicionar a Venezuela como epicentro de talento, innovación y diversidad sonora. Honramos el pasado e inspiramos el futuro en un mundo donde cada nota cuenta.
-      </p>
-    </section>
+      <!-- ===================================
+           2. SECCIÓN DE GÉNESIS: ¿Por qué existimos?
+           =================================== -->
+      <section>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl font-advent font-semibold text-slate-900 mb-4">Nuestra Génesis: Un Propósito Necesario</h2>
+            <p class="text-slate-700 mb-4">
+              En un mundo donde la música clásica lucha por mantener su relevancia y los artistas enfrentan modelos económicos obsoletos, vimos una oportunidad. Una oportunidad para utilizar la tecnología no para reemplazar el arte, sino para protegerlo, amplificarlo y hacerlo más justo.
+            </p>
+            <p class="text-slate-700">
+              DAG Klassical nace de la convicción de que la grandeza atemporal de la música clásica merece un futuro tan brillante como su pasado. Un futuro donde la autenticidad es innegable y el valor del artista es reconocido.
+            </p>
+          </div>
+          <div class="bg-platinum p-8 rounded-md">
+            <h3 class="font-bold text-xl text-dag-burgundy mb-3">Nuestro Compromiso</h3>
+            <p class="text-slate-700 italic">
+              "Ser el puente entre el legado inmutable de los grandes compositores y las infinitas posibilidades del futuro digital, asegurando que cada nota resuene con fuerza y propósito en las generaciones venideras."
+            </p>
+          </div>
+        </div>
+      </section>
 
-    <!-- Propuesta de valor (opcional pero poderosa) -->
-    <section class="bg-gray95 p-6 rounded-lg border border-platinum">
-      <h3 class="font-advent text-xl font-semibold mb-3">Tecnología y Tradición</h3>
-      <p class="text-slate-700">
-        En Dag Klassical, unimos la excelencia artística con la innovación tecnológica. Cada lanzamiento se certifica en blockchain, garantizando autenticidad, trazabilidad y valor para coleccionistas e inversores.
-      </p>
-    </section>
+      <!-- ===================================
+           3. SECCIÓN DE PILARES: ¿Cómo lo hacemos?
+           =================================== -->
+      <section>
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-advent font-semibold text-slate-900 mb-3">Nuestros Pilares Fundamentales</h2>
+          <p class="text-lg text-slate-600">Construimos el futuro de la música sobre tres bases sólidas.</p>
+        </div>
 
-    <!-- Metadatos inmutables -->
-  </article>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center">
+                        <div class="bg-dag-burgundy text-white text-3xl font-bold w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">1</div>
+
+            <h3 class="font-bold text-lg mb-2">Preservación Digital</h3>
+            <p class="text-slate-600">Utilizamos la blockchain para crear un registro inmutable y eterno de cada obra, asegurando que la herencia musical se preserve para siempre.</p>
+          </div>
+          <div class="text-center">
+                        <div class="bg-dag-burgundy text-white text-3xl font-bold w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">2</div>
+
+            <h3 class="font-bold text-lg mb-2">Empoderamiento Artístico</h3>
+            <p class="text-slate-600">Creamos nuevas vías para que los artistas monetizen su talento, desde Music Cards hasta regalías automáticas, devolviéndoles el control sobre su obra.</p>
+          </div>
+          <div class="text-center">
+                        <div class="bg-dag-burgundy text-white text-3xl font-bold w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">3</div>
+
+            <h3 class="font-bold text-lg mb-2">Acceso Global</h3>
+            <p class="text-slate-600">Rompemos barreras geográficas, permitiendo que cualquier persona, en cualquier lugar del mundo, pueda acceder, disfrutar y coleccionar música clásica de primer nivel.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================
+           4. SECCIÓN DE LIDERAZGO: La Evidencia (CEO)
+           =================================== -->
+      <section class="bg-slate-900 text-white p-12 rounded-lg">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl font-advent font-semibold mb-4">Una Visión con Alcance Global</h2>
+            <p class="text-lg mb-6 opacity-90">
+              Una ambición de esta magnitud requiere una visión forjada en los escenarios más exigentes del mundo. La dirección de DAG Klassical está liderada por una figura cuya carrera es un testimonio del poder de la música para unir culturas y trascender fronteras.
+            </p>
+            <p class="mb-6">
+              Bajo el liderazgo de <strong class="text-white">Danilo Álvarez</strong>, un galardonado director de orquesta con una trayectoria internacional, DAG Klassical no es solo una idea, es un movimiento. Su experiencia, desde colaboraciones con leyendas como <strong class="text-white">Plácido Domingo</strong> hasta la fundación de la <strong class="text-white">Orquesta Sinfónica de las Américas</strong>, nos proporciona la red, el conocimiento y la credibilidad para llevar esta revolución a cada rincón del planeta.
+            </p>
+            <a href="/nosotros/danilo-alvarez/" target="_self" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-platinum hover:underline font-semibold">
+  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">...</svg>
+  Conocer más sobre su trayectoria
+</a>
+          </div>
+          <div class="flex justify-center">
+            <!-- Reemplazar con una foto profesional del CEO -->
+            <img src="https://placehold.co/400x500/e5e5e5/0f172a?text=Danilo+%C3%81lvarez" alt="Danilo Álvarez, CEO de DAG Klassical" class="w-full max-w-sm rounded-lg shadow-xl object-cover" />
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================
+           5. SECCIÓN FINAL: La Invitación
+           =================================== -->
+      <section class="text-center">
+        <h2 class="text-3xl font-advent font-semibold text-slate-900 mb-4">Únete a la Revolución Musical</h2>
+        <p class="text-lg text-slate-600 mb-8 max-w-3xl mx-auto">
+          Ya seas un melómano apasionado, un artista visionario o un coleccionista de lo nuevo, te invitamos a ser parte de esta nueva era. Juntos, podemos escribir el próximo capítulo de la historia de la música.
+        </p>
+        <a
+          href="/musics/artistas" class="inline-block bg-dag-burgundy text-white text-lg font-semibold px-10 py-4 rounded-lg hover:bg-opacity-90 transition-all transform hover:scale-105 shadow-lg"
+        >
+          Explorar Nuestro Mundo
+        </a>
+      </section>
+
+    </div>
+  </main>
 </Layout>

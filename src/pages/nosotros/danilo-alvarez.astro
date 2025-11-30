@@ -1,65 +1,67 @@
 ---
 // src/pages/nosotros/danilo-alvarez.astro
 import Layout from '../../layouts/Layout.astro';
-import immutableStamp from '../../components/ImmutableStamp.astro';
 
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
-  { label: 'Nosotros', href: '/nosotros/' },
+  { label: 'Sobre Nosotros', href: '/nosotros/' },
   { label: 'Danilo Álvarez', href: '/nosotros/danilo-alvarez/' },
 ];
-const pageTitle = 'Danilo Álvarez - Dag Klassical BCT';
-const pageDescription = 'Productor musical, ingeniero de sonido y ganador de dos Latin Grammy. Director artístico de Dag Klassical.';
 ---
 
-<Layout title={pageTitle} description={pageDescription} breadcrumbs={breadcrumbs}>
-  <article class="max-w-6xl mx-auto px-4 py-8">
-    <div class="flex flex-col md:flex-row gap-8">
-      <!-- Imagen a la izquierda -->
-      <div class="md:w-1/3 flex justify-center md:justify-start">
-        <img
-          src="/artist/profile-danilo-alvarez-01.jpg"
-          alt="Danilo Álvarez"
-          class="w-81 h-96 rounded-s-sm object-cover shadow-md border-4 border-platinum"
-          onerror="this.src='/artists/profile-personas-01.jpg'"
-        />
-      </div>
+<Layout title="Danilo Álvarez | Líder de DAG Klassical" description="Conoce la trayectoria de Danilo Álvarez, el director de orquesta de renombre mundial que lidera la revolución digital de la música clásica con DAG Klassical." breadcrumbs={breadcrumbs}>
+  <main>
+    <div class="max-w-4xl mx-auto px-4 py-12 space-y-16">
 
-      <!-- Contenido a la derecha -->
-      <div class="md:w-2/3 prose prose-slate max-w-none">
-        <h1 class="text-h1 font-advent mb-4">Danilo Álvarez Carrillo</h1>
-        <p class="text-lg mb-6 text-slate-600">
-          Productor musical, ingeniero de sonido, músico y autor venezolano, reconocido internacionalmente por su trabajo en la grabación de orquestas sinfónicas y su contribución a la música culta latinoamericana.
-        </p>
-        <h2 class="text-h2 font-advent mb-4">Reconocimientos</h2>
-        <ul class="list-disc pl-5 space-y-2 mb-6">
-          <li><strong>Dos Latin Grammy</strong>: en 2017 (mejor álbum tropical por <em>Bidimensional</em> con Guaco y la Orquesta Sinfónica Simón Bolívar) y en 2019 (mejor álbum de música clásica por <em>Regreso</em> con la Orquesta Nueva Filarmonía).</li>
-          <li><strong>Premio Latinoamericano de Oro</strong> (2019) como ingeniero y productor musical de mayor influencia en Venezuela.</li>
-        </ul>
-        <h2 class="text-h2 font-advent mb-4">Trayectoria</h2>
-        <p class="mb-4">
-          Graduado del Conservatorio de Música Simón Bolívar con especialización en grabación de orquestas sinfónicas (<em>Tonmeister</em>), fue ingeniero de sonido principal del Sistema Nacional de Orquestas y Coros de Venezuela durante más de 15 años.
-        </p>
-        <p class="mb-4">
-          Ha colaborado con figuras de talla mundial como Gustavo Dudamel, Claudio Abbado, Luciano Pavarotti, Daniel Barenboim, Philip Glass, y orquestas como la Los Angeles Philharmonic, la Sinfónica Simón Bolívar y la Filarmónica de Caracas.
-        </p>
-        <p class="mb-6">
-          Su labor lo ha llevado a trabajar en más de 25 países, participando en prestigiosos eventos como los BBC Proms en Londres, el Festival de Salzburgo y la Temporada de Ópera de La Scala en Milán.
-        </p>
+      <!-- 1. Hero con Foto y Título -->
+      <section class="text-center md:text-left md:flex gap-8 items-center">
+        <img src="https://placehold.co/300x400/e5e5e5/0f172a?text=Danilo+%C3%81lvarez" alt="Danilo Álvarez" class="w-48 h-64 rounded-lg shadow-xl object-cover mx-auto md:mx-0" />
+        <div>
+          <h1 class="text-h1 font-advent font-bold text-slate-900 mb-2">Danilo Álvarez</h1>
+          <p class="text-xl text-dag-burgundy font-semibold mb-4">Director de Orquesta y Visionario Digital</p>
+          <p class="text-slate-700">
+            Con una carrera que ha transcendedo fronteras y culturales, Danilo Álvarez no solo interpreta la música clásica; la reimagina. Su liderazgo en DAG Klassical es la culminación de una vida dedicada a la excelencia artística y ahora, a la innovación tecnológica.
+          </p>
+        </div>
+      </section>
 
-        <h2 class="text-h2 font-advent mb-4">Docencia y Legado</h2>
-        <p class="mb-6">
-          Profesor activo de la “Cátedra del Arte de la grabación y la producción musical” en el Centro de Acción Social por la Música, ha impartido numerosas masterclasses internacionales sobre grabación y mezcla orquestal.
+      <!-- 2. Trayectoria como Evidencia -->
+      <section>
+        <h2 class="text-3xl font-advent font-semibold text-slate-900 mb-6">Una Carrera que Inspira Confianza</h2>
+        <p class="text-slate-700 mb-4">
+          La visión de DAG Klassical no es una utopía; está respaldada por una de las trayectorias más sólidas de la música clásica contemporánea. Sus logros no son solo trofeos, son la prueba de que tiene la red, el conocimiento y el respeto para liderar una transformación a escala global.
         </p>
+        <div class="bg-gray95 p-6 rounded-lg">
+          <ul class="space-y-3 text-slate-700">
+            <li><strong class="text-dag-burgundy">Fundador y Director Artístico:</strong> De la Orquesta Sinfónica de las Américas (OSA), un proyecto que une talentos de todo el continente.</li>
+            <li><strong class="text-dag-burgundy">Colaboraciones de Renombre:</strong> Ha trabajado junto a leyendas como Plácido Domingo, Itzhak Perlman y Joshua Bell.</li>
+            <li><strong class="text-dag-burgundy">Reconocimiento Internacional:</strong> Galardonado en múltiples países por su contribución a las artes y la cultura.</li>
+            <li><strong class="text-dag-burgundy">Voz Activa:</strong> Ponente en foros globales sobre el futuro de la música y las artes escénicas.</li>
+          </ul>
+        </div>
+      </section>
 
-        <h2 class="text-h2 font-advent mb-4">Rol en Dag Klassical</h2>
-        <p class="mb-4">
-          Hoy día es el <strong>director artístico y productor principal</strong> del sello discográfico <strong>Dag Klassical</strong>, donde combina su excelencia técnica con la innovación en formatos digitales verificables en blockchain.
+      <!-- 3. La Visión para DAG (El contenido ÚNICO) -->
+      <section class="bg-slate-900 text-white p-8 rounded-lg">
+        <h2 class="text-3xl font-advent font-semibold mb-4">"La tecnología debe ser el escenario, no el protagonista"</h2>
+        <p class="text-lg opacity-90 mb-4">
+          En una entrevista exclusiva para DAG Klassical, Danilo comparte su motivación:
         </p>
-        <p class="mb-6">
-          Cada obra publicada bajo DAG Klassical refleja su compromiso con la autenticidad, la alta fidelidad y la preservación del patrimonio musical iberoamericano.
+        <blockquote class="border-l-4 border-dag-burgundy pl-6 italic text-lg">
+          "Llevo décadas viendo el poder inmenso de la música clásica para mover almas. Pero también he visto cómo los modelos antiguos ahogan a los artistas. DAG Klassical nace de mi convicción de que podemos usar la blockchain para crear un sistema más justo, donde cada compositor, cada músico, reciba el valor que merece. No estamos reemplazando la partitura, estamos dándole un alma digital inmutable."
+        </blockquote>
+      </section>
+
+      <!-- 4. Llamada a la Acción -->
+      <section class="text-center">
+        <p class="text-lg text-slate-600 mb-6">
+          La visión de Danilo es la brújula de DAG Klassical. Explora cómo estamos convirtiendo esta visión en realidad.
         </p>
-      </div>
+        <a href="/blockchain/music-cards" class="inline-block bg-dag-burgundy text-white text-lg font-semibold px-8 py-3 rounded-lg hover:bg-opacity-90 transition-all">
+          Descubrir Nuestros Proyectos
+        </a>
+      </section>
+
     </div>
-  </article>
+  </main>
 </Layout>

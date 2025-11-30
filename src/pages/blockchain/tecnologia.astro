@@ -1,94 +1,139 @@
 ---
 // src/pages/blockchain/tecnologia.astro
 import Layout from '../../layouts/Layout.astro';
-import ImmutableStamp from '../../components/ImmutableStamp.astro';
 
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
   { label: 'Blockchain', href: '/blockchain/' },
   { label: 'Tecnología', href: '/blockchain/tecnologia/' },
 ];
-const pageTitle = 'Tecnología Blockchain - Dag Klassical BCT';
-const pageDescription = 'Proceso de certificación inmutable de Music Cards en la red Polygon. Autenticidad, trazabilidad y valor garantizado.';
 ---
 
-<Layout title={pageTitle} description={pageDescription} breadcrumbs={breadcrumbs}>
-  <article class="max-w-4xl mx-auto px-4 py-8 mb-10">
-    <header class="text-center mb-12">
-      <h1 class="text-h1 font-advent">Certificación Blockchain</h1>
-      <p class="text-lg text-slate-600 max-w-2xl mx-auto">
-        Cada Music Card es un activo digital único, registrado en la cadena de bloques de Polygon con metadatos inmutables.
-      </p>
-    </header>
+<Layout title="Tecnología Blockchain | DAG Klassical" description="Descubre la tecnología detrás de DAG Klassical: Polygon, NFTs y nuestros innovadores MFTs, diseñados para revolucionar la industria musical." breadcrumbs={breadcrumbs}>
+  <main class="bg-gray95">
+    <div class="max-w-5xl mx-auto px-4 py-12 space-y-20">
 
-    <!-- Proceso de certificación -->
-    <section class="mb-16">
-      <h2 class="text-h2 font-advent mb-6 text-center">Flujo de Certificación</h2>
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-        {['Creación', 'Mastering', 'Certificación', 'Distribución'].map((step, i) => (
-          <div key={i} class="text-center">
-            <div class="w-12 h-12 rounded-full bg-dag-black/20 text-white flex items-center justify-center mx-auto mb-3 font-bold hover:bg-dag-burgundy/80">
-              {i + 1}
-            </div>
-            <h3 class="font-medium">{step}</h3>
+      <!-- ===================================
+           1. SECCIÓN HERO: La Promesa (Sin foto)
+           =================================== -->
+      <section class="text-center">
+        <h1 class="text-4xl md:text-6xl font-advent font-bold text-slate-900 mb-4">
+          Tecnología al Servicio del Arte
+        </h1>
+        <p class="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto">
+          Hemos elegido y adaptado las herramientas blockchain más avanzadas no por su complejidad, sino por su poder para crear un ecosistema musical más transparente, justo y conectado.
+        </p>
+      </section>
+
+      <!-- ===================================
+           2. SECCIÓN PILAR: ¿Por qué Polygon?
+           =================================== -->
+      <section class="bg-white p-8 rounded-lg shadow-sm">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h2 class="text-3xl font-advent font-semibold text-slate-900 mb-4">La Base de Nuestra Revolución: Polygon</h2>
+            <p class="text-slate-700 mb-4">
+              Elegimos la red Polygon por su compromiso con la sostenibilidad, la velocidad y las bajas comisiones. Esto nos permite ofrecer una experiencia fluida y accesible, sin los altos costos y el impacto ambiental de otras blockchains.
+            </p>
+            <p class="text-slate-700">
+              Para nosotros, la tecnología debe ser un puente, no una barrera. Polygon es el puente perfecto para llevar la música clásica al futuro.
+            </p>
           </div>
-        ))}
-      </div>
-    </section>
+          <div class="flex justify-center">
+            <!-- Icono de Polygon -->
+            <div class="w-32 h-32 bg-purple-100 rounded-full flex items-center justify-center">
+              <svg class="w-20 h-20 text-purple-600" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16.452 9.636l-3.544-2.047a1.273 1.273 0 00-1.273 0L8.09 9.636a1.273 1.273 0 00-.636 1.103v4.094c0 .455.243.876.636 1.103l3.545 2.047a1.273 1.273 0 001.273 0l3.545-2.047a1.273 1.273 0 00.636-1.103v-4.094a1.273 1.273 0 00-.637-1.103zM12 15.475l-3.182-1.839v-3.678L12 8.119l3.182 1.839v3.678L12 15.475z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <!-- Explicación detallada -->
-    <section class="prose prose-slate max-w-none mb-12">
-      <h2 class="font-advent text-h2 mb-4">Cómo funciona</h2>
-      <h3 class="text-h3 font-advent">1. Creación de la Obra</h3>
-      <p class="pl-6">
-        La obra musical es producida, grabada y masterizada por Danilo Álvarez y el equipo de Dag Klassical, con estándares de estudio maestro.
-      </p>
-      <h3 class="text-h3 font-advent py-1">2. Generación de Metadatos Inmutables</h3>
-      <p class="pl-6">Antes del minting, se genera un objeto con UUID, timestamp, operador y hash SHA256 del contenido. Este conjunto es irrepetible y público.
-      </p>
-      <h3 class="text-h3 font-advent py-1">3. Registro en Blockchain (Polygon)</h3>
-      <p class="pl-6">Se despliega un smart contract (ERC-1155 o ERC-721) en la red Polygon. Cada Music Card recibe un Token ID único, y su hash se registra en la transacción.
-      </p>
-      <h3 class="text-h3 font-advent py-1">4. Vinculación con el Activo Digital</h3>
-      <p class="pl-6">La Music Card incluye un código QR que enlaza al audio en FLAC 24-bit/192kHz, partitura digital y página de verificación en Polygonscan.
-      </p>
-    </section>
+      <!-- ===================================
+           3. SECCIÓN CLAVE: NFT vs. MFT (El Diferenciador)
+           =================================== -->
+      <section>
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-advent font-semibold text-slate-900 mb-4">Más Allá del NFT: Introduciendo los MFT</h2>
+          <p class="text-lg text-slate-600">
+            Mientras que los NFTs son perfectos para lo único, hemos desarrollado los MFTs (Music Fungible Tokens) para lo colectivo.
+          </p>
+        </div>
 
-    <!-- Ejemplo de transacción -->
-    <section class="mb-12 p-6 bg-white border border-platinum rounded-lg">
-      <h2 class="font-advent text-h2 mb-4">Ejemplo de Transacción</h2>
-      <p><strong>Contrato:</strong> <code class="text-xs bg-slate-100 p-1 rounded">0x7a8d...6a5</code></p>
-      <p><strong>Token ID:</strong> 1001</p>
-      <p><strong>Hash de contenido:</strong> <code class="text-xs bg-slate-100 p-1 rounded">a1b2c3d4e5f6...</code></p>
-      <p><strong>Fecha:</strong> 23 de noviembre de 2025, 14:30 UTC</p>
-      <p class="mt-2">
-        <a href="https://polygonscan.com/token/0x7a8d...?a=1001" target="_blank" class="text-dag-burgundy hover:underline font-medium">
-          Ver en Polygonscan →
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Tarjeta NFT -->
+          <div class="bg-white p-6 rounded-lg border-2 border-slate-200">
+            <h3 class="font-bold text-xl mb-3 text-slate-900">NFTs (No Fungible Tokens)</h3>
+            <p class="text-slate-700 mb-4">
+              Son activos digitales <strong class="font-semibold">únicos e irremplazables</strong>. Ideales para certificar la propiedad de items exclusivos.
+            </p>
+            <ul class="space-y-2 text-sm text-slate-600">
+              <li>✓ Una entrada específica para un concierto.</li>
+              <li>✓ La partitura original firmada por un compositor.</li>
+              <li>✓ Un cover art único de un álbum.</li>
+            </ul>
+          </div>
+
+          <!-- Tarjeta MFT -->
+          <div class="bg-dag-burgundy/10 p-6 rounded-lg border-2 border-dag-burgundy">
+            <h3 class="font-bold text-xl mb-3 text-dag-burgundy">MFTs (Music Fungible Tokens)</h3>
+            <p class="text-slate-700 mb-4">
+              Son tokens <strong class="font-semibold">intercambiables e idénticos</strong> entre sí. Perfectos para representar acciones o derechos compartidos.
+            </p>
+            <ul class="space-y-2 text-sm text-slate-600">
+              <li>✓ Derechos sobre las regalías de una canción.</li>
+              <li>✓ Una porción de los ingresos de un tour.</li>
+              <li>✓ Acceso a una suscripción de contenido.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================
+           4. SECCIÓN "CÓMO FUNCIONA": Simplificando el proceso
+           =================================== -->
+      <section class="bg-slate-900 text-white p-12 rounded-lg">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl font-advent font-semibold mb-4">La Tecnología, Simplificada</h2>
+          <p class="text-lg opacity-90">Así es como nuestra infraestructura blockchain trabaja para ti en tres pasos.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 text-center">
+          <div>
+            <div class="bg-white text-slate-900 text-3xl font-bold w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">1</div>
+            <h3 class="font-bold text-lg mb-2">Creación</h3>
+            <p class="opacity-90">Un artista - o compañía musical - crea un activo (NFT o MFT) en nuestra plataforma, quedando registrado en la blockchain de Polygon.</p>
+          </div>
+          <div>
+            <div class="bg-white text-slate-900 text-3xl font-bold w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">2</div>
+            <h3 class="font-bold text-lg mb-2">Transacción</h3>
+            <p class="opacity-90">Tú, como fan o coleccionista, compras o intercambias ese activo de forma segura, transparente y con bajos costes.</p>
+          </div>
+          <div>
+            <div class="bg-white text-slate-900 text-3xl font-bold w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">3</div>
+            <h3 class="font-bold text-lg mb-2">Verificación</h3>
+            <p class="opacity-90">La propiedad y el historial del activo son públicos y verificables por cualquiera, creando un ecosistema de confianza total.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================
+           5. SECCIÓN FINAL: La Invitación
+           =================================== -->
+      <section class="text-center">
+        <h2 class="text-3xl font-advent font-semibold text-slate-900 mb-4">La Innovación está en tus manos</h2>
+        <p class="text-lg text-slate-600 mb-8 max-w-3xl mx-auto">
+          Explora nuestra tienda y descubre cómo esta tecnología está dando vida a nuevas formas de disfrutar, coleccionar y apoyar la música clásica.
+        </p>
+        <a
+          href="/blockchain/music-cards"
+          class="inline-block bg-dag-burgundy text-white text-lg font-semibold px-10 py-4 rounded-lg hover:bg-opacity-90 transition-all transform hover:scale-105 shadow-lg"
+        >
+          Explorar Music Cards
         </a>
-      </p>
-    </section>
+      </section>
 
-    <!-- Beneficios -->
-    <section class="mb-12">
-      <h2 class="font-advent text-h2 mb-4 text-center">Beneficios para el Coleccionista</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="p-4 border border-platinum rounded-lg">
-          <h3 class="text-h3 font-advent">Autenticidad Garantizada</h3>
-          <p>No puede ser falsificada. El hash es único e irreplicable.</p>
-        </div>
-        <div class="p-4 border border-platinum rounded-lg">
-          <h3 class="text-h3 font-advent">Trazabilidad Perpetua</h3>
-          <p>Historial de propiedad y origen visible para siempre en blockchain.</p>
-        </div>
-        <div class="p-4 border border-platinum rounded-lg">
-          <h3 class="text-h3 font-advent">Calidad de Estudio Maestro</h3>
-          <p>Audio en FLAC 24-bit/192kHz, disponible mediante QR.</p>
-        </div>
-        <div class="p-4 border border-platinum rounded-lg">
-          <h3 class="text-h3 font-advent">Valor de Inversión</h3>
-          <p>Atado al legado y reconocimiento del artista.</p>
-        </div>
-      </div>
-    </section>
-  </article>
+    </div>
+  </main>
 </Layout>
