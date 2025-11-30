@@ -15,9 +15,10 @@
       "Audio FLAC 24-bit/192kHz",
       "Partitura digital firmada",
       "Acceso a lanzamiento exclusivo",
-      "Contenido detrás de cámaras"
+      "Contenido detrás de cámaras",
+      "Partitura digital firmada"
     ],
-    "cardImage": "/cards/mc-2025-gerulewicz-aguinaldo-std.webp",
+    "cardImage": "/cards/mc-2025-pendiente.webp",
     "metadata": {
       "uuid": "urn:uuid:a1b2c3d4-5678-90ab-cdef-123456789001",
       "timestamp": "2025-11-25T10:00:00Z",
@@ -38,10 +39,12 @@
     "status": "próximo",
     "benefits": [
       "Audio FLAC 24-bit/192kHz",
-      "Partitura digital",
-      "Notas del compositor"
+      "Partitura digital firmada",
+      "Acceso a lanzamiento exclusivo",
+      "Contenido detrás de cámaras",
+      "Partitura digital firmada"
     ],
-    "cardImage": "/cards/ramirez-capitulos-std.webp",
+    "cardImage": "/cards/mc-2025-pendiente.webp",
     "metadata": {
       "uuid": "urn:uuid:b2c3d4e5-6789-01ab-cdef-234567890002",
       "timestamp": "2025-11-25T10:00:01Z",
@@ -52,7 +55,7 @@
   "id": "mc-2025-goulnara-schubert-std",
   "title": "Schubert",
   "edition": "Estándar",
-  "associatedRelease": "goulnara-golinchina-schubert-d960-d780",
+  "associatedRelease": "goulnara-galimchina-schubert-d960-d780",
   "totalSupply": 100,
   "available": 100,
   "blockchain": "Polygon",
@@ -88,11 +91,12 @@
   "status": "available",
   "benefits": [
     "Audio FLAC 24-bit/192kHz",
-    "Libreto digital con cartas originales",
-    "Acceso a ensayo privado",
-    "Certificación inmutable en blockchain"
+      "Partitura digital firmada",
+      "Acceso a lanzamiento exclusivo",
+      "Contenido detrás de cámaras",
+      "Partitura digital firmada"
   ],
-  "cardImage": "/cards/mc-2025-teodor-dore-february-night.webp",
+  "cardImage": "/cards/mc-2025-pendiente.webp",
   "metadata": {
     "uuid": "urn:uuid:$(uuidgen)",
     "timestamp": "2025-11-28T11:00:00Z",
@@ -113,11 +117,12 @@
   "status": "available",
   "benefits": [
     "Audio FLAC 24-bit/192kHz",
-    "Libreto histórico sobre 'Los Cinco'",
-    "Acceso a documental exclusivo",
-    "Certificación inmutable en blockchain"
+      "Partitura digital firmada",
+      "Acceso a lanzamiento exclusivo",
+      "Contenido detrás de cámaras",
+      "Partitura digital firmada"
   ],
-  "cardImage": "/cards/mc-2025-academica-moscu-nacionalismo.webp",
+  "cardImage": "/cards/mc-2025-pendiente.webp",
   "metadata": {
     "uuid": "urn:uuid:$(uuidgen)",
     "timestamp": "2025-11-28T11:30:00Z",

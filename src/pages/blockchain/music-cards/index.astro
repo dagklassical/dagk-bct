@@ -27,48 +27,50 @@ const breadcrumbs = [
     </p>
   </header>
 
-  <div class="max-w-6xl mx-auto px-4 py-8">
+  <div class="max-w-6xl mx-auto px-4 py-4">
     <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
       {availableCards.map(card => {
         const release = releaseMap[card.associatedRelease];
         const artist = release?.artistIds?.[0] ? artistMap[release.artistIds[0]] : null;
         return (
           <a 
-            href={`/blockchain/music-cards/${card.id}`} 
-            class="block group border border-slate-200 rounded-md hover:border-dag-burgundy/40 transition-colors bg-white shadow-sm"
-            key={card.id}
-          >
-            <!-- Imagen de la Music Card -->
-            <div class="aspect-[5/8] bg-slate-100 rounded-md overflow-hidden mb-4">
-              {card.cardImage ? (
-                <img src={card.cardImage} alt={card.title} class="w-full h-full object-cover" />
-              ) : (
-                <div class="w-full h-full flex items-center justify-center text-slate-400 text-xs">
-                  Sin imagen
-                </div>
-              )}
-            </div>
-            
-            <!-- Título y artista -->
-            <h3 class="text-h3 font-advent text-slate-800 group-hover:text-dag-burgundy">{card.title}</h3>
-            {artist && <p class="text-sm text-slate-600 mt-1">por {artist.name}</p>}
+  href={`/blockchain/music-cards/${card.id}`} 
+  class="block group border border-slate-200 rounded-md hover:border-dag-burgundy/40 transition-colors bg-white shadow-sm"
+  key={card.id}
+>
+  <!-- Imagen sin padding: toca los bordes del enlace -->
+  <div class="aspect-[5/8] bg-slate-100 rounded-t-md overflow-hidden">
+    {card.cardImage ? (
+      <img src={card.cardImage} alt={card.title} class="w-full h-full object-cover" />
+    ) : (
+      <div class="w-full h-full flex items-center justify-center text-slate-400 text-xs">
+        Sin imagen
+      </div>
+    )}
+  </div>
+  
+  <!-- Contenido con padding -->
+  <div class="p-4">
+    <h3 class="text-h3 font-advent text-slate-800 group-hover:text-dag-burgundy">{card.title}</h3>
+    {artist && <p class="text-sm text-slate-600 mt-1">por {artist.name}</p>}
 
-            <!-- Edición y disponibilidad -->
-            <div class="mt-3 flex justify-between items-center text-sm">
-              <span class="px-2 py-1 bg-dag-burgundy/10 text-dag-burgundy rounded">
-                {card.edition}
-              </span>
-              <span class="text-slate-500">
-                {card.available} de {card.totalSupply}
-              </span>
-            </div>
+    <!-- Edición y disponibilidad -->
+    <div class="mt-3 flex justify-between items-center text-sm">
+      <span class="px-2 py-1 bg-dag-burgundy/10 text-dag-burgundy rounded">
+        {card.edition}
+      </span>
+      <span class="text-slate-500">
+        {card.available} de {card.totalSupply}
+      </span>
+    </div>
 
-            <!-- Precio -->
-            <div class="mt-3 pt-3 border-t border-slate-100">
-              <p class="font-semibold text-lg">{card.price}</p>
-              <p class="text-xs text-slate-500">en {card.blockchain}</p>
-            </div>
-          </a>
+    <!-- Precio -->
+    <div class="mt-3 pt-3 border-t border-slate-100">
+      <p class="font-semibold text-lg">{card.price}</p>
+      <p class="text-xs text-slate-500">en {card.blockchain}</p>
+    </div>
+  </div>
+</a>
         );
       })}
     </div>

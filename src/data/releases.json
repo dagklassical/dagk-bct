@@ -211,14 +211,14 @@
   }
 },
   {
-  "id": "goulnara-golinchina-schubert-d960-d780",
+  "id": "goulnara-galimchina-schubert-d960-d780",
   "title": "Schubert: Sonata D960 & Momentos Musicales D780",
-  "artistIds": ["goulnara-golinchina"],
+  "artistIds": ["goulnara-galimchina"],
   "genre": "música-clásica",
   "releaseDate": "2025-01-01",
   "type": "álbum",
   "status": "lanzado",
-  "description": "Interpretación íntima y técnicamente impecable de la última sonata para piano de Schubert y una selección de sus Momentos Musicales, a cargo de la pianista rusa Goulnara Golinchina.",
+  "description": "Interpretación íntima y técnicamente impecable de la última sonata para piano de Schubert y una selección de sus Momentos Musicales, a cargo de la pianista rusa Goulnara Galímchina.",
   "coverImage": "/covers/cover-schubert-01.webp",
   "demoAvailable": true,
   "fullAlbumAvailable": false,
@@ -236,61 +236,61 @@
     "composer": "Franz Schubert",
     "workCatalogue": "Sonata D960",
     "duration": "12:30",
-    "demo": "/protected/demo/goulnara-golinchina/schubert/goulnara-schubert-d960-01-moderato-demo.mp3"
+    "demo": "/protected/demo/goulnara-galimchina/schubert/goulnara-schubert-d960-01-moderato-demo.mp3"
   },
   {
     "title": "II. Andante sostenuto",
     "composer": "Franz Schubert",
     "workCatalogue": "Sonata D960",
     "duration": "8:45",
-    "demo": "/protected/demo/goulnara-golinchina/schubert/goulnara-schubert-d960-02-andante-demo.mp3"
+    "demo": "/protected/demo/goulnara-galimchina/schubert/goulnara-schubert-d960-02-andante-demo.mp3"
   },
   {
     "title": "III. Scherzo. Allegro vivace con delicatezza",
     "composer": "Franz Schubert",
     "workCatalogue": "Sonata D960",
     "duration": "4:20",
-    "demo": "/protected/demo/goulnara-golinchina/schubert/goulnara-schubert-d960-03-scherzo-demo.mp3"
+    "demo": "/protected/demo/goulnara-galimchina/schubert/goulnara-schubert-d960-03-scherzo-demo.mp3"
   },
   {
     "title": "IV. Allegro, ma non troppo",
     "composer": "Franz Schubert",
     "workCatalogue": "Sonata D960",
     "duration": "7:50",
-    "demo": "/protected/demo/goulnara-golinchina/schubert/goulnara-schubert-d960-04-allegro-demo.mp3"
+    "demo": "/protected/demo/goulnara-galimchina/schubert/goulnara-schubert-d960-04-allegro-demo.mp3"
   },
   {
     "title": "Momento musical No. 1 en Do mayor",
     "composer": "Franz Schubert",
     "workCatalogue": "D780",
     "duration": "3:40",
-    "demo": "/protected/demo/goulnara-golinchina/schubert/goulnara-schubert-d780-01-moderato-demo.mp3"
+    "demo": "/protected/demo/goulnara-galimchina/schubert/goulnara-schubert-d780-01-moderato-demo.mp3"
   },
   {
     "title": "Momento musical No. 2 en La bemol mayor",
     "composer": "Franz Schubert",
     "workCatalogue": "D780",
     "duration": "3:15",
-    "demo": "/protected/demo/goulnara-golinchina/schubert/goulnara-schubert-d780-02-andantino-demo.mp3"
+    "demo": "/protected/demo/goulnara-galimchina/schubert/goulnara-schubert-d780-02-andantino-demo.mp3"
   },
   {
     "title": "Momento musical No. 4 en Fa menor",
     "composer": "Franz Schubert",
     "workCatalogue": "D780",
     "duration": "2:50",
-    "demo": "/protected/demo/goulnara-golinchina/schubert/goulnara-schubert-d780-04-moderato-demo.mp3"
+    "demo": "/protected/demo/goulnara-galimchina/schubert/goulnara-schubert-d780-04-moderato-demo.mp3"
   },
   {
     "title": "Momento musical No. 6 en La bemol mayor",
     "composer": "Franz Schubert",
     "workCatalogue": "D780",
     "duration": "2:30",
-    "demo": "/protected/demo/goulnara-golinchina/schubert/goulnara-schubert-d780-06-allegretto-demo.mp3"
+    "demo": "/protected/demo/goulnara-galimchina/schubert/goulnara-schubert-d780-06-allegretto-demo.mp3"
   }
 ],
   "duration": "46:00",
   "commentary": "Schubert en su máxima expresión lírica y estructural. La Sonata D960, compuesta semanas antes de su muerte, es un testamento sonoro de serenidad y despedida. Los Momentos Musicales, en tanto, capturan destellos de belleza introspectiva.",
-  "commentaryAuthor": "Goulnara Golinchina",
+  "commentaryAuthor": "Goulnara Galímchina",
   "musicCards": ["mc-2025-goulnara-schubert-std"],
   "metadata": {
     "uuid": "urn:uuid:$(uuidgen)",
