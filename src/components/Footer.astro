@@ -57,7 +57,9 @@ import { Instagram, Twitter, Youtube } from 'lucide-astro';
         © {new Date().getFullYear()} Dag Klassical. Todos los derechos reservados. 
         <a href="/nosotros/terminos" class="hover:underline ml-4">Términos</a>
         <a href="/politica-privacidad" class="hover:underline ml-4">Privacidad</a>
+        {import.meta.env.PROD && (
         <a href="/sitemap-index.xml" class="hover:underline ml-4">Sitemap</a>
+        )}
       </p>
     </div>
   </div>

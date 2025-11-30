@@ -1,13 +1,67 @@
 ---
-// src/pages/blockchain/lanzamientos.astro
+// src/pages/nosotros/terminos.astro
 import Layout from '../../layouts/Layout.astro';
 
-const pageTitle = 'Lanzamientos - dagk-bct';
-const pageDescription = 'Colecciona Music Cards únicas y verificables.';
+const breadcrumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Nosotros', href: '/nosotros/' },
+  { label: 'Términos y Condiciones', href: '/nosotros/terminos/' },
+];
 ---
 
-<Layout title={pageTitle} description={pageDescription}>
-  <h1 class="text-3xl font-bold mb-4">Lanzamientos</h1>
-  <p>Explora nuestro marketplace de Music Cards.</p>
-  <!-- Aquí irá el contenido específico del marketplace -->
+<Layout title="Términos y Condiciones" description="Condiciones de uso de DAG Klassical y sus servicios blockchain" breadcrumbs={breadcrumbs}>
+
+  <article class="max-w-3xl mx-auto px-4 py-8">
+    <header class="text-center mb-10">
+      <h1 class="text-4xl md:text-5xl font-advent font-bold text-slate-800">Términos y Condiciones</h1>
+      <p class="text-slate-600 mt-3">Última actualización: 28 de noviembre de 2025</p>
+    </header>
+
+    <section class="space-y-6 text-slate-700">
+      <p>
+        DAG Klassical ofrece una plataforma para la certificación, comercialización y acceso a activos musicales
+        únicos mediante tecnología blockchain. Al utilizar nuestros servicios, usted acepta los siguientes términos.
+      </p>
+
+      <h2 class="text-h2 font-advent font-semibold mt-8 mb-4 text-slate-800">1. Definiciones</h2>
+      <ul class="list-disc pl-5 space-y-2">
+        <li><strong>Music Card</strong>: Activo digital verificable en blockchain que representa derechos de acceso a contenido exclusivo (FLAC, partituras, etc.).</li>
+        <li><strong>Usuario</strong>: Persona natural o jurídica que interactúa con la plataforma DAG Klassical.</li>
+        <li><strong>Polygon</strong>: Red blockchain de capa 2 donde se registran las transacciones y certificaciones.</li>
+      </ul>
+
+      <h2 class="text-h2 font-advent font-semibold mt-8 mb-4 text-slate-800">2. Uso de la Plataforma</h2>
+      <p>
+        DAG Klassical no vende activos financieros ni especulativos. Las Music Cards son bienes culturales con valor artístico
+        y técnico. El usuario reconoce que las transacciones en blockchain son irreversibles y que es responsable de sus claves privadas.
+      </p>
+
+      <h2 class="text-h2 font-advent font-semibold mt-8 mb-4 text-slate-800">3. Propiedad Intelectual</h2>
+      <p>
+        Todo el contenido (música, partituras, imágenes) es propiedad de los artistas y editores correspondientes.
+        La adquisición de una Music Card otorga una licencia limitada de uso personal, no derechos de explotación comercial.
+      </p>
+
+      <h2 class="text-h2 font-advent font-semibold mt-8 mb-4 text-slate-800">4. Disponibilidad y Precios</h2>
+      <p>
+        Los precios están denominados en MATIC (Polygon) y pueden variar según la edición, disponibilidad y mercado.
+        DAG Klassical se reserva el derecho de modificar precios o retirar productos sin previo aviso.
+      </p>
+
+      <h2 class="text-h2 font-advent font-semibold mt-8 mb-4 text-slate-800">5. Ley Aplicable</h2>
+      <p>
+        Estos términos se rigen por las leyes de la República Bolivariana de Venezuela.
+        Cualquier disputa se resolverá en los tribunales de Caracas, Venezuela.
+      </p>
+
+      <h2 class="text-h2 font-advent font-semibold mt-8 mb-4 text-slate-800">6. Contacto</h2>
+      <p>
+        Para consultas legales o de soporte:
+        <br>
+        <a href="mailto:legal@dagklassical.com" class="text-dag-burgundy hover:underline">
+          legal@dagklassical.com
+        </a>
+      </p>
+    </section>
+  </article>
 </Layout>

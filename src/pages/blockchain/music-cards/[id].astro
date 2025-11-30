@@ -161,21 +161,12 @@ const breadcrumbs = [
         </section>
 
         {/* Biografía del artista */}
-        {artist && (
-          <section class="mb-8 bg-gray95 p-4 rounded-md">
-            <h3 class="text-h3 font-advent mb-3">Sobre {artist.name}</h3>
-            <p class="mb-3">
-              {artist.id === 'goulnara-galímchina' 
-                ? "Pianista rusa cuyo talento la llevó desde los conservatorios de Moscú hasta Venezuela, donde ha forjado una destacada carrera como intérprete y maestra.\nInvitada por el maestro José Antonio Abreu en 1993, ha dedicado más de tres décadas a formar generaciones de músicos en instituciones como el Conservatorio Simón Bolívar y la Academia Latinoamericana de Canto."
-                : artist.bio.substring(0, 180)
-              }
-              {"..."}
-            </p>
-            <a href={`/musica/artistas/${artist.id}`} class="text-dag-burgundy hover:underline font-medium">
-              Leer más →
-            </a>
-          </section>
-        )}
+{artist && artist.bio && (
+  <section class="mb-8 bg-gray95 p-4 rounded-md">
+    <h3 class="text-h3 font-advent mb-3">Sobre {artist.name}</h3>
+    <p class="mb-3 whitespace-pre-line">{artist.bio}</p>
+  </section>
+)}
 
         {/* Información técnica */}
         <section class="mb-8 p-5 border border-platinum rounded-lg bg-white">

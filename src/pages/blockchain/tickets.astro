@@ -1,74 +1,143 @@
 ---
 // src/pages/blockchain/tickets.astro
 import Layout from '../../layouts/Layout.astro';
-import ImmutableStamp from '../../components/ImmutableStamp.astro';
 
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
   { label: 'Blockchain', href: '/blockchain/' },
-  { label: 'Tickets', href: '/blockchain/tickets/' },
+  { label: 'Tickets NFT', href: '/blockchain/tickets/' },
 ];
-
-const pageTitle = 'Tickets Verificables - Dag Klassical BCT';
-const pageDescription = 'Acceso único, autenticidad garantizada y valor coleccionable para conciertos y eventos exclusivos.';
 ---
 
-<Layout title={pageTitle} description={pageDescription} breadcrumbs={breadcrumbs}>
+<Layout title="Tickets NFT para Conciertos | DAG Klassical" description="Adquiere más que una entrada: un recuerdo coleccionable, verificable y tuyo para siempre." breadcrumbs={breadcrumbs}>
+  <main class="bg-white">
+    <div class="max-w-4xl mx-auto px-4 py-12 space-y-16">
 
-  <article class="max-w-4xl mx-auto px-4 py-12">
-    <header class="text-center mb-12">
-      <h1 class="text-4xl font-advent font-bold mb-4">Tickets Verificables</h1>
-      <p class="text-lg text-slate-600 max-w-2xl mx-auto">
-        Acceso único, autenticidad garantizada y valor coleccionable para conciertos y eventos exclusivos.
-      </p>
-    </header>
+      <!-- ===================================
+           1. SECCIÓN HERO (El Gancho)
+           =================================== -->
+      <section class="text-center">
+        <h1 class="text-h1 md:text-5xl font-advent font-bold text-slate-900 mb-4">
+          La Experiencia Musical, Redefinida
+        </h1>
+        <p class="text-xl md:text-2xl text-slate-600 mb-8 max-w-3xl mx-auto">
+          Adquiere más que una entrada: un recuerdo coleccionable, verificable y tuyo para siempre en la blockchain.
+        </p>
+        <a
+          href="#" class="inline-block bg-dag-burgundy text-white text-lg font-semibold px-10 py-4 rounded-lg hover:bg-opacity-90 transition-all transform hover:scale-105 shadow-lg"
+        >
+          Comprar Ticket NFT
+        </a>
+        <!-- Imagen de impacto -->
+        <div class="mt-12">
+          <img src="https://placehold.co/1000x500/0f172a/ffffff?text=Concierto+de+Música+Clásica" alt="Escenario de un concierto de música clásica" class="w-full rounded-lg shadow-xl object-cover" />
+        </div>
+      </section>
 
-    <!-- Beneficios -->
-    <section class="grid md:grid-cols-2 gap-8 mb-12">
-      <div class="p-6 bg-white rounded-lg border border-platinum">
-        <h3 class="text-xl font-advent font-semibold mb-3">Autenticidad Garantizada</h3>
-        <p>Cada ticket tiene un <strong>UUID único</strong> y un <strong>hash inmutable</strong> registrado en la red Polygon. No puede ser falsificado ni duplicado.</p>
-      </div>
-      <div class="p-6 bg-white rounded-lg border border-platinum">
-        <h3 class="text-xl font-advent font-semibold mb-3">Valor Coleccionable</h3>
-        <p>Ediciones limitadas con <strong>beneficios exclusivos</strong>: acceso a meet & greet, contenido detrás de cámaras, partituras firmadas y más.</p>
-      </div>
-      <div class="p-6 bg-white rounded-lg border border-platinum">
-        <h3 class="text-xl font-advent font-semibold mb-3">Reventa Segura</h3>
-        <p>Transacciones trazables y verificables en marketplace autorizado. La cadena de custodia se mantiene intacta en cada transferencia.</p>
-      </div>
-      <div class="p-6 bg-white rounded-lg border border-platinum">
-        <h3 class="text-xl font-advent font-semibold mb-3">Acceso Prioritario</h3>
-        <p>Los poseedores de tickets verificados reciben <strong>acceso anticipado</strong> a lanzamientos, preventas y eventos privados del sello.</p>
-      </div>
-    </section>
+      <!-- ===================================
+           2. SECCIÓN DE VALOR (¿Qué es y por qué?)
+           =================================== -->
+      <section>
+        <div class="text-center mb-10">
+          <h2 class="text-3xl font-advent font-semibold text-slate-900 mb-3">¿Qué es un Ticket NFT?</h2>
+          <p class="text-lg text-slate-600">Es la evolución de la entrada tradicional, fusionando el arte con la tecnología.</p>
+        </div>
 
-    <!-- Estado actual -->
-    <section class="bg-gray95 p-8 rounded-lg border border-platinum text-center">
-      <h2 class="text-2xl font-advent font-semibold mb-4">Próximos Eventos</h2>
-      <p class="mb-6 text-slate-700">
-        Estamos preparando una serie de <strong>conciertos exclusivos</strong> con artistas del sello Dag Klassical en 2026.
-      </p>
-      <p class="mb-6 text-slate-600">
-        Cada evento contará con <strong>edición limitada de tickets verificables</strong>, con beneficios únicos según la categoría (Estándar, Premium, Legendario).
-      </p>
-      <a href="/contacto/comercial" class="bg-dag-burgundy text-white px-6 py-3 rounded-lg hover:bg-opacity-80 transition-colors font-medium inline-block">
-        Interés en Tickets Exclusivos
-      </a>
-      <p class="mt-4 text-slate-600">
-        Regístrate para ser notificado cuando los tickets estén disponibles.
-      </p>
-    </section>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+            <h3 class="font-bold text-xl text-dag-burgundy mb-3">Más que un Papel</h3>
+            <p class="text-slate-700">
+              Un Ticket NFT es un activo digital único que certifica tu asistencia. No puedes perderlo, no puede ser falsificado y permanece en tu cartera digital como un recuerdo imborrable de una noche inolvidable.
+            </p>
+          </div>
+          <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+            <h3 class="font-bold text-xl text-dag-burgundy mb-3">Un Vínculo Directo</h3>
+            <p class="text-slate-700">
+              Al poseer un Ticket NFT, no solo asistes al concierto. Te conviertes en parte de una comunidad exclusiva, con acceso potencial a beneficios futuros, contenido digital y una conexión más profunda con el artista.
+            </p>
+          </div>
+        </div>
+      </section>
 
-    <!-- ¿Qué es un Ticket Verificable? -->
-    <section class="mt-12">
-      <h2 class="text-2xl font-advent font-semibold mb-4 text-center">¿Qué es un Ticket Verificable?</h2>
-      <p class="text-slate-700 mb-4">
-        Un Ticket Verificable de Dag Klassical es un <strong>activo digital coleccionable</strong> emitido en la red Polygon que concede acceso a un evento físico o virtual.
-      </p>
-      <p class="text-slate-700">
-        Al igual que una Music Card, cada ticket incluye metadatos inmutables (UUID, timestamp, operador) y puede ser transferido o revendido con total seguridad.
-      </p>
-    </section>
-  </article>
+      <!-- ===================================
+           3. SECCIÓN DE BENEFICIOS (El "Porqué" detallado)
+           =================================== -->
+      <section class="bg-gray95 p-8 rounded-lg">
+        <h2 class="text-3xl font-advent font-semibold text-center text-slate-900 mb-8">Beneficios de la Nueva Era</h2>
+        <ul class="space-y-4 max-w-3xl mx-auto">
+          <li class="flex items-start gap-3">
+            <span class="text-dag-burgundy font-bold text-xl">✓</span>
+            <div>
+              <strong class="text-slate-900">Propiedad Verdadera:</strong>
+              <span class="text-slate-700"> El ticket es tuyo. Registrado en la blockchain de Polygon, tienes la prueba irrefutable de tu propiedad.</span>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-dag-burgundy font-bold text-xl">✓</span>
+            <div>
+              <strong class="text-slate-900">Coleccionabilidad:</strong>
+              <span class="text-slate-700"> Cada ticket puede ser una pieza de arte digital única. Ediciones limitadas que ganan valor con el tiempo.</span>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-dag-burgundy font-bold text-xl">✓</span>
+            <div>
+              <strong class="text-slate-900">Transparencia y Seguridad:</strong>
+              <span class="text-slate-700"> Olvídate de las estafas y la reventa descontrolada. Cada transacción es pública y rastreable.</span>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-dag-burgundy font-bold text-xl">✓</span>
+            <div>
+              <strong class="text-slate-900">Apoyo Directo al Artista:</strong>
+              <span class="text-slate-700"> La tecnología permite modelos más justos, donde una mayor parte del valor vuelve a los creadores de la música que amas.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ===================================
+           4. SECCIÓN DE "CÓMO FUNCIONA" (Guía simple)
+           =================================== -->
+      <section>
+        <div class="text-center mb-10">
+          <h2 class="text-3xl font-advent font-semibold text-slate-900 mb-3">¿Cómo Funciona?</h2>
+          <p class="text-lg text-slate-600">Tu camino hacia la experiencia musical es más simple de lo que crees.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 text-center">
+          <div>
+            <div class="bg-dag-burgundy text-white text-3xl font-bold w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">1</div>
+            <h3 class="font-bold text-lg mb-2">Compra tu Ticket</h3>
+            <p class="text-slate-600">Adquiere tu Ticket NFT de forma segura en nuestra plataforma. Puedes pagar con métodos tradicionales o criptomonedas.</p>
+          </div>
+          <div>
+            <div class="bg-dag-burgundy text-white text-3xl font-bold w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">2</div>
+            <h3 class="font-bold text-lg mb-2">Recíbelo en tu Wallet</h3>
+            <p class="text-slate-600">El ticket NFT se transfiere instantáneamente a tu cartera digital (como MetaMask). ¡Es tuyo!</p>
+          </div>
+          <div>
+            <div class="bg-dag-burgundy text-white text-3xl font-bold w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">3</div>
+            <h3 class="font-bold text-lg mb-2">Disfruta y Recuerda</h3>
+            <p class="text-slate-600">Presenta tu ticket en la puerta del concierto y guárdalo para siempre como un trofeo digital de tu experiencia.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================
+           5. SECCIÓN FINAL (Llamada a la acción final)
+           =================================== -->
+      <section class="text-center bg-slate-900 text-white p-12 rounded-lg">
+        <h2 class="text-3xl font-advent font-semibold mb-4">No te quedes fuera de la próxima revolución musical.</h2>
+        <p class="text-lg mb-8 opacity-90">Únete a nosotros en la misión de llevar la música clásica a la era digital.</p>
+        <a
+          href="/enlace-a-la-tienda" <!-- ¡IMPORTANTE! Mismo enlace que arriba -->
+          class="inline-block bg-white text-dag-burgundy text-lg font-semibold px-10 py-4 rounded-lg hover:bg-opacity-90 transition-all transform hover:scale-105 shadow-lg"
+        >
+          Explorar Próximos Eventos
+        </a>
+      </section>
+
+    </div>
+  </main>
 </Layout>
