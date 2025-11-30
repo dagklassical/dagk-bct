@@ -1,19 +1,22 @@
+// astro.config.mjs
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
+import sitemap from '@astrojs/sitemap';
 
-// https://astro.build/config
 export default defineConfig({
-  // Integraciones
-  integrations: [tailwind()],
+  // 🔑 Añade esta línea (reemplaza con tu dominio real)
+  site: 'https://dagkbct.vercel.app',
 
-  // Opciones de Vite
+  integrations: [
+    tailwind(),
+    sitemap()
+  ],
+
   vite: {
-    // Aumentar timeout y excluir demos del watcher
     server: {
       hmr: { timeout: 120000 },
       watch: {
         timeout: 120000,
-        // Ignora la carpeta de demos y archivos grandes
         ignored: [
           '**/public/protected/**',
           '**/node_modules/**',
@@ -23,7 +26,6 @@ export default defineConfig({
     }
   },
 
-  // Opcional: soporte para otros formatos si los usas
   build: {
     assets: 'assets'
   }
