@@ -6,49 +6,114 @@ const breadcrumbs = [
   { label: 'Inicio', href: '/' },
   { label: 'Nosotros', href: '/nosotros/' },
 ];
-const pageTitle = 'Nosotros - Dag Klassical BCT';
-const pageDescription = 'Dag Klassical: misión, visión y compromiso con la música culta verificable en blockchain.';
 ---
 
-<Layout title={pageTitle} description={pageDescription} breadcrumbs={breadcrumbs}>
-  <section class="text-center py-16 bg-dag-burgundy/20">
-    <h1 class="text-h1 md:text-5xl font-advent">Nosotros</h1>
-    <p class="text-xl max-w-3xl mx-auto text-slate-700 mb-8">
-      Dag Klassical no es solo un sello discográfico: es una plataforma de valor que une arte, tecnología y transparencia.
-    </p>
-  </section>
+<Layout title="Nosotros | DAG Klassical" description="Conoce la visión, el liderazgo y los principios que impulsan DAG Klassical. Descubre la historia detrás de la revolución musical." breadcrumbs={breadcrumbs}>
+  <main class="bg-gray95">
+    <div class="max-w-5xl mx-auto px-4 py-12 space-y-16">
 
-  <section class="py-12">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="grid md:grid-cols-2 gap-8">
-        <a href="/nosotros/dag-klassical" class="block p-6 bg-white rounded-lg shadow-md border border-platinum hover:bg-white/60 transition-colors">
-          <h2 class="text-h2 font-advent mb-3">Dag Klassical</h2>
-          <p>Misión, visión y compromiso con la música culta. Referente iberoamericano en producción de alta fidelidad.</p>
-        </a>
-        <a href="/nosotros/danilo-alvarez" class="block p-6 bg-white rounded-lg shadow-md border border-platinum hover:bg-white/60 transition-colors">
-          <h2 class="text-h2 font-advent">Danilo Álvarez</h2>
-          <p>Ganador de dos Latin Grammy. Director artístico y alma técnica detrás de cada grabación DAG.</p>
-        </a>
-        <a href="/nosotros/equipo" class="block p-6 bg-white rounded-lg shadow-md border border-platinum hover:bg-white/60 transition-colors">
-          <h2 class="text-h2 font-advent mb-3">Equipo</h2>
-          <p>Profesionales de talla mundial en producción, ingeniería de sonido y tecnología blockchain.</p>
-        </a>
-        <a href="/nosotros/terminos" class="block p-6 bg-white rounded-lg shadow-md border border-platinum hover:bg-white/60 transition-colors">
-          <h2 class="text-h2 font-advent mb-3">Términos</h2>
-          <p>Derechos, licencias y condiciones de uso de Music Cards y metadatos verificables.</p>
-        </a>
-      </div>
-    </div>
-  </section>
+      <!-- ===================================
+           1. SECCIÓN HERO: Introducción al Hub
+           =================================== -->
+      <section class="text-center">
+        <h1 class="text-4xl md:text-6xl font-advent font-bold text-slate-900 mb-4">
+          Conoce Nuestra Esencia
+        </h1>
+        <p class="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto">
+          Detrás de cada nota hay una historia, una visión y un compromiso. Explora los pilares que definen a DAG Klassical y nos impulsan a redefinir el futuro de la música.
+        </p>
+      </section>
 
-  <!-- Recordatorio de la Calculadora -->
-  <section class="py-12 bg-platinum text-center">
-    <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-h2 font-advent mb-4">Transparencia para Inversores</h2>
-      <p class="mb-4">Todos nuestros activos incluyen metadatos inmutables: UUID, timestamp, operador y hash SHA256.</p>
-      <p class="text-sm text-slate-600">
-        Próximamente: <strong>Calculadora de Valor</strong> para estimar retorno de inversión en Music Cards.
-      </p>
+      <!-- ===================================
+           2. SECCIÓN DE NAVEGACIÓN: Tarjetas de Contenido
+           =================================== -->
+      <section>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Tarjeta 1: Nuestra Historia -->
+          <a href="/sobre-nosotros/" class="group bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+            <div class="bg-dag-burgundy/10 text-dag-burgundy w-16 h-16 rounded-full flex items-center justify-center mb-4">
+              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold font-advent text-slate-900 mb-2 group-hover:text-dag-burgundy transition-colors">
+              Nuestra Historia
+            </h3>
+            <p class="text-slate-600">
+              Descubre por qué existimos, cuál es nuestra misión y cómo la tradición clásica se fusiona con la innovación digital para crear un nuevo paradigma musical.
+            </p>
+          </a>
+
+          <!-- Tarjeta 2: Liderazgo -->
+          <a href="/nosotros/danilo-alvarez/" class="group bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+            <div class="bg-dag-burgundy/10 text-dag-burgundy w-16 h-16 rounded-full flex items-center justify-center mb-4">
+              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold font-advent text-slate-900 mb-2 group-hover:text-dag-burgundy transition-colors">
+              Nuestro Liderazgo
+            </h3>
+            <p class="text-slate-600">
+              Conoce la trayectoria y la visión de Danilo Álvarez, el director de orquesta de renombre mundial que impulsa la misión de DAG Klassical a escala global.
+            </p>
+          </a>
+
+          <!-- Tarjeta 3: Principios (Rebranding de "Términos") -->
+          <a href="/nosotros/terminos/" class="group bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+            <div class="bg-dag-burgundy/10 text-dag-burgundy w-16 h-16 rounded-full flex items-center justify-center mb-4">
+              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold font-advent text-slate-900 mb-2 group-hover:text-dag-burgundy transition-colors">
+              Principios y Compromiso
+            </h3>
+            <p class="text-slate-600">
+              Conoce los valores fundamentales, los términos de servicio y el compromiso que asumimos para garantizar una experiencia justa, transparente y segura para toda nuestra comunidad.
+            </p>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- ===================================
+           3. SECCIÓN FUTURA (Placeholder para el Equipo)
+           =================================== -->
+      <section class="text-center">
+        <h2 class="text-3xl font-advent font-semibold text-slate-900 mb-4">El Corazón de DAG Klassical</h2>
+        <p class="text-lg text-slate-600 mb-8">
+          Pronto presentaremos a los talentosos profesionales que trabajan cada día para hacer de nuestra visión una realidad.
+        </p>
+        <!-- Tarjeta no clicable de "Próximamente" -->
+        <div class="inline-block bg-white/60 p-8 rounded-lg border-2 border-dashed border-slate-300 cursor-not-allowed">
+          <div class="bg-slate-200 text-slate-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold font-advent text-slate-500 mb-2">Nuestro Equipo</h3>
+          <p class="text-slate-400">Próximamente</p>
+        </div>
+      </section>
+
+      <!-- ===================================
+           4. SECCIÓN FINAL: Llamada a la Acción
+           =================================== -->
+      <section class="text-center bg-slate-900 text-white p-12 rounded-lg">
+        <h2 class="text-3xl font-advent font-semibold mb-4">La Historia se Escribe con Música</h2>
+        <p class="text-lg opacity-90 mb-8">
+          Ahora que conoces nuestra esencia, es momento de experimentar el resultado. Explora nuestro catálogo y únete a la comunidad que está cambiando la música clásica para siempre.
+        </p>
+        <a
+          href="/musica"
+          class="inline-block bg-white text-dag-burgundy text-lg font-semibold px-10 py-4 rounded-lg hover:bg-opacity-90 transition-all transform hover:scale-105 shadow-lg"
+        >
+          Explorar la Música
+        </a>
+      </section>
+
     </div>
-  </section>
+  </main>
 </Layout>

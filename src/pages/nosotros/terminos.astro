@@ -5,63 +5,124 @@ import Layout from '../../layouts/Layout.astro';
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
   { label: 'Nosotros', href: '/nosotros/' },
-  { label: 'Términos y Condiciones', href: '/nosotros/terminos/' },
+  { label: 'Principios y Compromiso', href: '/nosotros/terminos/' },
 ];
 ---
 
-<Layout title="Términos y Condiciones" description="Condiciones de uso de DAG Klassical y sus servicios blockchain" breadcrumbs={breadcrumbs}>
+<Layout title="Principios y Compromiso | DAG Klassical" description="Términos y Condiciones de uso de la plataforma DAG Klassical. Conoce nuestras políticas de servicio, privacidad y propiedad digital." breadcrumbs={breadcrumbs}>
+  <main class="bg-gray95">
+    <div class="max-w-4xl mx-auto px-4 py-12 space-y-8">
 
-  <article class="max-w-3xl mx-auto px-4 py-8">
-    <header class="text-center mb-10">
-      <h1 class="text-4xl md:text-5xl font-advent font-bold text-slate-800">Términos y Condiciones</h1>
-      <p class="text-slate-600 mt-3">Última actualización: 28 de noviembre de 2025</p>
-    </header>
+      <!-- ===================================
+           1. INTRODUCCIÓN
+           =================================== -->
+      <section class="bg-white p-8 rounded-lg shadow-sm">
+        <h1 class="text-3xl font-advent font-bold text-slate-900 mb-4">Principios y Compromiso de DAG Klassical</h1>
+        <p class="text-lg text-slate-600 mb-4">
+          Bienvenido a DAG Klassical. Estos Términos y Condiciones ("Términos") rigen tu acceso y uso de nuestro sitio web, plataforma y servicios (colectivamente, el "Servicio").
+        </p>
+        <p class="text-slate-700">
+          Al acceder o usar nuestro Servicio, aceptas quedar vinculado por estos Términos. Si no estás de acuerdo con ellos, por favor, no utilices nuestra plataforma.
+        </p>
+      </section>
 
-    <section class="space-y-6 text-slate-700">
-      <p>
-        DAG Klassical ofrece una plataforma para la certificación, comercialización y acceso a activos musicales
-        únicos mediante tecnología blockchain. Al utilizar nuestros servicios, usted acepta los siguientes términos.
-      </p>
+      <!-- ===================================
+           2. SECCIONES PRINCIPALES (Agrupadas)
+           =================================== -->
 
-      <h2 class="text-h2 font-advent font-semibold mt-8 mb-4 text-slate-800">1. Definiciones</h2>
-      <ul class="list-disc pl-5 space-y-2">
-        <li><strong>Music Card</strong>: Activo digital verificable en blockchain que representa derechos de acceso a contenido exclusivo (FLAC, partituras, etc.).</li>
-        <li><strong>Usuario</strong>: Persona natural o jurídica que interactúa con la plataforma DAG Klassical.</li>
-        <li><strong>Polygon</strong>: Red blockchain de capa 2 donde se registran las transacciones y certificaciones.</li>
-      </ul>
+      <!-- Sección 1: Descripción del Servicio -->
+      <section class="bg-white p-8 rounded-lg shadow-sm">
+        <h2 class="text-2xl font-bold text-slate-900 mb-4">1. Descripción del Servicio</h2>
+        <p class="text-slate-700 mb-3">
+          DAG Klassical es una plataforma que fusiona la herencia de la música clásica con la innovación de la tecnología blockchain. A través de nuestro Servicio, ofrecemos:
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-slate-700">
+          <li><strong class="font-semibold">Music Cards:</strong> Activos digitales que otorgan acceso a contenido musical de alta calidad y otros privilegios.</li>
+          <li><strong class="font-semibold">Tickets NFT:</strong> Entradas para conciertos y eventos, verificadas y coleccionables en la blockchain.</li>
+          <li><strong class="font-semibold">Music Fungible Tokens (MFTs):strong> Tokens que representan participación en regalías u otros derechos colectivos.</li>
+        </ul>
+      </section>
 
-      <h2 class="text-h2 font-advent font-semibold mt-8 mb-4 text-slate-800">2. Uso de la Plataforma</h2>
-      <p>
-        DAG Klassical no vende activos financieros ni especulativos. Las Music Cards son bienes culturales con valor artístico
-        y técnico. El usuario reconoce que las transacciones en blockchain son irreversibles y que es responsable de sus claves privadas.
-      </p>
+      <!-- Sección 2: Cuentas de Usuario -->
+      <section class="bg-white p-8 rounded-lg shadow-sm">
+        <h2 class="text-2xl font-bold text-slate-900 mb-4">2. Cuentas de Usuario y Wallets Digitales</h2>
+        <p class="text-slate-700 mb-3">Para acceder a ciertas funcionalidades, como adquirir activos, deberás:</p>
+        <ul class="list-disc pl-6 space-y-2 text-slate-700">
+          <li>Crear una cuenta en DAG Klassical proporcionando información veraz y completa.</li>
+          <li>Conectar una <strong class="font-semibold">wallet digital compatible</strong> (como MetaMask) para interactuar con la blockchain.</li>
+        </ul>
+        <p class="text-slate-700 mt-3">
+          Eres el único responsable de mantener la confidencialidad de tus credenciales y de la seguridad de tu wallet. DAG Klassical no se responsabiliza por el acceso no autorizado a tu cuenta o la pérdida de fondos de tu wallet.
+        </p>
+      </section>
 
-      <h2 class="text-h2 font-advent font-semibold mt-8 mb-4 text-slate-800">3. Propiedad Intelectual</h2>
-      <p>
-        Todo el contenido (música, partituras, imágenes) es propiedad de los artistas y editores correspondientes.
-        La adquisición de una Music Card otorga una licencia limitada de uso personal, no derechos de explotación comercial.
-      </p>
+      <!-- Sección 3: Compras y Transacciones -->
+      <section class="bg-white p-8 rounded-lg shadow-sm">
+        <h2 class="text-2xl font-bold text-slate-900 mb-4">3. Compras y Transacciones en Blockchain</h2>
+        <p class="text-slate-700 mb-3">
+          Al adquirir un activo digital, aceptas pagar el precio indicado. Las transacciones se procesan a través de la red <strong class="font-semibold">Polygon</strong> y pueden estar sujetas a "gas fees" (comisiones de red) que no son controladas por DAG Klassical.
+        </p>
+        <p class="text-slate-700">
+          <strong class="font-semibold">Irreversibilidad:</strong> Todas las transacciones de blockchain son finales e irreversibles una vez confirmadas. Asegúrate de revisar todos los detalles antes de confirmar una compra.
+        </p>
+      </section>
 
-      <h2 class="text-h2 font-advent font-semibold mt-8 mb-4 text-slate-800">4. Disponibilidad y Precios</h2>
-      <p>
-        Los precios están denominados en MATIC (Polygon) y pueden variar según la edición, disponibilidad y mercado.
-        DAG Klassical se reserva el derecho de modificar precios o retirar productos sin previo aviso.
-      </p>
+      <!-- Sección 4: Propiedad Intelectual -->
+      <section class="bg-white p-8 rounded-lg shadow-sm">
+        <h2 class="text-2xl font-bold text-slate-900 mb-4">4. Propiedad Intelectual y Licencias</h2>
+        <p class="text-slate-700 mb-3">
+          La propiedad intelectual de la plataforma DAG Klassical, su diseño, texto y software nos pertenece. La propiedad de la música subyacente pertenece a los artistas y sellos discográficos correspondientes.
+        </p>
+        <p class="text-slate-700">
+          <strong class="font-semibold">Tu Propiedad Digital:</strong> Cuando adquieres un NFT o MFT, te conviertes en el propietario de ese token digital, de acuerdo con la licencia que lo acompaña. Esta licencia te otorga los derechos específicos del producto (ej. acceso a contenido, derecho a regalías), pero no necesariamente la propiedad de la grabación musical en sí.
+        </p>
+      </section>
 
-      <h2 class="text-h2 font-advent font-semibold mt-8 mb-4 text-slate-800">5. Ley Aplicable</h2>
-      <p>
-        Estos términos se rigen por las leyes de la República Bolivariana de Venezuela.
-        Cualquier disputa se resolverá en los tribunales de Caracas, Venezuela.
-      </p>
+      <!-- Sección 5: Conducta del Usuario -->
+      <section class="bg-white p-8 rounded-lg shadow-sm">
+        <h2 class="text-2xl font-bold text-slate-900 mb-4">5. Conducta del Usuario</h2>
+        <p class="text-slate-700 mb-3">Te comprometes a no utilizar el Servicio para:</p>
+        <ul class="list-disc pl-6 space-y-2 text-slate-700">
+          <li>Violar cualquier ley o regulación aplicable.</li>
+          <li>Infringir los derechos de propiedad intelectual de terceros.</li>
+          <li>Subir contenido ofensivo, ilegal o que constituya spam.</li>
+          <li>Intentar dañar, deshabilitar o sobrecargar la plataforma.</li>
+        </ul>
+      </section>
 
-      <h2 class="text-h2 font-advent font-semibold mt-8 mb-4 text-slate-800">6. Contacto</h2>
-      <p>
-        Para consultas legales o de soporte:
-        <br>
-        <a href="mailto:legal@dagklassical.com" class="text-dag-burgundy hover:underline">
-          legal@dagklassical.com
-        </a>
-      </p>
-    </section>
-  </article>
+      <!-- Sección 6: Privacidad -->
+      <section class="bg-white p-8 rounded-lg shadow-sm">
+        <h2 class="text-2xl font-bold text-slate-900 mb-4">6. Privacidad</h2>
+        <p class="text-slate-700">
+          Tu privacidad es importante para nosotros. Nuestra recopilación y uso de tus datos se rige por nuestra <a href="/privacy-policy" class="text-dag-burgundy hover:underline">Política de Privacidad</a>, la cual te recomendamos leer.
+        </p>
+      </section>
+
+      <!-- Sección 7: Limitación de Responsabilidad -->
+      <section class="bg-white p-8 rounded-lg shadow-sm">
+        <h2 class="text-2xl font-bold text-slate-900 mb-4">7. Limitación de Responsabilidad</h2>
+        <p class="text-slate-700">
+          En la máxima medida permitida por la ley, DAG Klassical no será responsable por ningún daño indirecto, incidental, especial o consecuente que surja del uso o la incapacidad de uso de nuestro Servicio.
+        </p>
+      </section>
+
+      <!-- Sección 8: Contacto -->
+      <section class="bg-white p-8 rounded-lg shadow-sm">
+        <h2 class="text-2xl font-bold text-slate-900 mb-4">8. Contacto</h2>
+        <p class="text-slate-700">
+          Si tienes alguna pregunta sobre estos Términos, por favor, contáctanos a través de [tu-email-de-contacto@dagklassical.com] o el formulario de contacto de nuestro sitio.
+        </p>
+      </section>
+
+      <!-- ===================================
+           3. AVISO LEGAL FINAL
+           =================================== -->
+      <section class="bg-slate-100 border border-slate-300 p-6 rounded-lg">
+        <p class="text-sm text-slate-600 text-center">
+          <strong class="font-semibold">Aviso Legal:</strong> Estos Términos y Condiciones son un modelo y deben ser revisados por un asesor legal cualificado para asegurar su validez y adecuación a las necesidades específicas de DAG Klassical y a la legislación vigente.
+        </p>
+      </section>
+
+    </div>
+  </main>
 </Layout>
