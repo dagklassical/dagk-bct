@@ -6,10 +6,9 @@ import musicCards from '../../../data/music-cards.json';
 import releases from '../../../data/releases.json';
 import artists from '../../../data/artists.json';
 
-// Genera una página estática para cada Music Card
 export async function getStaticPaths() {
   return musicCards
-    .filter(card => card.status === 'available') // solo públicas
+    .filter(card => card.status === 'available')
     .map(card => ({
       params: { id: card.id },
       props: { card }
@@ -23,11 +22,10 @@ if (!card) {
   return Astro.redirect('/blockchain/music-cards');
 }
 
-// Obtiene la obra asociada
 const release = releases.find(r => r.id === card.associatedRelease);
-const artist = artists.find(a => a.id === release?.artistIds?.[0]);
+const artist = release?.artistIds?.[0] ? artists.find(a => a.id === release.artistIds[0]) : null;
+const artistName = artist?.name || 'Artista no identificado';
 
-// Migas de pan
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
   { label: 'Blockchain', href: '/blockchain/' },
@@ -38,136 +36,191 @@ const breadcrumbs = [
 
 <Layout title={card.title} description={release?.description || 'Music Card verificable en blockchain'} breadcrumbs={breadcrumbs}>
 
-  <!-- Hero con imagen de la Music Card -->
-  <section 
-    class="relative h-96 md:h-[500px] w-full"
-    style={`background-image: url('${card.cardImage}'); background-position: center; background-size: cover;`}
-  >
-    <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
-      <div class="text-center text-white max-w-4xl px-4">
-        <h1 class="text-3xl md:text-5xl font-advent font-bold mb-2">{card.title}</h1>
-        {artist?.name && <p class="text-lg md:text-xl">{artist.name}</p>}
-      </div>
-    </div>
-  </section>
-
-  <!-- Reproductor interactivo -->
-  <div class="max-w-3xl mx-auto px-4 -mt-6 mb-8">
-    <div class="bg-white border border-platinum rounded-xl overflow-hidden shadow-sm">
-      <audio id="music-player" controls class="w-full h-16"></audio>
-    </div>
+  {/* Enlace de retorno */}
+  <div class="max-w-4xl mx-auto pt-8 px-4">
+    <a href="/blockchain/music-cards" class="text-slate-700 hover:text-dag-burgundy flex items-center text-sm">
+      ← Volver a Music Cards
+    </a>
   </div>
 
-  <article class="max-w-4xl mx-auto px-4 pb-12">
+  <article class="max-w-4xl mx-auto px-4 pt-6 pb-10">
+    <div class="flex flex-col md:flex-row gap-6">
+      {/* === COLUMNA IZQUIERDA: IMAGEN + ÍCONOS + PLAYER + TRACKLIST === */}
+      <div class="md:w-1/3 space-y-6">
+        {/* Imagen de la Music Card */}
+        <img
+          src={card.cardImage}
+          alt={card.title}
+          class="w-full rounded-md mx-auto shadow-md mt-4 object-contain"
+          onerror="this.src='https://placehold.co/300x480/cccccc/999999?text=Music+Card'"
+        />
 
-    <!-- Valor y disponibilidad -->
-    <section class="bg-dag-burgundy/10 border border-dag-burgundy/30 rounded-lg p-6 mb-8">
-      <div class="flex flex-wrap justify-between items-center">
-        <div>
-          <span class="inline-block px-3 py-1 bg-dag-burgundy text-white text-sm rounded mr-2">{card.edition}</span>
-          <span class="text-slate-600 text-sm">{card.available} de {card.totalSupply} disponibles</span>
-        </div>
-        <div class="text-right">
-          <p class="text-lg font-bold">{card.price}</p>
-          <p class="text-xs text-slate-600">en {card.blockchain}</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Tracklist interactivo -->
-   <!-- Tracklist con estilo cebra -->
-{release?.tracks && release.tracks.length > 0 && (
-  <section class="mb-8">
-    <h3 class="text-h3 font-advent font-semibold mb-4 text-center">Tracklist</h2>
-    <div class="bg-white p-5 rounded-md">
-      <ol class="space-y-2">
-        {release.tracks.map((track, i) => (
-          <li 
-            key={i}
-            data-demo={track.demo || '/protected/demo/corre-caballito-demo.mp3'}
-            class={`flex justify-between items-center p-2 cursor-pointer hover:bg-slate-100 ${
-              i % 2 === 0 ? 'bg-white' : 'bg-platinum'
-            }`}
-            onclick={`playTrack('${track.demo || '/protected/demo/corre-caballito-demo.mp3'}')`}
+        {/* Íconos de plataformas */}
+        <div class="flex justify-center gap-4 mb-1">
+          <a
+            href="https://open.spotify.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Escuchar en Spotify"
+            class="block w-7 h-7 text-green-500 hover:text-green-600 transition-transform hover:scale-110 active:scale-95"
           >
-            <span class="font-medium">{i + 1}. {track.title}</span>
-            <span class="text-slate-500 text-sm">{track.duration}</span>
-          </li>
-        ))}
-      </ol>
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-full h-full">
+              <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.9 16.9c-.2.3-.5.5-.9.5-.4 0-.7-.2-.9-.5-.2-.3-.2-.6-.1-.9.1-.3.4-.5.8-.5.4 0 .7.2.9.5.2.3.2.6.1.9zm1.3-3c-.4.7-1.2 1.2-2.1 1.4-.9.2-1.9.1-2.7-.3-.8-.4-1.4-1-1.8-1.7-.4-.7-.5-1.5-.4-2.2.1-.7.4-1.4.9-2 .5-.6 1.2-1 1.9-1.2.7-.2 1.5-.2 2.2.1.7.3 1.3.8 1.7 1.4.4.6.6 1.3.5 2-.1.7-.4 1.4-.9 2z"/>
+            </svg>
+          </a>
+          <a
+            href="https://music.apple.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Escuchar en Apple Music"
+            class="block w-7 h-7 text-black hover:text-slate-700 transition-transform hover:scale-110 active:scale-95"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-full h-full">
+              <path d="M17.027 15.16c-.13.974-.986 2.17-2.02 2.17-.763 0-1.15-.547-2.029-.547-.878 0-1.215.547-2.03.547-1.033 0-1.848-1.196-1.977-2.17-.195-1.456.986-2.243 2.03-2.243 1.044 0 1.269.846 2.313.846 1.044 0 2.363-.846 2.17-2.243-.13-1.033-.92-1.754-2.03-1.754-1.11 0-1.629.624-2.243.624-.614 0-1.196-.325-1.778-.325-.582 0-1.269.39-1.269 1.513 0 1.22.986 1.872 1.912 2.001.926.13 1.236.747 1.236 1.494 0 .747-.357 1.494-.94 1.494-.582 0-.94-.39-.94-1.11 0-.455.325-.779.779-.779.455 0 .779.325.779.779v.325c0 1.065.779 1.848 1.912 1.848 1.133 0 1.912-.783 1.912-1.848 0-.65-.293-1.17-.878-1.331M14.045 3.12c.68 0 1.197.552 1.197 1.236 0 .685-.518 1.197-1.197 1.197-.68 0-1.197-.512-1.197-1.197 0-.684.517-1.236 1.197-1.236"/>
+            </svg>
+          </a>
+          <a
+            href="https://music.youtube.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Escuchar en YouTube Music"
+            class="block w-7 h-7 text-red-500 hover:text-red-600 transition-transform hover:scale-110 active:scale-95"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-full h-full">
+              <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+            </svg>
+          </a>
+          <a
+            href="/protected/demo/corre-caballito-demo.mp3"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Descargar demo"
+            class="block w-7 h-7 text-blue-500 hover:text-blue-600 transition-transform hover:scale-110 active:scale-95"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-full h-full">
+              <path d="M12 3L6 9h3v8h6v-8h3L12 3zm-1 10V18h2v-5h3l-4-4-4 4h3z"/>
+            </svg>
+          </a>
+        </div>
+
+        {/* Reproductor */}
+        <div class="bg-white border border-platinum rounded-xl px-4 py-3">
+          <audio id="music-player" controls class="w-full h-16 mb-3"></audio>
+        </div>
+
+        {/* Tracklist con scroll */}
+        {release?.tracks && (
+          <section class="bg-white p-4 rounded-lg border border-platinum max-h-[300px] overflow-y-auto">
+            <h3 class="text-lg font-semibold mb-3">Tracklist</h3>
+            <ol class="space-y-2">
+              {release.tracks.map((track, i) => (
+                <li 
+                  key={i}
+                  data-demo={track.demo || '/protected/demo/corre-caballito-demo.mp3'}
+                  class={`flex justify-between items-center px-2 py-2 text-xs border-b border-slate-100 last:border-0 cursor-pointer hover:bg-slate-100 ${
+              i % 2 === 0 ? 'bg-gray95/40' : 'bg-gray95'
+            }`} 
+                  onclick={`playTrack('${track.demo || '/protected/demo/corre-caballito-demo.mp3'}')`}
+                >
+                  <span class="font-medium">{i + 1}. {track.title}</span>
+                  <span class="text-slate-500 text-sm">{track.duration}</span>
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
+      </div>
+
+      {/* === COLUMNA DERECHA: NARRATIVA + BENEFICIOS + TÉCNICO + CRÉDITOS === */}
+      <div class="md:w-2/3 pt-1">
+        {/* Título y artista */}
+        <h1 class="text-h1 font-advent mb-2">{card.title}</h1>
+        <p class="text-xl text-slate-600 mb-4">por {artistName} · <span class="px-2 py-2 bg-dag-burgundy/5 text-dag-burgundy text-xs font-mono rounded-s-sm">DISPONIBLES 93 / 100</span></p>
+
+        {/* Descripción del álbum */}
+        {release?.description && (
+          <p class="mb-5 text-slate-700">{release.description}</p>
+        )}
+
+        {/* === PRIVILEGIOS + BIOGRAFÍA + TÉCNICO + FOOTER === */}
+        <section class="mb-12">
+          <h3 class="text-h3 font-advent mb-3">Privilegios propios</h3>
+          <ul class="list-disc pl-5 space-y-1 mb-2">
+            {card.benefits.map((benefit, i) => (
+              <li key={i} class="text-slate-700">{benefit}</li>
+            ))}
+          </ul>
+          <!-- Botón limpio, sin float -->
+          <div class="pt-4">
+            <a
+              href="#"
+              class="inline-block bg-dag-burgundy text-white px-8 py-3 rounded-lg hover:bg-opacity-90 transition-colors font-medium"
+            >
+              Adquiere esta Music Card
+            </a>
+          </div>
+        </section>
+
+        {/* Biografía del artista */}
+        {artist && (
+          <section class="mb-8 bg-gray95 p-4 rounded-md">
+            <h3 class="text-h3 font-advent mb-3">Sobre {artist.name}</h3>
+            <p class="mb-3">
+              {artist.id === 'goulnara-golinchina' 
+                ? "Pianista rusa cuyo talento la llevó desde los conservatorios de Moscú hasta Venezuela, donde ha forjado una destacada carrera como intérprete y maestra.\nInvitada por el maestro José Antonio Abreu en 1993, ha dedicado más de tres décadas a formar generaciones de músicos en instituciones como el Conservatorio Simón Bolívar y la Academia Latinoamericana de Canto."
+                : artist.bio.substring(0, 180)
+              }
+              {"..."}
+            </p>
+            <a href={`/musica/artistas/${artist.id}`} class="text-dag-burgundy hover:underline font-medium">
+              Leer más →
+            </a>
+          </section>
+        )}
+
+        {/* Información técnica */}
+        <section class="mb-8 p-5 border border-platinum rounded-lg bg-white">
+          <h4 class="font-semibold mb-2">Especificaciones Técnicas</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 bg-black/5 text-slate-800 text-xs font-mono rounded">FLAC 24/192</span>
+            <span class="px-2 py-1 bg-black/5 text-slate-800 text-xs font-mono rounded">MP3 320 kbps</span>
+            <span class="px-2 py-1 bg-dag-burgundy/10 text-dag-burgundy text-xs font-mono rounded">Certificado en Polygon</span>
+          </div>
+          <p class="mt-3 text-sm text-slate-600">
+            {card.edition} • {card.blockchain} • {card.price}
+          </p>
+        </section>
+      </div>
     </div>
-  </section>
-)}
 
-    <!-- Beneficios (solo anuncio) -->
-    <section class="grid md:grid-cols-2 gap-6 mb-8">
-      <div class="bg-white p-5 rounded-lg border border-platinum text-center">
-        <h3 class="font-semibold mb-2">Audio de Colección</h3>
-        <p class="text-sm text-slate-600 mb-3">FLAC 24-bit/192kHz</p>
-        <p class="text-xs text-slate-500">Acceso exclusivo tras adquisición</p>
-      </div>
-      <div class="bg-white p-5 rounded-lg border border-platinum text-center">
-        <h3 class="font-semibold mb-2">Partitura Digital</h3>
-        <p class="text-sm text-slate-600 mb-3">Firmada por {artist?.name}</p>
-        <p class="text-xs text-slate-500">Incluida en esta edición</p>
-      </div>
-    </section>
+<!-- Footer de 2 columnas (proporción 2:1) -->
+<div class="max-w-4xl mx-auto px-4 mt-8 pt-2 border-t border-platinum">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
+<!-- Columna izquierda: sello inmutable (1/3 del ancho) -->
+<div class="flex flex-col justify-end">
+<ImmutableStamp
+uuid={card.metadata.uuid}
+timestamp={card.metadata.timestamp}
+operator={card.metadata.operator}
+/>
+</div>
+<!-- Columna derecha: créditos (2/3 del ancho) -->
+<div class="md:col-span-2 pt-4 pb-3 px-5 border border-platinum rounded-md bg-white/50 flex flex-col justify-end">
+<p class="text-sm"><span class="text-dag-burgundy font-semibold">CRÉDITOS: </span>Piano y arreglos: {artistName} | Mezcla y mastering: Danilo Álvarez | Arte: Leo Gerulewicz | Diseño: Lorien Gascón Rojas</p>
+<p class="text-sm text-slate-600">Mezclado y masterizado en Mansa Studio®, Lechería, Venezuela.</p>
+</div>
+</div>
+</div>  </article>
 
-    <!-- Biografía del artista -->
-    {artist && (
-      <section class="mb-8 bg-gray95 p-5 rounded-lg">
-        <h3 class="text-xl font-semibold mb-2">Sobre {artist.name}</h3>
-        <p class="mb-3">{artist.bio}</p>
-        <a href={`/musica/artistas/${artist.id}`} class="text-dag-burgundy hover:underline text-sm">
-          Explorar su trayectoria →
-        </a>
-      </section>
-    )}
-
-    <!-- Comentario de la obra -->
-    {release?.commentary && (
-      <section class="mb-8 italic border-l-4 border-dag-burgundy pl-4 py-2">
-        “{release.commentary}”
-        <footer class="mt-2 text-slate-600 text-sm">— {release.commentaryAuthor}</footer>
-      </section>
-    )}
-
-    <!-- Call to action: Comprar -->
-    <section class="text-center mb-8">
-      <a href="#" class="inline-block bg-dag-burgundy text-white px-8 py-4 rounded-lg hover:bg-opacity-90 transition-colors font-medium text-lg">
-        Adquirir esta Music Card
-      </a>
-      <p class="text-xs text-slate-500 mt-2">Certificada en {card.blockchain}. Incluye todos los beneficios exclusivos.</p>
-    </section>
-
-    <!-- Información técnica -->
-    <section class="p-4 border-t border-platinum text-sm text-slate-600">
-      <p><strong>Token ID:</strong> {card.tokenId}</p>
-      <p><strong>Contrato:</strong> <code class="text-xs bg-slate-100 p-1 rounded">{card.contractAddress}</code></p>
-      <a href={`https://polygonscan.com/token/${card.contractAddress}?a=${card.tokenId}`} target="_blank" class="text-sm text-dag-burgundy hover:underline">
-        Ver en Polygonscan →
-      </a>
-    </section>
-
-    <!-- Sello inmutable -->
-    <ImmutableStamp 
-      uuid={card.metadata.uuid}
-      timestamp={card.metadata.timestamp}
-      operator={card.metadata.operator}
-    />
-  </article>
-
-  <!-- Script de interactividad -->
+  {/* Script de interactividad */}
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    function playTrack(src) {
+      if (!src) return;
       const player = document.getElementById('music-player');
-      document.querySelectorAll('[data-demo]').forEach(item => {
-        item.addEventListener('click', () => {
-          player.src = item.getAttribute('data-demo');
-          player.load();
-          player.play().catch(e => console.warn("Reproducción fallida:", e));
-        });
-      });
-    });
+      if (!player) return;
+      player.src = src;
+      player.load();
+      player.play().catch(e => console.warn('Reproducción fallida:', e));
+    }
   </script>
 </Layout>

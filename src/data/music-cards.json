@@ -61,12 +61,13 @@
   "price": "0.10 MATIC",
   "status": "available",
   "benefits": [
-    "Audio FLAC 24-bit/192kHz",
+    "Audio de colección. FLAC 24-bit/192kHz",
     "Notas interpretativas exclusivas",
     "Acceso a masterclass privada",
-    "Certificación inmutable en blockchain"
+    "Certificación inmutable en blockchain",
+    "Partitura digital firmada"
   ],
-  "cardImage": "/cards/mc-2025-goulnara-schubert.webp",
+  "cardImage": "/covers/cover-mc-galimchina-schubert.webp",
   "metadata": {
     "uuid": "urn:uuid:$(uuidgen)",
     "timestamp": "2025-11-28T10:00:00Z",
