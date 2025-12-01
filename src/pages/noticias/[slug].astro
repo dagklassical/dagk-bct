@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getEntry, getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const noticias = await getCollection('noticias');
+  return noticias.map(({ slug }) => ({
+    params: { slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const noticia = await getEntry('noticias', slug);
+
+if (!noticia) {
+  return Astro.redirect('/404');
+}
+
+const { data, body } = noticia;
+const breadcrumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Noticias', href: '/noticias/' },
+  { label: data.title, href: `/noticias/${slug}` }
+];
+---
+
+<Layout title={data.title} description={data.summary || data.title} breadcrumbs={breadcrumbs}>
+  <article class="max-w-3xl mx-auto px-4 py-8">
+    <p class="text-sm text-slate-600 mb-2">
+      {new Date(data.date).toLocaleDateString('es-VE', { day: 'numeric', month: 'long', year: 'numeric' })}
+    </p>
+    <h1 class="text-4xl md:text-5xl font-advent font-bold text-slate-800 mb-6">{data.title}</h1>
+    
+    {data.image && (
+      <div class="my-8">
+        <img 
+          src={data.image} 
+          alt={data.title}
+          class="w-full h-auto rounded-lg border border-platinum"
+          loading="lazy"
+        />
+      </div>
+    )}
+    
+    <div class="prose prose-slate max-w-none">
+      <div 
+        class="whitespace-pre-line text-slate-700"
+        set:html={body}
+      ></div>
+    </div>
+  </article>
+</Layout>

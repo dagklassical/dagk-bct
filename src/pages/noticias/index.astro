@@ -1,13 +1,36 @@
 ---
-// src/pages/musica/index.astro
 import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
 
-const pageTitle = 'Noticias - dagk-bct';
-const pageDescription = 'Descubre la música en formato digital seguro.';
+const noticias = (await getCollection('noticias'))
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+const breadcrumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Noticias', href: '/noticias/' }
+];
 ---
 
-<Layout title={pageTitle} description={pageDescription}>
-  <h1 class="text-3xl font-bold mb-4">Noticias</h1>
-  <p>Explora nuestra discografía y lanzamientos.</p>
-  <!-- Aquí irá el contenido específico -->
+<Layout title="Noticias" description="Últimas novedades de DAG Klassical" breadcrumbs={breadcrumbs}>
+  <article class="max-w-3xl mx-auto px-4 py-8">
+    <h1 class="text-4xl font-advent text-center mb-10">Noticias</h1>
+    {noticias.length === 0 ? (
+      <p class="text-center text-slate-600">No hay noticias disponibles actualmente.</p>
+    ) : (
+      noticias.map(({ data, slug }) => (
+        <div key={slug} class="mb-12 pb-8 border-b last:border-b-0">
+          <h2 class="text-2xl font-bold mb-2">
+            <a href={`/noticias/${slug}`} class="text-dag-burgundy hover:underline">{data.title}</a>
+          </h2>
+          <p class="text-slate-600 mb-4">
+            {new Date(data.date).toLocaleDateString('es-VE', { day: 'numeric', month: 'long', year: 'numeric' })}
+          </p>
+          {data.summary && <p class="text-slate-700 mb-4">{data.summary}</p>}
+          <a href={`/noticias/${slug}`} class="text-dag-burgundy font-medium inline-flex items-center">
+            Leer más →
+          </a>
+        </div>
+      ))
+    )}
+  </article>
 </Layout>
