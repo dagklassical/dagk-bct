@@ -19,13 +19,19 @@ import '../styles/globals.css';
     <main class="flex-grow"><slot /></main>
 
     <!-- Franja de migas de pan SOBRE el footer -->
-    {Astro.props.breadcrumbs && Astro.props.breadcrumbs.length > 0 && (
-      <div class="bg-slate-800 text-white py-1">
-        <div class="max-w-6xl mx-auto px-4">
-          <Breadcrumb items={Astro.props.breadcrumbs} />
-        </div>
+    <div class="bg-slate-800 text-white">
+      <div class="max-w-6xl mx-auto px-4 py-2">
+        {Astro.url.pathname === '/' ? (
+          <div class="text-sm text-white font-light mx-4 py-2">
+            Aquí verá&nbsp;&nbsp;/&nbsp;&nbsp;su ruta de navegación
+          </div>
+        ) : (
+          Astro.props.breadcrumbs && Astro.props.breadcrumbs.length > 0 ? (
+            <Breadcrumb items={Astro.props.breadcrumbs} />
+          ) : null
+        )}
       </div>
-    )}
+    </div>
 
     <Footer />
 

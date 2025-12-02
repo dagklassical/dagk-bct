@@ -3,6 +3,9 @@ title: "Primera noticia de ejemplo"
 date: 2025-12-02
 image: "/images/placeholder.jpg"
 summary: "Esta es una noticia de ejemplo para demostrar el funcionamiento."
+tags:
+    - "general"
+    - "prueba"
 ---
 
 # ¡Hola desde nuestra primera noticia!
