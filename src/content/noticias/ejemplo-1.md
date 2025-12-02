@@ -8,11 +8,11 @@ tags:
     - "prueba"
 ---
 
-# ¡Hola desde nuestra primera noticia!
+## ¡Hola desde nuestra primera noticia!
 
 Este contenido se carga perfectamente con Content Collections, el método moderno y recomendado en Astro 5+.
 
-## Ventajas de este enfoque:
+### **Ventajas de este enfoque:**
 
 - ✅ Totalmente compatible con tu versión actual de Astro
 - ✅ No requiere downgrades de React
@@ -22,11 +22,12 @@ Este contenido se carga perfectamente con Content Collections, el método modern
 
 Puedes escribir contenido en **Markdown** normalmente, con todas sus capacidades.
 
-### Ejemplo de lista:
+#### **Ejemplo de lista:**
+
 - Elemento 1
 - Elemento 2
 - Elemento 3
 
 ![Imagen de ejemplo](/images/placeholder.jpg)
 
-> Esta es una cita destacada que muestra el estilo aplicado.
+> Esta es una cita destacada que muestra el estilo aplicado.<!-- -->

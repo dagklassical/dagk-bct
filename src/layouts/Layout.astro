@@ -4,6 +4,9 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import '../styles/globals.css';
+
+// NUEVO: Importamos los estilos de Splide.js
+import '@splidejs/splide/css';
 ---
 
 <html lang="es">
@@ -58,5 +61,8 @@ import '../styles/globals.css';
         button.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
       })();
     </script>
+
+    <!-- NUEVO: Script para inicializar el slider -->
+    <script type="module" src="/src/scripts/slider.js"></script>
   </body>
 </html>

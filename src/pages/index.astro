@@ -1,8 +1,9 @@
 ---
 // src/pages/index.astro
-import ImmutableStamp from '../components/ImmutableStamp.astro';
 import Layout from '../layouts/Layout.astro';
-import '../styles/globals.css'; // Asegura Tailwind
+
+// Los imports de 'ImmutableStamp' y 'globals.css' no son necesarios aquí,
+// ya que el Layout ya se encarga de ellos. Esto mantiene el código más limpio.
 
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
@@ -11,23 +12,59 @@ const breadcrumbs = [
 
 
 <Layout title="Dag Klassical BCT" description="Tecnología Blockchain aplicada a la música digital verificable." breadcrumbs={breadcrumbs}>
-  <!-- Hero Section -->
-<section class="text-center py-16 bg-gray95">
-  <img src="/logo-dagklassical-orig-001.svg" alt="Dag Klassical" class="h-24 mx-auto mb-6" />
-  <h1 class="text-h1 font-advent mb-4">Dag Klassical</h1>
-  <p class="text-xl max-w-3xl mx-auto px-4 text-slate-700 mb-8">
-    Archivo cultural inmutable, construido en blockchain<br>
-    <span class="text-lg font-medium text-dag-burgundy">Música, artistas y obras certificadas para siempre</span>    
-  </p>
-  <div class="flex flex-wrap justify-center gap-4 px-4">
-    <a href="/musica/discografia" class="bg-dag-burgundy text-white px-6 py-3 rounded-lg hover:bg-opacity-80 transition-colors w-full sm:w-auto">
-      Explorar Música
-    </a>
-    <a href="/blockchain/music-cards" class="bg-slate-800 text-white px-6 py-3 rounded-lg hover:bg-slate-700 transition-colors w-full sm:w-auto">
-      Ver Music Cards
-    </a>
-  </div>
-</section>
+  
+  <!-- ========================================
+       NUEVO HERO SLIDER
+       ======================================== -->
+  <section class="relative w-full h-[70vh] md:h-[80vh] overflow-hidden">
+    <div id="main-hero-slider" class="splide">
+      <div class="splide__track">
+        <ul class="splide__list">
+          
+          <!-- SLIDE 1: DISCOGRAFÍA -->
+          <li class="splide__slide relative">
+            <!-- 
+              IMPORTANTE: Reemplaza esta URL con tu imagen .webp
+              Por ejemplo: src="/images/hero-discografia.webp"
+            -->
+            <img src="/hero/hero-discografia-16-8.webp" alt="Explora nuestra discografía" class="w-full h-full object-cover" style="object-position: bottom;" />
+            
+            <!-- Overlay con el texto y botón -->
+            <div class="absolute inset-0 bg-black/30 flex items-center justify-center p-4">
+              <div class="text-center text-white max-w-2xl">
+                <h2 class="text-4xl md:text-6xl font-advent font-bold mb-4">Descubre la Discografía</h2>
+                <p class="text-lg md:text-xl mb-8 opacity-90">Obras maestras interpretadas por artistas de clase mundial, con una calidad de audio inigualable.</p>
+                <a href="/musica/discografia" class="btn-primary text-lg px-8 py-3">
+                  Explorar Ahora
+                </a>
+              </div>
+            </div>
+          </li>
+
+          <!-- SLIDE 2: MUSIC CARDS -->
+          <li class="splide__slide relative">
+            <!-- 
+              IMPORTANTE: Reemplaza esta URL con tu imagen .webp
+              Por ejemplo: src="/images/hero-music-cards.webp"
+            -->
+            <img src="/hero/hero-music-cards.webp" alt="Adquiere una Music Card" class="w-full h-full object-cover" />
+
+            <!-- Overlay con el texto y botón -->
+            <div class="absolute inset-0 bg-black/30 flex items-center justify-center p-4">
+              <div class="text-center text-white max-w-2xl">
+                <h2 class="text-4xl md:text-6xl font-advent font-bold mb-4">Colecciona la Música</h2>
+                <p class="text-lg md:text-xl mb-8 opacity-90">Posee un pedazo de la historia con nuestras Music Cards NFT, un recuerdo digital verificable y tuyo para siempre.</p>
+                <a href="/blockchain/music-cards/" class="btn-primary text-lg px-8 py-3">
+                  Ver Colección
+                </a>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </section>
 
   <!-- Features Section -->
   <section class="py-16 bg-platinum">
@@ -57,7 +94,7 @@ const breadcrumbs = [
       Descubre cómo Dag Klassical BCT puede transformar la forma en que creas, distribuyes y valoras la música digital.
     </p>
     <div class="space-x-4">
-      <a href="/nosotros/dag-klassical" class="inline-block bg-slate-800 text-white px-6 py-3 rounded-lg hover:bg-slate-700 transition-colors">
+      <a href="/nosotros/" class="inline-block bg-slate-800 text-white px-6 py-3 rounded-lg hover:bg-slate-700 transition-colors">
         Conócenos
       </a>
       <a href="/contacto" class="inline-block bg-dag-burgundy text-white px-6 py-3 rounded-lg hover:bg-opacity-80 transition-colors">
@@ -65,4 +102,5 @@ const breadcrumbs = [
       </a>
     </div>
   </section>
+
 </Layout>
