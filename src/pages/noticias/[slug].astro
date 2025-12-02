@@ -1,52 +1,66 @@
 ---
+// src/pages/noticias/[slug].astro
 import Layout from '../../layouts/Layout.astro';
 import { getEntry, getCollection } from 'astro:content';
 
+// FUNCIÓN OBLIGATORIA PARA RUTAS DINÁMICAS
 export async function getStaticPaths() {
-  const noticias = await getCollection('noticias');
-  return noticias.map(({ slug }) => ({
+  const entries = await getCollection('noticias');
+  return entries.map(({ slug }) => ({
     params: { slug },
   }));
 }
 
+// Obtiene el slug de los parámetros de la URL
 const { slug } = Astro.params;
-const noticia = await getEntry('noticias', slug);
 
-if (!noticia) {
-  return Astro.redirect('/404');
+// Obtiene la noticia específica por slug
+const entry = await getEntry('noticias', slug);
+
+// Redirige si no se encuentra la noticia
+if (!entry) {
+  return Astro.redirect('/noticias');
 }
 
-const { data, body } = noticia;
+// Extrae los datos del frontmatter
+const { title, date, image, summary } = entry.data;
+
+// Obtiene el componente Content
+const { Content } = await entry.render();
+
+// Configura el breadcrumb
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
   { label: 'Noticias', href: '/noticias/' },
-  { label: data.title, href: `/noticias/${slug}` }
+  { label: title, href: `/noticias/${slug}` }
 ];
 ---
 
-<Layout title={data.title} description={data.summary || data.title} breadcrumbs={breadcrumbs}>
+<Layout title={title} description={summary || title} breadcrumbs={breadcrumbs}>
   <article class="max-w-3xl mx-auto px-4 py-8">
+    <!-- Fecha formateada -->
     <p class="text-sm text-slate-600 mb-2">
-      {new Date(data.date).toLocaleDateString('es-VE', { day: 'numeric', month: 'long', year: 'numeric' })}
+      {new Date(date).toLocaleDateString('es-VE', { day: 'numeric', month: 'long', year: 'numeric' })}
     </p>
-    <h1 class="text-4xl md:text-5xl font-advent font-bold text-slate-800 mb-6">{data.title}</h1>
-    
-    {data.image && (
+
+    <!-- Título principal -->
+    <h1 class="text-4xl md:text-5xl font-advent font-bold text-slate-800 mb-6">{title}</h1>
+
+    <!-- Imagen opcional -->
+    {image && (
       <div class="my-8">
         <img 
-          src={data.image} 
-          alt={data.title}
+          src={image} 
+          alt={title}
           class="w-full h-auto rounded-lg border border-platinum"
           loading="lazy"
         />
       </div>
     )}
-    
-    <div class="prose prose-slate max-w-none">
-      <div 
-        class="whitespace-pre-line text-slate-700"
-        set:html={body}
-      ></div>
+
+    <!-- ✅ ENVOLVER <Content /> CON LA CLASE ESPECÍFICA -->
+    <div class="news-content">
+      <Content />
     </div>
   </article>
 </Layout>

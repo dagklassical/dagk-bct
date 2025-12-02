@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Tus colores personalizados ya están definidos en tailwind.config.cjs */
+/* Tus componentes personalizados existentes */
 @layer components {
   .btn-primary {
     @apply bg-dag-burgundy text-white px-4 py-2 rounded-lg hover:bg-opacity-80 transition-colors font-medium;
@@ -13,5 +13,114 @@
   }
   .btn-tertiary {
     @apply bg-dag-black text-white px-4 py-2 rounded-lg hover:bg-opacity-80 transition-colors font-medium;
+  }
+  
+  /* ✅ COMPONENTE ESPECÍFICO PARA NOTICIAS */
+  .news-content {
+    @apply max-w-none;
+    line-height: 1.6;
+  }
+  
+  /* Estilos específicos para elementos DENTRO de .news-content */
+  .news-content h1 {
+    @apply text-4xl md:text-5xl font-advent font-bold text-slate-800 mt-8 mb-6;
+  }
+  
+  .news-content h2 {
+    @apply text-2xl md:text-3xl font-advent font-bold text-slate-800 mt-10 mb-4 border-b-2 border-platinum pb-2;
+  }
+  
+  .news-content h3 {
+    @apply text-xl md:text-2xl font-advent font-bold text-slate-800 mt-8 mb-3;
+  }
+  
+  .news-content h4 {
+    @apply text-lg font-advent font-semibold text-slate-700 mt-6 mb-2;
+  }
+  
+  .news-content p {
+    @apply text-lg text-slate-700 leading-relaxed mb-6 max-w-[70ch];
+  }
+  
+  .news-content ul, 
+  .news-content ol {
+    @apply mb-6 ml-6;
+  }
+  
+  .news-content ul li {
+    @apply list-disc text-slate-700 mb-2 pl-2;
+  }
+  
+  .news-content ol li {
+    @apply list-decimal text-slate-700 mb-2 pl-2;
+  }
+  
+  .news-content a {
+    @apply text-dag-burgundy font-medium hover:text-dag-black transition-colors underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+  
+  .news-content a:hover {
+    text-decoration-thickness: 2px;
+  }
+  
+  .news-content blockquote {
+    @apply border-l-4 border-dag-burgundy pl-6 py-4 my-8 bg-platinum/30 italic text-slate-700 rounded-r-lg;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+  }
+  
+  .news-content img {
+    @apply rounded-lg border border-platinum my-8 mx-auto max-w-full h-auto block;
+  }
+  
+  .news-content img + em {
+    @apply block text-center text-slate-600 mt-2 text-sm italic;
+  }
+  
+  .news-content table {
+    @apply w-full border-collapse my-8;
+  }
+  
+  .news-content th {
+    @apply bg-slate-100 border border-platinum font-advent font-semibold text-slate-800 p-3 text-left;
+  }
+  
+  .news-content td {
+    @apply border border-platinum p-3 text-slate-700;
+  }
+  
+  .news-content tr:nth-child(even) {
+    @apply bg-platinum/20;
+  }
+  
+  .news-content code {
+    @apply bg-platinum text-slate-800 px-1 py-0.5 rounded text-sm;
+    font-family: monospace; /* ✅ Solución directa para código */
+  }
+  
+  .news-content pre {
+    @apply bg-slate-800 text-white p-5 rounded-lg my-8 overflow-x-auto text-sm;
+    font-family: monospace; /* ✅ Solución directa para bloques de código */
+  }
+  
+  .news-content hr {
+    @apply my-12 border-platinum border-t-2;
+  }
+}
+
+/* ✅ ESTILOS RESPONSIVE PARA MÓVILES - CORREGIDO */
+@media (max-width: 768px) {
+  .news-content h1 {
+    @apply text-3xl;
+  }
+  
+  .news-content h2 {
+    @apply text-2xl;
+  }
+  
+  .news-content blockquote {
+    @apply ml-0 mr-0 border-l-2 pl-4 py-3; /* ✅ border-l-3 reemplazado con border-l-2 */
   }
 }

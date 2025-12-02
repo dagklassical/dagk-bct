@@ -1,5 +1,4 @@
 // tailwind.config.js
-/** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "./src/**/*.{astro,html,js,jsx,ts,tsx,vue,svelte,md,mdx}",
@@ -21,8 +20,9 @@ export default {
     },
     fontFamily: {
       advent: ['"Advent Pro"', 'sans-serif'],
-      // Montserrat seguirá siendo la fuente por defecto para el cuerpo
     },
   },
-  plugins: [],
+  plugins: [
+    
+  ],
 }

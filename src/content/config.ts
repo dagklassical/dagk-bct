@@ -1,13 +1,13 @@
-// src/content/config.ts
 import { defineCollection, z } from 'astro:content';
 
 const noticias = defineCollection({
   schema: z.object({
     title: z.string(),
-    date: z.date(),
+    date: z.coerce.date(), // Usa coerce para convertir strings a Date
     image: z.string().optional(),
     summary: z.string().optional(),
-    body: z.string(), // Contenido del MD
+    tags: z.array(z.string()).optional(),
+    // ¡NO incluyas body aquí! Se maneja automáticamente
   }),
 });
 
