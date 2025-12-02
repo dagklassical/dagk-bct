@@ -14,62 +14,76 @@ const breadcrumbs = [
 <Layout title="Dag Klassical BCT" description="Tecnología Blockchain aplicada a la música digital verificable." breadcrumbs={breadcrumbs}>
   
   <!-- ========================================
-       NUEVO HERO SLIDER
+       NUEVO HERO SLIDER (OPTIMIZADO Y CON TEXTO ALINEADO)
        ======================================== -->
-  <section class="relative w-full h-[70vh] md:h-[80vh] overflow-hidden">
-    <div id="main-hero-slider" class="splide">
-      <div class="splide__track">
-        <ul class="splide__list">
+<!-- CAMBIO 1: Ahora ocupa toda la pantalla en móvil (h-screen) y 80vh en escritorio -->
+<section class="relative w-full h-screen md:h-[96vh] overflow-hidden">
+  <div id="main-hero-slider" class="splide">
+    <div class="splide__track">
+      <ul class="splide__list">
+        
+        <!-- SLIDE 1: DISCOGRAFÍA (TEXTO A LA IZQUIERDA) -->
+        <li class="splide__slide relative">
+          <img 
+            src="/hero/hero-discografia.webp" 
+            alt="Explora nuestra discografía" 
+            class="w-full h-full object-cover"
+          />
           
-          <!-- SLIDE 1: DISCOGRAFÍA -->
-          <li class="splide__slide relative">
+          <!-- 
+            CAMBIO 2: Overlay alineado a la izquierda en escritorio.
+            - md:items-end: Alinea el contenido al final del eje vertical (abajo) en escritorio.
+            - md:justify-start: Alinea el contenido al inicio del eje horizontal (izquierda) en escritorio.
+            - md:p-16: Aumenta el padding en escritorio para separar el texto del borde.
+          -->
+          <div class="absolute inset-0 bg-black/50 flex items-center justify-center p-4 md:items-end md:justify-start md:p-16">
             <!-- 
-              IMPORTANTE: Reemplaza esta URL con tu imagen .webp
-              Por ejemplo: src="/images/hero-discografia.webp"
+              CAMBIO 3: Contenedor de texto alineado a la izquierda en escritorio.
+              - text-center md:text-left: Texto centrado en móvil, alineado a la izquierda en escritorio.
+              - max-w-lg: Limita el ancho del texto para mejor legibilidad.
             -->
-            <img src="/hero/hero-discografia-16-8.webp" alt="Explora nuestra discografía" class="w-full h-full object-cover" style="object-position: bottom;" />
-            
-            <!-- Overlay con el texto y botón -->
-            <div class="absolute inset-0 bg-black/30 flex items-center justify-center p-4">
-              <div class="text-center text-white max-w-2xl">
-                <h2 class="text-4xl md:text-6xl font-advent font-bold mb-4">Descubre la Discografía</h2>
-                <p class="text-lg md:text-xl mb-8 opacity-90">Obras maestras interpretadas por artistas de clase mundial, con una calidad de audio inigualable.</p>
-                <a href="/musica/discografia" class="btn-primary text-lg px-8 py-3">
-                  Explorar Ahora
-                </a>
-              </div>
+            <div class="text-center md:text-left text-white max-w-lg">
+              <h2 class="text-h2 sm:text-h3 md:text-5xl lg:text-6xl font-advent font-bold mb-4">Descubre la Discografía</h2>
+              <p class="hidden sm:block text-lg md:text-xl mb-8 opacity-90">Obras maestras interpretadas por artistas de clase mundial, con una calidad de audio inigualable.</p>
+              <a href="/musica/discografia" class="hidden sm:inline-block btn-primary text-lg px-8 py-3">
+                Explorar Ahora
+              </a>
             </div>
-          </li>
+          </div>
+        </li>
 
-          <!-- SLIDE 2: MUSIC CARDS -->
-          <li class="splide__slide relative">
+        <!-- SLIDE 2: MUSIC CARDS (TEXTO A LA DERECHA) -->
+        <li class="splide__slide relative">
+          <img src="/hero/hero-music-cards.webp" alt="Adquiere una Music Card" class="w-full h-full object-cover" />
+
+          <!-- 
+            CAMBIO 4: Overlay alineado a la DERECHA en escritorio.
+            - md:justify-end: Alinea el contenido al final del eje horizontal (derecha) en escritorio.
+          -->
+          <div class="absolute inset-0 bg-black/50 flex items-center justify-center p-4 md:items-end md:justify-start md:p-16">
             <!-- 
-              IMPORTANTE: Reemplaza esta URL con tu imagen .webp
-              Por ejemplo: src="/images/hero-music-cards.webp"
+              CAMBIO 5: Contenedor de texto alineado a la derecha en escritorio.
+              - text-center md:text-right: Texto centrado en móvil, alineado a la derecha en escritorio.
             -->
-            <img src="/hero/hero-music-cards.webp" alt="Adquiere una Music Card" class="w-full h-full object-cover" />
-
-            <!-- Overlay con el texto y botón -->
-            <div class="absolute inset-0 bg-black/30 flex items-center justify-center p-4">
-              <div class="text-center text-white max-w-2xl">
-                <h2 class="text-4xl md:text-6xl font-advent font-bold mb-4">Colecciona la Música</h2>
-                <p class="text-lg md:text-xl mb-8 opacity-90">Posee un pedazo de la historia con nuestras Music Cards NFT, un recuerdo digital verificable y tuyo para siempre.</p>
-                <a href="/blockchain/music-cards/" class="btn-primary text-lg px-8 py-3">
-                  Ver Colección
-                </a>
-              </div>
+            <div class="text-center md:text-right text-white max-w-lg">
+              <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-advent font-bold mb-4">Colecciona la Música</h2>
+              <p class="hidden sm:block text-lg md:text-xl mb-8 opacity-90">Posee un pedazo de la historia con nuestras Music Cards NFT, un recuerdo digital verificable y tuyo para siempre.</p>
+              <a href="/blockchain/music-cards/" class="hidden sm:inline-block btn-primary text-lg px-8 py-3">
+                Ver Colección
+              </a>
             </div>
-          </li>
+          </div>
+        </li>
 
-        </ul>
-      </div>
+      </ul>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Features Section -->
   <section class="py-16 bg-platinum">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-h2 font-advent text-center mb-12">Nuestro Valor</h2>
+      <h2 class="text-h2 font-advent text-center mb-12">Nuestros Valores</h2>
       <div class="grid md:grid-cols-3 gap-8">
         <div class="text-center p-6 bg-dag-black/60 rounded-lg shadow-md border border-platinum text-white">
           <h3 class="text-h3 font-advent">Música Verificable</h3>
