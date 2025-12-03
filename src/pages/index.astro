@@ -14,37 +14,60 @@ const breadcrumbs = [
 <Layout title="Dag Klassical BCT" description="Tecnología Blockchain aplicada a la música digital verificable." breadcrumbs={breadcrumbs}>
   
   <!-- ========================================
-       NUEVO HERO SLIDER (OPTIMIZADO Y CON TEXTO ALINEADO)
+       HERO SLIDER (SOLUCIÓN DEFINITIVA)
        ======================================== -->
-<!-- CAMBIO 1: Ahora ocupa toda la pantalla en móvil (h-screen) y 80vh en escritorio -->
-<section class="relative w-full h-screen md:h-[96vh] overflow-hidden">
+
+<!-- ESTILO PARA FORZAR LA ALTURA DE SPLIDE -->
+<style>
+  #main-hero-slider,
+  #main-hero-slider .splide__track,
+  #main-hero-slider .splide__list,
+  #main-hero-slider .splide__slide {
+    height: 100%;
+  }
+</style>
+
+<!-- 
+  CAMBIO 1: Altura más razonable.
+  - h-[75vh] en móvil para evitar el vacío.
+  - md:h-screen para una experiencia inmersiva en tablets.
+  - lg:h-[80vh] para escritorio.
+-->
+<section class="relative w-full h-[80vh] md:h-screen lg:h-[85vh] overflow-hidden">
   <div id="main-hero-slider" class="splide">
     <div class="splide__track">
       <ul class="splide__list">
         
-        <!-- SLIDE 1: DISCOGRAFÍA (TEXTO A LA IZQUIERDA) -->
+        <!-- SLIDE 1: DISCOGRAFÍA -->
         <li class="splide__slide relative">
           <img 
             src="/hero/hero-discografia.webp" 
             alt="Explora nuestra discografía" 
-            class="w-full h-full object-cover"
+            class="w-full h-full object-cover" 
+            style="object-position: left;"
           />
           
           <!-- 
-            CAMBIO 2: Overlay alineado a la izquierda en escritorio.
-            - md:items-end: Alinea el contenido al final del eje vertical (abajo) en escritorio.
-            - md:justify-start: Alinea el contenido al inicio del eje horizontal (izquierda) en escritorio.
-            - md:p-16: Aumenta el padding en escritorio para separar el texto del borde.
+            CAMBIO 2: Alineación más segura.
+            - items-center: Centrado en móvil para evitar cortes.
+            - md:items-end: Alineado abajo en escritorio.
           -->
-          <div class="absolute inset-0 bg-black/50 flex items-center justify-center p-4 md:items-end md:justify-start md:p-16">
+          <div class="absolute inset-0 bg-black/20 flex items-center justify-center p-4 md:items-end">
             <!-- 
-              CAMBIO 3: Contenedor de texto alineado a la izquierda en escritorio.
-              - text-center md:text-left: Texto centrado en móvil, alineado a la izquierda en escritorio.
-              - max-w-lg: Limita el ancho del texto para mejor legibilidad.
+              CAMBIO 3: Contenedor de texto con padding interno para evitar el desbordamiento.
+              - w-full max-w-prose: Control de ancho.
+              - text-center md:text-left: Alineación del texto.
+              - py-4 md:py-8: Padding vertical para separar del borde.
             -->
-            <div class="text-center md:text-left text-white max-w-lg">
-              <h2 class="text-h2 sm:text-h3 md:text-5xl lg:text-6xl font-advent font-bold mb-4">Descubre la Discografía</h2>
-              <p class="hidden sm:block text-lg md:text-xl mb-8 opacity-90">Obras maestras interpretadas por artistas de clase mundial, con una calidad de audio inigualable.</p>
+            <div class="w-full max-w-prose text-center md:text-left text-white py-4 md:py-8">
+              <!-- 
+                CAMBIO 4: Tamaños de fuente más conservadores para evitar el desbordamiento.
+                - Se eliminó el tamaño `lg:` para que no crezca indefinidamente.
+              -->
+              <h2 class="text-3xl sm:text-4xl md:text-5xl font-advent font-bold mb-4">Descubre la Discografía</h2>
+              
+              <p class="text-lg md:text-xl mb-8 opacity-90">Obras maestras interpretadas por artistas de clase mundial, con una calidad de audio inigualable.</p>
+              
               <a href="/musica/discografia" class="hidden sm:inline-block btn-primary text-lg px-8 py-3">
                 Explorar Ahora
               </a>
@@ -52,23 +75,21 @@ const breadcrumbs = [
           </div>
         </li>
 
-        <!-- SLIDE 2: MUSIC CARDS (TEXTO A LA DERECHA) -->
+        <!-- SLIDE 2: MUSIC CARDS -->
         <li class="splide__slide relative">
-          <img src="/hero/hero-music-cards.webp" alt="Adquiere una Music Card" class="w-full h-full object-cover" />
+          <img src="/hero/hero-music-cards.webp" 
+          alt="Adquiere una Music Card" 
+          class="w-full h-full object-cover"
+          style="object-position: right;" />
 
-          <!-- 
-            CAMBIO 4: Overlay alineado a la DERECHA en escritorio.
-            - md:justify-end: Alinea el contenido al final del eje horizontal (derecha) en escritorio.
-          -->
-          <div class="absolute inset-0 bg-black/50 flex items-center justify-center p-4 md:items-end md:justify-start md:p-16">
-            <!-- 
-              CAMBIO 5: Contenedor de texto alineado a la derecha en escritorio.
-              - text-center md:text-right: Texto centrado en móvil, alineado a la derecha en escritorio.
-            -->
-            <div class="text-center md:text-right text-white max-w-lg">
-              <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-advent font-bold mb-4">Colecciona la Música</h2>
-              <p class="hidden sm:block text-lg md:text-xl mb-8 opacity-90">Posee un pedazo de la historia con nuestras Music Cards NFT, un recuerdo digital verificable y tuyo para siempre.</p>
-              <a href="/blockchain/music-cards/" class="hidden sm:inline-block btn-primary text-lg px-8 py-3">
+          <div class="absolute inset-0 bg-black/20 flex items-center justify-center p-4">
+            <div class="w-full max-w-prose text-center md:text-left text-white py-4 md:py-8">
+              <h2 class="text-3xl sm:text-4xl md:text-5xl font-advent font-bold mb-4">Colecciona la Música</h2>
+              
+              <p class="text-lg md:text-xl mb-8 opacity-90">Posee un pedazo de la historia con nuestras Music Cards NFT, un recuerdo digital verificable y tuyo para siempre.</p>
+              
+              <a href="/blockchain/music-cards/" 
+              class="hidden sm:inline-block btn-primary text-lg px-8 py-3">
                 Ver Colección
               </a>
             </div>
