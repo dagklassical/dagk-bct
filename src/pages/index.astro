@@ -33,7 +33,7 @@ const breadcrumbs = [
   - md:h-screen para una experiencia inmersiva en tablets.
   - lg:h-[80vh] para escritorio.
 -->
-<section class="relative w-full h-[80vh] md:h-screen lg:h-[85vh] overflow-hidden">
+<section class="relative w-full h-[90vh] md:h-screen lg:h-[82vh] overflow-hidden">
   <div id="main-hero-slider" class="splide">
     <div class="splide__track">
       <ul class="splide__list">
@@ -43,32 +43,31 @@ const breadcrumbs = [
           <img 
             src="/hero/hero-discografia.webp" 
             alt="Explora nuestra discografía" 
-            class="w-full h-full object-cover" 
-            style="object-position: left;"
-          />
+            class="w-full h-full object-cover object-[30%_95%]" 
+            />
           
           <!-- 
             CAMBIO 2: Alineación más segura.
             - items-center: Centrado en móvil para evitar cortes.
             - md:items-end: Alineado abajo en escritorio.
           -->
-          <div class="absolute inset-0 bg-black/20 flex items-center justify-center p-4 md:items-end">
+          <div class="absolute inset-0 bg-black/20 flex items-center justify-center p-4">
             <!-- 
               CAMBIO 3: Contenedor de texto con padding interno para evitar el desbordamiento.
               - w-full max-w-prose: Control de ancho.
               - text-center md:text-left: Alineación del texto.
               - py-4 md:py-8: Padding vertical para separar del borde.
             -->
-            <div class="w-full max-w-prose text-center md:text-left text-white py-4 md:py-8">
+            <div class="w-full max-w-prose text-center md:text-left text-white py-4 md:items-start">
               <!-- 
                 CAMBIO 4: Tamaños de fuente más conservadores para evitar el desbordamiento.
                 - Se eliminó el tamaño `lg:` para que no crezca indefinidamente.
               -->
-              <h2 class="text-3xl sm:text-4xl md:text-5xl font-advent font-bold pt-12 mb-4">Descubre la Discografía</h2>
+              <h2 class="text-h2 sm:text-4xl md:text-5xl font-advent font-bold mb-4">Descubre la Discografía</h2>
               
               <p class="text-lg md:text-xl mb-8 opacity-90">Obras maestras interpretadas por artistas de clase mundial, con una calidad de audio inigualable.</p>
               
-              <a href="/musica/discografia" class="hidden sm:inline-block btn-primary text-lg px-8 py-3">
+              <a href="/musica/discografia" class="btn-primary text-lg px-8 py-3">
                 Explorar Ahora
               </a>
             </div>
@@ -79,16 +78,14 @@ const breadcrumbs = [
         <li class="splide__slide relative">
           <img src="/hero/hero-music-cards.webp" 
           alt="Adquiere una Music Card" 
-          class="w-full h-full object-cover"
-          style="object-position: right;" />
+          class="w-full h-full object-cover object-[89%_25%]"
+          />
 
-          <div class="absolute inset-0 bg-black/10 flex items-center justify-center p-4">
+          <div class="absolute inset-0 bg-black/30 flex items-end justify-center p-4">
             <div class="w-full max-w-prose text-center md:text-left text-white pb-4 md:py-8 pt-12">
               <h2 class="text-3xl sm:text-4xl md:text-5xl font-advent font-bold mb-4">Colecciona la Música</h2>
-              <p class="text-lg md:text-xl mb-8 opacity-90">Posee un pedazo de la historia con nuestras Music Cards NFT, un recuerdo digital verificable y tuyo para siempre.</p>
-              
-              <a href="/blockchain/music-cards/" 
-              class="hidden sm:inline-block btn-primary text-lg px-8 py-3">
+              <p class="text-lg md:text-xl opacity-90 mb-8">Un compás de la historia en nuestras Music Cards NFT. Un recuerdo digital verificable y tuyo para siempre.</p>
+              <a href="/blockchain/music-cards/" class="btn-primary text-lg px-8 py-3 mb-12">
                 Ver Colección
               </a>
             </div>
