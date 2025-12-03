@@ -62,5 +62,23 @@ import '@splidejs/splide/css';
       })();
     </script>
     <!-- NUEVO: Script del Slider, procesado por Astro/Vite -->
-<script type="module" src="/src/scripts/slider.js"></script>
+<!-- ... otros scripts ... -->
+
+<script>
+  import Splide from '@splidejs/splide';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    new Splide('#main-hero-slider', {
+      type       : 'loop',
+      autoplay   : true,
+      interval   : 6000,
+      pauseOnHover: true,
+      arrows     : false,
+      pagination : true,
+      lazyLoad   : 'nearby',
+      speed      : 800,
+    }).mount();
+  });
+</script>
+</body>
 </html>
