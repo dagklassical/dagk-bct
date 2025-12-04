@@ -40,57 +40,51 @@ const breadcrumbs = [
         
         <!-- SLIDE 1: DISCOGRAFÍA -->
         <li class="splide__slide relative">
-          <img 
-            src="/hero/hero-discografia-02.webp" 
-            alt="Explora nuestra discografía" 
-            class="w-full h-full object-cover object-[30%_55%]" 
-            />
-          
-          <!-- 
-            CAMBIO 2: Alineación más segura.
-            - items-center: Centrado en móvil para evitar cortes.
-            - md:items-end: Alineado abajo en escritorio.
-          -->
-          <div class="absolute inset-0 bg-black/40 flex items-center justify-center p-4">
-            <!-- 
-              CAMBIO 3: Contenedor de texto con padding interno para evitar el desbordamiento.
-              - w-full max-w-prose: Control de ancho.
-              - text-center md:text-left: Alineación del texto.
-              - py-4 md:py-8: Padding vertical para separar del borde.
-            -->
-            <div class="w-full max-w-prose text-center md:text-left text-white py-4 md:items-start">
-              <!-- 
-                CAMBIO 4: Tamaños de fuente más conservadores para evitar el desbordamiento.
-                - Se eliminó el tamaño `lg:` para que no crezca indefinidamente.
-              -->
-              <h2 class="text-h2 sm:text-4xl md:text-5xl font-advent font-bold mb-8">Descubre la Discografía</h2>
-              
-              <p class="hidden md:block text-lg md:text-xl mb-8 opacity-90">Obras maestras interpretadas por artistas de clase mundial, con una calidad de audio inigualable.</p>
-              
-              <a href="/musica/discografia" class="btn-primary text-lg px-8 py-3 my-8">
-                Explorar Ahora
-              </a>
-            </div>
-          </div>
-        </li>
+  <img 
+    src="/hero/hero-discografia-02.webp" 
+    alt="Explora nuestra discografía" 
+    class="w-full h-full object-cover object-[30%_55%]" 
+  />
+  
+  <div class="absolute inset-0 bg-black/40 flex items-center justify-center p-4">
+    <!-- 
+      CAMBIO: Se añade 'md:mt-16' para bajar el bloque en escritorio.
+      Se elimina 'md:items-start' que no tenía efecto aquí.
+    -->
+    <div class="w-full max-w-prose text-center md:text-left text-white py-4 md:mt-48">
+      <h2 class="text-h2 sm:text-4xl md:text-5xl font-advent font-bold mb-8">Descubre la Discografía</h2>
+      
+      <p class="hidden md:block text-lg md:text-xl mb-8 opacity-90">Obras maestras interpretadas por artistas de clase mundial, con una calidad de audio inigualable.</p>
+      
+      <a href="/musica/discografia" class="btn-primary text-lg px-8 py-3 my-8">
+        Explorar Ahora
+      </a>
+    </div>
+  </div>
+</li>
 
         <!-- SLIDE 2: MUSIC CARDS -->
-        <li class="splide__slide relative">
-          <img src="/hero/hero-music-cards-latam.webp" 
-          alt="Adquiere una Music Card" 
-          class="w-full h-full object-cover object-[87%_25%]"
-          />
+<li class="splide__slide relative">
+  <img src="/hero/hero-music-cards-latam.webp" 
+  alt="Adquiere una Music Card" 
+  class="w-full h-full object-cover object-[86%_25%]"
+  />
 
-          <div class="absolute inset-0 bg-black/30 flex items-end justify-center p-4">
-            <div class="w-full max-w-prose text-center md:text-left text-white pb-4 md:py-8">
-              <h2 class="text-h2 sm:text-4xl md:text-5xl font-advent font-bold mb-8">Colecciona la Música</h2>
-              <p class="hidden md:block text-lg md:text-xl opacity-90 mb-8">Un compás de la historia en nuestras Music Cards NFT. <br />Un recuerdo digital verificable y tuyo para siempre.</p>
-              <a href="/blockchain/music-cards/" class="btn-primary text-lg px-8 py-3 my-8">
-                Ver Colección
-              </a>
-            </div>
-          </div>
-        </li>
+  <div class="absolute inset-0 bg-black/30 flex items-end justify-center p-4 md:justify-end">
+    <!-- 
+      CAMBIOS APLICADOS AQUÍ:
+      1. max-w-prose -> max-w-[60rem] mx-auto (Control total del ancho y centrado)
+      2. mb-8 md:mb-0 (Margen para subir el bloque solo en móvil)
+    -->
+    <div class="w-full max-w-[60rem] mx-auto text-center md:text-left text-white pb-4 md:py-8 mb-8 md:mb-0">
+      <h2 class="text-h2 sm:text-4xl md:text-5xl font-advent font-bold mb-8">Colecciona la Música</h2>
+      <p class="hidden md:block text-lg md:text-xl opacity-90 mb-8">Un compás de la historia en nuestras Music Cards NFT. <br />Un recuerdo digital verificable y tuyo para siempre.</p>
+      <a href="/blockchain/music-cards/" class="btn-primary text-lg px-8 py-3 my-8">
+        Ver Colección
+      </a>
+    </div>
+  </div>
+</li>
 
       </ul>
     </div>
