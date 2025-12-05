@@ -22,6 +22,18 @@ if (!card) {
   return Astro.redirect('/blockchain/music-cards');
 }
 
+// Función auxiliar para buscar enlaces
+const getSocialLink = (platformName) => {
+  return card.socialLinks?.find(link => link.platform === platformName)?.url;
+};
+
+// Extraemos las URLs (asegúrate de que los nombres coinciden con el JSON)
+const spotifyUrl = getSocialLink('Spotify');
+const appleMusicUrl = getSocialLink('Apple Music');
+const youtubeMusicUrl = getSocialLink('YouTube Music');
+const tidalUrl = getSocialLink('Tidal');   // <--- Nuevo
+const deezerUrl = getSocialLink('Deezer'); // <--- Nuevo
+
 const release = releases.find(r => r.id === card.associatedRelease);
 const artist = release?.artistIds?.[0] ? artists.find(a => a.id === release.artistIds[0]) : null;
 const artistName = artist?.name || 'Artista no identificado';
@@ -55,68 +67,107 @@ const breadcrumbs = [
           onerror="this.src='https://placehold.co/300x480/cccccc/999999?text=Music+Card'"
         />
 
-        <!-- Íconos de plataformas -->
-<div class="flex justify-center gap-8">
-  <!-- Spotify -->
-  <a
-    href="https://open.spotify.com/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Escuchar en Spotify"
-    class="block w-7 h-7"
-  >
-    <img src="/icons/spotify-color-icon.svg" alt="Spotify" class="w-full h-full" />
-  </a>
+        {/* Íconos de plataformas */}
+        <div class="flex justify-center gap-4">
+          
+          {/* Spotify */}
+          {spotifyUrl && (
+            <a
+              href={spotifyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Escuchar en Spotify"
+              class="block w-7 h-7 hover:scale-110 transition-transform"
+            >
+              <img src="/icons/spotify-color-icon.svg" alt="Spotify" class="w-full h-full" />
+            </a>
+          )}
 
-  <!-- Apple Music -->
-  <a
-    href="https://music.apple.com/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Escuchar en Apple Music"
-    class="block w-7 h-7"
-  >
-    <img src="/icons/apple-music-icon.svg" alt="Apple Music" class="w-full h-full" />
-  </a>
+          {/* Apple Music */}
+          {appleMusicUrl && (
+            <a
+              href={appleMusicUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Escuchar en Apple Music"
+              class="block w-7 h-7 hover:scale-110 transition-transform"
+            >
+              <img src="/icons/apple-music-color-icon.svg" alt="Apple Music" class="w-full h-full" />
+            </a>
+          )}
 
-  <!-- YouTube Music -->
-  <a
-    href="https://music.youtube.com/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Escuchar en YouTube Music"
-    class="block w-7 h-7"
-  >
-    <img src="/icons/youtube-music-icon.svg" alt="YouTube Music" class="w-full h-full" />
-  </a>
-</div>
+          {/* YouTube Music */}
+          {youtubeMusicUrl && (
+            <a
+              href={youtubeMusicUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Escuchar en YouTube Music"
+              class="block w-7 h-7 hover:scale-110 transition-transform"
+            >
+              <img src="/icons/youtube-music-color-icon.svg" alt="YouTube Music" class="w-full h-full" />
+            </a>
+          )}
 
-        <!-- Reproductor -->
-<div class="bg-white border border-platinum rounded-xl p-4">
-  <audio id="music-player" controls class="w-full h-16"></audio>
-</div>
+          {/* Tidal (Nuevo) */}
+          {tidalUrl && (
+            <a
+              href={tidalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Escuchar en Tidal"
+              class="block w-7 h-7 hover:scale-110 transition-transform"
+            >
+              {/* Asegúrate de tener este icono en tu carpeta public/icons */}
+              <img src="/icons/tidal-color-icon.svg" alt="Tidal" class="w-full h-full" />
+            </a>
+          )}
 
-<!-- Tracklist con scroll -->
-{release?.tracks && (
-  <section class="bg-white p-5 rounded-lg border border-platinum max-h-[300px] overflow-y-auto">
-    <h3 class="text-lg font-semibold mb-3">Tracklist</h3>
-    <ol class="space-y-2">
-      {release.tracks.map((track, i) => {
-        const demoSrc = typeof track.demo === 'string' ? track.demo : '/protected/demo/corre-caballito-demo.mp3';
-        return (
-          <li 
-            key={i}
-            data-demo={demoSrc}
-            class="flex justify-between items-center py-2 border-b border-slate-100 last:border-0 cursor-pointer hover:bg-slate-50"
-          >
-            <span class="font-medium">{i + 1}. {track.title}</span>
-            <span class="text-slate-500 text-sm">{track.duration}</span>
-          </li>
-        );
-      })}
-    </ol>
-  </section>
-)}
+          {/* Deezer (Nuevo) */}
+          {deezerUrl && (
+            <a
+              href={deezerUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Escuchar en Deezer"
+              class="block w-7 h-7 hover:scale-110 transition-transform"
+            >
+              {/* Asegúrate de tener este icono en tu carpeta public/icons */}
+              <img src="/icons/deezer-color-icon.svg" alt="Deezer" class="w-full h-full" />
+            </a>
+          )}
+
+        </div>
+
+        {/* Reproductor */}
+        <div class="bg-white border border-platinum rounded-xl px-4 py-3">
+          <audio id="music-player" controls class="w-full h-16 mb-3"></audio>
+        </div>
+
+        {/* Tracklist con scroll */}
+        {release?.tracks && (
+          <section class="bg-white p-5 rounded-lg border border-platinum max-h-[300px] overflow-y-auto">
+            <h3 class="text-lg font-semibold mb-3">Tracklist</h3>
+            <ol class="space-y-2">
+              {release.tracks.map((track, i) => {
+                const demoSrc = typeof track.demo === 'string' ? track.demo : '/protected/demo/corre-caballito-demo.mp3';
+                return (
+                  <li 
+                    key={i}
+                    data-demo={demoSrc}
+                    class={`flex justify-between items-center px-2 py-2 text-xs border-b border-slate-100 last:border-0 cursor-pointer hover:bg-slate-50 ${
+              i % 2 === 0 ? 'bg-gray95/40' : 'bg-gray95'
+            }`} 
+                    onclick={`playTrack('${track.demo || '/protected/demo/corre-caballito-demo.mp3'}')`}
+                  >
+                    <span class="font-medium">{i + 1}. {track.title}</span>
+                    <span class="text-slate-500 text-sm">{track.duration}</span>
+                  </li>
+                );
+              })}
+            </ol>
+          </section>
+        )}
       </div>
 
       {/* === COLUMNA DERECHA: NARRATIVA + BENEFICIOS + TÉCNICO + CRÉDITOS === */}
@@ -138,7 +189,7 @@ const breadcrumbs = [
               <li key={i} class="text-slate-700">{benefit}</li>
             ))}
           </ul>
-          <!-- Botón limpio, sin float -->
+          {/* Botón limpio, sin float */}
           <div class="pt-4">
             <a
               href="#"
@@ -150,12 +201,12 @@ const breadcrumbs = [
         </section>
 
         {/* Biografía del artista */}
-{artist && artist.bio && (
-  <section class="mb-8 bg-gray95 p-4 rounded-md">
-    <h3 class="text-h3 font-advent mb-3">Sobre {artist.name}</h3>
-    <p class="mb-3 whitespace-pre-line">{artist.bio}</p>
-  </section>
-)}
+        {artist && artist.bio && (
+          <section class="mb-8 bg-gray95 p-4 rounded-md">
+            <h3 class="text-h3 font-advent mb-3">Sobre {artist.name}</h3>
+            <p class="mb-3 whitespace-pre-line">{artist.bio}</p>
+          </section>
+        )}
 
         {/* Información técnica */}
         <section class="mb-8 p-5 border border-platinum rounded-lg bg-white">
@@ -172,58 +223,58 @@ const breadcrumbs = [
       </div>
     </div>
 
-<!-- Footer de 2 columnas (proporción 2:1) -->
-<div class="max-w-4xl mx-auto px-4 mt-8 pt-2 border-t border-platinum">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
-<!-- Columna izquierda: sello inmutable (1/3 del ancho) -->
-<div class="flex flex-col justify-end">
-<ImmutableStamp
-uuid={card.metadata.uuid}
-timestamp={card.metadata.timestamp}
-operator={card.metadata.operator}
-/>
-</div>
-<!-- Columna derecha: créditos (2/3 del ancho) -->
-<div class="md:col-span-2 pt-4 pb-3 px-5 border border-platinum rounded-md bg-white/50 flex flex-col justify-end">
-<p class="text-sm"><span class="text-dag-burgundy font-semibold">CRÉDITOS: </span>Piano y arreglos: {artistName} | Mezcla y mastering: Danilo Álvarez | Arte: Leo Gerulewicz | Diseño: Lorien Gascón Rojas</p>
-<p class="text-sm text-slate-600">Mezclado y masterizado en Mansa Studio®, Lechería, Venezuela.</p>
-</div>
-</div>
-</div>  </article>
+    {/* Footer de 2 columnas (proporción 2:1) */}
+    <div class="max-w-4xl mx-auto px-4 mt-8 pt-2 border-t border-platinum">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
+        {/* Columna izquierda: sello inmutable (1/3 del ancho) */}
+        <div class="flex flex-col justify-end">
+          <ImmutableStamp
+            uuid={card.metadata.uuid}
+            timestamp={card.metadata.timestamp}
+            operator={card.metadata.operator}
+          />
+        </div>
+        {/* Columna derecha: créditos (2/3 del ancho) */}
+        <div class="md:col-span-2 pt-4 pb-3 px-5 border border-platinum rounded-md bg-white/50 flex flex-col justify-end">
+          <p class="text-sm"><span class="text-dag-burgundy font-semibold">CRÉDITOS: </span>Piano y arreglos: {artistName} | Mezcla y mastering: Danilo Álvarez | Arte: Leo Gerulewicz | Diseño: Lorien Gascón Rojas</p>
+          <p class="text-sm text-slate-600">Mezclado y masterizado en Mansa Studio®, Lechería, Venezuela.</p>
+        </div>
+      </div>
+    </div>
 
-  {/* Script de interactividad */}
-<script>
-  function playTrack(src) {
-    if (!src || typeof src !== 'string') return;
-    const player = document.getElementById('music-player');
-    if (!player) return;
-    player.src = src;
-    player.load();
-    player.play().catch(e => console.warn('Falló:', e.message));
-  }
-
-  // Conectar todos los items al cargar
-  document.addEventListener('DOMContentLoaded', () => {
-    const player = document.getElementById('music-player');
-    if (!player) return;
-
-    // Carga el primer demo
-    const firstItem = document.querySelector('[data-demo]');
-    if (firstItem) {
-      const src = firstItem.getAttribute('data-demo');
-      if (src) {
+    {/* Script de interactividad */}
+    <script>
+      function playTrack(src) {
+        if (!src || typeof src !== 'string') return;
+        const player = document.getElementById('music-player');
+        if (!player) return;
         player.src = src;
         player.load();
+        player.play().catch(e => console.warn('Reproducción fallida:', e));
       }
-    }
 
-    // Añade listeners a todos los tracks
-    document.querySelectorAll('[data-demo]').forEach(item => {
-      item.addEventListener('click', () => {
-        const src = item.getAttribute('data-demo');
-        if (src) playTrack(src);
+      // Conectar todos los items al cargar
+      document.addEventListener('DOMContentLoaded', () => {
+        const player = document.getElementById('music-player');
+        if (!player) return;
+
+        // Carga el primer demo
+        const firstItem = document.querySelector('[data-demo]');
+        if (firstItem) {
+          const src = firstItem.getAttribute('data-demo');
+          if (src) {
+            player.src = src;
+            player.load();
+          }
+        }
+
+        // Añade listeners a todos los tracks
+        document.querySelectorAll('[data-demo]').forEach(item => {
+          item.addEventListener('click', () => {
+            const src = item.getAttribute('data-demo');
+            if (src) playTrack(src);
+          });
+        });
       });
-    });
-  });
-</script>
+    </script>
 </Layout>

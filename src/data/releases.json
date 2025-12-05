@@ -107,7 +107,7 @@
   "duration": "26:40",
   "commentary": "Más que una simple recopilación, 'Capítulos' es una declaración artística: una pausa para contemplar el camino recorrido y saborear los logros que han definido su sonido.",
   "commentaryAuthor": "Virginia Ramírez",
-  "musicCards": [],
+  "musicCards": ["mc-2025-ramirez-capitulos-std"],
   "metadata": {
     "uuid": "urn:uuid:$(uuidgen)",
     "timestamp": "2025-11-27T18:00:00Z",

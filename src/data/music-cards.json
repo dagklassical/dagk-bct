@@ -18,7 +18,29 @@
       "Contenido detrás de cámaras",
       "Partitura digital firmada"
     ],
-    "cardImage": "/cards/mc-2025-piano-aguinaldo.webp",
+    "cardImage": "/cards/mc-2025-gerardo-piano-aguinaldo.webp",
+    "socialLinks": [
+    {
+      "platform": "Spotify",
+      "url": "https://open.spotify.com/album/2BCg5vssPqRIj1Epu4QBTI?go=1&nd=1&dlsi=b7e2e8c9db7c44db"
+    },
+    {
+      "platform": "Apple Music",
+      "url": ""
+    },
+    {
+      "platform": "YouTube Music",
+      "url": "https://music.youtube.com/playlist?list=OLAK5uy_mm45TQxN_qAsZ8xpUSOW7o9C3GnWNzDAQ"
+    },
+    {
+      "platform": "Tidal",
+      "url": "https://tidal.com/album/334998371"
+    },
+    {
+      "platform": "Deezer",
+      "url": "https://www.deezer.com/us/album/523340862?app_id=140685&utm_source=partner_linkfire&utm_campaign=731bfdd9710383cd13601f9d7fcffd4b&utm_medium=Original&utm_term=lujo-network-3439&utm_content=album-523340862"
+    }
+  ],
     "metadata": {
       "uuid": "urn:uuid:a1b2c3d4-5678-90ab-cdef-123456789001",
       "timestamp": "2025-11-25T10:00:00Z",
@@ -29,7 +51,7 @@
     "id": "mc-2025-ramirez-capitulos-std",
     "title": "Capítulos",
     "edition": "Estándar",
-    "associatedRelease": "ramirez-capitulos",
+    "associatedRelease": "virginia-ramirez-capitulos",
     "totalSupply": 200,
     "available": 200,
     "blockchain": "Polygon",
@@ -44,7 +66,29 @@
       "Contenido detrás de cámaras",
       "Partitura digital firmada"
     ],
-    "cardImage": "/cards/mc-2025-pendiente.webp",
+    "cardImage": "/cards/mc-2025-virginia-capitulos.webp",
+    "socialLinks": [
+    {
+      "platform": "Spotify",
+      "url": "https://open.spotify.com/"
+    },
+    {
+      "platform": "Apple Music",
+      "url": "https://music.apple.com/ve"
+    },
+    {
+      "platform": "YouTube Music",
+      "url": "https://music.youtube.com/"
+    },
+    {
+      "platform": "Tidal",
+      "url": "https://tidal.com/"
+    },
+    {
+      "platform": "Deezer",
+      "url": "https://www.deezer.com/us/"
+    }
+  ],
     "metadata": {
       "uuid": "urn:uuid:b2c3d4e5-6789-01ab-cdef-234567890002",
       "timestamp": "2025-11-25T10:00:01Z",
@@ -71,6 +115,28 @@
     "Partitura digital firmada"
   ],
   "cardImage": "/covers/cover-mc-galimchina-schubert.webp",
+  "socialLinks": [
+    {
+      "platform": "Spotify",
+      "url": "https://open.spotify.com/album/4N42gl9w4gZY4IyLElsKYi?go=1&nd=1&dlsi=d87d58eb297a4c0b"
+    },
+    {
+      "platform": "Apple Music",
+      "url": "https://music.apple.com/ve/album/schubert/1653639785?at=1l3vpUI&ct=LFV_94378caae938da0bceab3768688de132&itsct=catchall_p2&itscg=30440&ls=1"
+    },
+    {
+      "platform": "YouTube Music",
+      "url": "https://music.youtube.com/playlist?list=OLAK5uy_kkIHfFa5V5jKF2XqqW6B5WuDXGE9VR-M8"
+    },
+    {
+      "platform": "Tidal",
+      "url": "https://tidal.com/album/259294070"
+    },
+    {
+      "platform": "Deezer",
+      "url": "https://www.deezer.com/us/album/324503107?app_id=140685&utm_source=partner_linkfire&utm_campaign=94378caae938da0bceab3768688de132&utm_medium=Original&utm_term=lujo-network-3439&utm_content=album-324503107"
+    }
+  ],
   "metadata": {
     "uuid": "urn:uuid:$(uuidgen)",
     "timestamp": "2025-11-28T10:00:00Z",
@@ -96,7 +162,29 @@
       "Contenido detrás de cámaras",
       "Partitura digital firmada"
   ],
-  "cardImage": "/cards/mc-2025-pendiente.webp",
+  "cardImage": "/cards/mc-2025-teodor-rachmaninoff-variations.webp",
+  "socialLinks": [
+    {
+      "platform": "Spotify",
+      "url": "https://open.spotify.com/album/3eIJyhYATYcwYvaqCZxHr5?go=1&nd=1&dlsi=4525725440174164"
+    },
+    {
+      "platform": "Apple Music",
+      "url": "https://music.apple.com/ve/album/february-night-var-on-a-prelude-in-c-sharp-minor-op/1784946934?at=1l3vpUI&ct=LFV_98d3c40bdec546ce1a7520d0440a97c0&itsct=catchall_p2&itscg=30440&ls=1"
+    },
+    {
+      "platform": "YouTube Music",
+      "url": "https://music.youtube.com/playlist?list=OLAK5uy_nK4BzThO-m3i1sM5yfAYdPHepVyIcf_RQ"
+    },
+    {
+      "platform": "Tidal",
+      "url": ""
+    },
+    {
+      "platform": "Deezer",
+      "url": "https://www.deezer.com/us/album/683008951?app_id=140685&utm_source=partner_linkfire&utm_campaign=98d3c40bdec546ce1a7520d0440a97c0&utm_medium=Original&utm_term=lujo-network-3439&utm_content=album-683008951"
+    }
+  ],
   "metadata": {
     "uuid": "urn:uuid:$(uuidgen)",
     "timestamp": "2025-11-28T11:00:00Z",
@@ -123,6 +211,28 @@
       "Partitura digital firmada"
   ],
   "cardImage": "/cards/mc-2025-pendiente.webp",
+  "socialLinks": [
+    {
+      "platform": "Spotify",
+      "url": "https://open.spotify.com/"
+    },
+    {
+      "platform": "Apple Music",
+      "url": "https://music.apple.com/ve"
+    },
+    {
+      "platform": "YouTube Music",
+      "url": "https://music.youtube.com/"
+    },
+    {
+      "platform": "Tidal",
+      "url": "https://tidal.com/"
+    },
+    {
+      "platform": "Deezer",
+      "url": "https://www.deezer.com/us/"
+    }
+  ],
   "metadata": {
     "uuid": "urn:uuid:$(uuidgen)",
     "timestamp": "2025-11-28T11:30:00Z",
