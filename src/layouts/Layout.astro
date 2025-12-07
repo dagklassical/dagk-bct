@@ -4,9 +4,6 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import '../styles/globals.css';
-
-// NUEVO: Importamos los estilos de Splide.js
-import '@splidejs/splide/css';
 ---
 
 <html lang="es">
@@ -15,70 +12,46 @@ import '@splidejs/splide/css';
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{Astro.props.title || 'Dag Klassical BCT'}</title>
     <meta name="description" content={Astro.props.description || 'Tecnología Blockchain aplicada a la música clásica.'} />
-    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@400;500;600;700&family=Montserrat:ital,wght@0,300;0,400;1,300&family=Source+Code+Pro:wght@300;400;500&display=swap" rel="stylesheet">
-  </head>
-  <body class="font-['Montserrat'] min-h-screen bg-gray95 text-slate-900 flex flex-col">
-    <Header />
-    <main class="flex-grow"><slot /></main>
+    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@400;500;600;700&family=Montserrat:ital,wght@0,300;400;1,300&family=Source+Code+Pro:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- ... otras etiquetas head ... -->
+</head>
+<body class="font-['Montserrat'] min-h-screen bg-gray95 text-slate-900 flex flex-col">
+  <Header />
+  <main class="flex-grow"><slot /></main>
 
-    <!-- Franja de migas de pan SOBRE el footer -->
-    <div class="bg-slate-800 text-white">
-      <div class="max-w-6xl mx-auto px-4 py-2">
+  <!-- Franja de migas de pan SOBRE el footer -->
+  <div class="bg-slate-800 text-white">
+    <div class="max-w-6xl mx-auto px-4 py-2">
+      <nav aria-label="Breadcrumb" class="max-w-6xl mx-auto px-4 py-2">
         {Astro.url.pathname === '/' ? (
           <div class="text-sm text-white font-light mx-4 py-2">
-            Aquí verá&nbsp;&nbsp;/&nbsp;&nbsp;su ruta de navegación
+            Aquí verá&nbsp;&nbsp;su ruta de navegación
           </div>
         ) : (
           Astro.props.breadcrumbs && Astro.props.breadcrumbs.length > 0 ? (
             <Breadcrumb items={Astro.props.breadcrumbs} />
           ) : null
         )}
-      </div>
+      </nav>
     </div>
+  </div>
 
-    <Footer />
+  <Footer />
 
-    <!-- Scroll to top -->
-    <div 
-      id="scroll-to-top" 
-      class="fixed bottom-6 right-6 bg-dag-black/50 text-white p-3 rounded-full shadow-lg opacity-0 pointer-events-none transition-opacity duration-300 z-40 hover:bg-dag-black/90"
-      aria-label="Volver arriba"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
-      </svg>
-    </div>
+  <!-- Scroll to top -->
+  <div id="scroll-to-top" ...>...</div>
 
-    <script>
-      (function() {
-        const button = document.getElementById('scroll-to-top');
-        if (!button) return;
-        const toggle = () => {
-          button.classList.toggle('opacity-0', window.scrollY < 400);
-          button.classList.toggle('pointer-events-none', window.scrollY < 400);
-        };
-        window.addEventListener('scroll', toggle);
-        button.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-      })();
-    </script>
-    <!-- NUEVO: Script del Slider, procesado por Astro/Vite -->
-<!-- ... otros scripts ... -->
+  <!-- NUEVO: El script del slider se ejecuta solo en el cliente -->
+  <script is:client>
+    import '../scripts/slider.js';
+  </script>
 
-<script>
-  import Splide from '@splidejs/splide';
-
-  document.addEventListener('DOMContentLoaded', () => {
-    new Splide('#main-hero-slider', {
-      type       : 'loop',
-      autoplay   : true,
-      interval   : 6000,
-      pauseOnHover: true,
-      arrows     : false,
-      pagination : true,
-      lazyLoad   : 'nearby',
-      speed      : 800,
-    }).mount();
-  });
-</script>
+  <!-- Script de interactividad -->
+  <script>
+    (function() {
+      const button = document.getElementById('scroll-to-top');
+      // ... resto de tu script de scroll-to-top ...
+    })();
+  </script>
 </body>
 </html>
