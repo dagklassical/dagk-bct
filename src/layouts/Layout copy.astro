@@ -1,0 +1,57 @@
+---
+// src/layouts/Layout.astro
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import '../styles/globals.css';
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{Astro.props.title || 'Dag Klassical BCT'}</title>
+    <meta name="description" content={Astro.props.description || 'Tecnología Blockchain aplicada a la música clásica.'} />
+    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@400;500;600;700&family=Montserrat:ital,wght@0,300;400;1,300&family=Source+Code+Pro:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- ... otras etiquetas head ... -->
+</head>
+<body class="font-['Montserrat'] min-h-screen bg-gray95 text-slate-900 flex flex-col">
+  <Header />
+  <main class="flex-grow"><slot /></main>
+
+  <!-- Franja de migas de pan SOBRE el footer -->
+  <div class="bg-slate-800 text-white">
+    <div class="max-w-6xl mx-auto px-4 py-2">
+      <nav aria-label="Breadcrumb" class="max-w-6xl mx-auto px-4 py-2">
+        {Astro.url.pathname === '/' ? (
+          <div class="text-sm text-white font-light mx-4 py-2">
+            Aquí verá&nbsp;&nbsp;su ruta de navegación
+          </div>
+        ) : (
+          Astro.props.breadcrumbs && Astro.props.breadcrumbs.length > 0 ? (
+            <Breadcrumb items={Astro.props.breadcrumbs} />
+          ) : null
+        )}
+      </nav>
+    </div>
+  </div>
+
+  <Footer />
+
+  <!-- Scroll to top -->
+  <div id="scroll-to-top" ...>...</div>
+
+  <!-- NUEVO: El script del slider se ejecuta solo en el cliente -->
+  <script is:client>
+    import '../scripts/slider.js';
+  </script>
+
+  <!-- Script de interactividad -->
+  <script>
+    (function() {
+      const button = document.getElementById('scroll-to-top');
+      // ... resto de tu script de scroll-to-top ...
+    })();
+  </script>
+</body>
+</html>

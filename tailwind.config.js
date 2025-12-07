@@ -8,7 +8,7 @@ export default {
     extend: {
       fontSize: {
         'h1': ['3.2rem', { lineHeight: '1.2', fontWeight: '700' }],
-        'h2': ['2.4rem',   { lineHeight: '1.25', fontWeight: '700' }],
+        'h2': ['2.4rem', { lineHeight: '1.25', fontWeight: '700' }],
         'h3': ['1.6rem', { lineHeight: '1.3', fontWeight: '700' }],
       },
       colors: {
@@ -17,12 +17,13 @@ export default {
         'dag-black': '#000000',
         'dag-burgundy': '#800020',
       },
-    },
-    fontFamily: {
-      advent: ['"Advent Pro"', 'sans-serif'],
+      // 👇 Agrega fontFamily aquí dentro de `extend` para no sobreescribir la base
+      fontFamily: {
+        sans: ['"Montserrat"', 'sans-serif'],        // para body (clase predeterminada)
+        advent: ['"Advent Pro"', 'sans-serif'],      // para títulos
+        mono: ['"Source Code Pro"', 'monospace'],   // para código técnico
+      },
     },
   },
-  plugins: [
-    
-  ],
+  plugins: [],
 }

@@ -1,0 +1,38 @@
+---
+// src/pages/nosotros/danilo-alvarez.astro
+import Layout from '../../layouts/Layout.astro';
+
+// Opcional: breadcrumbs y metadata
+const breadcrumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Nosotros', href: '/nosotros' },
+  { label: 'Danilo Álvarez', href: '/nosotros/danilo-alvarez' },
+];
+
+const title = 'Danilo Álvarez – DAG Klassical';
+const description = 'Fundador y director de DAG Klassical.';
+---
+
+<Layout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <div class="max-w-4xl mx-auto px-4 py-12">
+    <h1 class="text-3xl font-bold mb-6">Danilo Álvarez</h1>
+
+    <!-- Imagen con ancho de 72px en móviles -->
+    <div class="flex justify-center mb-8">
+      <img
+        src="/artists/profile-danilo-alvarez-01.webp"
+        alt="Danilo Álvarez"
+        class="w-[72px] sm:w-48 rounded-lg"
+        loading="lazy"
+      />
+    </div>
+
+    <!-- Contenido -->
+    <div class="prose prose-slate max-w-none">
+      <p>
+        Danilo Álvarez es fundador y director de DAG Klassical, una iniciativa que fusiona la música clásica con la tecnología blockchain para garantizar la autenticidad, propiedad y trazabilidad de las obras musicales digitales.
+      </p>
+      <!-- Añade más párrafos según necesites -->
+    </div>
+  </div>
+</Layout>
