@@ -5,6 +5,13 @@ export default {
     "./public/**/*.html"
   ],
   theme: {
+    // 👇 Define fontFamily directamente (no solo en extend)
+    fontFamily: {
+      sans: ['"Montserrat"', 'sans-serif'],
+      serif: ['ui-serif', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
+      mono: ['"Source Code Pro"', 'monospace'],
+      advent: ['"Advent Pro"', 'sans-serif'],
+    },
     extend: {
       fontSize: {
         'h1': ['3.2rem', { lineHeight: '1.2', fontWeight: '700' }],
@@ -16,12 +23,6 @@ export default {
         platinum: '#e5e5e5',
         'dag-black': '#000000',
         'dag-burgundy': '#800020',
-      },
-      // 👇 Agrega fontFamily aquí dentro de `extend` para no sobreescribir la base
-      fontFamily: {
-        sans: ['"Montserrat"', 'sans-serif'],        // para body (clase predeterminada)
-        advent: ['"Advent Pro"', 'sans-serif'],      // para títulos
-        mono: ['"Source Code Pro"', 'monospace'],   // para código técnico
       },
     },
   },
