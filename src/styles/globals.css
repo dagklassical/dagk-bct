@@ -3,7 +3,23 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Tus componentes personalizados existentes */
+/* ✅ ESTILOS BASE GLOBALES */
+@layer base {
+  /* Fuentes tipográficas automáticas */
+  h1, h2, h3 {
+    @apply font-advent;
+  }
+
+  /* Fuentes técnicas */
+  code,
+  kbd,
+  samp,
+  pre {
+    @apply font-mono;
+  }
+}
+
+/* Tus componentes personalizados */
 @layer components {
   .btn-primary {
     @apply bg-dag-burgundy text-white px-4 py-2 rounded-lg hover:bg-opacity-80 transition-colors font-medium;
@@ -23,19 +39,19 @@
   
   /* Estilos específicos para elementos DENTRO de .news-content */
   .news-content h1 {
-    @apply text-4xl md:text-5xl font-advent font-bold text-slate-800 mt-8 mb-6;
+    @apply text-4xl md:text-5xl font-bold text-slate-800 mt-8 mb-6;
   }
   
   .news-content h2 {
-    @apply text-2xl md:text-3xl font-advent font-bold text-slate-800 mt-10 mb-4 border-b-2 border-platinum pb-2;
+    @apply text-2xl md:text-3xl font-bold text-slate-800 mt-10 mb-4 border-b-2 border-platinum pb-2;
   }
   
   .news-content h3 {
-    @apply text-xl md:text-2xl font-advent font-bold text-slate-800 mt-8 mb-3;
+    @apply text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-3;
   }
   
   .news-content h4 {
-    @apply text-lg font-advent font-semibold text-slate-700 mt-6 mb-2;
+    @apply text-lg font-semibold text-slate-700 mt-6 mb-2;
   }
   
   .news-content p {
@@ -84,7 +100,7 @@
   }
   
   .news-content th {
-    @apply bg-slate-100 border border-platinum font-advent font-semibold text-slate-800 p-3 text-left;
+    @apply bg-slate-100 border border-platinum font-semibold text-slate-800 p-3 text-left;
   }
   
   .news-content td {
@@ -96,13 +112,11 @@
   }
   
   .news-content code {
-    @apply bg-platinum text-slate-800 px-1 py-0.5 rounded text-sm;
-    font-family: monospace; /* ✅ Solución directa para código */
+    @apply bg-platinum text-slate-800 px-1 py-0.5 rounded text-sm font-mono;
   }
   
   .news-content pre {
-    @apply bg-slate-800 text-white p-5 rounded-lg my-8 overflow-x-auto text-sm;
-    font-family: monospace; /* ✅ Solución directa para bloques de código */
+    @apply bg-slate-800 text-white p-5 rounded-lg my-8 overflow-x-auto text-sm font-mono;
   }
   
   .news-content hr {
@@ -110,7 +124,7 @@
   }
 }
 
-/* ✅ ESTILOS RESPONSIVE PARA MÓVILES - CORREGIDO */
+/* ✅ ESTILOS RESPONSIVE PARA MÓVILES */
 @media (max-width: 768px) {
   .news-content h1 {
     @apply text-3xl;
@@ -121,6 +135,6 @@
   }
   
   .news-content blockquote {
-    @apply ml-0 mr-0 border-l-2 pl-4 py-3; /* ✅ border-l-3 reemplazado con border-l-2 */
+    @apply ml-0 mr-0 border-l-2 pl-4 py-3;
   }
 }
