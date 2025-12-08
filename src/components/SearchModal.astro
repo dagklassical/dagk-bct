@@ -1,0 +1,438 @@
+---
+// src/components/SearchModal.astro
+---
+
+<!-- Modal de búsqueda (inicialmente oculto) -->
+<div id="search-modal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden">
+  <div class="max-w-2xl mx-auto mt-24 p-4">
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+      <!-- Barra de búsqueda -->
+      <div class="p-4 border-b border-platinum">
+        <div class="relative">
+          <input
+            id="search-input"
+            type="text"
+            placeholder="Buscar en DAG Klassical..."
+            class="w-full px-4 py-3 pl-10 pr-12 rounded-lg border border-platinum focus:ring-2 focus:ring-dag-burgundy focus:border-transparent outline-none"
+            autocomplete="off"
+          />
+          <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          <button id="close-search" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-500 hover:text-dag-burgundy">
+            <span class="sr-only">Cerrar búsqueda</span>
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Resultados de búsqueda -->
+      <div class="p-4 max-h-[60vh] overflow-y-auto">
+        <div id="search-results" class="space-y-4">
+          <!-- Los resultados aparecerán aquí -->
+        </div>
+      </div>
+      
+      <!-- Mensaje de carga -->
+      <div id="search-loading" class="hidden p-4 text-center text-slate-500">
+        Buscando...
+      </div>
+      
+      <!-- Mensaje sin resultados -->
+      <div id="search-no-results" class="hidden p-4 text-center text-slate-500">
+        No se encontraron resultados para tu búsqueda.
+      </div>
+      
+      <!-- Mensaje de sugerencia -->
+      <div class="p-4 bg-platinum/20 border border-platinum rounded-lg text-sm text-slate-600 mt-2">
+        <p>💡 <strong>Consejo:</strong> Busca por nombres de artistas, obras musicales, tecnologías blockchain o términos como "tickets", "discografía", "Gerulewicz", "Schubert", etc.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Script optimizado para Fuse.js -->
+<script type="module" is:client>
+  // Cargar Fuse.js desde CDN
+  const script = document.createElement('script');
+  script.src = 'https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js';
+  script.async = true;
+  script.onload = initSearch;
+  document.head.appendChild(script);
+
+  function initSearch() {
+    const modal = document.getElementById('search-modal');
+    const input = document.getElementById('search-input');
+    const closeBtn = document.getElementById('close-search');
+    const resultsContainer = document.getElementById('search-results');
+    const loadingEl = document.getElementById('search-loading');
+    const noResultsEl = document.getElementById('search-no-results');
+    
+    if (!modal || !input || !closeBtn || !resultsContainer) {
+      console.error('Elementos del modal de búsqueda no encontrados');
+      return;
+    }
+    
+    // Índice de búsqueda enriquecido con contenido real
+    const searchIndex = [
+      { 
+        title: 'Música', 
+        url: '/musica/', 
+        content: 'Colección completa de música clásica y contemporánea con tecnología blockchain. Explora nuestras grabaciones, artistas y tecnología innovadora que protege la autenticidad musical.'
+      },
+      { 
+        title: 'Discografía', 
+        url: '/musica/discografia/', 
+        content: 'Nuestro catálogo completo de grabaciones musicales en formato digital y blockchain. Álbumes exclusivos, ediciones especiales y colecciones limitadas con certificación de autenticidad.'
+      },
+      { 
+        title: 'Artistas', 
+        url: '/musica/artistas/', 
+        content: 'Conoce a los talentosos artistas que forman parte de DAG Klassical. Biografías, discografías completas y próximos lanzamientos de músicos clásicos y contemporáneos.'
+      },
+      { 
+        title: 'Blockchain', 
+        url: '/blockchain/', 
+        content: 'Tecnología blockchain aplicada a la música clásica para autenticidad y propiedad digital. Entiende cómo protegemos obras musicales, derechos de autor y coleccionables digitales.'
+      },
+      { 
+        title: 'Music Cards', 
+        url: '/blockchain/music-cards/', 
+        content: 'Coleccionables digitales únicos de música clásica en blockchain. Ediciones limitadas, autenticidad verificable y valor coleccionable con tecnología distribuida.'
+      },
+      { 
+        title: 'Tecnología', 
+        url: '/blockchain/tecnologia/', 
+        content: 'Cómo funciona nuestra tecnología blockchain para la música. Explicación técnica del protocolo DAG Klassical BCT, tokenización de obras y seguridad de derechos digitales.'
+      },
+      { 
+        title: 'Tickets', 
+        url: '/blockchain/tickets/', 
+        content: 'Entradas para conciertos con autenticidad verificable en blockchain. Evita falsificaciones, revende tickets de forma segura y accede a experiencias musicales exclusivas.'
+      },
+      { 
+        title: 'Nosotros', 
+        url: '/nosotros/', 
+        content: 'Conoce DAG Klassical, innovación en música clásica con tecnología blockchain. Nuestra misión, visión y compromiso con la preservación musical digital.'
+      },
+      { 
+        title: 'Dag Klassical', 
+        url: '/nosotros/dag-klassical/', 
+        content: 'Historia y misión de DAG Klassical como pionero en música clásica blockchain. Fundación en 2023, equipo fundador y evolución tecnológica aplicada a la música.'
+      },
+      { 
+        title: 'Danilo Álvarez', 
+        url: '/nosotros/danilo-alvarez/', 
+        content: 'Biografía y trayectoria de Danilo Álvarez, director y fundador de DAG Klassical. Compositor, productor y empresario musical con más de 20 años de experiencia en la industria musical. Creador de la tecnología blockchain aplicada a la música clásica.'
+      },
+      { 
+        title: 'Teodor Dore', 
+        url: '/musica/artistas/teodor-dore/', 
+        content: 'Biografía y obras del pianista Teodor Dore. Discografía completa, conciertos y colaboraciones internacionales. Especialista en música rusa y contemporánea. Álbum "February Night" disponible en edición blockchain.'
+      },
+      { 
+        title: 'Gerardo Gerulewicz', 
+        url: '/musica/artistas/gerardo-gerulewicz/', 
+        content: 'Biografía y obras del compositor Gerardo Gerulewicz. Obras maestras de piano, música de cámara y sinfonías. Ganador de múltiples premios internacionales. Álbum "Piano Aguinaldo" en edición blockchain.'
+      },
+      { 
+        title: 'Goulnara Galimchina', 
+        url: '/musica/artistas/goulnara-galimchina/', 
+        content: 'Biografía y obras de la pianista Goulnara Galimchina. Intérprete excepcional de Schubert y compositores rusos. Carrera internacional y discografía premiada. Álbum "Schubert D960 D780" en blockchain.'
+      },
+      { 
+        title: 'Teodor Dore - February Night', 
+        url: '/musica/discografia/teodor-dore-february-night/', 
+        content: 'Álbum February Night del pianista Teodor Dore. Grabación histórica de obras para piano solo. Interpretación magistral de piezas románticas y contemporáneas. Edición blockchain con certificación de autenticidad.'
+      },
+      { 
+        title: 'Gerulewicz Piano Aguinaldo', 
+        url: '/musica/discografia/gerulewicz-piano-aguinaldo/', 
+        content: 'Álbum Piano Aguinaldo del compositor Gerardo Gerulewicz. Obra monumental para piano que fusiona tradiciones musicales latinoamericanas con técnicas contemporáneas. Edición blockchain limitada.'
+      },
+      { 
+        title: 'Goulnara Galimchina - Schubert D960 D780', 
+        url: '/musica/discografia/goulnara-galimchina-schubert-d960-d780/', 
+        content: 'Álbum Schubert D960 D780 de la pianista Goulnara Galimchina. Interpretación de las últimas sonatas para piano de Franz Schubert. Grabación en alta fidelidad con tecnología blockchain para autenticidad.'
+      },
+      { 
+        title: 'Académica Moscú', 
+        url: '/musica/artistas/academica-moscu/', 
+        content: 'Orquesta sinfónica de renombre internacional. Especializada en música clásica rusa y contemporánea. Múltiples grabaciones premiadas disponibles en blockchain.'
+      },
+      { 
+        title: 'Virginia Ramírez', 
+        url: '/musica/artistas/virginia-ramirez/', 
+        content: 'Cantante de ópera y música clásica contemporánea. Carrera internacional con actuaciones en los principales teatros del mundo. Álbum "Capítulos" disponible en edición blockchain.'
+      },
+      { 
+        title: 'Frank Di Polo', 
+        url: '/musica/artistas/frank-di-polo/', 
+        content: 'Compositor y pianista especializado en música contemporánea. Innovador en la fusión de estilos clásicos con elementos modernos. Obras disponibles en formato blockchain.'
+      },
+      { 
+        title: 'Rubén Riera', 
+        url: '/musica/artistas/ruben-riera/', 
+        content: 'Violinista de reconocimiento internacional. Especialista en música de cámara y solista con orquestas sinfónicas. Grabaciones exclusivas en blockchain.'
+      },
+      { 
+        title: 'Filip Bandzak', 
+        url: '/musica/artistas/filip-bandzak/', 
+        content: 'Pianista y compositor con formación en las mejores academias europeas. Música que fusiona tradición clásica con innovación contemporánea.'
+      },
+      { 
+        title: 'Jesús Áñibal Bello', 
+        url: '/musica/artistas/jesus-anibal-bello/', 
+        content: 'Compositor y director de orquesta venezolano. Obras que combinan raíces latinoamericanas con técnicas sinfónicas modernas.'
+      },
+      { 
+        title: 'Nareh Arghamanyan', 
+        url: '/musica/artistas/nareh-arghamanyan/', 
+        content: 'Pianista armenia con carrera internacional. Especializada en repertorio romántico y contemporáneo. Múltiples premios internacionales y grabaciones en blockchain.'
+      },
+      { 
+        title: 'Términos y Condiciones', 
+        url: '/nosotros/terminos/', 
+        content: 'Términos y condiciones de uso del sitio web y servicios de DAG Klassical. Derechos de propiedad intelectual, privacidad y políticas de uso de tecnología blockchain.'
+      },
+      { 
+        title: 'Noticias', 
+        url: '/noticias/', 
+        content: 'Últimas noticias sobre DAG Klassical, lanzamientos de blockchain, conciertos y eventos musicales. Actualizaciones tecnológicas y colaboraciones internacionales.'
+      },
+      { 
+        title: 'Contacto', 
+        url: '/contacto/', 
+        content: 'Contáctanos para consultas comerciales, colaboraciones artísticas, soporte técnico o información sobre nuestros servicios de blockchain aplicado a la música clásica.'
+      },
+      { 
+        title: 'Equipo', 
+        url: '/nosotros/equipo/', 
+        content: 'Conoce a nuestro equipo de profesionales en música, tecnología blockchain y gestión cultural. Expertos dedicados a revolucionar la industria musical clásica.'
+      }
+    ];
+    
+    // Configurar Fuse.js con pesos optimizados
+    const fuse = new Fuse(searchIndex, {
+      keys: [
+        { name: 'title', weight: 0.7 },    // 70% de importancia a los títulos
+        { name: 'content', weight: 0.3 }   // 30% al contenido
+      ],
+      threshold: 0.3,                      // Umbral de coincidencia
+      includeScore: true,                  // Incluir puntaje de coincidencia
+      minMatchCharLength: 2,               // Mínimo 2 caracteres para buscar
+      shouldSort: true,                    // Ordenar por relevancia
+      ignoreLocation: true,                // No priorizar posición en el texto
+      distance: 100,                       // Distancia máxima para coincidencias parciales
+      findAllMatches: true                 // Encontrar todas las coincidencias posibles
+    });
+    
+    console.log('✅ Búsqueda inicializada con Fuse.js');
+    
+    // Funciones del modal
+    const openModal = () => {
+      modal.classList.remove('hidden');
+      setTimeout(() => {
+        input.value = '';
+        resultsContainer.innerHTML = '';
+        noResultsEl.classList.add('hidden');
+        input.focus();
+      }, 300);
+    };
+    
+    const closeModal = () => {
+      modal.classList.add('hidden');
+      resultsContainer.innerHTML = '';
+      input.value = '';
+    };
+    
+    // Eventos para abrir/cerrar modal
+    document.querySelectorAll('[data-search-trigger]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal();
+      });
+    });
+    
+    closeBtn.addEventListener('click', closeModal);
+    
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+    
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+    
+    // Búsqueda en tiempo real con debounce optimizado
+    let searchTimeout;
+    input.addEventListener('input', (e) => {
+      clearTimeout(searchTimeout);
+      const query = e.target.value.trim();
+      
+      // Limpiar resultados si el campo está vacío
+      if (query.length < 2) {
+        if (query.length === 0) {
+          resultsContainer.innerHTML = `
+            <div class="p-4 text-center text-slate-500">
+              <p>Escribe al menos 2 caracteres para comenzar la búsqueda</p>
+              <div class="mt-4 grid grid-cols-2 gap-2 text-sm">
+                <div class="bg-platinum/30 rounded p-2 text-center">Gerulewicz</div>
+                <div class="bg-platinum/30 rounded p-2 text-center">Teodor Dore</div>
+                <div class="bg-platinum/30 rounded p-2 text-center">Schubert</div>
+                <div class="bg-platinum/30 rounded p-2 text-center">Tickets</div>
+              </div>
+            </div>
+          `;
+        } else {
+          resultsContainer.innerHTML = '';
+        }
+        noResultsEl.classList.add('hidden');
+        return;
+      }
+      
+      loadingEl.classList.remove('hidden');
+      noResultsEl.classList.add('hidden');
+      resultsContainer.innerHTML = '';
+      
+      searchTimeout = setTimeout(() => {
+        try {
+          const results = fuse.search(query);
+          
+          loadingEl.classList.add('hidden');
+          
+          if (results.length === 0) {
+            noResultsEl.classList.remove('hidden');
+            resultsContainer.innerHTML = `
+              <div class="text-center py-8 text-slate-600">
+                <svg class="mx-auto h-12 w-12 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <p class="mt-2 font-medium">No se encontraron resultados</p>
+                <p class="mt-1 text-sm">Intenta con otros términos o verifica la ortografía</p>
+              </div>
+            `;
+            return;
+          }
+          
+          noResultsEl.classList.add('hidden');
+          
+          // Renderizar resultados con formato mejorado
+          let html = '';
+          
+          results.slice(0, 10).forEach((result, index) => {
+            const item = result.item;
+            const score = (1 - result.score).toFixed(2);
+            const matchScore = parseFloat(score);
+            
+            // Determinar nivel de coincidencia
+            let matchLevel = '';
+            let matchColor = '';
+            if (matchScore >= 0.85) {
+              matchLevel = '⭐⭐⭐ Coincidencia excelente';
+              matchColor = 'text-green-600 font-medium';
+            } else if (matchScore >= 0.7) {
+              matchLevel = '⭐⭐ Coincidencia buena';
+              matchColor = 'text-amber-600 font-medium';
+            } else {
+              matchLevel = '⭐ Coincidencia moderada';
+              matchColor = 'text-orange-600 font-medium';
+            }
+            
+            html += `
+              <div class="search-result border-b border-platinum pb-4 mb-4 hover:bg-platinum/10 rounded-lg p-2 transition-colors">
+                <div class="flex justify-between items-start">
+                  <div class="flex-1">
+                    <div class="text-xs ${matchColor} mb-1">${matchLevel}</div>
+                    <a href="${item.url}" class="font-advent text-lg text-dag-burgundy hover:text-dag-black transition-colors block">
+                      ${item.title}
+                    </a>
+                    <div class="text-slate-700 mt-1 line-clamp-3 text-sm">
+                      ${highlightMatch(item.content, query)}
+                    </div>
+                  </div>
+                  <div class="ml-3 flex-shrink-0">
+                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-dag-burgundy/10 text-dag-burgundy">
+                      ${index + 1}
+                    </span>
+                  </div>
+                </div>
+                <div class="text-sm text-slate-500 mt-2 font-mono flex items-center text-xs">
+                  <svg class="h-3 w-3 mr-1 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                  ${item.url.replace('/', '').replace('index.html', '')}
+                </div>
+              </div>
+            `;
+          });
+          
+          resultsContainer.innerHTML = html;
+          
+          // Añadir eventos de hover mejorados
+          document.querySelectorAll('.search-result').forEach(result => {
+            result.addEventListener('mouseenter', () => {
+              result.querySelector('a').classList.add('underline');
+            });
+            result.addEventListener('mouseleave', () => {
+              result.querySelector('a').classList.remove('underline');
+            });
+          });
+          
+        } catch (error) {
+          console.error('Error en la búsqueda:', error);
+          loadingEl.classList.add('hidden');
+          noResultsEl.classList.remove('hidden');
+          resultsContainer.innerHTML = `
+            <div class="p-4 bg-red-50 text-red-700 rounded-lg">
+              <p>⚠️ Ocurrió un error al realizar la búsqueda. Por favor, intenta de nuevo.</p>
+            </div>
+          `;
+        }
+      }, 300);
+    });
+    
+    // Función para resaltar coincidencias en el texto
+    function highlightMatch(text, query) {
+      if (!query || query.length < 2) return text;
+      
+      const regex = new RegExp(`(${query})`, 'gi');
+      return text.replace(regex, '<span class="bg-dag-burgundy/20 px-1 py-0.5 rounded font-medium">$1</span>');
+    }
+  }
+</script>
+
+<style>
+  #search-modal {
+    animation: fadeIn 0.2s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  #search-input:focus {
+    box-shadow: 0 0 0 3px rgba(128, 0, 32, 0.3);
+  }
+  
+  #search-results .search-result {
+    transition: all 0.2s ease;
+  }
+  
+  #search-results .search-result:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  #search-loading, #search-no-results {
+    transition: opacity 0.2s ease;
+  }
+</style>

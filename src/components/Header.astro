@@ -1,5 +1,6 @@
 ---
 // src/components/Header.astro
+import SearchModal from './SearchModal.astro';
 const navItems = [
   { 
     label: 'Música', 
@@ -86,12 +87,12 @@ const navItems = [
         ))}
       </nav>
 
-      <!-- Lupa (siempre a la derecha del menú, en desktop) -->
-      <button aria-label="Buscar" class="p-2 text-slate-600 hover:text-dag-burgundy">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-    </svg>
-  </button>
+<!-- Lupa (siempre a la derecha del menú, en desktop) -->
+<button aria-label="Buscar" data-search-trigger class="p-2 text-slate-600 hover:text-dag-burgundy">
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+  </svg>
+</button>
     </div>
 
     <!-- Hamburguesa (solo en móvil) -->
@@ -103,46 +104,61 @@ const navItems = [
   </div>
 
   <!-- Menú móvil -->
-  <nav id="mobile-menu" class="hidden md:hidden container mx-auto px-4 pb-4 space-y-2">
-    {navItems.map(item => (
-      <div key={item.href}>
-        {item.children ? (
-          <details class="group">
-    <summary class="list-none cursor-pointer py-2 px-4 rounded-lg bg-white border border-platinum text-slate-700 font-medium hover:bg-gray95 flex justify-between items-center">
-  {item.label}
-  <svg class="h-4 w-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    {/* ... */}
-  </svg>
-</summary>
-    <div class="ml-4 mt-1 space-y-1">
-      {item.children.map(child => (
-  <a
-    key={child.href}
-    href={child.href}
-    class={`block py-1 px-2 text-sm ${
-      child.label === item.label 
-        ? 'font-semibold text-dag-burgundy' 
-        : 'text-slate-600 hover:text-dag-burgundy'
-    }`}
-  >
-    • {child.label}
-  </a>
-))}
+<nav id="mobile-menu" class="hidden md:hidden container mx-auto px-4 pb-4 space-y-2">
+  <!-- BOTÓN DE BÚSQUEDA (nuevo - PRIMER ELEMENTO del menú) -->
+  <div class="px-4 py-2">
+    <button aria-label="Buscar" data-search-trigger class="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-platinum text-slate-700 font-medium hover:bg-dag-burgundy hover:text-white transition-colors">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+      Buscar
+    </button>
+  </div>
+  
+  <!-- RESTO DEL MENÚ (sin cambios) -->
+  {navItems.map(item => (
+    <div key={item.href}>
+      {item.children ? (
+        <details class="group">
+          <summary class="list-none cursor-pointer py-2 px-4 rounded-lg bg-white border border-platinum text-slate-700 font-medium hover:bg-gray95 flex justify-between items-center">
+            {item.label}
+            <svg class="h-4 w-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <div class="ml-4 mt-1 space-y-1">
+            {item.children.map(child => (
+              <a
+                key={child.href}
+                href={child.href}
+                class={`block py-1 px-2 text-sm ${
+                  child.label === item.label 
+                    ? 'font-semibold text-dag-burgundy' 
+                    : 'text-slate-600 hover:text-dag-burgundy'
+                }`}
+              >
+                • {child.label}
+              </a>
+            ))}
+          </div>
+        </details>
+      ) : (
+        <a
+          href={item.href}
+          class="block py-2 px-4 rounded-lg bg-white border border-platinum text-slate-700 hover:text-dag-burgundy font-medium"
+        >
+          {item.label}
+        </a>
+      )}
     </div>
-  </details>
-) : (
-  <a
-    href={item.href}
-    class="block py-2 px-4 rounded-lg bg-white border border-platinum text-slate-700 hover:text-dag-burgundy font-medium"
-  >
-    {item.label}
-  </a>
-)}
-      </div>
-    ))}
-  </nav>
+  ))}
+</nav>
 </header>
 
+<!-- MODAL DE BÚSQUEDA -->
+<SearchModal />
+
+<!-- Script existente para el menú móvil (no lo elimines) -->
 <script>
   (function() {
     const toggle = document.getElementById('mobile-menu-toggle');
