@@ -9,12 +9,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@area44/astro-audionaut": "github:AREA44/astro-audionaut",
+    "@area44/astro-audionaut": "github:AREA44/astro-audionaut#main",
     "@astrojs/sitemap": "^3.6.0",
     "@astrojs/tailwind": "^6.0.2",
     "@splidejs/splide": "^4.1.4",
     "astro": "^5.16.3",
     "astro-embed": "^0.9.2",
+    "fuse.js": "^7.1.0",
     "lucide-astro": "^0.554.0"
   },
   "devDependencies": {

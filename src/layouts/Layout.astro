@@ -54,13 +54,11 @@ import '../styles/globals.css';
       ↑
     </button>
 
-    <!-- ✅ Slider: solo en cliente, sin errores SSR -->
-    <script is:client>
-      import '../scripts/slider.js';
-    </script>
+    <!-- Script del slider cargado desde public/ -->
+    <script src="/scripts/slider.js" defer></script>
 
     <!-- ✅ Script de scroll-to-top: seguro en cliente -->
-    <script is:client>
+    <script type="module" is:client>
       const button = document.getElementById('scroll-to-top');
       if (button) {
         window.addEventListener('scroll', () => {

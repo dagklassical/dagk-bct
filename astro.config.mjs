@@ -4,12 +4,11 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  // 🔑 Añade esta línea (reemplaza con tu dominio real)
   site: 'https://dagkbct.vercel.app',
 
   integrations: [
     tailwind(),
-    sitemap()
+    sitemap(),
   ],
 
   vite: {
@@ -27,6 +26,6 @@ export default defineConfig({
   },
 
   build: {
-    assets: 'assets'
-  }
+    assets: 'assets',
+  },
 });
