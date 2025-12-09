@@ -1,5 +1,4 @@
 ---
-// src/pages/noticias/index.astro
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
@@ -9,169 +8,133 @@ const breadcrumbs = [
 ];
 
 const pageTitle = 'Noticias | DAG Klassical';
-const pageDescription = 'Las últimas noticias sobre lanzamientos, artistas y la innovación tecnológica en DAG Klassical.'
+const pageDescription = 'Lanzamientos, artistas y tecnología blockchain en la música clásica.';
 
-// Obtenemos todas las noticias
 const allNoticias = await getCollection('noticias');
 
-// Extraemos todas las etiquetas únicas para mostrarlas
-const allTags = [...new Set(allNoticias.flatMap(post => post.data.tags || []))];
+const allTags = [...new Set(
+  allNoticias
+    .flatMap(post => post.data.tags || [])
+    .filter(tag => typeof tag === 'string' && tag.trim() !== '')
+)];
 ---
 
 <Layout title={pageTitle} description={pageDescription} breadcrumbs={breadcrumbs}>
   <main class="bg-gray95">
-    <div class="max-w-6xl mx-auto px-4 py-12 space-y-12">
-      
-      <!-- ===================================
-           1. SECCIÓN HERO
-           =================================== -->
+    <div class="max-w-6xl mx-auto px-4 py-10 space-y-10">
+
+      <!-- Hero -->
       <section class="text-center">
-        <h1 class="text-4xl md:text-6xl font-advent font-bold text-slate-900 mb-4">
+        <h1 class="text-h1 md:text-6xl font-advent font-bold text-slate-900 mb-4">
           Noticias y Novedades
         </h1>
-        <p class="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto">
-          Mantente al día con el pulso de la revolución musical. Lanzamientos, eventos y tecnología, todo en un solo lugar.
+        <p class="text-lg md:text-2xl text-slate-600 max-w-4xl mx-auto">
+          Lanzamientos, eventos y tecnología en un solo lugar.
         </p>
       </section>
 
-      <!-- ===================================
-           2. HERRAMIENTAS DE FILTRADO
-           =================================== -->
-      <section class="bg-white p-6 rounded-lg shadow-sm">
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-    <!-- Buscador - Columna 1 -->
-    <div>
-      <label for="search-input" class="block text-sm font-medium text-slate-700 mb-2">Buscar noticias</label>
-      <div class="relative">
-        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-          <svg class="h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-          </svg>
-        </div>
-        <input
-          type="text"
-          id="search-input"
-          placeholder="Buscar por título o contenido..."
-          class="w-full pl-10 py-3 border border-platinum rounded-lg focus:ring-2 focus:ring-dag-burgundy focus:border-transparent"
-          onkeyup="handleSearch()"
-        />
-      </div>
-    </div>
-
-    <!-- Filtro por Etiquetas - Columna 2 -->
-    <div>
-      <p class="block text-sm font-medium text-slate-700 mb-3">Filtrar por categoría:</p>
-      <div class="flex flex-wrap gap-2">
-        <button onclick="filterByTag('todos')" class="tag-btn active px-4 py-2 text-sm font-medium rounded-full border-2 border-dag-burgundy bg-dag-burgundy text-white transition-all hover:bg-dag-burgundy/90">
-          Todas
-        </button>
-        {allTags.map((tag) => (
-          <button onclick="filterByTag('{tag}')" class="tag-btn px-4 py-2 text-sm font-medium rounded-full border-2 border-slate-300 text-slate-700 hover:bg-slate-100 transition-all">
-            {tag}
+      <!-- Nube de etiquetas -->
+      <section class="bg-white/60 p-6 rounded-mg shadow-sm">
+        <div class="flex flex-wrap gap-2 justify-center">
+          <button data-tag="todos" class="tag-btn px-2 py-1 text-xs font-medium rounded-sm border border-dag-burgundy bg-dag-burgundy text-white transition-all">
+            Todas
           </button>
-        ))}
-      </div>
-    </div>
-  </div>
-</section>
-
-      <!-- ===================================
-           3. GRID DE NOTICIAS
-           =================================== -->
-      <section id="news-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {allNoticias.map((post) => (
-          <article 
-  class="news-card bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 overflow-hidden border border-platinum/30"
-  data-title={post.data.title}
-  data-summary={post.data.summary || ''}
-  data-tags={post.data.tags ? post.data.tags.join(' ') : ''}
->
-  <a href={`/noticias/${post.slug}/`} class="block h-full">
-    <div class="relative h-48 overflow-hidden">
-      <img src={post.data.image || '/images/placeholder.jpg'} alt={post.data.title} class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
-      <div class="absolute top-3 right-3">
-        <span class="inline-block px-3 py-1 text-xs font-semibold text-dag-burgundy bg-white bg-opacity-80 backdrop-blur-sm rounded-full shadow-sm">
-          {(post.data.tags && post.data.tags.length > 0) ? post.data.tags[0] : 'General'}
-        </span>
-      </div>
-    </div>
-    <div class="p-5 flex flex-col h-full">
-      <h3 class="text-xl font-bold font-advent text-slate-900 mb-2 line-clamp-2 hover:text-dag-burgundy transition-colors">
-        {post.data.title}
-      </h3>
-      <p class="text-sm text-slate-500 mb-3">
-        {new Date(post.data.date).toLocaleDateString('es-VE', { day: 'numeric', month: 'long', year: 'numeric' })}
-      </p>
-      <p class="text-slate-600 text-base line-clamp-3 mb-4 flex-grow">
-        {post.data.summary || 'Leer más sobre esta noticia'}
-      </p>
-      <div class="mt-auto pt-3 border-t border-platinum/20">
-        <span class="inline-flex items-center text-dag-burgundy font-medium text-sm hover:underline">
-          Leer más
-          <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-          </svg>
-        </span>
-      </div>
-    </div>
-  </a>
-</article>
-        ))}
+          {allTags.map((tag) => (
+            <button 
+              data-tag={tag} 
+              class="tag-btn px-2 py-1 text-xs font-medium rounded-sm border border-platinum bg-white text-slate-700 hover:bg-dag-burgundy/10 hover:text-dag-burgundy transition-all"
+            >
+              {tag}
+            </button>
+          ))}
+        </div>
       </section>
 
+      <!-- Grid con altura variable, orden cronológico respetado -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+  {allNoticias
+    .sort((a, b) => new Date(b.data.date) - new Date(a.data.date)) // más reciente primero
+    .map((post) => {
+      const cleanTags = (post.data.tags || []).filter(t => t).join(' ') || '';
+      return <article 
+        class="news-card bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden border border-platinum/30"
+        data-title={post.data.title || ''}
+        data-summary={post.data.summary || ''}
+        data-tags={(post.data.tags || []).map(t => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '')).join(' ') || ''}
+      >
+        <a href={`/noticias/${post.slug}/`} class="block h-full">
+          <div class="relative h-48 overflow-hidden">
+            <img 
+              src={post.data.image || '/images/placeholder.jpg'} 
+              alt={post.data.title || 'Noticia'} 
+              class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" 
+            />
+            <div class="absolute top-3 right-3">
+              <span class="px-2 py-1 text-xs font-medium text-dag-burgundy border border-dag-burgundy/30 bg-white rounded-sm whitespace-nowrap">
+                {(post.data.tags && post.data.tags[0]) ? post.data.tags[0] : 'General'}
+              </span>
+            </div>
+          </div>
+          <div class="p-5 flex flex-col h-full">
+            <h3 class="text-xl font-bold font-advent text-slate-900 mb-2 hover:text-dag-burgundy transition-colors">
+              {post.data.title}
+            </h3>
+            <p class="text-sm text-slate-500 mb-3">
+              {new Date(post.data.date).toLocaleDateString('es-VE', { day: 'numeric', month: 'long', year: 'numeric' })}
+            </p>
+            <p class="text-slate-600 text-base mb-4 flex-grow">
+              {post.data.summary || 'Leer más sobre esta noticia'}
+            </p>
+            <div class="mt-auto pt-3 border-t border-platinum/20">
+              <span class="inline-flex items-center text-dag-burgundy font-medium text-sm hover:underline">
+                Leer más
+                <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </a>
+      </article>;
+    })}
+</section>
+
+      <!-- Script de filtrado -->
+      <script hoist>
+        document.addEventListener('DOMContentLoaded', function() {
+          var tagButtons = document.querySelectorAll('[data-tag]');
+          var newsCards = document.querySelectorAll('.news-card');
+
+          function normalize(str) {
+            return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+          }
+
+          function applyTagFilter(selectedTag) {
+            var normSelected = normalize(selectedTag);
+            tagButtons.forEach(function(btn) {
+              var isActive = btn.dataset.tag === selectedTag;
+              if (isActive) {
+                btn.className = 'tag-btn px-2 py-1 text-xs font-medium rounded-sm border border-dag-burgundy bg-dag-burgundy text-white transition-all';
+              } else {
+                btn.className = 'tag-btn px-2 py-1 text-xs font-medium rounded-sm border border-platinum bg-white text-slate-700 hover:bg-dag-burgundy/10 hover:text-dag-burgundy transition-all';
+              }
+            });
+            newsCards.forEach(function(card) {
+              var tags = (card.dataset.tags || '').split(' ');
+              var show = selectedTag === 'todos' || tags.some(function(t) {
+                return normalize(t) === normSelected;
+              });
+              card.style.display = show ? 'block' : 'none';
+            });
+          }
+
+          tagButtons.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+              applyTagFilter(btn.dataset.tag);
+            });
+          });
+        });
+      </script>
     </div>
   </main>
-
-  <!-- ===================================
-       4. SCRIPT DE FILTRADO
-       =================================== -->
-  <script>
-    const newsCards = document.querySelectorAll('.news-card');
-    const tagButtons = document.querySelectorAll('.tag-btn');
-
-    function handleSearch() {
-      const searchTerm = document.getElementById('search-input').value.toLowerCase();
-    function clearSearch() {
-      document.getElementById('search-input').value = '';
-        handleSearch();
-}  
-      newsCards.forEach(card => {
-        const title = card.dataset.title.toLowerCase();
-        const summary = card.dataset.summary.toLowerCase();
-        const tags = card.dataset.tags.toLowerCase();
-
-        if (title.includes(searchTerm) || summary.includes(searchTerm) || tags.includes(searchTerm)) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-
-    function filterByTag(selectedTag) {
-      // Actualiza el estilo de los botones
-      tagButtons.forEach(btn => {
-        btn.classList.remove('bg-dag-burgundy', 'text-white', 'border-dag-burgundy');
-        btn.classList.add('border-slate-300', 'text-slate-700');
-      });
-      
-      event.target.classList.remove('border-slate-300', 'text-slate-700');
-      event.target.classList.add('bg-dag-burgundy', 'text-white', 'border-dag-burgundy');
-
-      // Filtra las tarjetas
-      newsCards.forEach(card => {
-        if (selectedTag === 'todos') {
-          card.style.display = 'block';
-        } else {
-          const tags = card.dataset.tags.split(' ');
-          if (tags.includes(selectedTag)) {
-            card.style.display = 'block';
-          } else {
-            card.style.display = 'none';
-          }
-          
-        }
-      });
-    }
-  </script>
 </Layout>

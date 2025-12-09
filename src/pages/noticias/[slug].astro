@@ -37,6 +37,12 @@ const breadcrumbs = [
 ---
 
 <Layout title={title} description={summary || title} breadcrumbs={breadcrumbs}>
+    {/* Enlace de retorno */}
+  <div class="max-w-4xl mx-auto pt-8 px-4">
+    <a href="/noticias/" class="text-slate-700 hover:text-dag-burgundy flex items-center text-sm">
+      ← Volver a Noticias
+    </a>
+  </div>
   <article class="max-w-3xl mx-auto px-4 py-8">
     <!-- Fecha formateada -->
     <p class="text-sm text-slate-600 mb-2">

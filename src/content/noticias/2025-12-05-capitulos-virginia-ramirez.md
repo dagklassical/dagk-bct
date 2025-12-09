@@ -4,7 +4,7 @@ date: 2025-12-05
 image: "/hero/hero-virginia-ramirez.webp"
 summary: "Producción disponible en todas las plataformas musicales y Music-card exclusivo de DAG Klassical"
 tags:
-    - "Virginia Ramírez"
+    - "virginia-ramirez"
     - "artistas"
     - "lanzamientos"
 ---

@@ -1,31 +1,34 @@
 // astro.config.mjs
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
+import node from '@astrojs/node';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://dagkbct.vercel.app',
+  // Salida para servidor (necesario si usas API endpoints o VPS)
+  output: 'server',
+  
+  // Adaptador para Node.js (compatible con VPS o serverless)
+  adapter: node({
+    mode: 'standalone'
+  }),
 
+  // Generación automática de sitemap
   integrations: [
-    tailwind(),
-    sitemap(),
+    sitemap({
+      changefreq: 'weekly',
+      priority: 0.8,
+      exclude: ['/privado/*', '/login'], // ajusta según rutas sensibles
+    }),
   ],
 
+  // Configuración de Vite (para inyectar variables en build)
   vite: {
-    server: {
-      hmr: { timeout: 120000 },
-      watch: {
-        timeout: 120000,
-        ignored: [
-          '**/public/protected/**',
-          '**/node_modules/**',
-          '**/dist/**'
-        ]
-      }
-    }
+    envPrefix: ['MATIC_', 'USDC_', 'TOTAL_', 'LAST_', 'DAG_'],
   },
 
-  build: {
-    assets: 'assets',
+  // Opcional: si usas assets públicos o ajustes de servidor
+  server: {
+    port: 4321,
+    host: '0.0.0.0', // importante para Docker o VPS
   },
 });
