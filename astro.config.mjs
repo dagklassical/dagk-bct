@@ -4,6 +4,9 @@ import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
+  // ✅ Dominio base para sitemap, OpenGraph y enlaces absolutos
+  site: 'https://dagkbct.vercel.app',
+
   // ✅ Modo estático (obligatorio para Vercel)
   output: 'static',
 
@@ -13,7 +16,8 @@ export default defineConfig({
     sitemap({
       changefreq: 'weekly',
       priority: 0.8,
-      exclude: ['/privado/*', '/login'],
+      // ✅ Usa 'filter' en lugar de 'exclude' (sintaxis actual de @astrojs/sitemap)
+      filter: (page) => !page.startsWith('/privado') && !page.startsWith('/login'),
     }),
   ],
 });
