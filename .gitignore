@@ -23,3 +23,6 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 bustling-belt/
+.env.local
+.env
+.env.local

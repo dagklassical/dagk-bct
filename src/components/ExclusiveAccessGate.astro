@@ -1,0 +1,49 @@
+---
+const { onSuccess, artistId } = Astro.props;
+let error = '';
+
+async function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const token = form.token.value.trim();
+
+  const res = await fetch('http://194.163.143.239:3000/api/validate', {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain' },
+    body: token
+  });
+
+  const data = await res.json();
+  if (data.valid) {
+    localStorage.setItem('dag-access-' + artistId, 'granted');
+    if (onSuccess) onSuccess();
+  } else {
+    error = 'Código inválido o expirado';
+  }
+}
+---
+
+{!localStorage.getItem('dag-access-' + artistId) ? (
+  <div class="bg-dag-burgundy/5 border border-dag-burgundy/30 rounded-lg p-6 max-w-md mx-auto">
+    <h3 class="font-bold text-lg mb-3">Contenido exclusivo</h3>
+    <p class="mb-4 text-slate-700">
+      Ingresa el código que recibiste al adquirir esta Music Card.
+    </p>
+    <form on:submit|preventDefault={handleSubmit}>
+      <input
+        name="token"
+        type="text"
+        placeholder="Código de acceso"
+        class="w-full p-2 border border-platinum rounded mb-2"
+        required
+      />
+      <button
+        type="submit"
+        class="w-full bg-dag-burgundy text-white py-2 rounded font-medium hover:bg-dag-burgundy/90 transition"
+      >
+        Desbloquear
+      </button>
+    </form>
+    {error && <p class="mt-2 text-sm text-red-600">{error}</p>}
+  </div>
+) : null}

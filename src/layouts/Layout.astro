@@ -26,33 +26,6 @@ import '../styles/globals.css';
     <Header />
     <main class="flex-grow">
       <slot />
-    <!-- Marquesina Blockchain - Casa de Cambio -->
-<div class="bg-white border-t border-b border-platinum/20 py-1.5 overflow-hidden">
-  <div class="marquee-container whitespace-nowrap font-['Source_Code_Pro'] text-xs text-slate-600">
-   <span class="marquee-content">
-  {`MATIC: ${import.meta.env.MATIC_PRICE || '0.84'} ▲ | USDC: $${import.meta.env.USDC_PRICE || '1.00'} ▮ | Certificados DAG: ${import.meta.env.TOTAL_CERTIFICADOS || '0'} | Último Mint: --`}
-  &nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;
-  {`MATIC: ${import.meta.env.MATIC_PRICE || '0.84'} ▲ | USDC: $${import.meta.env.USDC_PRICE || '1.00'} ▮ | Certificados DAG: ${import.meta.env.TOTAL_CERTIFICADOS || '0'} | Último Mint: --`}
-</span>
-  </div>
-</div>
-
-<style>
-  .marquee-container {
-    display: block;
-    width: 100%;
-    overflow: hidden;
-  }
-  .marquee-content {
-    display: inline-block;
-    padding-left: 100%; /* Empieza fuera, a la derecha */
-    animation: marquee 25s linear infinite;
-  }
-  @keyframes marquee {
-    0% { transform: translateX(0); }       /* Empieza con padding-left → visible en la derecha */
-    100% { transform: translateX(-100%); } /* Se desplaza hasta salir por la izquierda */
-  }
-</style>
     </main>
 
     <!-- Franja de migas de pan SOBRE el footer -->

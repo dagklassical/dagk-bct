@@ -3,13 +3,13 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "prebuild": "node src/scripts/generate-env.mjs",
+    "dev": "astro dev",
     "build": "astro build",
-    "dev": "astro dev"
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
     "@area44/astro-audionaut": "github:AREA44/astro-audionaut#main",
-    "@astrojs/node": "^9.5.1",
     "@astrojs/sitemap": "^3.6.0",
     "@astrojs/tailwind": "^6.0.2",
     "@splidejs/splide": "^4.1.4",
