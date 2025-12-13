@@ -1,49 +1,62 @@
 [
   {
-  "id": "teodor-dore",
-  "name": "Teodor Doré",
-  "role": "Compositor y Pianista",
-  "country": "Rusia",
-  "city": null,
-  "genre": ["música-contemporánea", "neorromanticismo", "diáspora-rusa"],
-  "bio": "Compositor ruso contemporáneo cuya obra explora la identidad en el exilio, la memoria histórica y el diálogo entre Oriente y Occidente.",
-  "bioLong": "Teodor Doré construye paisajes sonoros íntimos y épicos a la vez, inspirados en las cartas de emigrados rusos, los diarios de Rajmáninov y la nostalgia de una patria perdida. Su música, profundamente lírica y cargada de simbolismo, ha sido descrita como 'una carta musical desde el umbral del tiempo'.",
-  "avatar": "/artists/profile-teodor-dore-01.webp",
-  "social": {
-    "instagram": null,
-    "youtube": null,
-    "facebook": null
+    "id": "teodor-dore",
+    "name": "Teodor Doré",
+    "role": "Compositor y Pianista",
+    "country": "Rusia",
+    "city": null,
+    "genre": [
+      "música-contemporánea",
+      "neorromanticismo",
+      "diáspora-rusa"
+    ],
+    "bio": "Compositor ruso contemporáneo cuya obra explora la identidad en el exilio, la memoria histórica y el diálogo entre Oriente y Occidente.",
+    "bioLong": "Teodor Doré construye paisajes sonoros íntimos y épicos a la vez, inspirados en las cartas de emigrados rusos, los diarios de Rajmáninov y la nostalgia de una patria perdida. Su música, profundamente lírica y cargada de simbolismo, ha sido descrita como 'una carta musical desde el umbral del tiempo'.",
+    "avatar": "/artists/profile-teodor-dore-01.webp",
+    "social": {
+      "instagram": null,
+      "youtube": null,
+      "facebook": null
+    },
+    "releases": [
+      "teodor-dore-february-night"
+    ],
+    "musicCards": [
+      "mc-2025-teodor-dore-february-night-std"
+    ],
+    "metadata": {
+      "uuid": "urn:uuid:$(uuidgen)",
+      "timestamp": "2025-11-28T11:00:00Z",
+      "operator": "cto@dagklassical.com"
+    }
   },
-  "releases": ["teodor-dore-february-night"],
-  "musicCards": ["mc-2025-teodor-dore-february-night-std"],
-  "metadata": {
-    "uuid": "urn:uuid:$(uuidgen)",
-    "timestamp": "2025-11-28T11:00:00Z",
-    "operator": "cto@dagklassical.com"
-  }
-},
   {
-  "id": "gerardo-gerulewicz",
-  "name": "Gerardo Gerulewicz",
-  "role": "Compositor y Pianista",
-  "country": "Venezuela",
-  "city": "Caracas",
-  "genre": ["música-navideña", "piano-clásico"],
-  "bio": "Compositor venezolano reconocido por su trabajo en la reinterpretación pianística de los aguinaldos tradicionales, fusionando raíces populares con técnica clásica.",
-  "bioLong": "Gerardo Gerulewicz ha dedicado su carrera al rescate y renovación del repertorio navideño venezolano, llevando el piano a lo más alto de la tradición popular. Su álbum 'Piano Aguinaldo' es un homenaje sonoro a la identidad cultural del país, donde cada pieza —desde 'Corre Caballito' hasta 'Canción de Cuna'— se convierte en un puente entre lo ancestral y lo contemporáneo.",
-  "avatar": "/artists/profile-gerardo-gerulewicz-02.webp",
-  "social": {
-    "instagram": "https://instagram.com/gerulewicz",
-    "youtube": "https://youtube.com/@PianoAguinaldo"
+    "id": "gerardo-gerulewicz",
+    "name": "Gerardo Gerulewicz",
+    "role": "Compositor y Pianista",
+    "country": "Venezuela",
+    "city": "Caracas",
+    "genre": [
+      "música-navideña",
+      "piano-clásico"
+    ],
+    "bio": "Compositor venezolano reconocido por su trabajo en la reinterpretación pianística de los aguinaldos tradicionales, fusionando raíces populares con técnica clásica.",
+    "bioLong": "Gerardo Gerulewicz ha dedicado su carrera al rescate y renovación del repertorio navideño venezolano, llevando el piano a lo más alto de la tradición popular. Su álbum 'Piano Aguinaldo' es un homenaje sonoro a la identidad cultural del país, donde cada pieza —desde 'Corre Caballito' hasta 'Canción de Cuna'— se convierte en un puente entre lo ancestral y lo contemporáneo.",
+    "avatar": "/artists/profile-gerardo-gerulewicz-02.webp",
+    "social": {
+      "instagram": "https://instagram.com/gerulewicz",
+      "youtube": "https://youtube.com/@PianoAguinaldo"
+    },
+    "releases": [
+      "gerulewicz-piano-aguinaldo"
+    ],
+    "metadata": {
+      "uuid": "urn:uuid:00ffeedd-ccbb-aa99-8877-665544332211",
+      "timestamp": "2025-11-22T09:00:01Z",
+      "operator": "cto@dagklassical.com"
+    }
   },
-  "releases": ["gerulewicz-piano-aguinaldo"],
-  "metadata": {
-    "uuid": "urn:uuid:00ffeedd-ccbb-aa99-8877-665544332211",
-    "timestamp": "2025-11-22T09:00:01Z",
-    "operator": "cto@dagklassical.com"
-  }
-},
-  { 
+  {
     "id": "frank-di-polo",
     "name": "Frank Di Polo",
     "role": "Violinista, Violista, Educador musical",
@@ -53,7 +66,9 @@
     "social": {
       "instagram": "@frank_di_polo"
     },
-    "releases": ["mc-2026-tema-con-variazioni"],
+    "releases": [
+      "mc-2026-tema-con-variazioni"
+    ],
     "metadata": {
       "uuid": "urn:uuid:aabbccdd-eeff-0011-2233-445566778899",
       "timestamp": "2025-11-22T09:00:02Z",
@@ -70,7 +85,9 @@
     "social": {
       "instagram": "@martaramirezviolin"
     },
-    "releases": ["mc-2026-sonata-violin"],
+    "releases": [
+      "mc-2026-sonata-violin"
+    ],
     "metadata": {
       "uuid": "urn:uuid:99887766-5544-3322-1100-fedcba987654",
       "timestamp": "2025-11-22T09:00:03Z",
@@ -87,7 +104,9 @@
     "social": {
       "instagram": "@coro_venezolano_dag"
     },
-    "releases": ["mc-2026-cantata-latina"],
+    "releases": [
+      "mc-2026-cantata-latina"
+    ],
     "metadata": {
       "uuid": "urn:uuid:13579246-80ab-cdef-1357-924680abcedf",
       "timestamp": "2025-11-22T09:00:04Z",
@@ -104,7 +123,9 @@
     "social": {
       "instagram": "@coro_venezolano_dag"
     },
-    "releases": ["mc-2026-cantata-latina"],
+    "releases": [
+      "mc-2026-cantata-latina"
+    ],
     "metadata": {
       "uuid": "urn:uuid:13579246-80ab-cdef-1357-924680abcedf",
       "timestamp": "2025-11-22T09:00:04Z",
@@ -112,94 +133,116 @@
     }
   },
   {
-  "id": "jesus-anibal-bello",
-  "name": "Pbro. Jesús Aníbal Bello",
-  "role": "Sacerdote Salesiano y Músico",
-  "country": "Venezuela",
-  "city": "Valera, Edo. Trujillo",
-  "genre": ["música-cristiana", "adoración", "espiritual-contemporánea"],
-  "bio": "Sacerdote salesiano venezolano cuya pasión por la música y la fe se entrelazan en composiciones originales de evangelización sonora.",
-  "bioLong": "El Presbítero Salesiano Jesús Aníbal Bello nació en Puerto La Cruz, Venezuela. Su formación religiosa comenzó en Los Teques, y a lo largo de su ministerio ha servido en comunidades como Táriba (Táchira), Puerto La Cruz y actualmente Valera (Trujillo). A través de la música, el Pbro. Bello transforma la fe en canto, ofreciendo composiciones originales que invitan a la reflexión, la esperanza y el encuentro con lo sagrado. Su álbum “Te Haré Pescador” es un testimonio sonoro de su vocación sacerdotal y su amor por Cristo y la Virgen María.",
-  "avatar": "/artists/profile-jesus-anibal-bello.webp",
-  "social": {
-    "instagram": null,
-    "youtube": null,
-    "facebook": "https://www.facebook.com/padre.anibalbello"
+    "id": "jesus-anibal-bello",
+    "name": "Pbro. Jesús Aníbal Bello",
+    "role": "Sacerdote Salesiano y Músico",
+    "country": "Venezuela",
+    "city": "Valera, Edo. Trujillo",
+    "genre": [
+      "música-cristiana",
+      "adoración",
+      "espiritual-contemporánea"
+    ],
+    "bio": "Sacerdote salesiano venezolano cuya pasión por la música y la fe se entrelazan en composiciones originales de evangelización sonora.",
+    "bioLong": "El Presbítero Salesiano Jesús Aníbal Bello nació en Puerto La Cruz, Venezuela. Su formación religiosa comenzó en Los Teques, y a lo largo de su ministerio ha servido en comunidades como Táriba (Táchira), Puerto La Cruz y actualmente Valera (Trujillo). A través de la música, el Pbro. Bello transforma la fe en canto, ofreciendo composiciones originales que invitan a la reflexión, la esperanza y el encuentro con lo sagrado. Su álbum “Te Haré Pescador” es un testimonio sonoro de su vocación sacerdotal y su amor por Cristo y la Virgen María.",
+    "avatar": "/artists/profile-jesus-anibal-bello.webp",
+    "social": {
+      "instagram": null,
+      "youtube": null,
+      "facebook": "https://www.facebook.com/padre.anibalbello"
+    },
+    "releases": [
+      "jesus-anibal-bello-te-hare-pescador"
+    ],
+    "metadata": {
+      "uuid": "urn:uuid:$(uuidgen)",
+      "timestamp": "2025-11-27T16:00:00Z",
+      "operator": "cto@dagklassical.com"
+    }
   },
-  "releases": ["jesus-anibal-bello-te-hare-pescador"],
-  "metadata": {
-    "uuid": "urn:uuid:$(uuidgen)",
-    "timestamp": "2025-11-27T16:00:00Z",
-    "operator": "cto@dagklassical.com"
-  }
-},
   {
-  "id": "virginia-ramirez",
-  "name": "Virginia Ramírez",
-  "role": "Pianista, Cantante y Artista Multidisciplinaria",
-  "country": "Venezuela",
-  "city": null,
-  "genre": ["jazz", "latin-jazz", "música-instrumental", "improvisación"],
-  "bio": "Artista venezolana cuyo lenguaje musical fusiona el jazz moderno con la riqueza rítmica y emocional de la tradición latinoamericana.",
-  "bioLong": "Virginia Ramírez es una artista creativa, valiente y atrevida, cuyo lenguaje se basa en el cambio y la experimentación. Se mueve intensamente entre el piano, el canto, la improvisación y las artes circenses, adentrándose en la esencia de la cultura venezolana con un sello propio y original. Su formación combina el rigor del conservatorio con la libertad del jazz y la música popular, resultando en una voz artística joven, vibrante y trascendental. Su álbum \"Capítulos\" reúne piezas emblemáticas remasterizadas, celebrando su evolución y consolidando su lugar como una de las voces más esenciales de la música instrumental latinoamericana contemporánea.",
-  "avatar": "/artists/profile-virginia-ramirez-01.jpeg",
-  "social": {
-    "instagram": null,
-    "youtube": null,
-    "facebook": null
+    "id": "virginia-ramirez",
+    "name": "Virginia Ramírez",
+    "role": "Pianista, Cantante y Artista Multidisciplinaria",
+    "country": "Venezuela",
+    "city": null,
+    "genre": [
+      "jazz",
+      "latin-jazz",
+      "música-instrumental",
+      "improvisación"
+    ],
+    "bio": "Artista venezolana cuyo lenguaje musical fusiona el jazz moderno con la riqueza rítmica y emocional de la tradición latinoamericana.",
+    "bioLong": "Virginia Ramírez es una artista creativa, valiente y atrevida, cuyo lenguaje se basa en el cambio y la experimentación. Se mueve intensamente entre el piano, el canto, la improvisación y las artes circenses, adentrándose en la esencia de la cultura venezolana con un sello propio y original. Su formación combina el rigor del conservatorio con la libertad del jazz y la música popular, resultando en una voz artística joven, vibrante y trascendental. Su álbum \"Capítulos\" reúne piezas emblemáticas remasterizadas, celebrando su evolución y consolidando su lugar como una de las voces más esenciales de la música instrumental latinoamericana contemporánea.",
+    "avatar": "/artists/profile-virginia-ramirez-01.jpeg",
+    "social": {
+      "instagram": null,
+      "youtube": null,
+      "facebook": null
+    },
+    "releases": [
+      "virginia-ramirez-capitulos"
+    ],
+    "metadata": {
+      "uuid": "urn:uuid:$(uuidgen)",
+      "timestamp": "2025-11-27T18:00:00Z",
+      "operator": "cto@dagklassical.com"
+    }
   },
-  "releases": ["virginia-ramirez-capitulos"],
-  "metadata": {
-    "uuid": "urn:uuid:$(uuidgen)",
-    "timestamp": "2025-11-27T18:00:00Z",
-    "operator": "cto@dagklassical.com"
-  }
-},
   {
-  "id": "goulnara-galimchina",
-  "name": "Goulnara Galímchina",
-  "role": "Pianista",
-  "country": "Rusia",
-  "city": null,
-  "genre": ["música-clásica", "romanticismo"],
-  "bio": "Su talento la llevó desde los conservatorios de Moscú hasta Venezuela, donde ha forjado una destacada carrera como intérprete y maestra. \nInvitada por el maestro José Antonio Abreu en 1993, ha dedicado más de tres décadas a formar generaciones de músicos en instituciones como el Conservatorio Simón Bolívar y la Academia Latinoamericana de Canto. Su labor trasciende el aula: con una sólida formación en piano y órgano, ha llevado su música a escenarios nacionales e internacionales, combinando excelencia técnica con un compromiso profundo con la educación artística. \nHoy, Goulnara Galímchina, sigue enseñando y asesorando en escuelas del país, consolidándose como una figura esencial del ecosistema musical venezolano.",
-  "bioLong": "Goulnara Galímchina se ha destacado por su sensibilidad y rigor en la interpretación de obras de Schubert, Chopin y otros maestros del piano. Su enfoque combina fidelidad histórica con una voz artística personal, lo que la convierte en una intérprete de referencia para el repertorio decimonónico.",
-  "avatar": "/artists/profile-goulnara-galimchina-01.webp",
-  "social": {
-    "instagram": null,
-    "youtube": null,
-    "facebook": null
+    "id": "goulnara-galimchina",
+    "name": "Goulnara Galímchina",
+    "role": "Pianista",
+    "country": "Rusia",
+    "city": null,
+    "genre": [
+      "música-clásica",
+      "romanticismo"
+    ],
+    "bio": "Su talento la llevó desde los conservatorios de Moscú hasta Venezuela, donde ha forjado una destacada carrera como intérprete y maestra. \nInvitada por el maestro José Antonio Abreu en 1993, ha dedicado más de tres décadas a formar generaciones de músicos en instituciones como el Conservatorio Simón Bolívar y la Academia Latinoamericana de Canto. Su labor trasciende el aula: con una sólida formación en piano y órgano, ha llevado su música a escenarios nacionales e internacionales, combinando excelencia técnica con un compromiso profundo con la educación artística. \nHoy, Goulnara Galímchina, sigue enseñando y asesorando en escuelas del país, consolidándose como una figura esencial del ecosistema musical venezolano.",
+    "bioLong": "Goulnara Galímchina se ha destacado por su sensibilidad y rigor en la interpretación de obras de Schubert, Chopin y otros maestros del piano. Su enfoque combina fidelidad histórica con una voz artística personal, lo que la convierte en una intérprete de referencia para el repertorio decimonónico.",
+    "avatar": "/artists/profile-goulnara-galimchina-01.webp",
+    "social": {
+      "instagram": null,
+      "youtube": null,
+      "facebook": null
+    },
+    "releases": [
+      "goulnara-galimchina-schubert-d960-d780"
+    ],
+    "metadata": {
+      "uuid": "urn:uuid:$(uuidgen)",
+      "timestamp": "2025-11-27T16:00:00Z",
+      "operator": "cto@dagklassical.com"
+    }
   },
-  "releases": ["goulnara-galimchina-schubert-d960-d780"],
-  "metadata": {
-    "uuid": "urn:uuid:$(uuidgen)",
-    "timestamp": "2025-11-27T16:00:00Z",
-    "operator": "cto@dagklassical.com"
+  {
+    "id": "academica-moscu",
+    "name": "Orquesta Académica de Moscú",
+    "role": "Ensemble sinfónico",
+    "country": "Rusia",
+    "city": "Moscú",
+    "genre": [
+      "música-clásica",
+      "nacionalismo-ruso",
+      "barroco"
+    ],
+    "bio": "Jóvenes músicos rusos dedicados a reinterpretar el repertorio clásico con visión contemporánea, desde el nacionalismo ruso hasta el barroco inglés.",
+    "bioLong": "La Orquesta Académica de Moscú, fundada en 2003 por un grupo de jóvenes y apasionados músicos, se ha destacado por su enfoque innovador y virtuoso de la música clásica. Desde sus inicios, esta organización musical se ha dedicado a reinterpretar obras maestras del repertorio clásico, imprimiendo un sello distintivo que combina la tradición con una visión contemporánea. Además de sus presentaciones en vivo, ha incursionado en el mundo del cine como orquesta de sesión para bandas sonoras.",
+    "avatar": "/artists/profile-orquesta-academica-moscu-01.webp",
+    "social": {
+      "instagram": null,
+      "youtube": null,
+      "facebook": null
+    },
+    "releases": [
+      "academica-moscu-momentos-musicales-barroco-01",
+      "academica-moscu-momentos-musicales-nacionalismo-ruso-03"
+    ],
+    "metadata": {
+      "uuid": "urn:uuid:$(uuidgen)",
+      "timestamp": "2025-11-27T17:00:00Z",
+      "operator": "cto@dagklassical.com"
+    }
   }
-},
-{
-  "id": "academica-moscu",
-  "name": "Orquesta Académica de Moscú",
-  "role": "Ensemble sinfónico",
-  "country": "Rusia",
-  "city": "Moscú",
-  "genre": ["música-clásica", "nacionalismo-ruso", "barroco"],
-  "bio": "Jóvenes músicos rusos dedicados a reinterpretar el repertorio clásico con visión contemporánea, desde el nacionalismo ruso hasta el barroco inglés.",
-  "bioLong": "La Orquesta Académica de Moscú, fundada en 2003 por un grupo de jóvenes y apasionados músicos, se ha destacado por su enfoque innovador y virtuoso de la música clásica. Desde sus inicios, esta organización musical se ha dedicado a reinterpretar obras maestras del repertorio clásico, imprimiendo un sello distintivo que combina la tradición con una visión contemporánea. Además de sus presentaciones en vivo, ha incursionado en el mundo del cine como orquesta de sesión para bandas sonoras.",
-  "avatar": "/artists/profile-orquesta-academica-moscu-01.webp",
-  "social": {
-    "instagram": null,
-    "youtube": null,
-    "facebook": null
-  },
-  "releases": [
-    "academica-moscu-momentos-musicales-barroco-01",
-    "academica-moscu-momentos-musicales-nacionalismo-ruso-03"
-  ],
-  "metadata": {
-    "uuid": "urn:uuid:$(uuidgen)",
-    "timestamp": "2025-11-27T17:00:00Z",
-    "operator": "cto@dagklassical.com"
-  }
-}
 ]
