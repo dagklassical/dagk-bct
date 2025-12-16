@@ -18,7 +18,7 @@
       "Contenido detrás de cámaras",
       "Partitura digital firmada"
     ],
-    "cardImage": "http://194.163.143.239/images/music-cards/mc-2025-gerardo-piano-aguinaldo.webp",
+    "cardImage": "/cards/mc-2025-gerardo-piano-aguinaldo.webp",
     "socialLinks": [
       {
         "platform": "Spotify",
@@ -66,7 +66,7 @@
       "Contenido detrás de cámaras",
       "Partitura digital firmada"
     ],
-    "cardImage": "http://194.163.143.239/images/music-cards/mc-2025-virginia-capitulos.webp",
+    "cardImage": "/cards/mc-2025-virginia-capitulos.webp",
     "socialLinks": [
       {
         "platform": "Spotify",
@@ -162,7 +162,7 @@
       "Contenido detrás de cámaras",
       "Partitura digital firmada"
     ],
-    "cardImage": "http://194.163.143.239/images/music-cards/mc-2025-teodor-rachmaninoff-variations.webp",
+    "cardImage": "/cards/mc-2025-teodor-rachmaninoff-variations.webp",
     "socialLinks": [
       {
         "platform": "Spotify",
@@ -210,7 +210,7 @@
       "Contenido detrás de cámaras",
       "Partitura digital firmada"
     ],
-    "cardImage": "http://194.163.143.239/images/music-cards/mc-2025-pendiente.webp",
+    "cardImage": "/cards/mc-2025-pendiente.webp",
     "socialLinks": [
       {
         "platform": "Spotify",
