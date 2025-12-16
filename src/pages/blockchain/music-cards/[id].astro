@@ -2,6 +2,7 @@
 // src/pages/blockchain/music-cards/[id].astro
 import Layout from '../../../layouts/Layout.astro';
 import ImmutableStamp from '../../../components/ImmutableStamp.astro';
+import ExclusiveAccessGate from '../../../components/ExclusiveAccessGate.astro';
 import musicCards from '../../../data/music-cards.json';
 import releases from '../../../data/releases.json';
 import artists from '../../../data/artists.json';
@@ -27,16 +28,16 @@ const getSocialLink = (platformName) => {
   return card.socialLinks?.find(link => link.platform === platformName)?.url;
 };
 
-// Extraemos las URLs (asegúrate de que los nombres coinciden con el JSON)
 const spotifyUrl = getSocialLink('Spotify');
 const appleMusicUrl = getSocialLink('Apple Music');
 const youtubeMusicUrl = getSocialLink('YouTube Music');
-const tidalUrl = getSocialLink('Tidal');   // <--- Nuevo
-const deezerUrl = getSocialLink('Deezer'); // <--- Nuevo
+const tidalUrl = getSocialLink('Tidal');
+const deezerUrl = getSocialLink('Deezer');
 
 const release = releases.find(r => r.id === card.associatedRelease);
 const artist = release?.artistIds?.[0] ? artists.find(a => a.id === release.artistIds[0]) : null;
 const artistName = artist?.name || 'Artista no identificado';
+const artistId = artist?.id || 'unknown';
 
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
@@ -69,74 +70,36 @@ const breadcrumbs = [
 
         {/* Íconos de plataformas */}
         <div class="flex justify-center gap-4">
-          
-          {/* Spotify */}
           {spotifyUrl && (
-            <a
-              href={spotifyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Escuchar en Spotify"
-              class="block w-7 h-7 hover:scale-110 transition-transform"
-            >
+            <a href={spotifyUrl} target="_blank" rel="noopener noreferrer" aria-label="Spotify"
+              class="block w-7 h-7 hover:scale-110 transition-transform">
               <img src="/icons/spotify-color-icon.svg" alt="Spotify" class="w-full h-full" />
             </a>
           )}
-
-          {/* Apple Music */}
           {appleMusicUrl && (
-            <a
-              href={appleMusicUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Escuchar en Apple Music"
-              class="block w-7 h-7 hover:scale-110 transition-transform"
-            >
+            <a href={appleMusicUrl} target="_blank" rel="noopener noreferrer" aria-label="Apple Music"
+              class="block w-7 h-7 hover:scale-110 transition-transform">
               <img src="/icons/apple-music-color-icon.svg" alt="Apple Music" class="w-full h-full" />
             </a>
           )}
-
-          {/* YouTube Music */}
           {youtubeMusicUrl && (
-            <a
-              href={youtubeMusicUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Escuchar en YouTube Music"
-              class="block w-7 h-7 hover:scale-110 transition-transform"
-            >
+            <a href={youtubeMusicUrl} target="_blank" rel="noopener noreferrer" aria-label="YouTube Music"
+              class="block w-7 h-7 hover:scale-110 transition-transform">
               <img src="/icons/youtube-music-color-icon.svg" alt="YouTube Music" class="w-full h-full" />
             </a>
           )}
-
-          {/* Tidal (Nuevo) */}
           {tidalUrl && (
-            <a
-              href={tidalUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Escuchar en Tidal"
-              class="block w-7 h-7 hover:scale-110 transition-transform"
-            >
-              {/* Asegúrate de tener este icono en tu carpeta public/icons */}
+            <a href={tidalUrl} target="_blank" rel="noopener noreferrer" aria-label="Tidal"
+              class="block w-7 h-7 hover:scale-110 transition-transform">
               <img src="/icons/tidal-color-icon.svg" alt="Tidal" class="w-full h-full" />
             </a>
           )}
-
-          {/* Deezer (Nuevo) */}
           {deezerUrl && (
-            <a
-              href={deezerUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Escuchar en Deezer"
-              class="block w-7 h-7 hover:scale-110 transition-transform"
-            >
-              {/* Asegúrate de tener este icono en tu carpeta public/icons */}
+            <a href={deezerUrl} target="_blank" rel="noopener noreferrer" aria-label="Deezer"
+              class="block w-7 h-7 hover:scale-110 transition-transform">
               <img src="/icons/deezer-color-icon.svg" alt="Deezer" class="w-full h-full" />
             </a>
           )}
-
         </div>
 
         {/* Reproductor */}
@@ -150,15 +113,14 @@ const breadcrumbs = [
             <h3 class="text-lg font-semibold mb-3">Tracklist</h3>
             <ol class="space-y-2">
               {release.tracks.map((track, i) => {
-                const demoSrc = typeof track.demo === 'string' ? track.demo : '/protected/demo/corre-caballito-demo.mp3';
+                const demoSrc = typeof track.demo === 'string' ? track.demo : null;
                 return (
                   <li 
                     key={i}
                     data-demo={demoSrc}
                     class={`flex justify-between items-center px-2 py-2 text-xs border-b border-slate-100 last:border-0 cursor-pointer hover:bg-slate-50 ${
-              i % 2 === 0 ? 'bg-gray95/40' : 'bg-gray95'
-            }`} 
-                    onclick={`playTrack('${track.demo || '/protected/demo/corre-caballito-demo.mp3'}')`}
+                      i % 2 === 0 ? 'bg-gray95/40' : 'bg-gray95'
+                    }`} 
                   >
                     <span class="font-medium">{i + 1}. {track.title}</span>
                     <span class="text-slate-500 text-sm">{track.duration}</span>
@@ -172,16 +134,18 @@ const breadcrumbs = [
 
       {/* === COLUMNA DERECHA: NARRATIVA + BENEFICIOS + TÉCNICO + CRÉDITOS === */}
       <div class="md:w-2/3 pt-1">
-        {/* Título y artista */}
         <h1 class="text-h1 font-advent mb-2">{card.title}</h1>
-        <p class="text-xl text-slate-600 mb-4">por {artistName} · <span class="px-2 py-2 bg-dag-burgundy/5 text-dag-burgundy text-xs font-mono rounded-s-sm">DISPONIBLES 93 / 100</span></p>
+        <p class="text-xl text-slate-600 mb-4">
+          por {artistName} · 
+          <span class="px-2 py-2 bg-dag-burgundy/5 text-dag-burgundy text-xs font-mono rounded-s-sm">
+            DISPONIBLES {card.available} / {card.totalSupply}
+          </span>
+        </p>
 
-        {/* Descripción del álbum */}
         {release?.description && (
           <p class="mb-5 text-slate-700">{release.description}</p>
         )}
 
-        {/* === PRIVILEGIOS + BIOGRAFÍA + TÉCNICO + FOOTER === */}
         <section class="mb-12">
           <h3 class="text-h3 font-advent mb-3">Privilegios propios</h3>
           <ul class="list-disc pl-5 space-y-1 mb-2">
@@ -189,18 +153,9 @@ const breadcrumbs = [
               <li key={i} class="text-slate-700">{benefit}</li>
             ))}
           </ul>
-          {/* Botón limpio, sin float */}
-          <div class="pt-4">
-            <a
-              href="#"
-              class="inline-block bg-dag-burgundy text-white px-8 py-3 rounded-lg hover:bg-opacity-90 transition-colors font-medium"
-            >
-              Adquiere esta Music Card
-            </a>
-          </div>
+          <ExclusiveAccessGate artistId={artistId} />
         </section>
 
-        {/* Biografía del artista */}
         {artist && artist.bio && (
           <section class="mb-8 bg-gray95 p-4 rounded-md">
             <h3 class="text-h3 font-advent mb-3">Sobre {artist.name}</h3>
@@ -208,7 +163,6 @@ const breadcrumbs = [
           </section>
         )}
 
-        {/* Información técnica */}
         <section class="mb-8 p-5 border border-platinum rounded-lg bg-white">
           <h4 class="font-semibold mb-2">Especificaciones Técnicas</h4>
           <div class="flex flex-wrap gap-2">
@@ -223,10 +177,9 @@ const breadcrumbs = [
       </div>
     </div>
 
-    {/* Footer de 2 columnas (proporción 2:1) */}
+    {/* Footer de 2 columnas */}
     <div class="max-w-4xl mx-auto px-4 mt-8 pt-2 border-t border-platinum">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
-        {/* Columna izquierda: sello inmutable (1/3 del ancho) */}
         <div class="flex flex-col justify-end">
           <ImmutableStamp
             uuid={card.metadata.uuid}
@@ -234,47 +187,40 @@ const breadcrumbs = [
             operator={card.metadata.operator}
           />
         </div>
-        {/* Columna derecha: créditos (2/3 del ancho) */}
-        <div class="md:col-span-2 pt-4 pb-3 px-5 border border-platinum rounded-md bg-white/50 flex flex-col justify-end">
-          <p class="text-sm"><span class="text-dag-burgundy font-semibold">CRÉDITOS: </span>Piano y arreglos: {artistName} | Mezcla y mastering: Danilo Álvarez | Arte: Leo Gerulewicz | Diseño: Lorien Gascón Rojas</p>
+        <div class="md:col-span-2 pt-4 pb-3 px-5 border border-platinum rounded-md bg-white/50">
+          <p class="text-sm">
+            <span class="text-dag-burgundy font-semibold">CRÉDITOS: </span>
+            Piano y arreglos: {artistName} | Mezcla y mastering: Danilo Álvarez | 
+            Arte: Leo Gerulewicz | Diseño: Lorien Gascón Rojas
+          </p>
           <p class="text-sm text-slate-600">Mezclado y masterizado en Mansa Studio®, Lechería, Venezuela.</p>
         </div>
       </div>
     </div>
 
-    {/* Script de interactividad */}
+    {/* Script para player interactivo */}
     <script>
-      function playTrack(src) {
-        if (!src || typeof src !== 'string') return;
-        const player = document.getElementById('music-player');
-        if (!player) return;
-        player.src = src;
-        player.load();
-        player.play().catch(e => console.warn('Reproducción fallida:', e));
-      }
-
-      // Conectar todos los items al cargar
+      // Carga inicial del primer demo
       document.addEventListener('DOMContentLoaded', () => {
         const player = document.getElementById('music-player');
-        if (!player) return;
+        const firstTrack = document.querySelector('[data-demo]');
+        if (player && firstTrack) {
+          player.src = firstTrack.dataset.demo;
+        }
+      });
 
-        // Carga el primer demo
-        const firstItem = document.querySelector('[data-demo]');
-        if (firstItem) {
-          const src = firstItem.getAttribute('data-demo');
-          if (src) {
-            player.src = src;
+      // Event delegation para tracklist
+      document.addEventListener('click', (e) => {
+        const trackElement = e.target.closest('[data-demo]');
+        if (trackElement) {
+          const demoSrc = trackElement.dataset.demo;
+          if (demoSrc) {
+            const player = document.getElementById('music-player');
+            player.src = demoSrc;
             player.load();
+            player.play().catch(err => console.warn('Reproducción fallida:', err));
           }
         }
-
-        // Añade listeners a todos los tracks
-        document.querySelectorAll('[data-demo]').forEach(item => {
-          item.addEventListener('click', () => {
-            const src = item.getAttribute('data-demo');
-            if (src) playTrack(src);
-          });
-        });
       });
     </script>
 </Layout>

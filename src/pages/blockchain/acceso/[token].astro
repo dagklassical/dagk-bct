@@ -1,0 +1,136 @@
+---
+// src/pages/blockchain/acceso/[token].astro
+import Layout from '../../../layouts/Layout.astro';
+import musicCards from '../../../data/music-cards.json';
+import releases from '../../../data/releases.json';
+import artists from '../../../data/artists.json';
+
+const { token } = Astro.params;
+
+// 1. Validar token contra tu API (en el servidor o cliente)
+let validationResponse;
+try {
+  const res = await fetch('https://music.dagklassical.com/api/validate', {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain' },
+    body: token.trim()
+  });
+  validationResponse = await res.json();
+} catch (e) {
+  console.error('Error validando token:', e);
+  return Astro.redirect('/blockchain/music-cards?error=invalid_token');
+}
+
+if (!validationResponse?.valid) {
+  return Astro.redirect('/blockchain/music-cards?error=unauthorized');
+}
+
+// 2. Encontrar la Music Card asociada
+const cardId = validationResponse.for; // ← asume que `access.json` guarda "for": "mc-2025-..."
+const card = musicCards.find(c => c.id === cardId);
+const release = releases.find(r => r.id === card?.associatedRelease);
+const artist = release?.artistIds?.[0] ? artists.find(a => a.id === release.artistIds[0]) : null;
+
+if (!card || !release || !artist) {
+  return Astro.redirect('/blockchain/music-cards?error=card_not_found');
+}
+
+const tracks = release.tracks.map(track => ({
+  title: track.title,
+  duration: track.duration,
+  flacUrl: `https://music.dagklassical.com/flac/${card.flacDir}/${track.flacFilename}`
+}));
+
+const pageTitle = `Contenido Exclusivo: ${card.title} – ${artist.name}`;
+const pageDescription = `Acceso exclusivo para poseedores verificados de la Music Card ${card.id}.`;
+const breadcrumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Blockchain', href: '/blockchain/' },
+  { label: 'Music Cards', href: '/blockchain/music-cards/' },
+  { label: card.title, href: `/blockchain/music-cards/${card.id}` },
+  { label: 'Contenido Exclusivo', href: '#' }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription} breadcrumbs={breadcrumbs}>
+  <article class="max-w-4xl mx-auto px-4 py-12">
+    <header class="text-center mb-12">
+      <img 
+        src="/hero/hero-gg-tocando-kolendy-embajada-polonia.webp" 
+        alt={pageTitle}
+        class="w-full rounded-lg shadow-xl"
+        onerror="this.src='/covers/gerulewicz-aguinaldo.jpg'"
+      />
+    </header>
+
+    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-12 rounded">
+      <p class="text-sm text-blue-700">
+        <strong>Verificado:</strong> Eres poseedor autorizado de la Music Card <code>{card.id}</code>.
+      </p>
+    </div>
+
+    {/* Tracklist con enlaces reales al VPS */}
+    <section class="mb-16">
+      <h2 class="text-2xl font-advent font-semibold mb-6 text-center">Audio en Alta Resolución</h2>
+      <div class="bg-white p-6 rounded-lg border border-platinum">
+        <ol class="space-y-3">
+          {tracks.map((track, i) => (
+            <li class="flex justify-between border-b border-slate-100 pb-2" key={i}>
+              <span>{i + 1}. {track.title}</span>
+              <a 
+                href={track.flacUrl} 
+                class="text-dag-burgundy hover:underline text-sm"
+                download
+              >
+                FLAC
+              </a>
+            </li>
+          ))}
+        </ol>
+        <div class="mt-6 pt-4 border-t border-slate-200 flex justify-between font-semibold">
+          <span>Total</span>
+          <span>{release.duration}</span>
+        </div>
+      </div>
+    </section>
+
+    {/* Partitura y notas */}
+    <section class="grid md:grid-cols-2 gap-8 mb-16">
+      <div class="bg-white p-6 rounded-lg border border-platinum">
+        <h3 class="text-xl font-semibold mb-3">Partitura Digital</h3>
+        <p class="mb-4">Partitura completa en PDF, firmada por {artist.name}.</p>
+        <a 
+          href={`https://music.dagklassical.com/partituras/${card.id}.pdf`} 
+          class="text-dag-burgundy hover:underline font-medium"
+        >
+          Ver Partitura →
+        </a>
+      </div>
+      <div class="bg-white p-6 rounded-lg border border-platinum prose prose-slate">
+        <h3 class="text-xl font-semibold mb-3">Notas del Compositor</h3>
+        <p><em>{release.commentary}</em></p>
+        <p class="mt-2">— {release.commentaryAuthor}</p>
+      </div>
+    </section>
+
+    {/* Créditos y metadatos */}
+    <section class="mb-8 p-6 border border-platinum rounded-lg bg-white">
+      <h4 class="font-semibold mb-2">Créditos</h4>
+      <p><strong>Piano y arreglos:</strong> {artist.name}</p>
+      <p><strong>Mezcla y mastering:</strong> Danilo Álvarez</p>
+      <p class="mt-4 text-sm text-slate-600">
+        Mezclado en Mansa Studio®, Lechería, Venezuela.
+      </p>
+    </section>
+
+    <div class="mt-8 p-6 border-t border-platinum bg-gray95 rounded-lg">
+      <h3 class="font-semibold mb-2">Metadatos Inmutables</h3>
+      <p><strong>Music Card ID:</strong> {card.id}</p>
+      <p><strong>UUID:</strong> {card.metadata?.uuid}</p>
+      <p><strong>Polygon Tx:</strong> <code>{card.contractAddress}</code></p>
+      <p class="mt-2 text-xs text-slate-600">
+        Token de acceso: <code>{token}</code>
+      </p>
+    </div>
+  </article>
+</Layout>
