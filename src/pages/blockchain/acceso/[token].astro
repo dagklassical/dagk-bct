@@ -1,29 +1,30 @@
 ---
 // src/pages/blockchain/acceso/[token].astro
 import Layout from '../../../layouts/Layout.astro';
-import ImmutableStamp from '../../../components/ImmutableStamp.astro';
 
-// ✅ Esta página NO se prerrenderiza: el token es arbitrario
+// ✅ Indica que esta página NO debe prerrenderizarse
+//    (se renderiza en el servidor en cada request)
 export const prerender = false;
 
 // Obtiene el token de la URL
 const { token } = Astro.params;
 
-// 🔐 Aquí irá tu lógica real de validación (API, base de datos, etc.)
-// Por ahora, simulamos con un conjunto fijo (solo para demo)
+// 🔐 Lógica de validación (ajusta según tu backend real)
+// Por ahora, usamos una lista blanca de tokens de demostración
 const validDemoTokens = new Set([
   'gerulewicz-aguinaldo',
+  'dag-demo',
   'capa8-test',
-  'dag-klassical-demo'
+  'goulnara-schubert-std'
 ]);
 
 const isValid = validDemoTokens.has(token);
-const title = isValid ? 'Acceso concedido' : 'Token inválido';
+const title = isValid ? 'Acceso Premium' : 'Token no válido';
 const description = isValid
-  ? 'Contenido exclusivo protegido por token.'
+  ? 'Contenido exclusivo de tu Music Card DAG Klassical.'
   : 'El token proporcionado no es válido o ha expirado.';
 
-// ✅ Breadcrumbs sin incluir el token (no es legible ni útil)
+// ✅ Breadcrumbs sin incluir el token (no es legible)
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
   { label: 'Blockchain', href: '/blockchain' },
@@ -35,27 +36,20 @@ const breadcrumbs = [
   <div class="max-w-4xl mx-auto px-4 py-12">
     {isValid ? (
       <>
-        <h1 class="text-3xl font-bold mb-4">Contenido exclusivo desbloqueado</h1>
-        <p class="mb-6">Gracias por tu apoyo. Aquí encontrarás materiales únicos asociados a este token.</p>
-
-        {/* Contenido protegido */}
+        <h1 class="text-3xl font-bold mb-6">Contenido Exclusivo Desbloqueado</h1>
+        <p class="mb-6">
+          Gracias por ser parte de DAG Klassical. Aquí encontrarás tu obra completa en FLAC 24/192,
+          partitura firmada digitalmente, notas interpretativas y acceso a masterclasses privadas.
+        </p>
         <div class="bg-white p-6 rounded-lg border border-platinum">
-          <h2 class="text-xl font-semibold mb-3">Acceso Premium</h2>
-          <p>Este espacio mostrará tu Music Card completa, partitura firmada, notas interpretativas y opción de descarga en FLAC.</p>
-          {/* Aquí integrarás tu lógica real */}
-        </div>
-
-        <div class="mt-8">
-          <ImmutableStamp
-            uuid={`token-${token}`}
-            timestamp={new Date().toISOString()}
-            operator="DAG Klassical BCT"
-          />
+          <h2 class="text-xl font-semibold mb-3">Tu Music Card</h2>
+          <p>Esta obra ha sido certificada en blockchain como un activo cultural inmutable.</p>
+          {/* Aquí integrarás tu contenido real cuando tengas el nodo */}
         </div>
       </>
     ) : (
       <>
-        <h1 class="text-2xl font-bold text-red-600 mb-4">Acceso denegado</h1>
+        <h1 class="text-2xl font-bold text-red-600 mb-4">Acceso Denegado</h1>
         <p class="mb-4">
           El token <code class="bg-gray-200 px-1 rounded">{token}</code> no es válido.
         </p>

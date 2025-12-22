@@ -1,19 +1,29 @@
 // astro.config.mjs
 import { defineConfig } from 'astro/config';
-import vercel from '@astrojs/vercel/serverless';
+import vercel from '@astrojs/vercel';
 
 export default defineConfig({
-  // Activa Server-Side Rendering (necesario para rutas dinámicas como /[token])
+  // ✅ Activa Server-Side Rendering (SSR) para rutas dinámicas como /[token]
+  //    Las páginas con `prerender = true` se generan estáticamente.
   output: 'server',
-  
-  // Usa el adapter oficial de Vercel para SSR
+
+  // ✅ Usa el adaptador oficial de Vercel (sin deprecación)
   adapter: vercel(),
 
-  // Opcional: mejora el manejo de rutas
+  // ✅ Elimina trailing slashes en todas las URLs
   trailingSlash: 'never',
 
-  // Si usas variables de entorno, las puedes cargar aquí
+  // ✅ Opcional: si usas Tailwind CSS, asegúrate de que esté bien integrado
   // vite: {
-  //   envDir: '.'
-  // }
+  //   build: {
+  //     sourcemap: true,
+  //   },
+  // },
+
+  // ✅ Si usas contenido estático (noticias, etc.), esto mejora el rendimiento
+  //    (no es obligatorio, pero recomendado)
+  integrations: [
+    // Ejemplo si usas Astro Content Collections:
+    // contentCollections(),
+  ],
 });
