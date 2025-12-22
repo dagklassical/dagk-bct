@@ -23,7 +23,7 @@ const releaseArtists = release.artistIds.map(artistId => {
   return artists.find(a => a.id === artistId) || { id: artistId, name: artistId };
 });
 
-// Preprocesar redes y dominios de cada artista (para evitar lógica en el template)
+// Preprocesar redes y dominios de cada artista
 const artistsWithSocial = releaseArtists.map(artist => {
   let websiteDomain = null;
   if (artist.website) {
@@ -49,6 +49,11 @@ const artistNames = releaseArtists.map(a => a.name).join(', ');
 const pageTitle = `${release.title} - Discografía`;
 const pageDescription = release.description || `Detalles de la colección "${release.title}" por ${artistNames}.`;
 
+// ✅ Procesar descriptionLong: dividir en párrafos si existen saltos de línea
+const descriptionParagraphs = release.descriptionLong
+  ? release.descriptionLong.split('\n\n').filter(p => p.trim() !== '')
+  : null;
+
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
   { label: 'Música', href: '/musica' },
@@ -72,6 +77,28 @@ const breadcrumbs = [
           class="w-full rounded-md mx-auto shadow-md mt-4"
           onerror="this.src='https://placehold.co/300x300/cccccc/999999?text=Cover'"
         />
+{/* ✅ Tracklist debajo de la foto, con fondo cebra */}
+{release.tracks?.length > 0 && (
+  <section class="mt-6 pt-4 border-t border-platinum">
+    <h3 class="text-xl font-bold text-slate-700 mb-2">Tracklist</h3>
+    <ol class="list-none space-y-0.5">
+      {release.tracks.map((track, i) => (
+        <li
+          key={i}
+          class={`flex items-start py-1.5 px-2 rounded ${
+            i % 2 === 0 ? 'bg-white' : 'bg-gray95'
+          }`}
+        >
+          <span class="text-slate-500 font-mono w-6 flex-shrink-0">{i + 1}.</span>
+          <span class="text-sm text-slate-700 flex-grow">{track.title}</span>
+          {track.duration && (
+            <span class="text-sm text-slate-500 opacity-80 ml-2">{track.duration}</span>
+          )}
+        </li>
+      ))}
+    </ol>
+  </section>
+)}
       </div>
       <div class="md:w-2/3">
         <h1 class="text-h1 font-advent mb-2">{release.title}</h1>
@@ -89,13 +116,44 @@ const breadcrumbs = [
             </span>
           ))}
         </p>
-        <p class="text-slate-500 mb-4">
+
+        {/* ✅ Redes sociales como "tags" bajo el nombre */}
+        {artistsWithSocial.some(a => a.socialLinks.length > 0) && (
+          <div class="flex flex-wrap gap-1 my-2">
+            {artistsWithSocial.flatMap(artist => 
+              artist.socialLinks.map(({ platform, url, name }) => (
+                <a
+                  key={`${artist.id}-${platform}`}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-block bg-slate-100 hover:bg-dag-burgundy/10 text-slate-700 hover:text-dag-burgundy text-[10px] px-1.5 py-0.5 rounded"
+                  aria-label={`Visitar ${name} de ${artist.name}`}
+                >
+                  {name}
+                </a>
+              ))
+            )}
+          </div>
+        )}
+
+        <p class="text-slate-500 mb-4 text-sm">
           {release.genre} • {new Date(release.releaseDate).toLocaleDateString('es-VE')} • {release.type}
         </p>
-        {release.description && <p class="mb-6 text-slate-700">{release.description}</p>}
 
-        {/* === Información de artistas asociados === */}
-        {artistsWithSocial.length > 0 && (
+        {/* ✅ Mostrar descripción larga con párrafos, o corta como fallback */}
+        {descriptionParagraphs ? (
+          <div class="mb-6 text-slate-700 space-y-3">
+            {descriptionParagraphs.map((para, i) => (
+              <p key={i}>{para}</p>
+            ))}
+          </div>
+        ) : release.description ? (
+          <p class="mb-6 text-slate-700">{release.description}</p>
+        ) : null}
+
+        {/* === Información de artistas asociados (solo si hay más de uno o datos relevantes) === */}
+        {artistsWithSocial.length > 1 && (
           <section class="mb-6">
             <h3 class="text-lg font-semibold mb-3">Artistas</h3>
             <div class="space-y-4">
@@ -116,44 +174,15 @@ const breadcrumbs = [
                       </a>
                     </p>
                   )}
-
-                  {/* Redes sociales */}
-                  {artist.socialLinks.length > 0 && (
-                    <div class="flex flex-wrap gap-2 mt-2">
-                      {artist.socialLinks.map(({ platform, url, name }) => (
-                        <a
-                          key={platform}
-                          href={url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          class="inline-flex items-center gap-1 bg-slate-100 hover:bg-dag-burgundy/10 px-2 py-1 rounded text-xs text-slate-700 hover:text-dag-burgundy transition-colors"
-                          aria-label={`Visitar ${name} de ${artist.name}`}
-                        >
-                          {name}
-                        </a>
-                      ))}
-                    </div>
-                  )}
                 </div>
               ))}
             </div>
           </section>
         )}
 
-        <section class="mb-6">
-          <h2 class="text-h2 font-advent mb-3">Tracklist</h2>
-          <ul class="list-disc pl-5 space-y-1">
-            {release.tracks.map(track => (
-              <li key={track.title}>
-                {track.title} <span class="text-slate-500">({track.duration})</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-
         <section>
           <h2 class="text-h2 font-advent mb-3">Music Cards Asociadas</h2>
-          {release.musicCards.length > 0 ? (
+          {release.musicCards?.length > 0 ? (
             <div class="space-y-2">
               {release.musicCards.map(cardId => (
                 <a
@@ -174,9 +203,9 @@ const breadcrumbs = [
 
     <div class="mt-8 p-4 border-t border-platinum text-sm text-slate-600">
       <h3 class="font-semibold mb-2">Metadatos Inmutables</h3>
-      <p><strong>UUID:</strong> {release.metadata.uuid}</p>
-      <p><strong>Timestamp:</strong> {release.metadata.timestamp}</p>
-      <p><strong>Operador:</strong> {release.metadata.operator}</p>
+      <p><strong>UUID:</strong> {release.metadata?.uuid || '—'}</p>
+      <p><strong>Timestamp:</strong> {release.metadata?.timestamp || '—'}</p>
+      <p><strong>Operador:</strong> {release.metadata?.operator || '—'}</p>
     </div>
   </article>
 </Layout>
