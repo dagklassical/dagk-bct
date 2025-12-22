@@ -3,56 +3,42 @@
 import Layout from '../../layouts/Layout.astro';
 import { getEntry, getCollection } from 'astro:content';
 
-// FUNCIÓN OBLIGATORIA PARA RUTAS DINÁMICAS
+// ✅ Indica que esta página debe prerrenderizarse (SSG)
+export const prerender = true;
+
 export async function getStaticPaths() {
   const entries = await getCollection('noticias');
-  return entries.map(({ slug }) => ({
-    params: { slug },
-  }));
+  return entries.map(({ slug }) => ({ params: { slug } }));
 }
 
-// Obtiene el slug de los parámetros de la URL
 const { slug } = Astro.params;
-
-// Obtiene la noticia específica por slug
 const entry = await getEntry('noticias', slug);
 
-// Redirige si no se encuentra la noticia
 if (!entry) {
   return Astro.redirect('/noticias');
 }
 
-// Extrae los datos del frontmatter
 const { title, date, image, summary } = entry.data;
-
-// Obtiene el componente Content
 const { Content } = await entry.render();
 
-// Configura el breadcrumb
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
-  { label: 'Noticias', href: '/noticias/' },
+  { label: 'Noticias', href: '/noticias' },
   { label: title, href: `/noticias/${slug}` }
 ];
 ---
 
 <Layout title={title} description={summary || title} breadcrumbs={breadcrumbs}>
-    {/* Enlace de retorno */}
   <div class="max-w-4xl mx-auto pt-8 px-4">
-    <a href="/noticias/" class="text-slate-700 hover:text-dag-burgundy flex items-center text-sm">
+    <a href="/noticias" class="text-slate-700 hover:text-dag-burgundy flex items-center text-sm">
       ← Volver a Noticias
     </a>
   </div>
   <article class="max-w-3xl mx-auto px-4 py-8">
-    <!-- Fecha formateada -->
     <p class="text-sm text-slate-600 mb-2">
       {new Date(date).toLocaleDateString('es-VE', { day: 'numeric', month: 'long', year: 'numeric' })}
     </p>
-
-    <!-- Título principal -->
     <h1 class="text-4xl md:text-5xl font-advent font-bold text-slate-800 mb-6">{title}</h1>
-
-    <!-- Imagen opcional -->
     {image && (
       <div class="my-8">
         <img 
@@ -63,8 +49,6 @@ const breadcrumbs = [
         />
       </div>
     )}
-
-    <!-- ✅ ENVOLVER <Content /> CON LA CLASE ESPECÍFICA -->
     <div class="news-content">
       <Content />
     </div>

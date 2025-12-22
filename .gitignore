@@ -26,3 +26,6 @@ bustling-belt/
 .env.local
 .env
 .env.local
+
+# vercel
+.vercel/

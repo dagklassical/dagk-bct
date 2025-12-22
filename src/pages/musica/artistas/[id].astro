@@ -5,36 +5,45 @@ import ImmutableStamp from '../../../components/ImmutableStamp.astro';
 import artists from '../../../data/artists.json';
 import releases from '../../../data/releases.json';
 
-// ✅ Requerido para rutas dinámicas en Astro
+// ✅ Prerrenderizar porque los artistas están en el repo
+export const prerender = true;
+
 export async function getStaticPaths() {
-  return artists.map(artist => ({
-    params: { id: artist.id },
-    props: { artist }
-  }));
+  return artists.map(artist => ({ params: { id: artist.id } }));
 }
 
 const { id } = Astro.params;
-const artist = Astro.props.artist;
+const artist = artists.find(a => a.id === id);
 
 if (!artist) {
   return Astro.redirect('/musica/artistas');
 }
 
-// Filtrar releases asociadas a este artista
 const artistReleases = releases.filter(r => 
   Array.isArray(artist.releases) && artist.releases.includes(r.id)
 );
 
+// ✅ Extraer dominio del sitio web (seguro)
+let websiteDomain = null;
+if (artist.website) {
+  try {
+    const url = new URL(artist.website);
+    websiteDomain = url.hostname.replace('www.', '');
+  } catch (e) {
+    // Si falla, usamos la URL completa como fallback
+    websiteDomain = artist.website;
+  }
+}
+
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
-  { label: 'Música', href: '/musica/' },
-  { label: 'Artistas', href: '/musica/artistas/' },
+  { label: 'Música', href: '/musica' },
+  { label: 'Artistas', href: '/musica/artistas' },
   { label: artist.name, href: `/musica/artistas/${id}` },
 ];
 ---
 
 <Layout title={artist.name} description={artist.bio || `Perfil de ${artist.name}`} breadcrumbs={breadcrumbs}>
-  {/* Enlace de retorno */}
   <div class="max-w-4xl mx-auto pt-8 px-4">
     <a href="/musica/artistas" class="text-slate-700 hover:text-dag-burgundy flex items-center text-sm">
       ← Volver a Artistas
@@ -54,26 +63,44 @@ const breadcrumbs = [
       <div class="md:w-2/3">
         <h1 class="text-h1 font-advent mb-2">{artist.name}</h1>
         <p class="text-xl text-slate-600 mb-4">{artist.role}</p>
-        {artist.bio && (
-          <p class="mb-6 text-slate-700">{artist.bio}</p>
-        )}
+        {artist.bio && <p class="mb-6 text-slate-700">{artist.bio}</p>}
 
-        {artist.website && (
+        {/* ✅ Sitio web: solo dominio, en burgundy */}
+        {websiteDomain && (
           <p class="mb-2">
-            <strong>Sitio web:</strong> <a href={artist.website} target="_blank" class="text-platinum hover:underline">{artist.website}</a>
+            <strong>Sitio web:</strong>{' '}
+            <a 
+              href={artist.website} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="text-dag-burgundy hover:underline font-medium"
+            >
+              {websiteDomain}
+            </a>
           </p>
         )}
 
+        {/* ✅ Redes sociales: enlaces limpios */}
         {artist.social && (
           <div class="mb-6">
             <strong>Redes sociales:</strong>
-            <ul class="mt-1 space-y-1">
-              {Object.entries(artist.social).map(([platform, handle]) => (
-                <li key={platform}>
-                  <span class="capitalize">{platform}:</span> {handle}
-                </li>
-              ))}
-            </ul>
+            <div class="flex flex-wrap gap-2 mt-2">
+              {Object.entries(artist.social).map(([platform, url]) => {
+                const platformName = platform.charAt(0).toUpperCase() + platform.slice(1);
+                return (
+                  <a
+                    key={platform}
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1 bg-slate-100 hover:bg-dag-burgundy/10 px-2 py-1 rounded text-sm text-slate-700 hover:text-dag-burgundy transition-colors"
+                    aria-label={`Visitar ${platformName} de ${artist.name}`}
+                  >
+                    {platformName}
+                  </a>
+                );
+              })}
+            </div>
           </div>
         )}
 
@@ -97,7 +124,5 @@ const breadcrumbs = [
         </section>
       </div>
     </div>
-
-    <!-- Metadatos inmutables -->
   </article>
 </Layout>

@@ -1,23 +1,19 @@
 // astro.config.mjs
 import { defineConfig } from 'astro/config';
-import sitemap from '@astrojs/sitemap';
-import tailwind from '@astrojs/tailwind';
+import vercel from '@astrojs/vercel/serverless';
 
 export default defineConfig({
-  // ✅ Dominio base para sitemap, OpenGraph y enlaces absolutos
-  site: 'https://dagkbct.vercel.app',
+  // Activa Server-Side Rendering (necesario para rutas dinámicas como /[token])
+  output: 'server',
+  
+  // Usa el adapter oficial de Vercel para SSR
+  adapter: vercel(),
 
-  // ✅ Modo estático (obligatorio para Vercel)
-  output: 'static',
+  // Opcional: mejora el manejo de rutas
+  trailingSlash: 'never',
 
-  // ✅ Integraciones
-  integrations: [
-    tailwind(),
-    sitemap({
-      changefreq: 'weekly',
-      priority: 0.8,
-      // ✅ Usa 'filter' en lugar de 'exclude' (sintaxis actual de @astrojs/sitemap)
-      filter: (page) => !page.startsWith('/privado') && !page.startsWith('/login'),
-    }),
-  ],
+  // Si usas variables de entorno, las puedes cargar aquí
+  // vite: {
+  //   envDir: '.'
+  // }
 });

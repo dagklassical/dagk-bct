@@ -7,23 +7,22 @@ import musicCards from '../../../data/music-cards.json';
 import releases from '../../../data/releases.json';
 import artists from '../../../data/artists.json';
 
+// ✅ Prerrenderizar: las Music Cards de demo están en el repo
+export const prerender = true;
+
 export async function getStaticPaths() {
   return musicCards
     .filter(card => card.status === 'available')
-    .map(card => ({
-      params: { id: card.id },
-      props: { card }
-    }));
+    .map(card => ({ params: { id: card.id } }));
 }
 
 const { id } = Astro.params;
-const card = Astro.props.card;
+const card = musicCards.find(c => c.id === id && c.status === 'available');
 
 if (!card) {
   return Astro.redirect('/blockchain/music-cards');
 }
 
-// Función auxiliar para buscar enlaces
 const getSocialLink = (platformName) => {
   return card.socialLinks?.find(link => link.platform === platformName)?.url;
 };
@@ -41,15 +40,13 @@ const artistId = artist?.id || 'unknown';
 
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
-  { label: 'Blockchain', href: '/blockchain/' },
-  { label: 'Music Cards', href: '/blockchain/music-cards/' },
+  { label: 'Blockchain', href: '/blockchain' },
+  { label: 'Music Cards', href: '/blockchain/music-cards' },
   { label: card.title, href: `/blockchain/music-cards/${id}` },
 ];
 ---
 
 <Layout title={card.title} description={release?.description || 'Music Card verificable en blockchain'} breadcrumbs={breadcrumbs}>
-
-  {/* Enlace de retorno */}
   <div class="max-w-4xl mx-auto pt-8 px-4">
     <a href="/blockchain/music-cards" class="text-slate-700 hover:text-dag-burgundy flex items-center text-sm">
       ← Volver a Music Cards
@@ -58,9 +55,7 @@ const breadcrumbs = [
 
   <article class="max-w-4xl mx-auto px-4 pt-4 pb-10">
     <div class="flex flex-col md:flex-row gap-6">
-      {/* === COLUMNA IZQUIERDA: IMAGEN + ÍCONOS + PLAYER + TRACKLIST === */}
       <div class="md:w-1/3 space-y-6">
-        {/* Imagen de la Music Card */}
         <img
           src={card.cardImage}
           alt={card.title}
@@ -68,46 +63,38 @@ const breadcrumbs = [
           onerror="this.src='https://placehold.co/300x480/cccccc/999999?text=Music+Card'"
         />
 
-        {/* Íconos de plataformas */}
         <div class="flex justify-center gap-4">
           {spotifyUrl && (
-            <a href={spotifyUrl} target="_blank" rel="noopener noreferrer" aria-label="Spotify"
-              class="block w-7 h-7 hover:scale-110 transition-transform">
+            <a href={spotifyUrl} target="_blank" rel="noopener" aria-label="Spotify" class="block w-7 h-7 hover:scale-110 transition-transform">
               <img src="/icons/spotify-color-icon.svg" alt="Spotify" class="w-full h-full" />
             </a>
           )}
           {appleMusicUrl && (
-            <a href={appleMusicUrl} target="_blank" rel="noopener noreferrer" aria-label="Apple Music"
-              class="block w-7 h-7 hover:scale-110 transition-transform">
+            <a href={appleMusicUrl} target="_blank" rel="noopener" aria-label="Apple Music" class="block w-7 h-7 hover:scale-110 transition-transform">
               <img src="/icons/apple-music-color-icon.svg" alt="Apple Music" class="w-full h-full" />
             </a>
           )}
           {youtubeMusicUrl && (
-            <a href={youtubeMusicUrl} target="_blank" rel="noopener noreferrer" aria-label="YouTube Music"
-              class="block w-7 h-7 hover:scale-110 transition-transform">
+            <a href={youtubeMusicUrl} target="_blank" rel="noopener" aria-label="YouTube Music" class="block w-7 h-7 hover:scale-110 transition-transform">
               <img src="/icons/youtube-music-color-icon.svg" alt="YouTube Music" class="w-full h-full" />
             </a>
           )}
           {tidalUrl && (
-            <a href={tidalUrl} target="_blank" rel="noopener noreferrer" aria-label="Tidal"
-              class="block w-7 h-7 hover:scale-110 transition-transform">
+            <a href={tidalUrl} target="_blank" rel="noopener" aria-label="Tidal" class="block w-7 h-7 hover:scale-110 transition-transform">
               <img src="/icons/tidal-color-icon.svg" alt="Tidal" class="w-full h-full" />
             </a>
           )}
           {deezerUrl && (
-            <a href={deezerUrl} target="_blank" rel="noopener noreferrer" aria-label="Deezer"
-              class="block w-7 h-7 hover:scale-110 transition-transform">
+            <a href={deezerUrl} target="_blank" rel="noopener" aria-label="Deezer" class="block w-7 h-7 hover:scale-110 transition-transform">
               <img src="/icons/deezer-color-icon.svg" alt="Deezer" class="w-full h-full" />
             </a>
           )}
         </div>
 
-        {/* Reproductor */}
         <div class="bg-white border border-platinum rounded-xl px-4 py-3">
-          <audio id="music-player" controls class="w-full h-16 mb-3"></audio>
+          <audio id="music-player" controls class="w-full h-16 mb-3" preload="none"></audio>
         </div>
 
-        {/* Tracklist con scroll */}
         {release?.tracks && (
           <section class="bg-white p-5 rounded-lg border border-platinum max-h-[300px] overflow-y-auto">
             <h3 class="text-lg font-semibold mb-3">Tracklist</h3>
@@ -132,7 +119,6 @@ const breadcrumbs = [
         )}
       </div>
 
-      {/* === COLUMNA DERECHA: NARRATIVA + BENEFICIOS + TÉCNICO + CRÉDITOS === */}
       <div class="md:w-2/3 pt-1">
         <h1 class="text-h1 font-advent mb-2">{card.title}</h1>
         <p class="text-xl text-slate-600 mb-4">
@@ -142,9 +128,7 @@ const breadcrumbs = [
           </span>
         </p>
 
-        {release?.description && (
-          <p class="mb-5 text-slate-700">{release.description}</p>
-        )}
+        {release?.description && <p class="mb-5 text-slate-700">{release.description}</p>}
 
         <section class="mb-12">
           <h3 class="text-h3 font-advent mb-3">Privilegios propios</h3>
@@ -177,7 +161,6 @@ const breadcrumbs = [
       </div>
     </div>
 
-    {/* Footer de 2 columnas */}
     <div class="max-w-4xl mx-auto px-4 mt-8 pt-2 border-t border-platinum">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
         <div class="flex flex-col justify-end">
@@ -198,9 +181,7 @@ const breadcrumbs = [
       </div>
     </div>
 
-    {/* Script para player interactivo */}
     <script>
-      // Carga inicial del primer demo
       document.addEventListener('DOMContentLoaded', () => {
         const player = document.getElementById('music-player');
         const firstTrack = document.querySelector('[data-demo]');
@@ -209,7 +190,6 @@ const breadcrumbs = [
         }
       });
 
-      // Event delegation para tracklist
       document.addEventListener('click', (e) => {
         const trackElement = e.target.closest('[data-demo]');
         if (trackElement) {
@@ -223,4 +203,5 @@ const breadcrumbs = [
         }
       });
     </script>
+  </article>
 </Layout>

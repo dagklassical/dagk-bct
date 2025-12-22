@@ -4,40 +4,60 @@ import Layout from '../../../layouts/Layout.astro';
 import releases from '../../../data/releases.json';
 import artists from '../../../data/artists.json';
 
-// Genera una página estática para cada lanzamiento
+// ✅ Prerrenderizar: discos están en el repo
+export const prerender = true;
+
 export async function getStaticPaths() {
-  return releases.map(release => ({
-    params: { id: release.id },
-    props: { release }
-  }));
+  return releases.map(release => ({ params: { id: release.id } }));
 }
 
-// Obtiene los datos del lanzamiento y sus artistas
 const { id } = Astro.params;
-const release = Astro.props.release;
+const release = releases.find(r => r.id === id);
 
 if (!release) {
   return Astro.redirect('/musica/discografia');
 }
 
-// Busca los nombres de los artistas por sus IDs
-const artistNames = release.artistIds.map(artistId => {
-  const artist = artists.find(a => a.id === artistId);
-  return artist ? artist.name : artistId;
-}).join(', ');
+// Buscar todos los artistas asociados
+const releaseArtists = release.artistIds.map(artistId => {
+  return artists.find(a => a.id === artistId) || { id: artistId, name: artistId };
+});
 
+// Preprocesar redes y dominios de cada artista (para evitar lógica en el template)
+const artistsWithSocial = releaseArtists.map(artist => {
+  let websiteDomain = null;
+  if (artist.website) {
+    try {
+      const url = new URL(artist.website);
+      websiteDomain = url.hostname.replace('www.', '');
+    } catch (e) {
+      websiteDomain = artist.website;
+    }
+  }
+
+  const socialLinks = artist.social 
+    ? Object.entries(artist.social).map(([platform, url]) => {
+        const name = platform.charAt(0).toUpperCase() + platform.slice(1);
+        return { platform, url, name };
+      })
+    : [];
+
+  return { ...artist, websiteDomain, socialLinks };
+});
+
+const artistNames = releaseArtists.map(a => a.name).join(', ');
 const pageTitle = `${release.title} - Discografía`;
 const pageDescription = release.description || `Detalles de la colección "${release.title}" por ${artistNames}.`;
+
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
-  { label: 'Música', href: '/musica/' },
-  { label: 'Discografía', href: '/musica/discografia/' },
+  { label: 'Música', href: '/musica' },
+  { label: 'Discografía', href: '/musica/discografia' },
   { label: release.title, href: `/musica/discografia/${id}` },
 ];
 ---
 
 <Layout title={pageTitle} description={pageDescription} breadcrumbs={breadcrumbs}>
-  {/* Enlace de retorno */}
   <div class="max-w-4xl mx-auto pt-8 px-4">
     <a href="/musica/discografia" class="text-slate-700 hover:text-dag-burgundy flex items-center text-sm">
       ← Volver a Discografía
@@ -55,12 +75,69 @@ const breadcrumbs = [
       </div>
       <div class="md:w-2/3">
         <h1 class="text-h1 font-advent mb-2">{release.title}</h1>
-        <p class="text-xl text-slate-600 mb-2">por {artistNames}</p>
+        <p class="text-xl text-slate-600 mb-2">
+          por{' '}
+          {artistsWithSocial.map((artist, i) => (
+            <span key={artist.id}>
+              <a 
+                href={`/musica/artistas/${artist.id}`} 
+                class="text-dag-burgundy hover:underline"
+              >
+                {artist.name}
+              </a>
+              {i < artistsWithSocial.length - 1 && ', '}
+            </span>
+          ))}
+        </p>
         <p class="text-slate-500 mb-4">
           {release.genre} • {new Date(release.releaseDate).toLocaleDateString('es-VE')} • {release.type}
         </p>
-        {release.description && (
-          <p class="mb-6 text-slate-700">{release.description}</p>
+        {release.description && <p class="mb-6 text-slate-700">{release.description}</p>}
+
+        {/* === Información de artistas asociados === */}
+        {artistsWithSocial.length > 0 && (
+          <section class="mb-6">
+            <h3 class="text-lg font-semibold mb-3">Artistas</h3>
+            <div class="space-y-4">
+              {artistsWithSocial.map(artist => (
+                <div key={artist.id} class="border-l-2 border-dag-burgundy/30 pl-3">
+                  <h4 class="font-medium">{artist.name}</h4>
+                  
+                  {/* Sitio web */}
+                  {artist.websiteDomain && (
+                    <p class="text-sm mt-1">
+                      <a 
+                        href={artist.website} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="text-dag-burgundy hover:underline"
+                      >
+                        {artist.websiteDomain}
+                      </a>
+                    </p>
+                  )}
+
+                  {/* Redes sociales */}
+                  {artist.socialLinks.length > 0 && (
+                    <div class="flex flex-wrap gap-2 mt-2">
+                      {artist.socialLinks.map(({ platform, url, name }) => (
+                        <a
+                          key={platform}
+                          href={url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-flex items-center gap-1 bg-slate-100 hover:bg-dag-burgundy/10 px-2 py-1 rounded text-xs text-slate-700 hover:text-dag-burgundy transition-colors"
+                          aria-label={`Visitar ${name} de ${artist.name}`}
+                        >
+                          {name}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </section>
         )}
 
         <section class="mb-6">
@@ -95,7 +172,6 @@ const breadcrumbs = [
       </div>
     </div>
 
-    <!-- Metadatos inmutables -->
     <div class="mt-8 p-4 border-t border-platinum text-sm text-slate-600">
       <h3 class="font-semibold mb-2">Metadatos Inmutables</h3>
       <p><strong>UUID:</strong> {release.metadata.uuid}</p>
