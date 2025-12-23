@@ -1,6 +1,7 @@
 ---
 // src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
 
 // Los imports de 'ImmutableStamp' y 'globals.css' no son necesarios aquí,
 // ya que el Layout ya se encarga de ellos. Esto mantiene el código más limpio.
@@ -91,7 +92,62 @@ const breadcrumbs = [
   </div>
 </section>
 
-  <!-- Features Section -->
+<!-- ========================================
+     ÚLTIMAS NOTICIAS – HOME (versión minimalista)
+     ======================================== -->
+<section class="py-16 bg-gray95">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        (await getCollection('noticias'))
+          .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+          .slice(0, 3)
+          .map(entry => {
+            const { title, image, tags } = entry.data;
+            const slug = entry.slug;
+            const primaryTag = tags?.[0];
+            return (
+              <a 
+                href={`/noticias/${slug}`} 
+                class="block group h-full"
+                key={slug}
+              >
+                <div class="bg-white border border-platinum rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow h-full flex flex-col">
+                  {image && (
+                    <div class="relative aspect-[4/3] overflow-hidden">
+                      <img 
+                        src={image} 
+                        alt={title}
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                      {primaryTag && (
+                        <span class="absolute top-3 left-3 bg-dag-burgundy text-white text-[0.65rem] font-bold px-2 py-1 rounded uppercase tracking-wide z-10">
+                          {primaryTag}
+                        </span>
+                      )}
+                    </div>
+                  )}
+                  <div class="p-5 flex-grow flex flex-col">
+                    <h3 class="text-lg font-advent font-bold text-slate-800 group-hover:text-dag-burgundy transition-colors line-clamp-2">
+                      {title}
+                    </h3>
+                  </div>
+                </div>
+              </a>
+            );
+          })
+      }
+    </div>
+    <div class="text-center mt-8">
+      <a href="/noticias" class="text-dag-burgundy font-medium hover:underline">
+        Ver todas las noticias →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
   <section class="py-16 bg-platinum">
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-h2 font-advent text-center mb-12">Nuestros Valores</h2>

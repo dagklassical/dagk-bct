@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content';
 
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
-  { label: 'Noticias', href: '/noticias/' },
+  { label: 'Noticias', href: '/noticias' },
 ];
 
 const pageTitle = 'Noticias | DAG Klassical';
@@ -62,7 +62,7 @@ const allTags = [...new Set(
         data-summary={post.data.summary || ''}
         data-tags={(post.data.tags || []).map(t => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '')).join(' ') || ''}
       >
-        <a href={`/noticias/${post.slug}/`} class="block h-full">
+        <a href={`/noticias/${post.slug}`} class="block h-full">
           <div class="relative h-48 overflow-hidden">
             <img 
               src={post.data.image || '/images/placeholder.jpg'} 
