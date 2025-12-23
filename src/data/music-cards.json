@@ -2,6 +2,7 @@
   {
     "id": "mc-2025-gerulewicz-aguinaldo-std",
     "title": "Piano Aguinaldo",
+    "artist": "Gerardo Gerulewicz",
     "edition": "Estándar",
     "associatedRelease": "gerulewicz-piano-aguinaldo",
     "totalSupply": 100,
@@ -50,6 +51,7 @@
   {
     "id": "mc-2025-ramirez-capitulos-std",
     "title": "Capítulos",
+    "artist": "Virginia Ramírez",
     "edition": "Estándar",
     "associatedRelease": "virginia-ramirez-capitulos",
     "totalSupply": 200,
@@ -98,6 +100,7 @@
   {
     "id": "mc-2025-goulnara-schubert-std",
     "title": "Schubert",
+    "artist": "Goulnara Galimchina",
     "edition": "Estándar",
     "associatedRelease": "goulnara-galimchina-schubert-d960-d780",
     "totalSupply": 100,
@@ -146,6 +149,7 @@
   {
     "id": "mc-2025-teodor-dore-february-night-std",
     "title": "February Night",
+    "artist": "Teodor Dore",
     "edition": "Estándar",
     "associatedRelease": "teodor-dore-february-night",
     "totalSupply": 75,
@@ -194,6 +198,7 @@
   {
     "id": "mc-2025-academica-moscu-nacionalismo-std",
     "title": "Momentos Musicales\nVol. 3",
+    "artist": "Académica de Moscú",
     "edition": "Estándar",
     "associatedRelease": "academica-moscu-momentos-musicales-nacionalismo-ruso-03",
     "totalSupply": 150,
