@@ -1,0 +1,22 @@
+---
+// src/components/SectionHeader.astro
+interface Props {
+  title: string;
+  subtitle?: string;
+  centered?: boolean;
+}
+
+const { title, subtitle, centered = true } = Astro.props;
+---
+
+<div class:list={[
+  "mb-12",
+  centered ? "text-center" : "text-left"
+]}>
+  <h2 class="text-3xl font-advent font-semibold text-slate-900 mb-4">{title}</h2>
+  {subtitle && (
+    <p class="text-lg text-slate-600 max-w-3xl mx-auto">
+      {subtitle}
+    </p>
+  )}
+</div>

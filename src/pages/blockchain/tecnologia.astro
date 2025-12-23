@@ -1,6 +1,7 @@
 ---
 // src/pages/blockchain/tecnologia.astro
 import Layout from '../../layouts/Layout.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
@@ -10,95 +11,122 @@ const breadcrumbs = [
 ---
 
 <Layout title="Tecnología Blockchain | DAG Klassical" description="Descubre la tecnología detrás de DAG Klassical: Polygon, NFTs y nuestros innovadores MFTs, diseñados para revolucionar la industria musical." breadcrumbs={breadcrumbs}>
-  <main class="bg-gray95">
+  <main class="bg-gray95 parallax-container">
+    <!-- ===================================
+           1. SECCIÓN HERO
+           =================================== -->
+    <header class="text-center mb-8 py-6 bg-white">
+      <h1 class="text-h1 font-advent">Tecnología al Servicio del Arte</h1>
+      <p class="text-dag-burgundy mt-2">
+        Con blockchain un ecosistema musical más transparente, justo y conectado.
+      </p>
+    </header>     
+
     <div class="max-w-5xl mx-auto px-4 py-12 space-y-20">
 
-      <!-- ===================================
-           1. SECCIÓN HERO: La Promesa (Sin foto)
-           =================================== -->
-      <section class="text-center">
-        <h1 class="text-4xl md:text-6xl font-advent font-bold text-slate-900 mb-4">
-          Tecnología al Servicio del Arte
-        </h1>
-        <p class="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto">
-          Hemos elegido y adaptado las herramientas blockchain más avanzadas no por su complejidad, sino por su poder para crear un ecosistema musical más transparente, justo y conectado.
+<!-- ===================================
+     2. SECCIÓN: ¿Por qué Polygon? (responsive + imagen local)
+     =================================== -->
+<section class="relative max-w-5xl mx-auto px-4">
+
+  <!-- Versión MOBILE: imagen dentro del flujo -->
+  <div class="md:hidden space-y-8">
+    <div class="bg-white p-6 rounded-lg">
+      <h2 class="text-2xl font-advent font-semibold text-slate-900 mb-4">La Base de Nuestra Revolución</h2>
+      <p class="text-slate-700 mb-4">
+        Elegimos la red Polygon por su compromiso con la sostenibilidad, la velocidad y las bajas comisiones. Esto nos permite ofrecer una experiencia fluida y accesible, sin los altos costos y el impacto ambiental de otras blockchains.
+      </p>
+      <p class="text-slate-700">
+        Para nosotros, la tecnología debe ser un puente, no una barrera. Polygon es el puente perfecto para llevar la música clásica al futuro.
+      </p>
+    </div>
+    <div class="flex justify-center">
+      <picture>
+        <source srcset="/images/polygon-logo.avif" type="image/avif" />
+        <img 
+          src="/images/polygon-logo.png" 
+          alt="Powered by Polygon"
+          class="w-48 h-auto"
+        />
+      </picture>
+    </div>
+  </div>
+
+  <!-- Versión DESKTOP: layout 2-col con imagen flotante -->
+  <div class="hidden md:block">
+    <div class="grid md:grid-cols-2 gap-8 relative z-10">
+      <div class="bg-white p-8 rounded-lg">
+        <h2 class="text-3xl font-advent font-semibold text-slate-900 mb-4">La Base de Nuestra Revolución</h2>
+        <p class="text-slate-700 mb-4">
+          Elegimos la red Polygon por su compromiso con la sostenibilidad, la velocidad y las bajas comisiones. Esto nos permite ofrecer una experiencia fluida y accesible, sin los altos costos y el impacto ambiental de otras blockchains.
         </p>
-      </section>
+        <p class="text-slate-700">
+          Para nosotros, la tecnología debe ser un puente, no una barrera. Polygon es el puente perfecto para llevar la música clásica al futuro.
+        </p>
+      </div>
+      <div></div>
+    </div>
+
+    <!-- Imagen flotante en desktop -->
+    <div class="absolute top-0 left-1/2 w-72 h-full flex items-center z-0">
+      <picture>
+        <source srcset="/images/polygon-logo.avif" type="image/avif" />
+        <img 
+          src="/images/polygon-logo.png" 
+          alt="Powered by Polygon"
+          class="w-48 md:w-64 h-auto parallax-polygon ml-6"
+        />
+      </picture>
+    </div>
+  </div>
+
+</section>
 
       <!-- ===================================
-           2. SECCIÓN PILAR: ¿Por qué Polygon?
+           3. SECCIÓN: NFT vs MFT
            =================================== -->
-      <section class="bg-white p-8 rounded-lg shadow-sm">
-        <div class="grid md:grid-cols-2 gap-8 items-center">
-          <div>
-            <h2 class="text-3xl font-advent font-semibold text-slate-900 mb-4">La Base de Nuestra Revolución: Polygon</h2>
-            <p class="text-slate-700 mb-4">
-              Elegimos la red Polygon por su compromiso con la sostenibilidad, la velocidad y las bajas comisiones. Esto nos permite ofrecer una experiencia fluida y accesible, sin los altos costos y el impacto ambiental de otras blockchains.
-            </p>
-            <p class="text-slate-700">
-              Para nosotros, la tecnología debe ser un puente, no una barrera. Polygon es el puente perfecto para llevar la música clásica al futuro.
-            </p>
-          </div>
-          <div class="flex justify-center">
-            <!-- Icono de Polygon -->
-            <div class="w-32 h-32 bg-purple-100 rounded-full flex items-center justify-center">
-              <svg class="w-20 h-20 text-purple-600" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M16.452 9.636l-3.544-2.047a1.273 1.273 0 00-1.273 0L8.09 9.636a1.273 1.273 0 00-.636 1.103v4.094c0 .455.243.876.636 1.103l3.545 2.047a1.273 1.273 0 001.273 0l3.545-2.047a1.273 1.273 0 00.636-1.103v-4.094a1.273 1.273 0 00-.637-1.103zM12 15.475l-3.182-1.839v-3.678L12 8.119l3.182 1.839v3.678L12 15.475z"/>
-              </svg>
-            </div>
-          </div>
-        </div>
-      </section>
+      <SectionHeader 
+        title="Más Allá del NFT: Introduciendo los MFT"
+        subtitle="Mientras que los NFTs son perfectos para lo único, utilizamos los MFTs (Music Fungible Tokens) para representar activos colectivos e intercambiables."
+      />
 
-      <!-- ===================================
-           3. SECCIÓN CLAVE: NFT vs. MFT (El Diferenciador)
-           =================================== -->
-      <section>
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-advent font-semibold text-slate-900 mb-4">Más Allá del NFT: Introduciendo los MFT</h2>
-          <p class="text-lg text-slate-600">
-            Mientras que los NFTs son perfectos para lo único, hemos desarrollado los MFTs (Music Fungible Tokens) para lo colectivo.
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Tarjeta NFT -->
+        <div class="bg-white p-6 rounded-lg border-2 border-slate-200">
+          <h3 class="font-bold text-xl mb-3 text-slate-900">NFTs (No Fungible Tokens)</h3>
+          <p class="text-slate-700 mb-4">
+            Son activos digitales <strong class="font-semibold">únicos e irremplazables</strong>. Ideales para certificar la propiedad de items exclusivos.
           </p>
+          <ul class="space-y-2 text-sm text-slate-600">
+            <li>✓ Una entrada específica para un concierto.</li>
+            <li>✓ La partitura original firmada por un compositor.</li>
+            <li>✓ Un cover art único de un álbum.</li>
+          </ul>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8">
-          <!-- Tarjeta NFT -->
-          <div class="bg-white p-6 rounded-lg border-2 border-slate-200">
-            <h3 class="font-bold text-xl mb-3 text-slate-900">NFTs (No Fungible Tokens)</h3>
-            <p class="text-slate-700 mb-4">
-              Son activos digitales <strong class="font-semibold">únicos e irremplazables</strong>. Ideales para certificar la propiedad de items exclusivos.
-            </p>
-            <ul class="space-y-2 text-sm text-slate-600">
-              <li>✓ Una entrada específica para un concierto.</li>
-              <li>✓ La partitura original firmada por un compositor.</li>
-              <li>✓ Un cover art único de un álbum.</li>
-            </ul>
-          </div>
-
-          <!-- Tarjeta MFT -->
-          <div class="bg-dag-burgundy/10 p-6 rounded-lg border-2 border-dag-burgundy">
-            <h3 class="font-bold text-xl mb-3 text-dag-burgundy">MFTs (Music Fungible Tokens)</h3>
-            <p class="text-slate-700 mb-4">
-              Son tokens <strong class="font-semibold">intercambiables e idénticos</strong> entre sí. Perfectos para representar acciones o derechos compartidos.
-            </p>
-            <ul class="space-y-2 text-sm text-slate-600">
-              <li>✓ Derechos sobre las regalías de una canción.</li>
-              <li>✓ Una porción de los ingresos de un tour.</li>
-              <li>✓ Acceso a una suscripción de contenido.</li>
-            </ul>
-          </div>
+        <!-- Tarjeta MFT -->
+        <div class="bg-dag-burgundy/10 p-6 rounded-lg">
+          <h3 class="font-bold text-xl mb-3 text-dag-burgundy">MFTs (Music Fungible Tokens)</h3>
+          <p class="text-slate-700 mb-4">
+            Son tokens <strong class="font-semibold">intercambiables e idénticos</strong> entre sí. Perfectos para representar acciones o derechos compartidos.
+          </p>
+          <ul class="space-y-2 text-sm text-slate-600">
+            <li>✓ Derechos sobre las regalías de una canción.</li>
+            <li>✓ Una porción de los ingresos de un tour.</li>
+            <li>✓ Acceso a una suscripción de contenido.</li>
+          </ul>
         </div>
-      </section>
+      </div>
 
       <!-- ===================================
-           4. SECCIÓN "CÓMO FUNCIONA": Simplificando el proceso
+           4. SECCIÓN: Cómo Funciona
            =================================== -->
-      <section class="bg-slate-900 text-white p-12 rounded-lg">
-        <div class="text-center mb-10">
-          <h2 class="text-3xl font-advent font-semibold mb-4">La Tecnología, Simplificada</h2>
-          <p class="text-lg opacity-90">Así es como nuestra infraestructura blockchain trabaja para ti en tres pasos.</p>
-        </div>
+      <SectionHeader 
+        title="La Tecnología, Simplificada"
+        subtitle="Así es como nuestra infraestructura blockchain trabaja para ti:"
+      />
 
+      <section class="bg-slate-900 text-white p-12 rounded-lg">
         <div class="grid md:grid-cols-3 gap-8 text-center">
           <div>
             <div class="bg-white text-slate-900 text-3xl font-bold w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">1</div>
@@ -119,21 +147,48 @@ const breadcrumbs = [
       </section>
 
       <!-- ===================================
-           5. SECCIÓN FINAL: La Invitación
+           5. SECCIÓN FINAL: Llamado a la acción
            =================================== -->
-      <section class="text-center">
-        <h2 class="text-3xl font-advent font-semibold text-slate-900 mb-4">La Innovación está en tus manos</h2>
-        <p class="text-lg text-slate-600 mb-8 max-w-3xl mx-auto">
-          Explora nuestra tienda y descubre cómo esta tecnología está dando vida a nuevas formas de disfrutar, coleccionar y apoyar la música clásica.
-        </p>
+      <SectionHeader 
+        title="La Innovación a tu alcance"
+        subtitle="Explora nuestras Music Cards y descubre cómo esta tecnología está dando vida a nuevas formas de disfrutar, coleccionar y apoyar la música clásica."
+      />
+
+      <div class="text-center">
         <a
           href="/blockchain/music-cards"
-          class="inline-block bg-dag-burgundy text-white text-lg font-semibold px-10 py-4 rounded-lg hover:bg-opacity-90 transition-all transform hover:scale-105 shadow-lg"
+          class="inline-block bg-dag-burgundy text-white text-lg font-semibold px-10 py-4 rounded-lg hover:bg-opacity-90 transition-all transform hover:scale-105"
         >
           Explorar Music Cards
         </a>
-      </section>
+      </div>
 
     </div>
   </main>
+
+  <!-- Parallax ligero (solo en cliente) -->
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const img = document.querySelector('.parallax-polygon');
+    if (!img) return;
+
+    let ticking = false;
+    const updateParallax = () => {
+      const scrollY = window.scrollY;
+      // Movimiento suave hacia arriba (más natural)
+      const offset = scrollY * 0.15; // intensidad baja: 0.15 = muy sutil
+      img.style.transform = `translateY(${-offset}px)`;
+      ticking = false;
+    };
+
+    const requestTick = () => {
+      if (!ticking) {
+        requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', requestTick, { passive: true });
+  });
+</script>
 </Layout>

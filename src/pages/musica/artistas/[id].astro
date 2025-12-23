@@ -30,7 +30,6 @@ if (artist.website) {
     const url = new URL(artist.website);
     websiteDomain = url.hostname.replace('www.', '');
   } catch (e) {
-    // Si falla, usamos la URL completa como fallback
     websiteDomain = artist.website;
   }
 }
@@ -59,50 +58,65 @@ const breadcrumbs = [
           class="w-80 h-100 rounded-md mx-auto shadow-md object-cover mt-4"
           onerror="this.src='https://placehold.co/200x200/cccccc/999999?text=Avatar'"
         />
+
+        {/* ✅ Sitio web y redes sociales bajo la foto */}
+        <div class="mt-6 pt-4 border-t border-platinum text-left">
+          {websiteDomain && (
+            <p class="mb-3">
+              <strong class="text-slate-700">Sitio web:</strong><br />
+              <a 
+                href={artist.website} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="text-dag-burgundy hover:underline font-medium"
+              >
+                {websiteDomain}
+              </a>
+            </p>
+          )}
+
+          {artist.social && (
+            <div>
+              <strong class="text-slate-700">Redes sociales:</strong>
+              <div class="flex flex-wrap gap-2 mt-2">
+                {Object.entries(artist.social).map(([platform, url]) => {
+                  const platformName = platform.charAt(0).toUpperCase() + platform.slice(1);
+                  return (
+                    <a
+                      key={platform}
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-1 bg-white border border-platinum hover:bg-dag-burgundy/5 px-2 py-1 rounded text-xs text-slate-700 hover:text-dag-burgundy transition-colors"
+                      aria-label={`Visitar ${platformName} de ${artist.name}`}
+                    >
+                      {platformName}
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </div>
       </div>
+
       <div class="md:w-2/3">
         <h1 class="text-h1 font-advent mb-2">{artist.name}</h1>
         <p class="text-xl text-slate-600 mb-4">{artist.role}</p>
-        {artist.bio && <p class="mb-6 text-slate-700">{artist.bio}</p>}
 
-        {/* ✅ Sitio web: solo dominio, en burgundy */}
-        {websiteDomain && (
-          <p class="mb-2">
-            <strong>Sitio web:</strong>{' '}
-            <a 
-              href={artist.website} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="text-dag-burgundy hover:underline font-medium"
-            >
-              {websiteDomain}
-            </a>
-          </p>
-        )}
-
-        {/* ✅ Redes sociales: enlaces limpios */}
-        {artist.social && (
-          <div class="mb-6">
-            <strong>Redes sociales:</strong>
-            <div class="flex flex-wrap gap-2 mt-2">
-              {Object.entries(artist.social).map(([platform, url]) => {
-                const platformName = platform.charAt(0).toUpperCase() + platform.slice(1);
-                return (
-                  <a
-                    key={platform}
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex items-center gap-1 bg-slate-100 hover:bg-dag-burgundy/10 px-2 py-1 rounded text-sm text-slate-700 hover:text-dag-burgundy transition-colors"
-                    aria-label={`Visitar ${platformName} de ${artist.name}`}
-                  >
-                    {platformName}
-                  </a>
-                );
-              })}
-            </div>
+        {/* ✅ Mostrar bioLong con párrafos, o bio como fallback */}
+        {artist.bioLong ? (
+          <div class="mb-6 text-slate-700 space-y-3">
+            {artist.bioLong
+              .split('\n\n')
+              .filter(p => p.trim() !== '')
+              .map((para, i) => (
+                <p key={i}>{para}</p>
+              ))}
           </div>
-        )}
+        ) : artist.bio ? (
+          <p class="mb-6 text-slate-700">{artist.bio}</p>
+        ) : null}
 
         <section>
           <h2 class="text-xl font-semibold mb-3">Obras asociadas</h2>
