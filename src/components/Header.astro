@@ -103,9 +103,9 @@ const navItems = [
     </button>
   </div>
 
-  <!-- Menú móvil -->
+<!-- Menú móvil -->
 <nav id="mobile-menu" class="hidden md:hidden container mx-auto px-4 pb-4 space-y-2">
-  <!-- BOTÓN DE BÚSQUEDA (nuevo - PRIMER ELEMENTO del menú) -->
+  <!-- BOTÓN DE BÚSQUEDA -->
   <div class="px-4 py-2">
     <button aria-label="Buscar" data-search-trigger class="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-platinum text-slate-700 font-medium hover:bg-dag-burgundy hover:text-white transition-colors">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -115,9 +115,9 @@ const navItems = [
     </button>
   </div>
   
-  <!-- RESTO DEL MENÚ (sin cambios) -->
+  <!-- RESTO DEL MENÚ -->
   {navItems.map(item => (
-    <div key={item.href}>
+    <div>
       {item.children ? (
         <details class="group">
           <summary class="list-none cursor-pointer py-2 px-4 rounded-lg bg-white border border-platinum text-slate-700 font-medium hover:bg-gray95 flex justify-between items-center">
@@ -129,7 +129,6 @@ const navItems = [
           <div class="ml-4 mt-1 space-y-1">
             {item.children.map(child => (
               <a
-                key={child.href}
                 href={child.href}
                 class={`block py-1 px-2 text-sm ${
                   child.label === item.label 
@@ -159,35 +158,4 @@ const navItems = [
 <SearchModal />
 
 <!-- Script existente para el menú móvil (no lo elimines) -->
-<script>
-  (function() {
-    const toggle = document.getElementById('mobile-menu-toggle');
-    const menu = document.getElementById('mobile-menu');
-    if (!toggle || !menu) return;
-
-    // Encuentra el SVG dentro del botón de toggle
-    const icon = toggle.querySelector('svg');
-    if (!icon) return;
-
-    const openIcon = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
-    const closeIcon = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />';
-
-    const updateIcon = (isOpen) => {
-      icon.innerHTML = isOpen ? closeIcon : openIcon;
-    };
-
-    toggle.addEventListener('click', () => {
-      const isOpen = menu.classList.contains('hidden');
-      menu.classList.toggle('hidden', !isOpen);
-      updateIcon(isOpen);
-    });
-
-    // Cerrar al hacer clic en un enlace
-    menu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        menu.classList.add('hidden');
-        updateIcon(false);
-      });
-    });
-  })();
-</script>
+<script src="/scripts/mobile-menu.js" defer></script>

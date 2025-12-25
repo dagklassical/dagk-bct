@@ -7,29 +7,29 @@ import musicCards from '../../../data/music-cards.json';
 import releases from '../../../data/releases.json';
 import artists from '../../../data/artists.json';
 
-// ✅ Prerrenderizar: las Music Cards de demo están en el repo
 export const prerender = true;
 
 export async function getStaticPaths() {
   return musicCards
-    .filter(card => card.status === 'available')
+    .filter(card => card.status === 'disponible' || card.status === 'próximo')
     .map(card => ({ params: { id: card.id } }));
 }
 
 const { id } = Astro.params;
-const card = musicCards.find(c => c.id === id && c.status === 'available');
+const card = musicCards.find(c => c.id === id && (c.status === 'disponible' || c.status === 'próximo'));
 
 if (!card) {
   return Astro.redirect('/blockchain/music-cards');
 }
 
+// Helper seguro para enlaces
 const getSocialLink = (platformName) => {
-  return card.socialLinks?.find(link => link.platform === platformName)?.url;
+  return card.socialLinks?.find(link => link.platform === platformName)?.url || null;
 };
 
 const spotifyUrl = getSocialLink('Spotify');
 const appleMusicUrl = getSocialLink('Apple Music');
-const youtubeMusicUrl = getSocialLink('YouTube Music');
+const youtubeMusicuuUrl = getSocialLink('YouTube Music');
 const tidalUrl = getSocialLink('Tidal');
 const deezerUrl = getSocialLink('Deezer');
 
@@ -74,8 +74,8 @@ const breadcrumbs = [
               <img src="/icons/apple-music-color-icon.svg" alt="Apple Music" class="w-full h-full" />
             </a>
           )}
-          {youtubeMusicUrl && (
-            <a href={youtubeMusicUrl} target="_blank" rel="noopener" aria-label="YouTube Music" class="block w-7 h-7 hover:scale-110 transition-transform">
+          {youtubeMusicuuUrl && (
+            <a href={youtubeMusicuuUrl} target="_blank" rel="noopener" aria-label="YouTube Music" class="block w-7 h-7 hover:scale-110 transition-transform">
               <img src="/icons/youtube-music-color-icon.svg" alt="YouTube Music" class="w-full h-full" />
             </a>
           )}
@@ -103,7 +103,6 @@ const breadcrumbs = [
                 const demoSrc = typeof track.demo === 'string' ? track.demo : null;
                 return (
                   <li 
-                    key={i}
                     data-demo={demoSrc}
                     class={`flex justify-between items-center px-2 py-2 text-xs border-b border-slate-100 last:border-0 cursor-pointer hover:bg-slate-50 ${
                       i % 2 === 0 ? 'bg-gray95/40' : 'bg-gray95'
@@ -134,7 +133,7 @@ const breadcrumbs = [
           <h3 class="text-h3 font-advent mb-3">Privilegios propios</h3>
           <ul class="list-disc pl-5 space-y-1 mb-2">
             {card.benefits.map((benefit, i) => (
-              <li key={i} class="text-slate-700">{benefit}</li>
+              <li class="text-slate-700">{benefit}</li>
             ))}
           </ul>
           <ExclusiveAccessGate artistId={artistId} />
@@ -185,7 +184,7 @@ const breadcrumbs = [
       document.addEventListener('DOMContentLoaded', () => {
         const player = document.getElementById('music-player');
         const firstTrack = document.querySelector('[data-demo]');
-        if (player && firstTrack) {
+        if (player && firstTrack && firstTrack.dataset.demo) {
           player.src = firstTrack.dataset.demo;
         }
       });
@@ -196,9 +195,13 @@ const breadcrumbs = [
           const demoSrc = trackElement.dataset.demo;
           if (demoSrc) {
             const player = document.getElementById('music-player');
-            player.src = demoSrc;
-            player.load();
-            player.play().catch(err => console.warn('Reproducción fallida:', err));
+            if (player) {
+              player.src = demoSrc;
+              player.load();
+              player.play().catch(err => {
+                console.warn('Reproducción fallida:', err);
+              });
+            }
           }
         }
       });

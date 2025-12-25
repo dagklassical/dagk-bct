@@ -29,3 +29,6 @@ bustling-belt/
 
 # vercel
 .vercel/
+
+# scripts
+scripts/remove-astro-keys.mjs

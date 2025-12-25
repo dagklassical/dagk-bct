@@ -7,9 +7,12 @@ import artists from '../../data/artists.json';
 import SectionHeader from '../../components/SectionHeader.astro';
 
 const allNoticias = await getCollection('noticias');
-
 const latestNews = allNoticias
-  .sort((a, b) => new Date(b.data.date) - new Date(a.data.date))
+  .filter(post => {
+    const d = new Date(post.data.date);
+    return d instanceof Date && !isNaN(d.getTime());
+  })
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
   .slice(0, 3);
 
 const allArtists = Array.isArray(artists) ? artists : [];
@@ -42,7 +45,7 @@ const breadcrumbs = [
     <section class="w-full overflow-hidden px-4 py-8">
       <div class="flex overflow-x-auto pb-4 -mx-2 hide-scrollbar">
         {allArtists.map((artist) => (
-          <div class="flex-shrink-0 px-2 w-48" key={artist.id}>
+          <div class="flex-shrink-0 px-2 w-48">
             <a href={`/musica/artistas/${artist.id}`} class="block text-center group">
               <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden">
                 <div class="aspect-[4/5]">
@@ -85,7 +88,6 @@ const breadcrumbs = [
             <a 
               href={`/blockchain/music-cards/${card.id}`} 
               class="group block bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden"
-              key={card.id}
             >
               <div class="aspect-[5/8]">
                 <img 
@@ -122,7 +124,7 @@ const breadcrumbs = [
         </div>
         <div class="grid md:grid-cols-3 gap-8">
           {latestNews.map((post) => (
-            <article class="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden" key={post.id}>
+            <article class="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
               <a href={`/noticias/${post.slug}`} class="block">
                 <img 
                   src={post.data.image || '/images/placeholder-news.jpg'} 

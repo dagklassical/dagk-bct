@@ -70,11 +70,11 @@ const breadcrumbs = [
     <!-- Imagen flotante en desktop -->
     <div class="absolute top-0 left-1/2 w-72 h-full flex items-center z-0">
       <picture>
-        <source srcset="/images/polygon-logo.avif" type="image/avif" />
+        <source srcset="/images/polygon-logo.webp" type="image/webp" />
         <img 
-          src="/images/polygon-logo.png" 
+          src="/images/polygon-logo.webp" 
           alt="Powered by Polygon"
-          class="w-48 md:w-64 h-auto parallax-polygon ml-6"
+          class="w-48 md:w-64 h-auto ml-6"
         />
       </picture>
     </div>
@@ -165,30 +165,4 @@ const breadcrumbs = [
 
     </div>
   </main>
-
-  <!-- Parallax ligero (solo en cliente) -->
-  <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const img = document.querySelector('.parallax-polygon');
-    if (!img) return;
-
-    let ticking = false;
-    const updateParallax = () => {
-      const scrollY = window.scrollY;
-      // Movimiento suave hacia arriba (más natural)
-      const offset = scrollY * 0.15; // intensidad baja: 0.15 = muy sutil
-      img.style.transform = `translateY(${-offset}px)`;
-      ticking = false;
-    };
-
-    const requestTick = () => {
-      if (!ticking) {
-        requestAnimationFrame(updateParallax);
-        ticking = true;
-      }
-    };
-
-    window.addEventListener('scroll', requestTick, { passive: true });
-  });
-</script>
 </Layout>

@@ -11,7 +11,7 @@
     "contractAddress": "0x7a8d9b4e2f3c1a0d6e5f4c3b2a1d0e9f8c7b6a5",
     "tokenId": "2001",
     "price": "0.12 MATIC",
-    "status": "available",
+    "status": "disponible",
     "benefits": [
       "Audio FLAC 24-bit/192kHz",
       "Partitura digital firmada",
@@ -60,7 +60,7 @@
     "contractAddress": "0x7a8d9b4e2f3c1a0d6e5f4c3b2a1d0e9f8c7b6a5",
     "tokenId": "2101",
     "price": "0.10 MATIC",
-    "status": "próximo",
+    "status": "disponible",
     "benefits": [
       "Audio FLAC 24-bit/192kHz",
       "Partitura digital firmada",
@@ -109,7 +109,7 @@
     "contractAddress": "0x0000000000000000000000000000000000000000",
     "tokenId": "0",
     "price": "0.10 MATIC",
-    "status": "available",
+    "status": "disponible",
     "benefits": [
       "Audio de colección. FLAC 24-bit/192kHz",
       "Notas interpretativas exclusivas",
@@ -158,7 +158,7 @@
     "contractAddress": "0x0000000000000000000000000000000000000000",
     "tokenId": "0",
     "price": "0.15 MATIC",
-    "status": "available",
+    "status": "disponible",
     "benefits": [
       "Audio FLAC 24-bit/192kHz",
       "Partitura digital firmada",
@@ -207,7 +207,7 @@
     "contractAddress": "0x0000000000000000000000000000000000000000",
     "tokenId": "0",
     "price": "0.20 MATIC",
-    "status": "available",
+    "status": "disponible",
     "benefits": [
       "Audio FLAC 24-bit/192kHz",
       "Partitura digital firmada",

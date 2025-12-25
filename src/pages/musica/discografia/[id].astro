@@ -4,7 +4,6 @@ import Layout from '../../../layouts/Layout.astro';
 import releases from '../../../data/releases.json';
 import artists from '../../../data/artists.json';
 
-// ✅ Prerrenderizar: discos están en el repo
 export const prerender = true;
 
 export async function getStaticPaths() {
@@ -18,12 +17,10 @@ if (!release) {
   return Astro.redirect('/musica/discografia');
 }
 
-// Buscar todos los artistas asociados
 const releaseArtists = release.artistIds.map(artistId => {
   return artists.find(a => a.id === artistId) || { id: artistId, name: artistId };
 });
 
-// Preprocesar redes y dominios de cada artista
 const artistsWithSocial = releaseArtists.map(artist => {
   let websiteDomain = null;
   if (artist.website) {
@@ -48,8 +45,6 @@ const artistsWithSocial = releaseArtists.map(artist => {
 const artistNames = releaseArtists.map(a => a.name).join(', ');
 const pageTitle = `${release.title} - Discografía`;
 const pageDescription = release.description || `Detalles de la colección "${release.title}" por ${artistNames}.`;
-
-// ✅ Procesar descriptionLong: dividir en párrafos si existen saltos de línea
 const descriptionParagraphs = release.descriptionLong
   ? release.descriptionLong.split('\n\n').filter(p => p.trim() !== '')
   : null;
@@ -77,43 +72,40 @@ const breadcrumbs = [
           class="w-full rounded-md mx-auto shadow-md mt-4"
           onerror="this.src='https://placehold.co/300x300/cccccc/999999?text=Cover'"
         />
-{/* ✅ Tracklist con fondo cebra, numeración alineada y fuente monoespaciada */}
-{release.tracks?.length > 0 && (
-  <section class="mt-6 pt-4 border-t border-platinum">
-    <h3 class="text-xl font-bold text-slate-700 mb-2">Tracklist</h3>
-    <ol class="list-none space-y-0.5">
-      {release.tracks.map((track, i) => (
-        <li
-          key={i}
-          class={`flex items-start py-1.5 px-2 rounded ${
-            i % 2 === 0 ? 'bg-white' : 'bg-gray95'
-          }`}
-        >
-          {/* ✅ Numeración con Source Code Pro, alineada y espaciada */}
-          <span 
-            class="text-slate-500 font-['Source_Code_Pro'] w-8 flex-shrink-0 text-right pr-2"
-            style="font-feature-settings: 'tnum';"
-          >
-            {i + 1}.
-          </span>
-          <span class="text-sm text-slate-700 flex-grow">{track.title}</span>
-          {track.duration && (
-            <span class="text-sm text-slate-500 opacity-80 ml-2 whitespace-nowrap">
-              ({track.duration})
-            </span>
-          )}
-        </li>
-      ))}
-    </ol>
-  </section>
-)}
+        {release.tracks?.length > 0 && (
+          <section class="mt-6 pt-4 border-t border-platinum">
+            <h3 class="text-xl font-bold text-slate-700 mb-2">Tracklist</h3>
+            <ol class="list-none space-y-0.5">
+              {release.tracks.map((track, i) => (
+                <li
+                  class={`flex items-start py-1.5 px-2 rounded ${
+                    i % 2 === 0 ? 'bg-white' : 'bg-gray95'
+                  }`}
+                >
+                  <span 
+                    class="text-slate-500 font-['Source_Code_Pro'] w-8 flex-shrink-0 text-right pr-2"
+                    style="font-feature-settings: 'tnum';"
+                  >
+                    {i + 1}.
+                  </span>
+                  <span class="text-sm text-slate-700 flex-grow">{track.title}</span>
+                  {track.duration && (
+                    <span class="text-sm text-slate-500 opacity-80 ml-2 whitespace-nowrap">
+                      ({track.duration})
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
       </div>
       <div class="md:w-2/3">
         <h1 class="text-h1 font-advent mb-2">{release.title}</h1>
         <p class="text-xl text-slate-600 mb-2">
           por{' '}
           {artistsWithSocial.map((artist, i) => (
-            <span key={artist.id}>
+            <span>
               <a 
                 href={`/musica/artistas/${artist.id}`} 
                 class="text-dag-burgundy hover:underline"
@@ -125,13 +117,11 @@ const breadcrumbs = [
           ))}
         </p>
 
-        {/* ✅ Redes sociales como "tags" bajo el nombre */}
         {artistsWithSocial.some(a => a.socialLinks.length > 0) && (
           <div class="flex flex-wrap gap-1 my-2">
             {artistsWithSocial.flatMap(artist => 
               artist.socialLinks.map(({ platform, url, name }) => (
                 <a
-                  key={`${artist.id}-${platform}`}
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -149,27 +139,23 @@ const breadcrumbs = [
           {release.genre} • {new Date(release.releaseDate).toLocaleDateString('es-VE')} • {release.type}
         </p>
 
-        {/* ✅ Mostrar descripción larga con párrafos, o corta como fallback */}
         {descriptionParagraphs ? (
           <div class="mb-6 text-slate-700 space-y-3">
-            {descriptionParagraphs.map((para, i) => (
-              <p key={i}>{para}</p>
+            {descriptionParagraphs.map(para => (
+              <p>{para}</p>
             ))}
           </div>
         ) : release.description ? (
           <p class="mb-6 text-slate-700">{release.description}</p>
         ) : null}
 
-        {/* === Información de artistas asociados (solo si hay más de uno o datos relevantes) === */}
         {artistsWithSocial.length > 1 && (
           <section class="mb-6">
             <h3 class="text-lg font-semibold mb-3">Artistas</h3>
             <div class="space-y-4">
               {artistsWithSocial.map(artist => (
-                <div key={artist.id} class="border-l-2 border-dag-burgundy/30 pl-3">
+                <div class="border-l-2 border-dag-burgundy/30 pl-3">
                   <h4 class="font-medium">{artist.name}</h4>
-                  
-                  {/* Sitio web */}
                   {artist.websiteDomain && (
                     <p class="text-sm mt-1">
                       <a 
@@ -194,7 +180,6 @@ const breadcrumbs = [
             <div class="space-y-2">
               {release.musicCards.map(cardId => (
                 <a
-                  key={cardId}
                   href={`/blockchain/music-cards/${cardId}`}
                   class="block bg-white p-3 rounded border border-platinum hover:bg-gray95 transition-colors"
                 >
