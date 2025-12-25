@@ -83,7 +83,6 @@ const breadcrumbs = [
                   const platformName = platform.charAt(0).toUpperCase() + platform.slice(1);
                   return (
                     <a
-                      key={platform}
                       href={url}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -111,7 +110,7 @@ const breadcrumbs = [
               .split('\n\n')
               .filter(p => p.trim() !== '')
               .map((para, i) => (
-                <p key={i}>{para}</p>
+                <p>{para}</p>
               ))}
           </div>
         ) : artist.bio ? (
@@ -124,7 +123,6 @@ const breadcrumbs = [
             <div class="space-y-2">
               {artistReleases.map(release => (
                 <a
-                  key={release.id}
                   href={`/musica/discografia/${release.id}`}
                   class="block bg-white p-3 rounded border border-platinum hover:bg-gray95 transition-colors"
                 >
