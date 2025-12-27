@@ -54,7 +54,7 @@ const breadcrumbs = [
         <div class="mb-6 flex flex-wrap gap-2 justify-center">
           <button 
             data-filter="all"
-            class="px-3 py-1.5 rounded-full text-sm border border-platinum bg-white hover:bg-dag-burgundy hover:text-white transition-colors"
+            class="px-3 py-1.5 rounded-lg text-sm border border-platinum bg-white hover:bg-dag-burgundy hover:text-white transition-colors"
           >
             Todos
           </button>
@@ -62,7 +62,7 @@ const breadcrumbs = [
             <button 
               key={genre}
               data-filter={genre}
-              class="px-3 py-1.5 rounded-full text-sm border border-platinum bg-white hover:bg-dag-burgundy hover:text-white transition-colors"
+              class="px-3 py-1.5 rounded-lg text-sm border border-platinum bg-white hover:bg-dag-burgundy hover:text-white transition-colors"
             >
               {genre.replace(/-/g, ' ')}
             </button>
@@ -106,8 +106,8 @@ const breadcrumbs = [
                       key={i}
                       class={`text-xs px-1.5 py-0.5 rounded ${
                         g.startsWith('+') 
-                          ? 'bg-gray-100 text-slate-700' 
-                          : 'bg-white text-slate-900 border border-platinum'
+                          ? 'bg-gray/70 text-slate-700' 
+                          : 'bg-white/70 text-slate-900 border border-platinum'
                       } group-hover:bg-dag-burgundy group-hover:text-white transition-colors`}
                     >
                       {g.replace(/-/g, ' ')}
