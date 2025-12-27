@@ -466,5 +466,63 @@
       "timestamp": "2025-11-28T09:00:00Z",
       "operator": "cto@dagklassical.com"
     }
+  },
+  {
+    "id": "dipolo-riera-tema-con-variazioni-dm",
+    "title": "Tema con Variazioni in Dm",
+    "artistIds": [
+      "frank-di-polo",
+      "ruben-riera"
+    ],
+    "genre": "jazz",
+    "releaseDate": "2025-01-01",
+    "type": "álbum",
+    "status": "lanzado",
+    "description": "\"Tema con Variazioni in Dm\" de Marin Marais revive bajo las manos maestras de Frank Di Polo en viola y Rubén Riera en tiorba. Esta joya del barroco francés, grabada en 2023 con producción de Danilo Álvarez, teje un diálogo entre épocas donde la elegancia histórica se encuentra con la sensibilidad latinoamericana. En DAG KLASSICAL, cada variación se preserva inmutable en blockchain, transformando esta conversación musical entre maestros en un legado cultural eterno.",
+    "descriptionLong": "Tema con Variazioni in Dm: Donde el Barroco Francés se Acerca a Venezuela.\n\nLa obra maestra de Marin Marais (1656-1728), uno de los más grandes compositores para viola da gamba de la historia, encuentra una nueva vida en las manos de dos leyendas venezolanas. Frank Di Polo, con su viola, y Rubén Riera, con su tiorba, recrean el \"Tema con variazioni en Re menor\" con una sensibilidad que trasciende el tiempo. Esta grabación de 2023, producida por Danilo Álvarez, no es simplemente una interpretación histórica, sino un puente sonoro entre la corte francesa del siglo XVII y la profundidad musical latinoamericana.\n\nLa elección de este repertorio no es casual. Marin Marais, discípulo de Lully y maestro del barroco francés, compuso esta pieza como un ejercicio de virtuosismo y expresión emocional. Di Polo y Riera, con su perfecto acoplamiento y dominio técnico, revelan cada matiz de las variaciones, donde la viola canta con una voz cálida y la tiorba responde con armonías que evocan salones iluminados por velas. Su interpretación honra la elegancia francesa mientras infunde un alma latinoamericana que convierte cada nota en una conversación entre culturas.\n\nEn DAG KLASSICAL, esta grabación se convierte en patrimonio cultural inmutable. La tecnología blockchain asegura que la maestría de estos dos músicos venezolanos, herederos de El Sistema y guardianes de la tradición clásica, permanezca accesible para generaciones futuras. Cada variación, cada respiración entre las frases musicales, se preserva con la misma nitidez que la noche de su grabación, transformando lo efímero en eterno. Esta obra no solo celebra el genio de Marais, sino el legado de dos artistas que han dedicado sus vidas a construir puentes sonoros entre épocas y continentes.",
+    "coverImage": "/covers/cover-dipolo-riera-tema-con-variazioni-01.webp",
+    "demoAvailable": false,
+    "fullAlbumAvailable": false,
+    "sheetMusicAvailable": false,
+    "platforms": {
+      "spotify": null,
+      "apple": null,
+      "youtube": null,
+      "tidal": null,
+      "deezer": null
+    },
+    "tracks": [
+      {
+        "title": "Capítulo I",
+        "duration": "5:20"
+      },
+      {
+        "title": "Capítulo II",
+        "duration": "4:45"
+      },
+      {
+        "title": "Capítulo III",
+        "duration": "6:10"
+      },
+      {
+        "title": "Capítulo IV",
+        "duration": "5:30"
+      },
+      {
+        "title": "Capítulo V",
+        "duration": "4:55"
+      }
+    ],
+    "duration": "26:40",
+    "commentary": "Más que una simple recopilación, 'Capítulos' es una declaración artística: una pausa para contemplar el camino recorrido y saborear los logros que han definido su sonido.",
+    "commentaryAuthor": "Virginia Ramírez",
+    "musicCards": [
+      "mc-2025-dipolo-riera-tema-con-variazioni-dm-std"
+    ],
+    "metadata": {
+      "uuid": "urn:uuid:$(uuidgen)",
+      "timestamp": "2025-11-27T18:00:00Z",
+      "operator": "cto@dagklassical.com"
+    }
   }
 ]

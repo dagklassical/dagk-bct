@@ -4,86 +4,180 @@ import Layout from '../../../layouts/Layout.astro';
 import releases from '../../../data/releases.json';
 import artists from '../../../data/artists.json';
 
-const artistMap = artists.reduce((acc, a) => ({ ...acc, [a.id]: a }), {});
+// Helper: obtener nombres de intérpretes
+const getPerformerNames = (release) => {
+  if (release.artistIds) {
+    return release.artistIds
+      .map(id => artists.find(a => a.id === id)?.name)
+      .filter(Boolean)
+      .join(', ') || 'Intérpretes no especificados';
+  }
+  return 'Intérpretes no especificados';
+};
+
+// Ordenar por fecha (más recientes primero)
+const sortedReleases = [...releases].sort((a, b) => 
+  new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime()
+);
+
+// Extraer todos los géneros únicos (soporte para arrays y strings)
+const allGenres = [...new Set(
+  sortedReleases
+    .flatMap(r => Array.isArray(r.genre) ? r.genre : (r.genre ? [r.genre] : []))
+    .filter(Boolean)
+)].sort();
 
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
-  { label: 'Música', href: '/musica/' },
-  { label: 'Discografía', href: '/musica/discografia/' },
+  { label: 'Música', href: '/musica' },
+  { label: 'Discografía', href: '/musica/discografia' },
 ];
 ---
 
-<Layout title="Discografía" description="Obras musicales completas en DAG Klassical" breadcrumbs={breadcrumbs}>
-
-  <header class="bg-white text-center mb-8 py-8 px-4">
-    <h1 class="text-h1 font-advent">Discografía</h1>
-    <p class="text-dag-burgundy mt-2">
-      Obras completas, remasterizadas y certificables como activos culturales inmutables.
+<Layout 
+  title="Discografía | DAG Klassical" 
+  description="Explora nuestra colección de obras musicales certificadas en blockchain, con audio en alta resolución y metadatos inmutables."
+  breadcrumbs={breadcrumbs}
+>
+  <header class="bg-white text-center py-10 px-4 mb-8">
+    <h1 class="text-h1 font-advent">Nuestra Discografía</h1>
+    <p class="text-dag-burgundy max-w-4xl mx-auto mt-3">
+      Obras maestras interpretadas por artistas de clase mundial, preservadas con calidad de referencia.
     </p>
   </header>
 
-  <div class="max-w-6xl mx-auto px-4 mb-12">
-    <!-- Grid: 1 columna móvil, 3 tablet, 2 desktop -->
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
-  {releases.slice(0, 6).map(release => (
-    <a 
-      href={`/musica/discografia/${release.id}`} 
-      class="block group border border-slate-200 rounded-md p-2 hover:border-dag-burgundy/30 transition-colors bg-white shadow-sm"
-      key={release.id}
-    >
-      <!-- Imagen cuadrada (1:1) encima -->
-      <div class="aspect-square w-full bg-platinum-100 rounded-md overflow-hidden mb-3">
-        {release.coverImage ? (
-          <img 
-            src={release.coverImage} 
-            alt={release.title}
-            class="w-full h-full object-cover"
-            loading="lazy"
-          />
-        ) : (
-          <div class="w-full h-full flex items-center justify-center text-slate-400 text-xs">
-            Sin portada
-          </div>
-        )}
-      </div>
+  <main class="bg-gray95 pb-12">
+    <div class="max-w-6xl mx-auto px-8">
+      
+      <!-- Barra de filtros por género -->
+      {allGenres.length > 0 && (
+        <div class="mb-6 flex flex-wrap gap-2 justify-center">
+          <button 
+            data-filter="all"
+            class="px-3 py-1.5 rounded-full text-sm border border-platinum bg-white hover:bg-dag-burgundy hover:text-white transition-colors"
+          >
+            Todos
+          </button>
+          {allGenres.map(genre => (
+            <button 
+              key={genre}
+              data-filter={genre}
+              class="px-3 py-1.5 rounded-full text-sm border border-platinum bg-white hover:bg-dag-burgundy hover:text-white transition-colors"
+            >
+              {genre.replace(/-/g, ' ')}
+            </button>
+          ))}
+        </div>
+      )}
 
-      <!-- ✅ Contenedor único para todo el texto debajo de la imagen -->
-      <div class="px-3 space-y-1.5 mb-2">
-        <h3 class="text-h3 font-advent group-hover:text-dag-burgundy">
-          {release.title}
-        </h3>
-        
-        {release.artistIds?.[0] && (
-          <p class="text-slate-600 text-sm">
-            por {artistMap[release.artistIds[0]]?.name || 'Artista desconocido'}
-          </p>
-        )}
+      <!-- Grid de discografía -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+        {sortedReleases.map(release => {
+          const performers = getPerformerNames(release);
+          const genres = Array.isArray(release.genre) 
+            ? release.genre 
+            : (release.genre ? [release.genre] : []);
+          
+          // Mostrar máximo 2 géneros + "+X" si hay más
+          const displayGenres = genres.slice(0, 2);
+          const extraCount = genres.length - 2;
+          if (extraCount > 0) {
+            displayGenres.push(`+${extraCount}`);
+          }
 
-        {release.genre && (
-          <h4 class="text-xs text-dag-burgundy bg-dag-burgundy/10 py-1 rounded inline-block px-2">
-            {release.genre}
-          </h4>
-        )}
+          return (
+            <a 
+              href={`/musica/discografia/${release.id}`} 
+              class="block group bg-white rounded-md overflow-hidden shadow-sm hover:shadow-lg transition-shadow h-full"
+              key={release.id}
+              data-genres={JSON.stringify(genres)}
+            >
+              <div class="aspect-[1/1] relative">
+                <img 
+                  src={release.coverImage || '/images/placeholder-cover.webp'} 
+                  alt={`${release.workTitle || release.title} por ${performers}`}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+                {/* Etiquetas de género */}
+                <div class="absolute top-2 left-2 flex flex-wrap gap-1">
+                  {displayGenres.map((g, i) => (
+                    <span 
+                      key={i}
+                      class={`text-xs px-1.5 py-0.5 rounded ${
+                        g.startsWith('+') 
+                          ? 'bg-gray-100 text-slate-700' 
+                          : 'bg-white text-slate-900 border border-platinum'
+                      } group-hover:bg-dag-burgundy group-hover:text-white transition-colors`}
+                    >
+                      {g.replace(/-/g, ' ')}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div class="p-3">
+                <h3 class="font-advent font-semibold text-slate-900 group-hover:text-dag-burgundy text-h4 sm:text-lg mb-1">
+                  {release.workTitle || release.title}
+                </h3>
+                {release.composer && (
+                  <p class="text-xs text-slate-500 mb-1 line-clamp-1">Obra de {release.composer}</p>
+                )}
+                <p class="text-xs text-slate-600 mb-1 line-clamp-1">{performers}</p>
+                <p class="text-xs text-dag-burgundy mt-1">
+                  {release.type} • {release.duration}
+                  {release.releaseDate && (
+                    <span class="text-[10px] text-slate-500 ml-1">
+                      • {new Date(release.releaseDate).toLocaleDateString('es-ES')}
+                    </span>
+                  )}
+                </p>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
 
-        {release.description && (
-          <p class="text-slate-600 text-sm line-clamp-3">
-            {release.description}
-          </p>
-        )}
-      </div>
-    </a>
-  ))}
-</div>
-    <!-- Botón "Ver más" si hay más de 6 -->
-    {releases.length > 6 && (
-      <div class="text-center mt-8">
-        <a 
-          href="/musica/discografia/completa" 
-          class="inline-block px-6 py-3 bg-dag-burgundy text-white rounded-lg hover:bg-opacity-90 transition-colors font-medium"
-        >
-          Ver toda la discografía
-        </a>
-      </div>
-    )}
-  </div>
+    <div class="text-center mt-8 sm:mt-10">
+      <a 
+        href="/musica" 
+        class="inline-block bg-dag-burgundy text-white px-4 py-2 sm:px-5 sm:py-2.5 rounded-lg hover:bg-opacity-90 transition-colors text-sm"
+      >
+        Volver a Música
+      </a>
+    </div>
+  </main>
+
+  <!-- Script de filtrado con reset de scroll -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterButtons = document.querySelectorAll('[data-filter]');
+      const cards = document.querySelectorAll('[data-genres]');
+      const container = document.querySelector('.max-w-6xl');
+      
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const filter = button.dataset.filter;
+          
+          // Reset scroll
+          if (container) {
+            container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+          
+          // Actualizar botones activos
+          filterButtons.forEach(btn => 
+            btn.classList.remove('bg-dag-burgundy', 'text-white')
+          );
+          button.classList.add('bg-dag-burgundy', 'text-white');
+          
+          // Filtrar tarjetas
+          cards.forEach(card => {
+            const genres = JSON.parse(card.dataset.genres || '[]');
+            const matches = (filter === 'all') || genres.includes(filter);
+            card.style.display = matches ? 'block' : 'none';
+          });
+        });
+      });
+    });
+  </script>
 </Layout>

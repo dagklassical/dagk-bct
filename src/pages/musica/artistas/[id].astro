@@ -1,11 +1,10 @@
 ---
 // src/pages/musica/artistas/[id].astro
 import Layout from '../../../layouts/Layout.astro';
-import ImmutableStamp from '../../../components/ImmutableStamp.astro';
 import artists from '../../../data/artists.json';
 import releases from '../../../data/releases.json';
+import musicCards from '../../../data/music-cards.json';
 
-// ✅ Prerrenderizar porque los artistas están en el repo
 export const prerender = true;
 
 export async function getStaticPaths() {
@@ -19,20 +18,31 @@ if (!artist) {
   return Astro.redirect('/musica/artistas');
 }
 
+// Obtener releases asociados
 const artistReleases = releases.filter(r => 
-  Array.isArray(artist.releases) && artist.releases.includes(r.id)
+  r.artistIds?.includes(artist.id)
 );
 
-// ✅ Extraer dominio del sitio web (seguro)
-let websiteDomain = null;
-if (artist.website) {
-  try {
-    const url = new URL(artist.website);
-    websiteDomain = url.hostname.replace('www.', '');
-  } catch (e) {
-    websiteDomain = artist.website;
-  }
-}
+// Obtener Music Cards del artista
+const artistMusicCards = musicCards.filter(card => 
+  card.artistIds?.includes(artist.id) || 
+  (artist.musicCards && artist.musicCards.includes(card.id))
+);
+
+// Preprocesar redes sociales
+const socialLinks = artist.social 
+  ? Object.entries(artist.social)
+      .filter(([_, url]) => url && url.trim() !== '')
+      .map(([platform, url]) => {
+        const cleanUrl = url.trim();
+        let domain = cleanUrl;
+        try {
+          const urlObj = new URL(cleanUrl);
+          domain = urlObj.hostname.replace('www.', '');
+        } catch {}
+        return { platform, url: cleanUrl, domain };
+      })
+  : [];
 
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
@@ -42,99 +52,126 @@ const breadcrumbs = [
 ];
 ---
 
-<Layout title={artist.name} description={artist.bio || `Perfil de ${artist.name}`} breadcrumbs={breadcrumbs}>
+<Layout title={artist.name} description={artist.bio || `Perfil de ${artist.name} en DAG Klassical`} breadcrumbs={breadcrumbs}>
   <div class="max-w-4xl mx-auto pt-8 px-4">
     <a href="/musica/artistas" class="text-slate-700 hover:text-dag-burgundy flex items-center text-sm">
       ← Volver a Artistas
     </a>
   </div>
 
-  <article class="max-w-4xl mx-auto px-4 pt-6 pb-10">
-    <div class="flex flex-col md:flex-row gap-6">
-      <div class="md:w-1/3 text-center">
+  <article class="max-w-4xl mx-auto px-4 pt-6 pb-12">
+    <div class="flex flex-col md:flex-row gap-8">
+      <!-- Columna izquierda: foto, redes, y LISTA DE OBRAS -->
+      <div class="md:w-1/3 space-y-6">
         <img
-          src={artist.avatar}
+          src={artist.avatar || '/images/placeholder-artist.webp'}
           alt={artist.name}
-          class="w-80 h-100 rounded-md mx-auto shadow-md object-cover mt-4"
-          onerror="this.src='https://placehold.co/200x200/cccccc/999999?text=Avatar'"
+          class="w-full rounded-md shadow-md"
+          onerror="this.src='https://placehold.co/300x300/cccccc/999999?text=Artista'"
         />
 
-        {/* ✅ Sitio web y redes sociales bajo la foto */}
-        <div class="mt-6 pt-4 border-t border-platinum text-left">
-          {websiteDomain && (
-            <p class="mb-3">
-              <strong class="text-slate-700">Sitio web:</strong><br />
+        {/* Información de contacto y redes */}
+        <div class="space-y-4">
+          {artist.website && (
+            <div>
+              <p class="text-base  text-slate-600">Sitio web</p>
               <a 
                 href={artist.website} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                class="text-dag-burgundy hover:underline font-medium"
+                class="text-dag-burgundy hover:underline text-sm font-medium"
               >
-                {websiteDomain}
+                {artist.website.replace('https://', '').replace('www.', '')}
               </a>
-            </p>
+            </div>
           )}
 
-          {artist.social && (
+          {socialLinks.length > 0 && (
             <div>
-              <strong class="text-slate-700">Redes sociales:</strong>
-              <div class="flex flex-wrap gap-2 mt-2">
-                {Object.entries(artist.social).map(([platform, url]) => {
-                  const platformName = platform.charAt(0).toUpperCase() + platform.slice(1);
-                  return (
-                    <a
-                      href={url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="inline-flex items-center gap-1 bg-white border border-platinum hover:bg-dag-burgundy/5 px-2 py-1 rounded text-xs text-slate-700 hover:text-dag-burgundy transition-colors"
-                      aria-label={`Visitar ${platformName} de ${artist.name}`}
-                    >
-                      {platformName}
-                    </a>
-                  );
-                })}
+              <p class="text-base text-slate-600 mb-2">Redes sociales</p>
+              <div class="flex flex-wrap gap-1">
+                {socialLinks.map(({ platform, url, domain }) => (
+                  <a
+                    key={platform}
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-block bg-white hover:bg-dag-burgundy/10 text-slate-700 hover:text-dag-burgundy text-[10px] px-1.5 py-0.5 rounded border border-platinum"
+                  >
+                    {platform}
+                  </a>
+                ))}
               </div>
             </div>
           )}
         </div>
+
+        {/* LISTA DE OBRAS aquí, en la columna izquierda */}
+        {artistReleases.length > 0 && (
+          <section>
+            <h3 class="text-lg font-semibold mb-3 text-slate-900">Obras en DAG Klassical</h3>
+            <ul class="space-y-3">
+              {artistReleases.map(release => (
+                <li key={release.id}>
+                  <a 
+                    href={`/musica/discografia/${release.id}`} 
+                    class="text-sm text-slate-700 hover:text-dag-burgundy font-medium block"
+                  >
+                    {release.workTitle || release.title}
+                  </a>
+                  {release.composer && (
+                    <span class="text-[10px] text-slate-500 block mt-0.5">
+                      Obra de {release.composer}
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
       </div>
 
+      <!-- Columna derecha: título y biografía -->
       <div class="md:w-2/3">
         <h1 class="text-h1 font-advent mb-2">{artist.name}</h1>
-        <p class="text-xl text-slate-600 mb-4">{artist.role}</p>
+        
+        {artist.role && (
+          <p class="text-xl text-slate-600 mb-6">{artist.role}</p>
+        )}
 
-        {/* ✅ Mostrar bioLong con párrafos, o bio como fallback */}
         {artist.bioLong ? (
-          <div class="mb-6 text-slate-700 space-y-3">
-            {artist.bioLong
-              .split('\n\n')
-              .filter(p => p.trim() !== '')
-              .map((para, i) => (
-                <p>{para}</p>
-              ))}
+          <div class="text-slate-700 space-y-4">
+            {artist.bioLong.split('\n\n').map((para, i) => (
+              <p key={i}>{para}</p>
+            ))}
           </div>
         ) : artist.bio ? (
-          <p class="mb-6 text-slate-700">{artist.bio}</p>
+          <p class="text-slate-700">{artist.bio}</p>
         ) : null}
-
-        <section>
-          <h2 class="text-xl font-semibold mb-3">Obras asociadas</h2>
-          {artistReleases.length > 0 ? (
-            <div class="space-y-2">
-              {artistReleases.map(release => (
-                <a
-                  href={`/musica/discografia/${release.id}`}
-                  class="block bg-white p-3 rounded border border-platinum hover:bg-gray95 transition-colors"
-                >
-                  {release.title} ({release.type})
-                </a>
-              ))}
-            </div>
-          ) : (
-            <p>No hay obras asociadas a este artista aún.</p>
-          )}
-        </section>
       </div>
     </div>
+
+    <!-- CTA de Music Cards (fuera de las columnas) -->
+    {artistMusicCards.length > 0 && (
+      <section class="mt-12 pt-8 border-t border-platinum">
+        <h2 class="text-h2 font-advent mb-4">Colecciones Disponibles</h2>
+        <p class="text-slate-700 mb-6">
+          Algunas obras de {artist.name} están disponibles como Music Cards: 
+          activos digitales certificados en blockchain con beneficios exclusivos.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {artistMusicCards.map(card => (
+            <a
+              key={card.id}
+              href={`/blockchain/music-cards/${card.id}`}
+              class="block bg-white p-4 rounded-lg border border-platinum hover:bg-gray95 transition-colors"
+            >
+              <h3 class="font-semibold text-slate-900">{card.title}</h3>
+              <p class="text-sm text-dag-burgundy mt-1">{card.edition}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
   </article>
 </Layout>

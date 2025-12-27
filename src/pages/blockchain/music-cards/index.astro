@@ -5,48 +5,22 @@ import musicCards from '../../../data/music-cards.json';
 import releases from '../../../data/releases.json';
 import artists from '../../../data/artists.json';
 
-// ✅ Tipado mínimo para evitar 'any'
-interface MusicCard {
-  id: string;
-  title: string;
-  artist?: string;
-  associatedRelease: string;
-  edition: string;
-  price: string;
-  status: string;
-  cardImage?: string;
-}
-
-interface Artist {
-  id: string;
-  name: string;
-}
-
-interface Release {
-  id: string;
-  artistIds: string[];
-}
-
-// Crear Maps seguros
-const artistMap = new Map(
-  (Array.isArray(artists) ? artists : []).map((artist: Artist) => [artist.id, artist])
-);
-const releaseMap = new Map(
-  (Array.isArray(releases) ? releases : []).map((release: Release) => [release.id, release])
-);
-
-const availableCards = (Array.isArray(musicCards) ? musicCards : [])
-  .filter(card => card.status === 'disponible' || card.status === 'próximo');
-
-// ✅ Función tipada
-const getArtistName = (card: MusicCard) => {
-  const release = releaseMap.get(card.associatedRelease);
-  if (release?.artistIds?.[0]) {
-    const artist = artistMap.get(release.artistIds[0]);
-    if (artist?.name) return artist.name;
+// Helper: obtener nombre de artistas desde el release
+const getArtistNames = (card) => {
+  const release = releases.find(r => r.id === card.associatedRelease);
+  if (release?.artistIds) {
+    return release.artistIds
+      .map(id => artists.find(a => a.id === id)?.name)
+      .filter(Boolean)
+      .join(', ') || card.artist || 'Artista';
   }
   return card.artist || 'Artista';
 };
+
+// Filtrar solo cards disponibles o próximas
+const availableCards = musicCards.filter(card => 
+  card.status === 'disponible' || card.status === 'próximo'
+);
 
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
@@ -60,27 +34,28 @@ const breadcrumbs = [
   description="Colecciones únicas certificadas en blockchain. Audio en FLAC, partituras firmadas y acceso exclusivo."
   breadcrumbs={breadcrumbs}
 >
-  <header class="bg-white text-center py-10 px-4 mb-12">
+  <header class="bg-white text-center py-10 px-4 mb-8">
     <h1 class="text-h1 font-advent">Adquiere tus Music Cards</h1>
     <p class="text-dag-burgundy max-w-2xl mx-auto mt-3">
       Ediciones limitadas, certificadas en blockchain, con beneficios únicos.
     </p>
   </header>
 
-  <main class="bg-gray95 pb-16">
-    <div class="max-w-6xl mx-auto px-4 py-4">
+  <main class="bg-gray95 pb-12">
+    <div class="max-w-6xl mx-auto px-4">
       {availableCards.length === 0 ? (
         <p class="text-center text-slate-600 py-12">No hay Music Cards disponibles en este momento.</p>
       ) : (
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {availableCards.map(card => {
-            const artistName = getArtistName(card);
+            const artistName = getArtistNames(card);
             return (
               <a 
                 href={`/blockchain/music-cards/${card.id}`} 
-                class="block group border border-slate-200 rounded-md hover:border-dag-burgundy/40 transition-colors bg-white shadow-sm overflow-hidden"
+                class="block group bg-white rounded-md overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                key={card.id}
               >
-                <div class="aspect-[5/8]">
+                <div class="aspect-[2/3]">
                   <img 
                     src={card.cardImage || '/images/placeholder-card.jpg'} 
                     alt={`${card.title} por ${artistName}`}
@@ -88,13 +63,13 @@ const breadcrumbs = [
                     loading="lazy"
                   />
                 </div>
-                <div class="p-4">
-                  <h3 class="font-advent font-semibold text-slate-900 group-hover:text-dag-burgundy">
+                <div class="p-3">
+                  <h3 class="font-advent font-semibold text-slate-900 group-hover:text-dag-burgundy text-sm line-clamp-1">
                     {card.title}
                   </h3>
-                  <p class="text-sm text-slate-600 mt-1">{artistName}</p>
-                  <p class="text-sm text-dag-burgundy mt-2">
-                    {card.price} • {card.edition}
+                  <p class="text-[10px] text-slate-600 mt-1 line-clamp-1">{artistName}</p>
+                  <p class="text-[10px] text-dag-burgundy mt-1">
+                    {card.edition} • {card.price}
                   </p>
                 </div>
               </a>
@@ -104,10 +79,10 @@ const breadcrumbs = [
       )}
     </div>
 
-    <div class="text-center mt-12">
+    <div class="text-center mt-10">
       <a 
         href="/blockchain" 
-        class="inline-block bg-dag-burgundy text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition-colors"
+        class="inline-block bg-dag-burgundy text-white px-5 py-2.5 rounded-lg hover:bg-opacity-90 transition-colors text-sm"
       >
         Volver a Blockchain
       </a>

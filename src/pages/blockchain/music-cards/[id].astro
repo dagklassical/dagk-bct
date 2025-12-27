@@ -29,14 +29,17 @@ const getSocialLink = (platformName) => {
 
 const spotifyUrl = getSocialLink('Spotify');
 const appleMusicUrl = getSocialLink('Apple Music');
-const youtubeMusicuuUrl = getSocialLink('YouTube Music');
+const youtubeMusicUrl = getSocialLink('YouTube Music');
 const tidalUrl = getSocialLink('Tidal');
 const deezerUrl = getSocialLink('Deezer');
 
 const release = releases.find(r => r.id === card.associatedRelease);
-const artist = release?.artistIds?.[0] ? artists.find(a => a.id === release.artistIds[0]) : null;
-const artistName = artist?.name || 'Artista no identificado';
-const artistId = artist?.id || 'unknown';
+const artistList = release?.artistIds?.map(artistId => 
+  artists.find(a => a.id === artistId)
+).filter(Boolean) || [];
+
+const artistNames = artistList.map(a => a.name).join(', ') || 'Artista no identificado';
+const artistId = artistList[0]?.id || 'unknown'; // para ExclusiveAccessGate
 
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
@@ -74,8 +77,8 @@ const breadcrumbs = [
               <img src="/icons/apple-music-color-icon.svg" alt="Apple Music" class="w-full h-full" />
             </a>
           )}
-          {youtubeMusicuuUrl && (
-            <a href={youtubeMusicuuUrl} target="_blank" rel="noopener" aria-label="YouTube Music" class="block w-7 h-7 hover:scale-110 transition-transform">
+          {youtubeMusicUrl && (
+            <a href={youtubeMusicUrl} target="_blank" rel="noopener" aria-label="YouTube Music" class="block w-7 h-7 hover:scale-110 transition-transform">
               <img src="/icons/youtube-music-color-icon.svg" alt="YouTube Music" class="w-full h-full" />
             </a>
           )}
@@ -121,7 +124,7 @@ const breadcrumbs = [
       <div class="md:w-2/3 pt-1">
         <h1 class="text-h1 font-advent mb-2">{card.title}</h1>
         <p class="text-xl text-slate-600 mb-4">
-          por {artistName} · 
+          por {artistNames} · 
           <span class="px-2 py-2 bg-dag-burgundy/5 text-dag-burgundy text-xs font-mono rounded-s-sm">
             DISPONIBLES {card.available} / {card.totalSupply}
           </span>
@@ -132,17 +135,45 @@ const breadcrumbs = [
         <section class="mb-12">
           <h3 class="text-h3 font-advent mb-3">Privilegios propios</h3>
           <ul class="list-disc pl-5 space-y-1 mb-2">
-            {card.benefits.map((benefit, i) => (
+            {card.benefits.map((benefit) => (
               <li class="text-slate-700">{benefit}</li>
             ))}
           </ul>
           <ExclusiveAccessGate artistId={artistId} />
         </section>
 
-        {artist && artist.bio && (
+        <!-- === SOBRE EL(LOS) ARTISTA(S) === -->
+        {artistList.length === 1 ? (
           <section class="mb-8 bg-gray95 p-4 rounded-md">
-            <h3 class="text-h3 font-advent mb-3">Sobre {artist.name}</h3>
-            <p class="mb-3 whitespace-pre-line">{artist.bio}</p>
+            <h3 class="text-h3 font-advent mb-3">Sobre {artistList[0].name}</h3>
+            {artistList[0].bio && (
+              <p class="text-slate-700 mb-3">{artistList[0].bio}</p>
+            )}
+            <a 
+              href={`/musica/artistas/${artistList[0].id}`} 
+              class="text-dag-burgundy hover:underline text-sm inline-block"
+            >
+              Ver biografía completa →
+            </a>
+          </section>
+        ) : (
+          <section class="mb-8 bg-gray95 p-4 rounded-md">
+            <h3 class="text-h3 font-advent mb-3">Conoce a los artistas</h3>
+            <p class="text-slate-700 mb-3">
+              Para una mejor experiencia y conocer el universo artístico de cada creador, 
+              te invitamos a explorar sus perfiles individuales.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              {artistList.map(artist => (
+                <a
+                  key={artist.id}
+                  href={`/musica/artistas/${artist.id}`}
+                  class="inline-block bg-white px-3 py-1.5 rounded text-sm border border-platinum hover:bg-dag-burgundy/5 transition-colors"
+                >
+                  {artist.name}
+                </a>
+              ))}
+            </div>
           </section>
         )}
 
@@ -172,7 +203,7 @@ const breadcrumbs = [
         <div class="md:col-span-2 pt-4 pb-3 px-5 border border-platinum rounded-md bg-white/50">
           <p class="text-sm">
             <span class="text-dag-burgundy font-semibold">CRÉDITOS: </span>
-            Piano y arreglos: {artistName} | Mezcla y mastering: Danilo Álvarez | 
+            Piano y arreglos: {artistNames} | Mezcla y mastering: Danilo Álvarez | 
             Arte: Leo Gerulewicz | Diseño: Lorien Gascón Rojas
           </p>
           <p class="text-sm text-slate-600">Mezclado y masterizado en Mansa Studio®, Lechería, Venezuela.</p>

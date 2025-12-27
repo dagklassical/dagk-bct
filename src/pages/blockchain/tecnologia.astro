@@ -11,52 +11,27 @@ const breadcrumbs = [
 ---
 
 <Layout title="Tecnología Blockchain | DAG Klassical" description="Descubre la tecnología detrás de DAG Klassical: Polygon, NFTs y nuestros innovadores MFTs, diseñados para revolucionar la industria musical." breadcrumbs={breadcrumbs}>
-  <main class="bg-gray95 parallax-container">
-    <!-- ===================================
-           1. SECCIÓN HERO
-           =================================== -->
-    <header class="text-center mb-8 py-6 bg-white">
-      <h1 class="text-h1 font-advent">Tecnología al Servicio del Arte</h1>
-      <p class="text-dag-burgundy mt-2">
-        Con blockchain un ecosistema musical más transparente, justo y conectado.
-      </p>
-    </header>     
-
-    <div class="max-w-5xl mx-auto px-4 py-12 space-y-20">
+  <!-- ===================================
+         HERO
+         =================================== -->
+  <header class="text-center mb-8 py-6 bg-white">
+    <h1 class="text-h1 font-advent">Tecnología al Servicio del Arte</h1>
+    <p class="text-dag-burgundy mt-2">
+      Con blockchain un ecosistema musical más transparente, justo y conectado.
+    </p>
+  </header>     
 
 <!-- ===================================
-     2. SECCIÓN: ¿Por qué Polygon? (responsive + imagen local)
+     SECCIÓN 1: ¿Por qué Polygon?
      =================================== -->
-<section class="relative max-w-5xl mx-auto px-4">
+<section class="py-16 bg-gray95">
+  <div class="max-w-5xl mx-auto px-4">
+    <!-- Contenedor flex con dos columnas -->
+    <div class="flex flex-col md:flex-row gap-8 items-start">
 
-  <!-- Versión MOBILE: imagen dentro del flujo -->
-  <div class="md:hidden space-y-8">
-    <div class="bg-white p-6 rounded-lg">
-      <h2 class="text-2xl font-advent font-semibold text-slate-900 mb-4">La Base de Nuestra Revolución</h2>
-      <p class="text-slate-700 mb-4">
-        Elegimos la red Polygon por su compromiso con la sostenibilidad, la velocidad y las bajas comisiones. Esto nos permite ofrecer una experiencia fluida y accesible, sin los altos costos y el impacto ambiental de otras blockchains.
-      </p>
-      <p class="text-slate-700">
-        Para nosotros, la tecnología debe ser un puente, no una barrera. Polygon es el puente perfecto para llevar la música clásica al futuro.
-      </p>
-    </div>
-    <div class="flex justify-center">
-      <picture>
-        <source srcset="/images/polygon-logo.avif" type="image/avif" />
-        <img 
-          src="/images/polygon-logo.png" 
-          alt="Powered by Polygon"
-          class="w-48 h-auto"
-        />
-      </picture>
-    </div>
-  </div>
-
-  <!-- Versión DESKTOP: layout 2-col con imagen flotante -->
-  <div class="hidden md:block">
-    <div class="grid md:grid-cols-2 gap-8 relative z-10">
-      <div class="bg-white p-8 rounded-lg">
-        <h2 class="text-3xl font-advent font-semibold text-slate-900 mb-4">La Base de Nuestra Revolución</h2>
+      <!-- Columna izquierda: texto -->
+      <div class="md:w-2/3 bg-white p-6 rounded-lg">
+        <h2 class="text-h2 font-advent font-semibold text-slate-900 mb-4">La Base de Nuestra Revolución</h2>
         <p class="text-slate-700 mb-4">
           Elegimos la red Polygon por su compromiso con la sostenibilidad, la velocidad y las bajas comisiones. Esto nos permite ofrecer una experiencia fluida y accesible, sin los altos costos y el impacto ambiental de otras blockchains.
         </p>
@@ -64,36 +39,37 @@ const breadcrumbs = [
           Para nosotros, la tecnología debe ser un puente, no una barrera. Polygon es el puente perfecto para llevar la música clásica al futuro.
         </p>
       </div>
-      <div></div>
-    </div>
 
-    <!-- Imagen flotante en desktop -->
-    <div class="absolute top-0 left-1/2 w-72 h-full flex items-center z-0">
-      <picture>
-        <source srcset="/images/polygon-logo.webp" type="image/webp" />
-        <img 
-          src="/images/polygon-logo.webp" 
-          alt="Powered by Polygon"
-          class="w-48 md:w-64 h-auto ml-6"
-        />
-      </picture>
+      <!-- Columna derecha: imagen -->
+      <div class="md:w-1/3 flex justify-center items-start">
+        <picture>
+          <source srcset="/images/polygon-logo.webp" type="image/webp" />
+          <img 
+            src="/images/polygon-logo.webp" 
+            alt="Powered by Polygon"
+            class="w-270px h-auto object-contain"
+          />
+        </picture>
+      </div>
+
     </div>
   </div>
-
 </section>
 
-      <!-- ===================================
-           3. SECCIÓN: NFT vs MFT
-           =================================== -->
+  <!-- ===================================
+         SECCIÓN 2: NFT vs MFT (FONDO COMPLETO)
+         =================================== -->
+  <section class="py-16 bg-platinum">
+    <div class="max-w-6xl mx-auto px-4">
       <SectionHeader 
         title="Más Allá del NFT: Introduciendo los MFT"
         subtitle="Mientras que los NFTs son perfectos para lo único, utilizamos los MFTs (Music Fungible Tokens) para representar activos colectivos e intercambiables."
       />
 
-      <div class="grid md:grid-cols-2 gap-8">
+      <div class="grid md:grid-cols-2 gap-8 mx-16">
         <!-- Tarjeta NFT -->
         <div class="bg-white p-6 rounded-lg border-2 border-slate-200">
-          <h3 class="font-bold text-xl mb-3 text-slate-900">NFTs (No Fungible Tokens)</h3>
+          <h3 class="font-bold text-h3 mb-3 text-slate-900">NFTs (No Fungible Tokens)</h3>
           <p class="text-slate-700 mb-4">
             Son activos digitales <strong class="font-semibold">únicos e irremplazables</strong>. Ideales para certificar la propiedad de items exclusivos.
           </p>
@@ -106,7 +82,7 @@ const breadcrumbs = [
 
         <!-- Tarjeta MFT -->
         <div class="bg-dag-burgundy/10 p-6 rounded-lg">
-          <h3 class="font-bold text-xl mb-3 text-dag-burgundy">MFTs (Music Fungible Tokens)</h3>
+          <h3 class="font-bold text-h3 mb-3 text-dag-burgundy">MFTs (Music Fungible Tokens)</h3>
           <p class="text-slate-700 mb-4">
             Son tokens <strong class="font-semibold">intercambiables e idénticos</strong> entre sí. Perfectos para representar acciones o derechos compartidos.
           </p>
@@ -117,17 +93,21 @@ const breadcrumbs = [
           </ul>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- ===================================
-           4. SECCIÓN: Cómo Funciona
-           =================================== -->
+  <!-- ===================================
+         SECCIÓN 3: Cómo Funciona
+         =================================== -->
+  <section class="py-16 bg-gray95">
+    <div class="max-w-6xl mx-auto px-4">
       <SectionHeader 
         title="La Tecnología, Simplificada"
         subtitle="Así es como nuestra infraestructura blockchain trabaja para ti:"
       />
 
-      <section class="bg-slate-900 text-white p-12 rounded-lg">
-        <div class="grid md:grid-cols-3 gap-8 text-center">
+      <div class="bg-slate-900 text-white p-12 rounded-lg">
+        <div class="grid md:grid-cols-3 gap-12 text-center">
           <div>
             <div class="bg-white text-slate-900 text-3xl font-bold w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">1</div>
             <h3 class="font-bold text-lg mb-2">Creación</h3>
@@ -144,25 +124,26 @@ const breadcrumbs = [
             <p class="opacity-90">La propiedad y el historial del activo son públicos y verificables por cualquiera, creando un ecosistema de confianza total.</p>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
 
-      <!-- ===================================
-           5. SECCIÓN FINAL: Llamado a la acción
-           =================================== -->
+  <!-- ===================================
+         SECCIÓN 4: Llamado a la acción
+         =================================== -->
+  <section class="py-16 bg-gray95 text-center">
+    <div class="max-w-6xl mx-auto px-4">
       <SectionHeader 
         title="La Innovación a tu alcance"
         subtitle="Explora nuestras Music Cards y descubre cómo esta tecnología está dando vida a nuevas formas de disfrutar, coleccionar y apoyar la música clásica."
       />
 
-      <div class="text-center">
-        <a
-          href="/blockchain/music-cards"
-          class="inline-block bg-dag-burgundy text-white text-lg font-semibold px-10 py-4 rounded-lg hover:bg-opacity-90 transition-all transform hover:scale-105"
-        >
-          Explorar Music Cards
-        </a>
-      </div>
-
+      <a
+        href="/blockchain/music-cards"
+        class="inline-block bg-dag-burgundy text-white text-lg font-semibold px-10 py-4 rounded-lg hover:bg-opacity-90 transition-all transform hover:scale-105"
+      >
+        Explorar Music Cards
+      </a>
     </div>
-  </main>
+  </section>
 </Layout>
