@@ -207,7 +207,7 @@
     "contractAddress": "0x0000000000000000000000000000000000000000",
     "tokenId": "0",
     "price": "0.20 MATIC",
-    "status": "disponible",
+    "status": "oculto",
     "benefits": [
       "Audio FLAC 24-bit/192kHz",
       "Partitura digital firmada",
@@ -256,7 +256,7 @@
     "contractAddress": "0x0000000000000000000000000000000000000000",
     "tokenId": "0",
     "price": "0.20 MATIC",
-    "status": "disponible",
+    "status": "oculto",
     "benefits": [
       "Audio FLAC 24-bit/192kHz",
       "Partitura digital firmada",
