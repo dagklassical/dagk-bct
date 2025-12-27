@@ -16,7 +16,9 @@ const latestNews = allNoticias
   .slice(0, 3);
 
 const allArtists = Array.isArray(artists) ? artists : [];
-const latestReleases = Array.isArray(musicCards) ? musicCards.slice(0, 6) : [];
+const latestReleases = musicCards
+  .filter(card => card.status === 'disponible' || card.status === 'próximo')
+  .slice(0, 6);
 
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
