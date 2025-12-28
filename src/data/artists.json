@@ -3,25 +3,23 @@
     "id": "teodor-dore",
     "name": "Teodor Doré",
     "role": "Compositor y Pianista",
+    "bio": "Teodor Doré es un pianista y compositor cuya música nace entre la melancolía del Mar Negro y el rigor académico europeo. Formado con una maestría en Composición Aplicada por el Conservatorio del Liceu de Barcelona, Doré ha emergido como una figura central en la escena contemporánea de Londres. Su estilo, que fusiona la sofisticación de la tradición clásica con una sensibilidad cinematográfica moderna, ha sido aclamado en escenarios como el Carnegie Hall y el Festival de Lerici. A través de obras como su Suite Romana y sus reinterpretaciones de Rachmaninoff, Doré invita al oyente a un viaje transcontinental de introspección y belleza sonora.",
+    "avatar": "/artists/profile-teodor-dore-01.webp",
+    "releases": [
+      "teodor-dore-february-night"
+    ],
     "country": "Rusia",
-    "city": null,
     "genre": [
       "música-contemporánea",
       "neorromanticismo",
       "diáspora-rusa"
     ],
-    "bio": "Teodor Doré es un pianista y compositor cuya música nace entre la melancolía del Mar Negro y el rigor académico europeo. Formado con una maestría en Composición Aplicada por el Conservatorio del Liceu de Barcelona, Doré ha emergido como una figura central en la escena contemporánea de Londres. Su estilo, que fusiona la sofisticación de la tradición clásica con una sensibilidad cinematográfica moderna, ha sido aclamado en escenarios como el Carnegie Hall y el Festival de Lerici. A través de obras como su Suite Romana y sus reinterpretaciones de Rachmaninoff, Doré invita al oyente a un viaje transcontinental de introspección y belleza sonora.",
-    "bioLong": "Teodor Doré: Entre la Tradición Europea y la Sensibilidad Contemporánea.\n\nLa trayectoria de Teodor Doré es un mapa de influencias geográficas y emocionales. Su viaje musical comenzó en las costas de Crimea, a orillas del Mar Negro, donde la vastedad del paisaje costero forjó una sensibilidad artística que prioriza la atmósfera y la narrativa emocional. Esta impronta temprana se ha convertido en el sello distintivo de su lenguaje compositivo: una búsqueda constante de la belleza en la forma y la profundidad en el fondo.\n\nFormación y Ascenso Internacional\nSu talento excepcional fue reconocido con una beca para el Conservatorio Superior de Música del Liceu en Barcelona. Allí, bajo la tutela de destacados maestros, obtuvo su Maestría en Composición Aplicada a los Medios Audiovisuales y Escénicos, una etapa crucial que le permitió dominar la técnica orquestal y la versatilidad de géneros.\n\nTras su paso por España, Doré se estableció en Londres, consolidándose rápidamente como una de las \"estrellas emergentes\" de la capital británica. Su presencia en la escena académica contemporánea ha sido respaldada por estrenos internacionales y colaboraciones de alto nivel, incluyendo el reconocimiento de personalidades de la cultura europea y estrenos dirigidos por batutas de renombre como Jaume Santonja.\n\nEstilo y Obra\nLa música de Doré es una síntesis elegante de mundos:\n\nLegado Romántico: Su profundo vínculo con la obra de Sergei Rachmaninoff (evidenciado en sus grabaciones en Abbey Road Studios) muestra un respeto reverencial por la técnica pianística clásica.\nModernidad Aplicada: Sus composiciones originales, como la Suite Romana, logran que el \"mármol y el aire\" de la historia se transformen en sonido, fusionando la sofisticación técnica con una accesibilidad que resuena con el público actual.\n\nComo artista de DAG Klassical, Teodor Doré representa el puente perfecto entre el virtuosismo de la tradición académica y la nueva era de distribución inmutable en blockchain, ofreciendo obras que son, a la vez, testimonios personales y activos culturales de valor universal.",  
-    "avatar": "/artists/profile-teodor-dore-01.webp",
     "website": "http://teodordore.com/",
     "social": {
       "instagram": "https://www.instagram.com/teodordore/",
       "youtube": "https://www.youtube.com/@TeodorDore",
       "facebook": "https://www.facebook.com/teodordore/"
     },
-    "releases": [
-      "teodor-dore-february-night"
-    ],
     "musicCards": [
       "mc-2025-teodor-dore-february-night-std"
     ],
@@ -35,22 +33,21 @@
     "id": "gerardo-gerulewicz",
     "name": "Gerardo Gerulewicz",
     "role": "Compositor y Pianista",
+    "bio": "Gerardo Gerulewicz es un pilar de la composición contemporánea que fusiona la arquitectura de la ingeniería naval con la profundidad del alma rusa. Graduado con honores en el Conservatorio Tchaikovsky de Moscú, su obra es un diálogo entre el rigor estructural y el lirismo latinoamericano. Ganador de múltiples premios nacionales de composición y profesor titular de la UCV, Gerulewicz es un maestro del piano y la orquestación. Sus piezas, ahora integradas a la inmutabilidad de la blockchain, representan un legado de precisión técnica y emotividad trascendental en el catálogo de DAG Klassical.",
+    "avatar": "/artists/profile-gerardo-gerulewicz-02.webp",
+    "releases": [
+      "gerulewicz-piano-aguinaldo"
+    ],
     "country": "Venezuela",
     "city": "Caracas",
     "genre": [
       "música-navideña",
       "piano-clásico"
     ],
-    "bio": "Gerardo Gerulewicz es un pilar de la composición contemporánea que fusiona la arquitectura de la ingeniería naval con la profundidad del alma rusa. Graduado con honores en el Conservatorio Tchaikovsky de Moscú, su obra es un diálogo entre el rigor estructural y el lirismo latinoamericano. Ganador de múltiples premios nacionales de composición y profesor titular de la UCV, Gerulewicz es un maestro del piano y la orquestación. Sus piezas, ahora integradas a la inmutabilidad de la blockchain, representan un legado de precisión técnica y emotividad trascendental en el catálogo de DAG Klassical.",
-    "bioLong": "Gerardo Gerulewicz: La Arquitectura del Sonido y el Legado Académico\n\nGerardo Gerulewicz (Caracas, 1966) es una de las figuras más respetadas y completas del panorama musical académico actual. Su perfil es único: formado originalmente como Ingeniero Naval, trasladó la disciplina del diseño de estructuras a la construcción de arquitecturas sonoras complejas, logrando una síntesis perfecta entre la lógica y la pasión creativa.\n\nLa Escuela Rusa y el Sello Propio\nSu trayectoria dio un giro definitivo al ser admitido en el legendario Conservatorio Estatal P.I. Tchaikovsky de Moscú. Allí, bajo la tutela de maestros como Leonid Bobylev, obtuvo su Maestría en Composición y Musicología con los más altos honores. Esta influencia moscovita es palpable en su dominio de la forma y su técnica pianística, pero se ve enriquecida por su identidad venezolana, creando un lenguaje que es a la vez universal y profundamente personal.\n\nObra y Reconocimiento Internacional\nEl catálogo de Gerulewicz es un testimonio de su versatilidad:\n• Grandes Formas: Ha compuesto tres conciertos para piano, incluyendo el aclamado Concierto para la mano izquierda, y la ópera Cunaro.\n• Excelencia Premiada: Su obra ha sido celebrada con el Premio Municipal de Música de Caracas en tres ocasiones y reconocimientos en concursos internacionales como el \"Pushkin\" en Rusia.\n• Director y Solista: No solo crea la música, sino que la vive desde el podio y el teclado, habiéndose formado en dirección de orquesta con los maestros Alfredo Rugeles y Rodolfo Saglimbeni.\n\nImpacto Pedagógico y Futuro Digital\nComo Profesor Titular en la Escuela de Artes de la Universidad Central de Venezuela (UCV) y en el Conservatorio Simón Bolívar, Gerulewicz ha moldeado la visión estética de las nuevas generaciones de compositores.\n\nEn el ecosistema de DAG Klassical, la inclusión de las obras de Gerulewicz bajo registro blockchain asegura que su precisión compositiva y su legado académico queden preservados como activos inmutables, permitiendo a los coleccionistas poseer una fracción de la historia viva de la música académica venezolana.",
-    "avatar": "/artists/profile-gerardo-gerulewicz-02.webp",
     "social": {
       "instagram": "https://instagram.com/gerulewicz",
       "youtube": "https://youtube.com/@PianoAguinaldo"
     },
-    "releases": [
-      "gerulewicz-piano-aguinaldo"
-    ],
     "metadata": {
       "uuid": "urn:uuid:00ffeedd-ccbb-aa99-8877-665544332211",
       "timestamp": "2025-11-22T09:00:01Z",
@@ -62,18 +59,17 @@
     "name": "Frank Di Polo",
     "role": "Violinista, Violista, Educador musical",
     "bio": "Frank Di Polo es un arquitecto sonoro venezolano cuyo legado se teje entre las cuerdas del violín y las teclas del piano. Fundador histórico de El Sistema junto al Maestro Abreu, su duelo artístico con Rubén Riera trasciende géneros, fundiendo el barroco con el tango y el jazz en conversaciones musicales que resuenan como puentes entre tradiciones. En DAG KLASSICAL, su voz inmortalizada en blockchain celebra cinco décadas de pasión por transformar el alma venezolana en sonido eterno.",
-    "bioLong": "Frank Di Polo: Donde las Cuerdas Tejen Historia\n\nNacido en 1944, Frank Di Polo es una de las voces fundamentales de la música venezolana contemporánea. Su destino musical comenzó a los cuatro años con el violín, para luego abrazar la viola y el piano, instrumentos que dominó con una pasión que lo llevó a conocer al Maestro José Antonio Abreu a los doce años de edad. Esta amistad, que perduró toda una vida, lo convirtió en uno de los fundadores históricos de El Sistema en 1975, donde su visión ayudó a construir el sueño de democratizar la música para miles de niños venezolanos.\n\nComo intérprete, Di Polo ha trazado caminos únicos. Su dúo con el violinista Rubén Riera representa una de las uniones artísticas más fecundas de Venezuela, donde la elegancia del barroco se abraza con la pasión del tango y la sofisticación del jazz. Tres años dedicaron ambos músicos a desempolvar y reinventar repertorios que van desde Bach hasta Piazzolla, creando conversaciones sonoras que evocan los clubes nocturnos de Nueva York y las noches caraqueñas con igual intensidad. Su virtuosismo lo ha llevado a participar en orquestas de prestigio tanto nacionales como internacionales, siempre manteniendo el sello inconfundible de su identidad musical latinoamericana.\n\nEn DAG KLASSICAL, el legado de Frank Di Polo trasciende el tiempo. Cada nota de sus interpretaciones se preserva en blockchain como patrimonio cultural inmutable, asegurando que su contribución al arte —desde las aulas de El Sistema hasta los escenarios más prestigiosos— permanezca accesible para las generaciones futuras. Su música no es solo técnica impecable; es el testimonio vivo de cómo el arte puede transformar sociedades, construir puentes entre géneros y épocas, y convertir el alma venezolana en un legado sonoro que trasciende fronteras y generaciones.",
     "avatar": "/artists/profile-frank-di-polo-02.webp",
+    "releases": [
+      "mc-2026-tema-con-variazioni",
+      "dipolo-riera-tema-con-variazioni"
+    ],
     "website": "https://elsistema.org.ve/tag/frank-di-polo/",
     "social": {
       "instagram": "@frank_di_polo",
       "facebook": "https://www.facebook.com/frank.di.polo.67600/",
       "youtube": "https://www.youtube.com/channel/UCGHnbDzbqZdyr11cfdJaQ7g"
     },
-    "releases": [
-      "mc-2026-tema-con-variazioni",
-      "dipolo-riera-tema-con-variazioni"
-    ],
     "metadata": {
       "uuid": "urn:uuid:aabbccdd-eeff-0011-2233-445566778899",
       "timestamp": "2025-11-22T09:00:02Z",
@@ -85,18 +81,17 @@
     "name": "Rubén Riera",
     "role": "Guitarrista",
     "bio": "Rubén Riera es un maestro de las seis cuerdas que desde Caracas ha tejido puentes entre lo clásico y lo popular. Graduado del Real Conservatorio de Madrid y formado en la Guildhall School, su guitarra respira con la esencia venezolana mientras dialoga con el jazz y el folclor universal. Su carrera solista y su labor pedagógica en la Universidad de las Artes han moldeado generaciones. En DAG KLASSICAL, cada nota de su legado se preserva inmutable en blockchain, transformando su arte en patrimonio cultural eterno.",
-    "bioLong": "Rubén Riera: La Voz de las Seis Cuerdas Venezolanas\n\nNacido en Caracas en 1957, Rubén Riera ha construido una trayectoria que redefine el arte de la guitarra en América Latina. Su formación académica lo llevó al Real Conservatorio de Música y Declamación de Madrid, donde estudió bajo la tutela de Antonio Ortega, perfeccionando posteriormente su técnica en instituciones de prestigio como la Guildhall School of Music And Drama. Este rigor académico se fusiona con una sensibilidad profundamente latinoamericana, creando un estilo único donde la guitarra clásica respira con los ritmos de nuestro continente.\n\nComo solista, Riera ha trascendido fronteras, llevando la música venezolana a escenarios internacionales, incluyendo giras por Australia donde es reconocido como uno de los guitarristas clásicos más destacados de su generación. Su labor pedagógica en la Universidad de las Artes ha sido fundamental para formar nuevas generaciones de músicos comprometidos con la excelencia y la identidad cultural. Si bien su colaboración con Frank Di Polo ha dado frutos excepcionales, su carrera como intérprete solista y su dedicación a la música de cámara lo posicionan como una figura independiente y esencial en el panorama musical venezolano.\n\nEn DAG KLASSICAL, el legado de Rubén Riera se transforma en patrimonio inmutable. Cada grabación, cada interpretación, se certifica en blockchain como activo cultural eterno, asegurando que su contribución a la música —desde las salas de concierto hasta las aulas— permanezca accesible para las generaciones futuras. Su obra es un testimonio vivo de cómo el arte puede construir puentes entre tradiciones, géneros y tiempos, convirtiendo cada acorde en un legado que trasciende lo efímero.",
     "avatar": "/artists/profile-ruben-riera-01.webp",
+    "releases": [
+      "mc-2026-sonata-violin",
+      "dipolo-riera-tema-con-variazioni"
+    ],
     "website": "https://elsistema.org.ve/?s=ruben+riera",
     "social": {
       "instagram": "@martaramirezviolin",
       "facebook": "https://www.facebook.com/ruben.riera.16/",
       "youtube": "https://www.youtube.com/@rubenriera"
     },
-    "releases": [
-      "mc-2026-sonata-violin",
-      "dipolo-riera-tema-con-variazioni"
-    ],
     "metadata": {
       "uuid": "urn:uuid:99887766-5544-3322-1100-fedcba987654",
       "timestamp": "2025-11-22T09:00:03Z",
@@ -109,13 +104,13 @@
     "role": "Cantante lírico",
     "bio": "Coro residente de Dag Klassical, especializado en repertorio coral latinoamericano.",
     "avatar": "/artists/profile-filip-bandzak-02.webp",
+    "releases": [
+      "mc-2026-cantata-latina"
+    ],
     "website": "https://dagklassical.com/coro",
     "social": {
       "instagram": "@coro_venezolano_dag"
     },
-    "releases": [
-      "mc-2026-cantata-latina"
-    ],
     "metadata": {
       "uuid": "urn:uuid:13579246-80ab-cdef-1357-924680abcedf",
       "timestamp": "2025-11-22T09:00:04Z",
@@ -128,13 +123,13 @@
     "role": "Pianista",
     "bio": "Coro residente de Dag Klassical, especializado en repertorio coral latinoamericano.",
     "avatar": "/artists/profile-nareh-arghamanyan-02.webp",
+    "releases": [
+      "mc-2026-cantata-latina"
+    ],
     "website": "https://dagklassical.com/coro",
     "social": {
       "instagram": "@coro_venezolano_dag"
     },
-    "releases": [
-      "mc-2026-cantata-latina"
-    ],
     "metadata": {
       "uuid": "urn:uuid:13579246-80ab-cdef-1357-924680abcedf",
       "timestamp": "2025-11-22T09:00:04Z",
@@ -145,6 +140,11 @@
     "id": "jesus-anibal-bello",
     "name": "Pbro. Jesús Aníbal Bello",
     "role": "Sacerdote Salesiano y Músico",
+    "bio": "El Presbítero Salesiano Jesús Aníbal Bello es un hombre de fe profundamente arraigado en su vocación y servicio comunitario. Venezolano de Puerto La Cruz, ha dejado una huella imborrable en cada comunidad donde ha ejercido su ministerio pastoral. Su dedicación y cercanía lo han convertido en un sacerdote querido y respetado, actualmente sirviendo en Valera, Edo. Trujillo, como guía espiritual y apoyo para su comunidad.",
+    "avatar": "/artists/profile-jesus-anibal-bello.webp",
+    "releases": [
+      "jesus-anibal-bello-te-hare-pescador"
+    ],
     "country": "Venezuela",
     "city": "Valera, Edo. Trujillo",
     "genre": [
@@ -152,17 +152,9 @@
       "adoración",
       "espiritual-contemporánea"
     ],
-    "bio": "El Presbítero Salesiano Jesús Aníbal Bello es un hombre de fe profundamente arraigado en su vocación y servicio comunitario. Venezolano de Puerto La Cruz, ha dejado una huella imborrable en cada comunidad donde ha ejercido su ministerio pastoral. Su dedicación y cercanía lo han convertido en un sacerdote querido y respetado, actualmente sirviendo en Valera, Edo. Trujillo, como guía espiritual y apoyo para su comunidad.",
-    "bioLong": "Presbítero Jesús Aníbal Bello: La Fe como Melodía\n\nEl Presbítero Salesiano Jesús Aníbal Bello es un hombre de fe profundamente arraigado en su vocación y en el servicio a la comunidad. Venezolano de la ciudad de Puerto La Cruz, su camino hacia el sacerdocio comenzó con sus estudios en la ciudad de Los Teques, donde sentó las bases de su formación religiosa y humana. A lo largo de su ministerio, el padre Bello ha dejado una huella imborrable en cada lugar donde ha ejercido su labor pastoral.\n\nSu dedicación y cercanía lo han convertido en un sacerdote muy querido y respetado por las comunidades a las que ha servido. Entre sus destinos pastorales se encuentran la parroquia de Táriba, estado Táchira, donde su labor dejó profundas raíces, y su regreso a Puerto La Cruz, su ciudad natal, donde continuó su labor pastoral.\n\nActualmente, ejerce su ministerio en Valera, Edo. Trujillo, donde sigue siendo un guía espiritual y un apoyo fundamental para la comunidad. Su presencia y su carisma han hecho de él un referente en cada una de estas localidades, demostrando que el auténtico servicio pastoral se construye día a día en el encuentro con las personas.",
-    "avatar": "/artists/profile-jesus-anibal-bello.webp",
     "social": {
-      "instagram": null,
-      "youtube": null,
       "facebook": "https://www.facebook.com/padre.anibalbello"
     },
-    "releases": [
-      "jesus-anibal-bello-te-hare-pescador"
-    ],
     "metadata": {
       "uuid": "urn:uuid:$(uuidgen)",
       "timestamp": "2025-11-27T16:00:00Z",
@@ -173,24 +165,17 @@
     "id": "virginia-ramirez",
     "name": "Virginia Ramírez",
     "role": "Pianista, Cantante y Artista Multidisciplinaria",
+    "bio": "Virginia Ramírez es una artista creativa, valiente y atrevida cuyo lenguaje se basa en el cambio y la experimentación. Su expresión artística fusiona el canto, el piano y las artes circenses, adentrándose en la improvisación, el ritmo y la esencia de la cultura venezolana con un sello propio e irrepetible.",
+    "avatar": "/artists/profile-virginia-ramirez-01.jpeg",
+    "releases": [
+      "virginia-ramirez-capitulos"
+    ],
     "country": "Venezuela",
-    "city": null,
     "genre": [
       "jazz",
       "latin-jazz",
       "música-instrumental",
       "improvisación"
-    ],
-    "bio": "Virginia Ramírez es una artista creativa, valiente y atrevida cuyo lenguaje se basa en el cambio y la experimentación. Su expresión artística fusiona el canto, el piano y las artes circenses, adentrándose en la improvisación, el ritmo y la esencia de la cultura venezolana con un sello propio e irrepetible.",
-    "bioLong": "Virginia Ramírez: Entre la Tradición y la Vanguardia\n\nVirginia Ramírez es una artista creativa, valiente y atrevida cuyo lenguaje se basa en el cambio y la experimentación. Sus ideas vuelan más allá de los convencionalismos, moviéndose intensamente por los distintos caminos del arte: el canto, el piano y las artes circenses. Se adentra en el lenguaje de la improvisación y el ritmo, en la esencia de la cultura venezolana y en el corazón mismo de la música para expresarse siempre con un sello propio y original.\n\nVirginia representa de manera brillante y audaz a las nuevas generaciones de artistas venezolanos. Su formación particularmente amplia fusiona el inmenso prisma académico del conservatorio con la libertad, historia y corazón del jazz y la música popular. Como resultado tenemos a una artista joven, vibrante y creadora cuyo único fin es plasmar sus ideas renovadoras en sonidos y música trascendental, que va más allá de todas las fronteras transmitiendo un mensaje de paz y luz a todo el universo.",
-    "avatar": "/artists/profile-virginia-ramirez-01.jpeg",
-    "social": {
-      "instagram": null,
-      "youtube": null,
-      "facebook": null
-    },
-    "releases": [
-      "virginia-ramirez-capitulos"
     ],
     "metadata": {
       "uuid": "urn:uuid:$(uuidgen)",
@@ -202,22 +187,15 @@
     "id": "goulnara-galimchina",
     "name": "Goulnara Galímchina",
     "role": "Pianista",
+    "bio": "Goulnara Galimchina es una virtuosa pianista y organista rusa, cuya trayectoria es un testimonio de excelencia académica y entrega pedagógica. Graduada con honores del Conservatorio Tchaikovsky de Moscú bajo la tutela de Vera Gornostáyeva, su dualidad técnica la ha llevado a escenarios de Europa y Estados Unidos. Radicada en Venezuela desde 1993 por invitación del Maestro José Antonio Abreu, Galimchina se ha consolidado como una figura esencial del Sistema de Orquestas y de instituciones como el Conservatorio Emil Friedman. Su presencia en DAG Klassical representa la unión entre la tradición moscovita y el florecimiento del talento latinoamericano.",
+    "avatar": "/artists/profile-goulnara-galimchina-01.webp",
+    "releases": [
+      "goulnara-galimchina-schubert-d960-d780"
+    ],
     "country": "Rusia",
-    "city": null,
     "genre": [
       "música-clásica",
       "romanticismo"
-    ],
-    "bio": "Goulnara Galimchina es una virtuosa pianista y organista rusa, cuya trayectoria es un testimonio de excelencia académica y entrega pedagógica. Graduada con honores del Conservatorio Tchaikovsky de Moscú bajo la tutela de Vera Gornostáyeva, su dualidad técnica la ha llevado a escenarios de Europa y Estados Unidos. Radicada en Venezuela desde 1993 por invitación del Maestro José Antonio Abreu, Galimchina se ha consolidado como una figura esencial del Sistema de Orquestas y de instituciones como el Conservatorio Emil Friedman. Su presencia en DAG Klassical representa la unión entre la tradición moscovita y el florecimiento del talento latinoamericano.",
-    "bioLong": "Goulnara Galimchina: Virtuosismo Ruso y Legado Pedagógico en Venezuela\n\nNacida en Ufa en 1965, Goulnara Galimchina personifica la disciplina y la profundidad emocional de la escuela pianística rusa. Iniciada en el piano a los cuatro años, su ascenso fue meteórico, culminando en el epicentro del conocimiento musical global: el Conservatorio Estatal P.I. Tchaikovsky de Moscú.\n\nDoble Maestría: Piano y Órgano\nGalimchina no solo dominó el piano bajo la dirección de la legendaria Vera Gornostáyeva, obteniendo su posgrado en 1990, sino que también alcanzó la excelencia en el órgano bajo la guía de Natalia Gureeva. Esta formación dual le otorga una comprensión única del repertorio clásico, permitiéndole navegar con igual destreza por la música de cámara, el acompañamiento vocal y el virtuosismo solista en festivales internacionales desde Berlín hasta Los Ángeles.\n\nUn Vínculo Histórico con Venezuela\nEn 1993, la historia musical de Venezuela se enriqueció con su llegada. Junto a su esposo, el reconocido pianista Igor Lavrov, Galimchina se integró al movimiento musical venezolano por invitación del Maestro José Antonio Abreu. Desde entonces, ha sido una pieza fundamental en la estructura docente del país, dejando una huella imborrable en el Conservatorio de la Orquesta Simón Bolívar y la Academia Latinoamericana de Canto.\n\nCompromiso con la Excelencia\nSu labor actual como docente en el Conservatorio Emil Friedman y la Escuela Experimental de Música \"Manuel Alberto López\", sumado a su rol como Asesora Pedagógica en el Centro UNESCO, la posicionan como una guardiana del estándar interpretativo. Su juicio crítico es frecuentemente requerido en los jurados de los concursos de piano más prestigiosos de la nación.\n\nEn DAG Klassical, la obra de Goulnara Galimchina se registra en blockchain no solo como una ejecución técnica impecable, sino como un documento inmutable de una de las pedagogas y ejecutantes más influyentes en la transición del siglo XX al XXI en la región.",
-    "avatar": "/artists/profile-goulnara-galimchina-01.webp",
-    "social": {
-      "instagram": null,
-      "youtube": null,
-      "facebook": null
-    },
-    "releases": [
-      "goulnara-galimchina-schubert-d960-d780"
     ],
     "metadata": {
       "uuid": "urn:uuid:$(uuidgen)",
@@ -229,24 +207,18 @@
     "id": "academica-moscu",
     "name": "Orquesta Académica de Moscú",
     "role": "Ensemble sinfónico",
+    "bio": "La Orquesta Académica de Moscú, fundada en 2003 por jóvenes músicos apasionados, se destaca por su enfoque innovador y virtuoso de la música clásica. Combina la tradición académica con una visión contemporánea, reinterpretando obras maestras del repertorio clásico y conquistando tanto al público como a la crítica especializada.",
+    "avatar": "/artists/profile-orquesta-academica-moscu-01.webp",
+    "releases": [
+      "academica-moscu-momentos-musicales-barroco-01",
+      "academica-moscu-momentos-musicales-nacionalismo-ruso-03"
+    ],
     "country": "Rusia",
     "city": "Moscú",
     "genre": [
       "música-clásica",
       "nacionalismo-ruso",
       "barroco"
-    ],
-    "bio": "La Orquesta Académica de Moscú, fundada en 2003 por jóvenes músicos apasionados, se destaca por su enfoque innovador y virtuoso de la música clásica. Combina la tradición académica con una visión contemporánea, reinterpretando obras maestras del repertorio clásico y conquistando tanto al público como a la crítica especializada.",
-    "bioLong": "Orquesta Académica de Moscú: La Tradición Renovada\n\nLa Orquesta Académica de Moscú, fundada en 2003 por un grupo de jóvenes y apasionados músicos, se ha destacado por su enfoque innovador y virtuoso de la música clásica. Desde sus inicios, esta organización musical se ha dedicado a reinterpretar obras maestras del repertorio clásico, imprimiendo un sello distintivo que combina la tradición con una visión contemporánea.\n\nUn Nuevo Estilo para la Música Clásica\nEl objetivo principal de la Orquesta Académica de Moscú es acercar la música clásica a un público más amplio, presentando interpretaciones frescas y emocionantes que resalten la belleza y la complejidad de las obras. Los jóvenes músicos que integran la orquesta no solo poseen un dominio técnico excepcional de sus instrumentos, sino que también comparten una profunda pasión por la música y un compromiso con la excelencia artística.\n\nDel Escenario a la Pantalla Grande\nSi bien la Orquesta Académica de Moscú se ha ganado un lugar en la escena musical clásica por sus conciertos y presentaciones en vivo, también ha incursionado en el mundo del cine, convirtiéndose en una reconocida orquesta de sesión para la grabación de bandas sonoras. Su capacidad para adaptarse a diferentes estilos y géneros musicales, así como su precisión y profesionalismo en el estudio de grabación, la han convertido en una opción popular para cineastas de todo el mundo.\n\nUn Futuro Prometedor\nA pesar de su juventud, la Orquesta Académica de Moscú ha logrado consolidarse como una de las agrupaciones musicales más interesantes y prometedoras de la escena rusa. Su enfoque innovador, su virtuosismo y su versatilidad la han llevado a conquistar tanto al público como a la crítica especializada. Con una creciente trayectoria en el mundo del cine y una sólida base en la interpretación de música clásica, la Orquesta Académica de Moscú tiene un futuro brillante por delante.",
-    "avatar": "/artists/profile-orquesta-academica-moscu-01.webp",
-    "social": {
-      "instagram": null,
-      "youtube": null,
-      "facebook": null
-    },
-    "releases": [
-      "academica-moscu-momentos-musicales-barroco-01",
-      "academica-moscu-momentos-musicales-nacionalismo-ruso-03"
     ],
     "metadata": {
       "uuid": "urn:uuid:$(uuidgen)",
