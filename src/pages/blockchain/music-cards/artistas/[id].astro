@@ -1,0 +1,79 @@
+---
+// src/pages/blockchain/music-cards/artistas/[id].astro
+import Layout from '../../../../layouts/Layout.astro';
+import musicCards from '../../../../data/music-cards.json';
+import releases from '../../../../data/releases.json';
+import artists from '../../../../data/artists.json';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const artistIds = new Set();
+  for (const card of musicCards) {
+    if (card.associatedRelease) {
+      const release = releases.find(r => r.id === card.associatedRelease);
+      if (release && release.artistIds) {
+        for (const id of release.artistIds) {
+          artistIds.add(id);
+        }
+      }
+    }
+  }
+  return Array.from(artistIds).map(id => ({ params: { id } }));
+}
+
+const { id } = Astro.params;
+const artist = artists.find(a => a.id === id);
+if (!artist) {
+  return Astro.redirect('/blockchain/music-cards');
+}
+
+const artistCards = musicCards.filter(card => {
+  const release = releases.find(r => r.id === card.associatedRelease);
+  return release && release.artistIds?.includes(id);
+});
+
+const breadcrumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Blockchain', href: '/blockchain' },
+  { label: 'Music Cards', href: '/blockchain/music-cards' },
+  { label: artist.name, href: `/blockchain/music-cards/artistas/${id}` }
+];
+---
+
+<Layout title={`Music Cards de ${artist.name}`} description={`Colecciones de ${artist.name} en DAG Klassical`} breadcrumbs={breadcrumbs}>
+  <header class="bg-white text-center py-10 px-4 mb-8">
+    <h1 class="text-h1 font-advent">Music Cards de {artist.name}</h1>
+  </header>
+
+  <main class="bg-gray95 pb-12">
+    <div class="max-w-6xl mx-auto px-8">
+      {artistCards.length === 0 ? (
+        <p class="text-center text-slate-600 py-12">
+          No hay Music Cards disponibles para este artista en este momento.
+        </p>
+      ) : (
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
+          {artistCards.map(card => {
+            const release = releases.find(r => r.id === card.associatedRelease);
+            const performers = release 
+              ? release.artistIds.map(id => artists.find(a => a.id === id)?.name).filter(Boolean).join(', ')
+              : 'Artista';
+            
+            return (
+              <a href={`/blockchain/music-cards/${card.id}`} class="group block bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden" key={card.id}>
+                <div class="aspect-[5/8]">
+                  <img src={card.cardImage || '/images/placeholder-card.jpg'} alt={card.title} class="w-full h-full object-cover" loading="lazy" />
+                </div>
+                <div class="p-3">
+                  <h4 class="text-sm font-bold font-advent text-slate-900 group-hover:text-dag-burgundy truncate">{card.title}</h4>
+                  <p class="text-xs text-slate-500 truncate mt-1">{performers}</p>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  </main>
+</Layout>

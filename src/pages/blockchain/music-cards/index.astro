@@ -5,71 +5,125 @@ import musicCards from '../../../data/music-cards.json';
 import releases from '../../../data/releases.json';
 import artists from '../../../data/artists.json';
 
-// Helper: obtener nombre de artistas desde el release
-const getArtistNames = (card) => {
-  const release = releases.find(r => r.id === card.associatedRelease);
-  if (release?.artistIds) {
-    return release.artistIds
-      .map(id => artists.find(a => a.id === id)?.name)
-      .filter(Boolean)
-      .join(', ') || card.artist || 'Artista';
+export const prerender = true;
+
+// ✅ Soporte para rutas estáticas por artista
+export async function getStaticPaths() {
+  const paths = [{ params: {} }]; // Ruta principal: /blockchain/music-cards
+  
+  // Añadir una ruta por cada artista que tenga Music Cards
+  const artistIds = new Set();
+  for (const card of musicCards) {
+    if (card.associatedRelease) {
+      const release = releases.find(r => r.id === card.associatedRelease);
+      if (release && release.artistIds) {
+        for (const id of release.artistIds) {
+          artistIds.add(id);
+        }
+      }
+    }
   }
-  return card.artist || 'Artista';
-};
+  
+  for (const id of artistIds) {
+    paths.push({ params: { artist: id } });
+  }
+  
+  return paths;
+}
 
-// Filtrar solo cards disponibles o próximas
-const availableCards = musicCards.filter(card => 
-  card.status === 'disponible' || card.status === 'próximo'
-);
+const { artist } = Astro.params;
 
-const breadcrumbs = [
-  { label: 'Inicio', href: '/' },
-  { label: 'Blockchain', href: '/blockchain/' },
-  { label: 'Music Cards', href: '/blockchain/music-cards/' },
-];
+// Filtrar Music Cards según contexto
+let filteredCards, pageTitle, pageDescription;
+if (artist) {
+  const targetArtist = artists.find(a => a.id === artist);
+  filteredCards = musicCards.filter(card => {
+    if (!card.associatedRelease) return false;
+    const release = releases.find(r => r.id === card.associatedRelease);
+    return release && release.artistIds?.includes(artist);
+  });
+  
+  pageTitle = targetArtist 
+    ? `Music Cards de ${targetArtist.name}`
+    : 'Colecciones por Artista';
+  pageDescription = targetArtist
+    ? `Colecciones inmutables de ${targetArtist.name} en DAG Klassical`
+    : 'Colecciones únicas con autenticidad digital';
+} else {
+  filteredCards = musicCards.filter(card => 
+    card.status === 'disponible' || card.status === 'próximo'
+  );
+  pageTitle = 'Music Cards | DAG Klassical';
+  pageDescription = 'Colecciones únicas con autenticidad digital y acceso exclusivo.';
+}
+
+const breadcrumbs = artist
+  ? [
+      { label: 'Inicio', href: '/' },
+      { label: 'Blockchain', href: '/blockchain' },
+      { label: 'Music Cards', href: '/blockchain/music-cards' },
+      { label: 'Por artista', href: `/blockchain/music-cards/${artist}` }
+    ]
+  : [
+      { label: 'Inicio', href: '/' },
+      { label: 'Blockchain', href: '/blockchain' },
+      { label: 'Music Cards', href: '/blockchain/music-cards' }
+    ];
 ---
 
-<Layout 
-  title="Music Cards Disponibles | DAG Klassical" 
-  description="Colecciones únicas certificadas en blockchain. Audio en FLAC, partituras firmadas y acceso exclusivo."
-  breadcrumbs={breadcrumbs}
->
+<Layout title={pageTitle} description={pageDescription} breadcrumbs={breadcrumbs}>
   <header class="bg-white text-center py-10 px-4 mb-8">
-    <h1 class="text-h1 font-advent">Adquiere tus Music Cards</h1>
-    <p class="text-dag-burgundy max-w-2xl mx-auto mt-3">
-      Ediciones limitadas, certificadas en blockchain, con beneficios únicos.
+    <h1 class="text-h1 font-advent">
+      {artist 
+        ? `Music Cards de ${artists.find(a => a.id === artist)?.name || 'Artista'}` 
+        : 'Nuestras Colecciones'}
+    </h1>
+    <p class="text-dag-burgundy max-w-4xl mx-auto mt-3">
+      {artist
+        ? 'Colecciones inmutables en blockchain, con audio en alta resolución y acceso exclusivo.'
+        : 'Obras maestras interpretadas por artistas de clase mundial, preservadas con calidad de referencia.'}
     </p>
   </header>
 
   <main class="bg-gray95 pb-12">
-    <div class="max-w-6xl mx-auto px-4">
-      {availableCards.length === 0 ? (
-        <p class="text-center text-slate-600 py-12">No hay Music Cards disponibles en este momento.</p>
+    <div class="max-w-6xl mx-auto px-8">
+      {filteredCards.length === 0 ? (
+        <p class="text-center text-slate-600 py-12">
+          {artist 
+            ? 'No hay Music Cards disponibles para este artista en este momento.'
+            : 'No hay colecciones disponibles en este momento.'}
+        </p>
       ) : (
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-          {availableCards.map(card => {
-            const artistName = getArtistNames(card);
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
+          {filteredCards.map(card => {
+            const release = releases.find(r => r.id === card.associatedRelease);
+            const performers = release 
+              ? release.artistIds
+                  .map(id => artists.find(a => a.id === id)?.name)
+                  .filter(Boolean)
+                  .join(', ')
+              : 'Artista';
+            
             return (
               <a 
                 href={`/blockchain/music-cards/${card.id}`} 
-                class="block group bg-white rounded-md overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                class="group block bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden"
                 key={card.id}
               >
-                <div class="aspect-[2/3]">
+                <div class="aspect-[5/8]">
                   <img 
                     src={card.cardImage || '/images/placeholder-card.jpg'} 
-                    alt={`${card.title} por ${artistName}`}
+                    alt={card.title}
                     class="w-full h-full object-cover"
                     loading="lazy"
                   />
                 </div>
                 <div class="p-3">
-                  <h3 class="font-advent font-semibold text-slate-900 group-hover:text-dag-burgundy text-sm line-clamp-1">
+                  <h4 class="text-sm font-bold font-advent text-slate-900 group-hover:text-dag-burgundy truncate">
                     {card.title}
-                  </h3>
-                  <p class="text-[10px] text-slate-600 mt-1 line-clamp-1">{artistName}</p>
-                  <p class="text-[10px] text-dag-burgundy mt-1">
-                    {card.edition} • {card.price}
+                  </h4>
+                  <p class="text-xs text-slate-500 truncate mt-1">
+                    {performers}
                   </p>
                 </div>
               </a>
@@ -79,13 +133,12 @@ const breadcrumbs = [
       )}
     </div>
 
-    <div class="text-center mt-10">
-      <a 
-        href="/blockchain" 
-        class="inline-block bg-dag-burgundy text-white px-5 py-2.5 rounded-lg hover:bg-opacity-90 transition-colors text-sm"
-      >
-        Volver a Blockchain
-      </a>
+    <div class="text-center mt-8">
+      {!artist && (
+        <a href="/blockchain" class="btn-primary inline-block px-6 py-3">
+          Explorar Tecnología Blockchain
+        </a>
+      )}
     </div>
   </main>
 </Layout>
