@@ -5,7 +5,9 @@
     "artistIds": [
       "teodor-dore"
     ],
-    "genre": "música-contemporánea",
+    "genre": [
+      "música-contemporánea"
+    ],
     "releaseDate": "2025-02-14",
     "type": "álbum",
     "status": "lanzado",
@@ -86,7 +88,9 @@
     "artistIds": [
       "gerardo-gerulewicz"
     ],
-    "genre": "música-navideña",
+    "genre": [
+      "música-navideña"
+    ],
     "releaseDate": "2025-12-01",
     "type": "álbum",
     "status": "lanzado",
@@ -180,7 +184,8 @@
       "uuid": "urn:uuid:a1b2c3d4-5678-90ab-cdef-123456789002",
       "timestamp": "2025-11-25T10:00:00Z",
       "operator": "cto@dagklassical.com"
-    }
+    },
+    "demoAvailable": true
   },
   {
     "id": "virginia-ramirez-capitulos",
@@ -188,14 +193,15 @@
     "artistIds": [
       "virginia-ramirez"
     ],
-    "genre": "jazz",
+    "genre": [
+      "jazz"
+    ],
     "releaseDate": "2025-01-01",
     "type": "álbum",
     "status": "lanzado",
     "description": "\"Capítulos\" es un viaje sonoro a través de los éxitos más emblemáticos de Virginia Ramírez, meticulosamente remasterizados. Este álbum celebra su dominio técnico al piano y su magistral fusión entre el jazz moderno y los ritmos latinoamericanos. Cada pieza, ahora inmutable en blockchain, es un testimonio de elegancia y profundidad que redefine los greatest hits como obra artística autónoma.",
     "descriptionLong": "Capítulos: Donde los Éxitos se Convierten en Legado\n\n\"Capítulos\" es un viaje sonoro a través de los éxitos más celebrados de Virginia Ramírez, reuniendo en un solo volumen aquellas piezas que se han convertido en emblemas de su sonido único. Cada tema, seleccionado meticulosamente de sus álbumes anteriores, ha sido remasterizado para ofrecer una experiencia auditiva renovada y de la más alta fidelidad, permitiendo tanto a nuevos oyentes como a seguidores de larga data redescubrir la profundidad y el color de su música.\n\nEl álbum es un testimonio del dominio técnico de Virginia al piano y su habilidad innata para fusionar ritmos. Desde la sofisticación armónica del jazz moderno hasta la cadencia irresistible de la tradición latinoamericana, \"Capítulos\" navega por un espectro emocional y rítmico vasto. Los oyentes podrán deleitarse con la sensualidad del jazz tradicional y el LatinJazz, unificado por el sello inconfundible de su interpretación: elegante, poderosa y profundamente sentida.\n\nMás que una simple recopilación, \"Capítulos\" es una declaración artística. Representa una pausa, un respiro para contemplar el camino recorrido y saborear los logros que han definido su sonido. En DAG KLASSICAL, esta obra trasciende el formato digital para convertirse en un legado cultural inmutable, confirmando el lugar de Virginia Ramírez como una voz esencial y perdurable en la música instrumental.",
     "coverImage": "/covers/cover-capitulos-virginia-ramirez.png",
-    "demoAvailable": false,
     "fullAlbumAvailable": false,
     "sheetMusicAvailable": false,
     "platforms": {
@@ -245,13 +251,14 @@
     "artistIds": [
       "academica-moscu"
     ],
-    "genre": "música-clásica",
+    "genre": [
+      "música-clásica"
+    ],
     "releaseDate": "2025-01-01",
     "type": "álbum",
     "status": "lanzado",
     "description": "Water Music de Georg Friedrich Händel, interpretada con frescura y rigor histórico por la Orquesta Académica de Moscú.",
     "coverImage": "/covers/cover-academica-rusa-vol-01.webp",
-    "demoAvailable": false,
     "fullAlbumAvailable": false,
     "sheetMusicAvailable": false,
     "platforms": {
@@ -323,7 +330,9 @@
     "artistIds": [
       "academica-moscu"
     ],
-    "genre": "música-clásica",
+    "genre": [
+      "música-clásica"
+    ],
     "releaseDate": "2025-01-01",
     "type": "álbum",
     "status": "lanzado",
@@ -381,7 +390,9 @@
     "artistIds": [
       "goulnara-galimchina"
     ],
-    "genre": "música-clásica",
+    "genre": [
+      "música-clásica"
+    ],
     "releaseDate": "2025-01-01",
     "type": "álbum",
     "status": "lanzado",
@@ -474,14 +485,15 @@
       "frank-di-polo",
       "ruben-riera"
     ],
-    "genre": "jazz",
+    "genre": [
+      "jazz"
+    ],
     "releaseDate": "2025-01-01",
     "type": "álbum",
     "status": "lanzado",
     "description": "\"Tema con Variazioni in Dm\" de Marin Marais revive bajo las manos maestras de Frank Di Polo en viola y Rubén Riera en tiorba. Esta joya del barroco francés, grabada en 2023 con producción de Danilo Álvarez, teje un diálogo entre épocas donde la elegancia histórica se encuentra con la sensibilidad latinoamericana. En DAG KLASSICAL, cada variación se preserva inmutable en blockchain, transformando esta conversación musical entre maestros en un legado cultural eterno.",
     "descriptionLong": "Tema con Variazioni in Dm: Donde el Barroco Francés se Acerca a Venezuela.\n\nLa obra maestra de Marin Marais (1656-1728), uno de los más grandes compositores para viola da gamba de la historia, encuentra una nueva vida en las manos de dos leyendas venezolanas. Frank Di Polo, con su viola, y Rubén Riera, con su tiorba, recrean el \"Tema con variazioni en Re menor\" con una sensibilidad que trasciende el tiempo. Esta grabación de 2023, producida por Danilo Álvarez, no es simplemente una interpretación histórica, sino un puente sonoro entre la corte francesa del siglo XVII y la profundidad musical latinoamericana.\n\nLa elección de este repertorio no es casual. Marin Marais, discípulo de Lully y maestro del barroco francés, compuso esta pieza como un ejercicio de virtuosismo y expresión emocional. Di Polo y Riera, con su perfecto acoplamiento y dominio técnico, revelan cada matiz de las variaciones, donde la viola canta con una voz cálida y la tiorba responde con armonías que evocan salones iluminados por velas. Su interpretación honra la elegancia francesa mientras infunde un alma latinoamericana que convierte cada nota en una conversación entre culturas.\n\nEn DAG KLASSICAL, esta grabación se convierte en patrimonio cultural inmutable. La tecnología blockchain asegura que la maestría de estos dos músicos venezolanos, herederos de El Sistema y guardianes de la tradición clásica, permanezca accesible para generaciones futuras. Cada variación, cada respiración entre las frases musicales, se preserva con la misma nitidez que la noche de su grabación, transformando lo efímero en eterno. Esta obra no solo celebra el genio de Marais, sino el legado de dos artistas que han dedicado sus vidas a construir puentes sonoros entre épocas y continentes.",
     "coverImage": "/covers/cover-dipolo-riera-tema-con-variazioni-01.webp",
-    "demoAvailable": false,
     "fullAlbumAvailable": false,
     "sheetMusicAvailable": false,
     "platforms": {
@@ -492,10 +504,16 @@
       "deezer": null
     },
     "tracks": [
+      {
+        "title": "Tema con Variazioni in Dm",
+        "composer": "Marin Marais",
+        "duration": "26:40",
+        "demo": null
+      }
     ],
     "duration": "26:40",
-    "commentary": "Más que una simple recopilación, 'Capítulos' es una declaración artística: una pausa para contemplar el camino recorrido y saborear los logros que han definido su sonido.",
-    "commentaryAuthor": "Virginia Ramírez",
+    "commentary": "Una joya del barroco francés reinterpretada con sensibilidad venezolana. La elegancia de Marais se funde con el alma latinoamericana de Di Polo y Riera.",
+    "commentaryAuthor": "DAG Klassical",
     "musicCards": [
       "mc-2025-dipolo-riera-tema-con-variazioni-dm-std"
     ],
