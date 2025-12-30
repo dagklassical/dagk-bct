@@ -43,7 +43,7 @@
       }
     ],
     "metadata": {
-      "uuid": "urn:uuid:3dd88874-8038-4178-93b0-92a3dba1e0bf",
+      "uuid": "urn:uuid:$(uuidgen)",
       "timestamp": "2025-11-25T10:00:00Z",
       "operator": "cto@dagklassical.com"
     }
@@ -92,7 +92,7 @@
       }
     ],
     "metadata": {
-      "uuid": "urn:uuid:77fd8dad-0a38-4838-8c09-49973d8344a9",
+      "uuid": "urn:uuid:$(uuidgen)",
       "timestamp": "2025-11-25T10:00:01Z",
       "operator": "cto@dagklassical.com"
     }
@@ -141,7 +141,7 @@
       }
     ],
     "metadata": {
-      "uuid": "urn:uuid:fb421624-d5be-4f0c-92a3-a5e67ed0c92e",
+      "uuid": "urn:uuid:$(uuidgen)",
       "timestamp": "2025-11-28T10:00:00Z",
       "operator": "cto@dagklassical.com"
     }
@@ -190,7 +190,7 @@
       }
     ],
     "metadata": {
-      "uuid": "urn:uuid:1e8b7144-7d3c-42d3-8a07-f78d4d652e9c",
+      "uuid": "urn:uuid:$(uuidgen)",
       "timestamp": "2025-11-28T11:00:00Z",
       "operator": "cto@dagklassical.com"
     }
@@ -239,7 +239,7 @@
       }
     ],
     "metadata": {
-      "uuid": "urn:uuid:c8b41142-f294-4c42-80a4-fd3cac693788",
+      "uuid": "urn:uuid:$(uuidgen)",
       "timestamp": "2025-11-28T11:30:00Z",
       "operator": "cto@dagklassical.com"
     }
@@ -288,7 +288,7 @@
       }
     ],
     "metadata": {
-      "uuid": "urn:uuid:bc7a3da5-3d42-4222-94ac-c52543c20327",
+      "uuid": "urn:uuid:$(uuidgen)",
       "timestamp": "2025-11-28T11:30:00Z",
       "operator": "cto@dagklassical.com"
     }

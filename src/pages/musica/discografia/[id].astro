@@ -3,6 +3,7 @@
 import Layout from '../../../layouts/Layout.astro';
 import releases from '../../../data/releases.json';
 import artists from '../../../data/artists.json';
+import musicCards from '../../../data/music-cards.json';
 
 export const prerender = true;
 
@@ -21,26 +22,12 @@ const releaseArtists = release.artistIds.map(artistId => {
   return artists.find(a => a.id === artistId) || { id: artistId, name: artistId };
 });
 
-const artistsWithSocial = releaseArtists.map(artist => {
-  let websiteDomain = null;
-  if (artist.website) {
-    try {
-      const url = new URL(artist.website);
-      websiteDomain = url.hostname.replace('www.', '');
-    } catch (e) {
-      websiteDomain = artist.website;
-    }
-  }
-
-  const socialLinks = artist.social 
-    ? Object.entries(artist.social).map(([platform, url]) => {
-        const name = platform.charAt(0).toUpperCase() + platform.slice(1);
-        return { platform, url, name };
-      })
-    : [];
-
-  return { ...artist, websiteDomain, socialLinks };
-});
+// ✅ Obtener géneros de los artistas (máx. 3, combinados y únicos)
+const allGenres = [...new Set(
+  releaseArtists.flatMap(artist => 
+    Array.isArray(artist.genre) ? artist.genre : []
+  )
+)].slice(0, 3);
 
 const artistNames = releaseArtists.map(a => a.name).join(', ');
 const pageTitle = `${release.title} - Discografía`;
@@ -48,6 +35,9 @@ const pageDescription = release.description || `Detalles de la colección "${rel
 const descriptionParagraphs = release.descriptionLong
   ? release.descriptionLong.split('\n\n').filter(p => p.trim() !== '')
   : null;
+
+// ✅ Determinar si hay Music Card asociada
+const associatedMusicCard = musicCards.find(card => card.associatedRelease === release.id);
 
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
@@ -104,7 +94,7 @@ const breadcrumbs = [
         <h1 class="text-h1 font-advent mb-2">{release.title}</h1>
         <p class="text-xl text-slate-600 mb-2">
           por{' '}
-          {artistsWithSocial.map((artist, i) => (
+          {releaseArtists.map((artist, i) => (
             <span>
               <a 
                 href={`/musica/artistas/${artist.id}`} 
@@ -112,31 +102,28 @@ const breadcrumbs = [
               >
                 {artist.name}
               </a>
-              {i < artistsWithSocial.length - 1 && ', '}
+              {i < releaseArtists.length - 1 && ', '}
             </span>
           ))}
         </p>
 
-        {artistsWithSocial.some(a => a.socialLinks.length > 0) && (
+        <!-- ✅ Etiquetas de género: más oscuras y legibles -->
+        {allGenres.length > 0 && (
           <div class="flex flex-wrap gap-1 my-2">
-            {artistsWithSocial.flatMap(artist => 
-              artist.socialLinks.map(({ platform, url, name }) => (
-                <a
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-block bg-white hover:bg-dag-burgundy/10 text-slate-700 hover:text-dag-burgundy text-[10px] px-1.5 py-0.5 rounded"
-                  aria-label={`Visitar ${name} de ${artist.name}`}
-                >
-                  {name}
-                </a>
-              ))
-            )}
+            {allGenres.map(genre => (
+              <span 
+                key={genre}
+                class="text-xs bg-white text-slate-800 px-2 py-0.5 rounded border border-platinum font-medium"
+              >
+                {genre.replace(/-/g, ' ')}
+              </span>
+            ))}
           </div>
         )}
 
+        <!-- ✅ Metadatos: "Lanzamiento" en vez de género -->
         <p class="text-slate-500 mb-4 text-sm">
-          {release.genre} • {new Date(release.releaseDate).toLocaleDateString('es-VE')} • {release.type}
+          Lanzamiento • {new Date(release.releaseDate).toLocaleDateString('es-VE', { day: '2-digit', month: '2-digit', year: 'numeric' })} • {release.type}
         </p>
 
         {descriptionParagraphs ? (
@@ -149,56 +136,76 @@ const breadcrumbs = [
           <p class="mb-6 text-slate-700">{release.description}</p>
         ) : null}
 
-        {artistsWithSocial.length > 1 && (
+        {releaseArtists.length > 1 && (
           <section class="mb-6">
             <h3 class="text-lg font-semibold mb-3">Artistas</h3>
             <div class="space-y-4">
-              {artistsWithSocial.map(artist => (
+              {releaseArtists.map(artist => (
                 <div class="border-l-2 border-dag-burgundy/30 pl-3">
                   <h4 class="font-medium">{artist.name}</h4>
-                  {artist.websiteDomain && (
-                    <p class="text-sm mt-1">
-                      <a 
-                        href={artist.website} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        class="text-dag-burgundy hover:underline"
-                      >
-                        {artist.websiteDomain}
-                      </a>
-                    </p>
-                  )}
                 </div>
               ))}
             </div>
           </section>
         )}
-
-        <section>
-          <h2 class="text-h2 font-advent mb-3">Music Cards Asociadas</h2>
-          {release.musicCards?.length > 0 ? (
-            <div class="space-y-2">
-              {release.musicCards.map(cardId => (
-                <a
-                  href={`/blockchain/music-cards/${cardId}`}
-                  class="block bg-white p-3 rounded border border-platinum hover:bg-gray95 transition-colors"
-                >
-                  Ver Music Card: {cardId}
-                </a>
-              ))}
-            </div>
-          ) : (
-            <p>No hay Music Cards asociadas a esta obra.</p>
-          )}
-        </section>
       </div>
     </div>
 
-    <div class="mt-8 p-4 border-t border-platinum text-sm text-slate-600">
-      <h3 class="font-semibold mb-2">Metadatos Inmutables</h3>
-      <p><strong>UUID:</strong> {release.metadata?.uuid || '—'}</p>
-      <p><strong>Timestamp:</strong> {release.metadata?.timestamp || '—'}</p>
-      <p><strong>Operador:</strong> {release.metadata?.operator || '—'}</p>
+    <!-- ✅ Metadatos inmutables con estilo de Music Card -->
+<div class="mt-8 pt-6 border-t border-platinum flex flex-col md:flex-row gap-6">
+  <!-- Columna izquierda: metadatos -->
+  <div class="md:w-1/3 py-4 w-full">
+    <div class="bg-white/50 border border-platinum rounded-md p-4">
+      <p class="text-xs font-['Source_Code_Pro'] text-slate-600">
+        <span class="font-semibold">UUID:</span> {release.metadata?.uuid || '—'}
+      </p>
+      <p class="text-xs font-['Source_Code_Pro'] text-slate-600">
+        <span class="font-semibold">Timestamp:</span> {release.metadata?.timestamp || '—'}
+      </p>
+      <p class="text-xs font-['Source_Code_Pro'] text-slate-600">
+        <span class="font-semibold">Operador:</span> {release.metadata?.operator || '—'}
+      </p>
     </div>
+  </div>
+
+  <!-- Columna derecha: CTA -->
+  <div class="md:w-2/3 p-4 flex items-center justify-center">
+    {associatedMusicCard ? (
+      <div class="py-4 bg-white border border-platinum rounded text-center max-w-full w-full">
+        <p class="text-slate-700 mb-3">
+          Disponible este álbum en Music Card.
+        </p>
+        <a
+          href={`/blockchain/music-cards/${associatedMusicCard.id}`}
+          class="inline-block bg-dag-burgundy text-white px-4 py-2 rounded hover:bg-opacity-90 font-montserrat-bold"
+        >
+          Ver la Music Card
+        </a>
+      </div>
+    ) : (
+      <div class="bg-white border border-platinum rounded p-4 text-center max-w-full w-full">
+        <p class="text-slate-700 mb-3">
+          ¿Te gustaría una Music Card de esta obra?  
+          Suscríbete para recibir novedades sobre "{release.title}".
+        </p>
+        <form class="flex flex-col sm:flex-row gap-2 justify-center">
+          <input
+            type="email"
+            name="email"
+            placeholder="tu@correo.com"
+            class="px-3 py-2 border border-platinum rounded w-full sm:w-auto text-sm text-center sm:text-left"
+            required
+          />
+          <button
+            type="submit"
+            class="bg-dag-burgundy text-white px-4 py-2 rounded hover:bg-opacity-90 font-montserrat-bold text-sm"
+          >
+            Suscríbete
+          </button>
+        </form>
+      </div>
+    )}
+  </div>
+</div>  
   </article>
 </Layout>

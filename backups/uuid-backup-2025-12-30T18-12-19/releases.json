@@ -78,7 +78,7 @@
       "mc-2025-teodor-dore-february-night-std"
     ],
     "metadata": {
-      "uuid": "urn:uuid:ccc6726b-ed17-44c5-b4dc-243b357be75b",
+      "uuid": "urn:uuid:$(uuidgen)",
       "timestamp": "2025-11-28T11:00:00Z",
       "operator": "cto@dagklassical.com"
     }
@@ -182,7 +182,7 @@
       "mc-2025-gerulewicz-aguinaldo-std"
     ],
     "metadata": {
-      "uuid": "urn:uuid:e61d1565-1219-48a7-a393-596e596827a4",
+      "uuid": "urn:uuid:$(uuidgen)",
       "timestamp": "2025-11-25T10:00:00Z",
       "operator": "cto@dagklassical.com"
     },
@@ -241,7 +241,7 @@
       "mc-2025-ramirez-capitulos-std"
     ],
     "metadata": {
-      "uuid": "urn:uuid:14861e8c-507a-4a88-ad3c-6e5aab5b213d",
+      "uuid": "urn:uuid:$(uuidgen)",
       "timestamp": "2025-11-27T18:00:00Z",
       "operator": "cto@dagklassical.com"
     }
@@ -320,7 +320,7 @@
     "commentaryAuthor": "Orquesta Académica de Moscú",
     "musicCards": [],
     "metadata": {
-      "uuid": "urn:uuid:2cc9764b-fcbe-4677-aa23-6dbb69e1d91f",
+      "uuid": "urn:uuid:$(uuidgen)",
       "timestamp": "2025-11-27T17:00:00Z",
       "operator": "cto@dagklassical.com"
     }
@@ -380,7 +380,7 @@
       "mc-2025-academica-moscu-nacionalismo-std"
     ],
     "metadata": {
-      "uuid": "urn:uuid:872a81b7-410e-4857-a22b-00dc64aa7fe5",
+      "uuid": "urn:uuid:$(uuidgen)",
       "timestamp": "2025-11-27T17:00:00Z",
       "operator": "cto@dagklassical.com"
     }
@@ -474,7 +474,7 @@
       "mc-2025-goulnara-schubert-std"
     ],
     "metadata": {
-      "uuid": "urn:uuid:1abcbf08-b30d-4a65-be99-ab0f97bd993b",
+      "uuid": "urn:uuid:$(uuidgen)",
       "timestamp": "2025-11-28T09:00:00Z",
       "operator": "cto@dagklassical.com"
     }
@@ -519,7 +519,7 @@
       "mc-2025-dipolo-riera-tema-con-variazioni-dm-std"
     ],
     "metadata": {
-      "uuid": "urn:uuid:99c14df8-ba36-42c0-ad62-55c077924dde",
+      "uuid": "urn:uuid:$(uuidgen)",
       "timestamp": "2025-11-27T18:00:00Z",
       "operator": "cto@dagklassical.com"
     }
