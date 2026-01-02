@@ -247,144 +247,261 @@
     }
   },
   {
-    "id": "academica-moscu-momentos-musicales-barroco-01",
-    "title": "Momentos Musicales Vol. 1 – Barroco Inglés",
-    "artistIds": [
-      "academica-moscu"
-    ],
-    "genre": [
-      "música-clásica"
-    ],
-    "releaseDate": "2025-01-01",
-    "type": "álbum",
-    "status": "lanzado",
-    "description": "Water Music de Georg Friedrich Händel, interpretada con frescura y rigor histórico por la Orquesta Académica de Moscú.",
-    "coverImage": "/covers/cover-academica-rusa-vol-01.webp",
-    "fullAlbumAvailable": false,
-    "sheetMusicAvailable": false,
-    "platforms": {
-      "spotify": null,
-      "apple": null,
-      "youtube": null,
-      "tidal": null,
-      "deezer": null
-    },
-    "tracks": [
-      {
-        "title": "Obertura",
-        "duration": "4:20"
-      },
-      {
-        "title": "Adagio Staccato",
-        "duration": "2:15"
-      },
-      {
-        "title": "Allegro Staccato",
-        "duration": "3:00"
-      },
-      {
-        "title": "Andante - Allegro Staccato",
-        "duration": "3:45"
-      },
-      {
-        "title": "A tempo di Minuetto",
-        "duration": "2:50"
-      },
-      {
-        "title": "Air",
-        "duration": "3:30"
-      },
-      {
-        "title": "Minuet",
-        "duration": "2:20"
-      },
-      {
-        "title": "Bourrée",
-        "duration": "2:40"
-      },
-      {
-        "title": "Hornpipe",
-        "duration": "3:10"
-      },
-      {
-        "title": "Allegro Moderatto",
-        "duration": "4:00"
-      },
-      {
-        "title": "Allegro (bonus track)",
-        "duration": "3:25"
-      }
-    ],
-    "duration": "35:15",
-    "commentary": "Water Music es una de las obras instrumentales más queridas del repertorio clásico. Aunque envuelta en leyenda, su belleza y vitalidad la convierten en un puente entre la corte inglesa del siglo XVIII y el oyente contemporáneo.",
-    "commentaryAuthor": "Orquesta Académica de Moscú",
-    "musicCards": [],
-    "metadata": {
-      "uuid": "urn:uuid:2cc9764b-fcbe-4677-aa23-6dbb69e1d91f",
-      "timestamp": "2025-11-27T17:00:00Z",
-      "operator": "cto@dagklassical.com"
-    }
+  "id": "orquesta-academica-de-moscu-momentos-musicales-vol-1",
+  "workTitle": "Momentos Musicales Vol. 1: Barroco Inglés",
+  "composer": "Georg Frideric Handel",
+  "performers": ["Orquesta Académica de Moscú"],
+  "title": "Momentos Musicales Vol. 1: Barroco Inglés",
+  "artistIds": ["orquesta-academica-de-moscu"],
+  "genre": "barroco-ingles",
+  "releaseDate": "2024-06-01",
+  "type": "álbum",
+  "status": "lanzado",
+  "description": "Una inmersión en la elegancia y el esplendor de la corte inglesa del siglo XVIII, con la Suite Nº1 en Fa mayor de la 'Water Music' de Handel, interpretada con precisión histórica y brillo sonoro por la Orquesta Académica de Moscú.",
+  "descriptionLong": "El Nacimiento de una Tradición Sinfónica\n\nLa 'Water Music' de Handel no fue solo música de entretenimiento; fue un acto político y cultural que marcó el nacimiento de la música orquestal pública en Inglaterra. Compuesta para el rey Jorge I, esta suite combina danzas francesas, aires italianos y una pompa británica única.\n\nUna Interpretación de Referencia\n\nLa Orquesta Académica de Moscú aborda esta obra con un enfoque que equilibra la fidelidad histórica y la resonancia moderna. Cada entrada de trompa, cada frase de violín, está calibrada para evocar las aguas del Támesis y la grandeza de una monarquía en auge.\n\nPrimera Entrega de una Serie Esencial\n\nComo inicio de la serie 'Momentos Musicales', este volumen establece el estándar: grabaciones de alta fidelidad, contextualización curatorial y una misión clara: hacer del repertorio académico una experiencia accesible, profunda y eterna, ahora certificada en blockchain por DAG Klassical.",
+  "coverImage": "/covers/cover-orquesta-academica-de-moscu-momentos-musicales-vol-1.webp",
+  "demoAvailable": false,
+  "fullAlbumAvailable": true,
+  "sheetMusicAvailable": false,
+  "platforms": {
+    "spotify": null,
+    "apple": "https://music.apple.com/de/album/momentos-musicales-vol-1-barroco-ingles/1798805918",
+    "youtube": null,
+    "tidal": null,
+    "deezer": null
   },
-  {
-    "id": "academica-moscu-momentos-musicales-nacionalismo-ruso-03",
-    "title": "Momentos Musicales Vol. 3 – Nacionalismo Ruso",
-    "artistIds": [
-      "academica-moscu"
-    ],
-    "genre": [
-      "música-clásica"
-    ],
-    "releaseDate": "2025-01-01",
-    "type": "álbum",
-    "status": "lanzado",
-    "description": "Momentos Musicales Vol. 3 reúne tres obras emblemáticas del nacionalismo ruso: las Danzas Polovtsianas de Borodín, la Gran Pascua Rusa de Rimski-Kórsakov y Una noche en el monte calvo de Músorgski. Esta triología sonora captura el alma eslava en su expresión más auténtica, donde lo folclórico se fusiona con la maestría académica. En DAG KLASSICAL, cada obra se preserva inmutable en blockchain, transformando esta herencia cultural en un legado eterno accesible para las generaciones futuras.",
-    "descriptionLong": "Momentos Musicales Vol. 3: El Alma de Rusia en Tres Movimientos\n\nEste álbum reúne tres joyas del nacionalismo ruso, un movimiento que buscó liberar la música de las influencias europeas para descubrir el alma auténtica de una nación. Las Danzas Polovtsianas de Borodín emergen como un torbellino de pasión y exotismo, donde las melodías seductoras y los ritmos ardientes de su ópera 'Príncipe Ígor' evocan las estepas infinitas y el espíritu indomable de los pueblos nómadas. Rimski-Kórsakov, con su Gran Pascua Rusa, teje un tapiz sonoro que transforma los cánticos litúrgicos ortodoxos en una odisea espiritual, donde las sombras del Viernes Santo dan paso a la luz resplandeciente de la resurrección. Y Músorgski, con Una noche en el monte calvo, desata fuerzas primordiales: un sabbat demoníaco que culmina en un duelo entre la oscuridad y los primeros rayos del amanecer, capturando el folclore eslavo en su expresión más visceral.\n\nEn DAG KLASSICAL, estas obras maestras no solo se preservan en alta fidelidad, sino que se certifican en blockchain como patrimonio cultural inmutable. Cada acorde, cada crescendo, cada silencio significativo queda protegido para las generaciones futuras, asegurando que la voz de estos compositores revolucionarios —Borodín, Rimski-Kórsakov y Músorgski— continúe resonando con la misma intensidad que cuando desafiaron las convenciones de su tiempo. Un viaje auditivo donde lo sagrado y lo profano, lo folclórico y lo académico, se funden en una síntesis perfecta que trasciende el género y el tiempo.",
-    "coverImage": "/covers/cover-academica-rusa-vol-03.webp",
-    "demoAvailable": true,
-    "fullAlbumAvailable": false,
-    "sheetMusicAvailable": false,
-    "platforms": {
-      "spotify": null,
-      "apple": null,
-      "youtube": null,
-      "tidal": null,
-      "deezer": null
+  "tracks": [
+    {
+      "title": "Overture (Largo - Allegro)",
+      "duration": "3:20",
+      "composer": "Georg Frideric Handel",
+      "demo": null,
+      "workCatalogue": "HWV 348"
     },
-    "tracks": [
-      {
-        "title": "Danzas Polovtsianas",
-        "composer": "Alexander Borodin",
-        "workCatalogue": "Príncipe Ígor, Acto II",
-        "duration": "12:30",
-        "demo": "/audio/demo/academica-moscu/momentos-musicales/vol-03/academica-moscu-momentos-musicales-nacionalismo-ruso-03-01-danzas-polovtsianas-demo.mp3"
-      },
-      {
-        "title": "La Gran Pascua Rusa",
-        "composer": "Nikolái Rimski-Kórsakov",
-        "workCatalogue": "Obertura de la Gran Pascua Rusa, Op. 36",
-        "duration": "14:20",
-        "demo": "/audio/demo/academica-moscu/momentos-musicales/vol-03/academica-moscu-momentos-musicales-nacionalismo-ruso-03-02-gran-pascua-rusa-demo.mp3"
-      },
-      {
-        "title": "Una noche en el monte calvo",
-        "composer": "Modest Músorgski",
-        "workCatalogue": "Una noche en el monte calvo (vers. Rimski-Kórsakov)",
-        "duration": "11:45",
-        "demo": "/audio/demo/academica-moscu/momentos-musicales/vol-03/academica-moscu-momentos-musicales-nacionalismo-ruso-03-03-noche-monte-calvo-demo.mp3"
-      }
-    ],
-    "duration": "38:35",
-    "commentary": "Estas tres obras encarnan el espíritu de 'Los Cinco', el grupo de compositores rusos que buscó crear una identidad musical autóctona. Entre lo sagrado, lo folclórico y lo diabólico, se teje un retrato sonoro del alma rusa del siglo XIX.",
-    "commentaryAuthor": "Orquesta Académica de Moscú",
-    "musicCards": [
-      "mc-2025-academica-moscu-nacionalismo-std"
-    ],
-    "metadata": {
-      "uuid": "urn:uuid:872a81b7-410e-4857-a22b-00dc64aa7fe5",
-      "timestamp": "2025-11-27T17:00:00Z",
-      "operator": "cto@dagklassical.com"
+    {
+      "title": "Adagio",
+      "duration": "1:45",
+      "composer": "Georg Frideric Handel",
+      "demo": null,
+      "workCatalogue": "HWV 348"
+    },
+    {
+      "title": "Allegro - Andante",
+      "duration": "2:10",
+      "composer": "Georg Frideric Handel",
+      "demo": null,
+      "workCatalogue": "HWV 348"
+    },
+    {
+      "title": "Minuet",
+      "duration": "2:00",
+      "composer": "Georg Frideric Handel",
+      "demo": null,
+      "workCatalogue": "HWV 348"
+    },
+    {
+      "title": "Air",
+      "duration": "1:50",
+      "composer": "Georg Frideric Handel",
+      "demo": null,
+      "workCatalogue": "HWV 348"
     }
+  ],
+  "duration": "11:05",
+  "commentary": "Handel no compuso para la posteridad; compuso para el momento. Nosotros lo preservamos para la eternidad.",
+  "commentaryAuthor": "Orquesta Académica de Moscú",
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:$(uuidgen)",
+    "timestamp": "2025-12-31T10:00:00Z",
+    "operator": "cto@dagklassical.com"
+  }
+},
+{
+  "id": "orquesta-academica-de-moscu-momentos-musicales-vol-2",
+  "workTitle": "Momentos Musicales Vol. 2: Clásico Austriaco",
+  "composer": "Wolfgang Amadeus Mozart",
+  "performers": ["Orquesta Académica de Moscú"],
+  "title": "Momentos Musicales Vol. 2: Clásico Austriaco",
+  "artistIds": ["orquesta-academica-de-moscu"],
+  "genre": "clasico-austriaco",
+  "releaseDate": "2024-07-01",
+  "type": "álbum",
+  "status": "lanzado",
+  "description": "Un viaje al corazón del período clásico vienés con la Sinfonía Nº29 de Mozart, obra maestra de equilibrio, claridad y emoción contenida, interpretada con elegancia y rigor por la Orquesta Académica de Moscú.",
+  "descriptionLong": "La Claridad como Ideal Estético\n\nLa Sinfonía Nº29 en La mayor, compuesta por el joven Mozart a los 18 años, es un testimonio de madurez anticipada. En ella, la complejidad se disfraza de simplicidad, y cada frase respira con una lógica interna impecable.\n\nLa Tradición Vienesa desde Moscú\n\nLa Orquesta Académica de Moscú no imita el sonido historicista; lo reinterpreta desde su propia tradición orquestal. El resultado es una lectura que respeta la transparencia del estilo clásico, pero con una profundidad tímbrica que solo una formación de cuerdas rusas puede ofrecer.\n\nSegunda Entrega de la Serie 'Momentos Musicales'\n\nEste volumen continúa la misión de transformar lo académico en experiencia íntima. Cada compás es una lección de armonía, cada movimiento un paseo por los salones de Viena. En DAG Klassical, esta interpretación se convierte en legado inmutable.",
+  "coverImage": "/covers/cover-orquesta-academica-de-moscu-momentos-musicales-vol-2.webp",
+  "demoAvailable": false,
+  "fullAlbumAvailable": true,
+  "sheetMusicAvailable": false,
+  "platforms": {
+    "spotify": null,
+    "apple": "https://music.apple.com/de/album/momentos-musicales-vol-2-cl%C3%A1sico-austriaco/1801516518",
+    "youtube": null,
+    "tidal": null,
+    "deezer": null
   },
+  "tracks": [
+    {
+      "title": "Allegro moderato",
+      "duration": "6:30",
+      "composer": "Wolfgang Amadeus Mozart",
+      "demo": null,
+      "workCatalogue": "KV 201"
+    },
+    {
+      "title": "Andante",
+      "duration": "5:15",
+      "composer": "Wolfgang Amadeus Mozart",
+      "demo": null,
+      "workCatalogue": "KV 201"
+    },
+    {
+      "title": "Menuetto. Allegro",
+      "duration": "2:40",
+      "composer": "Wolfgang Amadeus Mozart",
+      "demo": null,
+      "workCatalogue": "KV 201"
+    },
+    {
+      "title": "Allegro con spirito",
+      "duration": "4:20",
+      "composer": "Wolfgang Amadeus Mozart",
+      "demo": null,
+      "workCatalogue": "KV 201"
+    }
+  ],
+  "duration": "18:45",
+  "commentary": "En Mozart, la perfección no es fría; es el latido de un corazón que conoce la belleza absoluta.",
+  "commentaryAuthor": "Orquesta Académica de Moscú",
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:$(uuidgen)",
+    "timestamp": "2025-12-31T10:00:00Z",
+    "operator": "cto@dagklassical.com"
+  }
+},
+{
+  "id": "orquesta-academica-de-moscu-momentos-musicales-vol-3",
+  "workTitle": "Momentos Musicales Vol. 3: Nacionalismo Ruso",
+  "composer": "Mijaíl Glinka",
+  "performers": ["Orquesta Académica de Moscú"],
+  "title": "Momentos Musicales Vol. 3: Nacionalismo Ruso",
+  "artistIds": ["orquesta-academica-de-moscu"],
+  "genre": "nacionalismo-ruso",
+  "releaseDate": "2024-08-01",
+  "type": "álbum",
+  "status": "lanzado",
+  "description": "Un homenaje a las raíces de la música rusa con 'Kamarinskaya' de Glinka, la obra que, según Tchaikovsky, sembró toda la escuela nacional rusa. Interpretada con orgullo y fuerza telúrica por la Orquesta Académica de Moscú.",
+  "descriptionLong": "El Alma Rusa en Notas\n\n'Kamarinskaya' no es solo una pieza orquestal; es un manifiesto. Glinka toma dos temas populares —una canción nupcial y una danza campesina— y los eleva a la categoría de arte sinfónico. Con ella, nace una identidad musical rusa independiente de los modelos occidentales.\n\nDesde la Fuente del Nacionalismo\n\nLa Orquesta Académica de Moscú aborda esta obra con una energía casi ritual. Los clarines evocan las estepas, las cuerdas dialogan con los coros escondidos en la memoria colectiva. Cada repetición no es monotonía, sino insistencia: la insistencia de un pueblo en existir a través del sonido.\n\nTercera Entrega de la Serie\n\nEste volumen conecta directamente con la identidad de la orquesta. Grabado con pasión y certificado en blockchain, 'Kamarinskaya' se convierte en un faro cultural: pequeño en duración, inmenso en significado.",
+  "coverImage": "/covers/cover-orquesta-academica-de-moscu-momentos-musicales-vol-3.webp",
+  "demoAvailable": false,
+  "fullAlbumAvailable": true,
+  "sheetMusicAvailable": false,
+  "platforms": {
+    "spotify": null,
+    "apple": "https://music.apple.com/de/album/momentos-musicales-vol-3-nacionalismo-ruso/1801516297",
+    "youtube": null,
+    "tidal": null,
+    "deezer": null
+  },
+  "tracks": [
+    {
+      "title": "Kamarinskaya",
+      "duration": "8:50",
+      "composer": "Mijaíl Glinka",
+      "demo": null,
+      "workCatalogue": ""
+    }
+  ],
+  "duration": "8:50",
+  "commentary": "Glinka no compuso música rusa; descubrió que ya existía en el alma del pueblo.",
+  "commentaryAuthor": "Orquesta Académica de Moscú",
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:$(uuidgen)",
+    "timestamp": "2025-12-31T10:00:00Z",
+    "operator": "cto@dagklassical.com"
+  }
+},
+{
+  "id": "orquesta-academica-de-moscu-momentos-musicales-vol-4",
+  "workTitle": "Momentos Musicales Vol. 4: Barroco Italiano",
+  "composer": "Arcangelo Corelli",
+  "performers": ["Orquesta Académica de Moscú"],
+  "title": "Momentos Musicales Vol. 4: Barroco Italiano",
+  "artistIds": ["orquesta-academica-de-moscu"],
+  "genre": "barroco-italiano",
+  "releaseDate": "2024-09-01",
+  "type": "álbum",
+  "status": "lanzado",
+  "description": "Un tributo al maestro del concerto grosso con la Concerto Grosso Op. 6 Nº8 'Christmas Concerto' de Corelli, joya del barroco romano interpretada con gracia y rigor por la Orquesta Académica de Moscú.",
+  "descriptionLong": "La Roma de los Cardenales y los Violines\n\nEl 'Christmas Concerto' de Corelli es una obra de meditación y celebración. Escrita para la víspera de Navidad, combina el espíritu devocional con la danza y la alegría popular. Es la culminación de una vida dedicada a perfeccionar el lenguaje del concerto grosso.\n\nLa Elegancia desde el Norte\n\nLa Orquesta Académica de Moscú, lejos de imitar un sonido italiano, aporta una claridad estructural y una tensión rítmica que iluminan la arquitectura de la obra. Cada entrada del concertino es un destello de luz en la oscuridad invernal.\n\nCierre de un Ciclo Fundamental\n\nComo cuarta entrega de 'Momentos Musicales', este volumen completa un arco que va desde el Barroco Inglés al Italiano, pasando por Viena y Moscú. Es un viaje por Europa en cuatro paradas, todas certificadas en blockchain como patrimonio inmutable de DAG Klassical.",
+  "coverImage": "/covers/cover-momentos-musicales-vol-4.webp",
+  "demoAvailable": false,
+  "fullAlbumAvailable": true,
+  "sheetMusicAvailable": false,
+  "platforms": {
+    "spotify": null,
+    "apple": "https://music.apple.com/de/album/momentos-musicales-vol-4-barroco-italiano/1801523570",
+    "youtube": null,
+    "tidal": null,
+    "deezer": null
+  },
+  "tracks": [
+    {
+      "title": "Sinfonia (Largo - Allegro)",
+      "duration": "2:30",
+      "composer": "Arcangelo Corelli",
+      "demo": null,
+      "workCatalogue": "Op. 6 No. 8"
+    },
+    {
+      "title": "Allemanda (Allegro)",
+      "duration": "2:10",
+      "composer": "Arcangelo Corelli",
+      "demo": null,
+      "workCatalogue": "Op. 6 No. 8"
+    },
+    {
+      "title": "Adagio",
+      "duration": "1:50",
+      "composer": "Arcangelo Corelli",
+      "demo": null,
+      "workCatalogue": "Op. 6 No. 8"
+    },
+    {
+      "title": "Sarabanda (Vivace)",
+      "duration": "2:00",
+      "composer": "Arcangelo Corelli",
+      "demo": null,
+      "workCatalogue": "Op. 6 No. 8"
+    },
+    {
+      "title": "Allegro",
+      "duration": "1:40",
+      "composer": "Arcangelo Corelli",
+      "demo": null,
+      "workCatalogue": "Op. 6 No. 8"
+    },
+    {
+      "title": "Pastorale (Largo)",
+      "duration": "3:20",
+      "composer": "Arcangelo Corelli",
+      "demo": null,
+      "workCatalogue": "Op. 6 No. 8"
+    }
+  ],
+  "duration": "13:30",
+  "commentary": "En Corelli, la Navidad no se canta; se deja oír en el silencio entre las notas.",
+  "commentaryAuthor": "Orquesta Académica de Moscú",
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:$(uuidgen)",
+    "timestamp": "2025-12-31T10:00:00Z",
+    "operator": "cto@dagklassical.com"
+  }
+},
   {
     "id": "goulnara-galimchina-schubert-d960-d780",
     "title": "Schubert: Sonata D960 & Momentos Musicales D780",
