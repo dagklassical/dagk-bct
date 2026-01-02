@@ -1,6 +1,7 @@
 ---
 // src/pages/musica/discografia/[id].astro
 import Layout from '../../../layouts/Layout.astro';
+import ImmutableStamp from '../../../components/ImmutableStamp.astro';
 import releases from '../../../data/releases.json';
 import artists from '../../../data/artists.json';
 import musicCards from '../../../data/music-cards.json';
@@ -18,11 +19,16 @@ if (!release) {
   return Astro.redirect('/musica/discografia');
 }
 
+// === Navegación Anterior/Siguiente entre releases ===
+const currentIndex = releases.findIndex(r => r.id === id);
+const prevRelease = currentIndex > 0 ? releases[currentIndex - 1] : null;
+const nextRelease = currentIndex < releases.length - 1 ? releases[currentIndex + 1] : null;
+
+// === Datos para el contenido ===
 const releaseArtists = release.artistIds.map(artistId => {
   return artists.find(a => a.id === artistId) || { id: artistId, name: artistId };
 });
 
-// ✅ Obtener géneros de los artistas (máx. 3, combinados y únicos)
 const allGenres = [...new Set(
   releaseArtists.flatMap(artist => 
     Array.isArray(artist.genre) ? artist.genre : []
@@ -30,13 +36,10 @@ const allGenres = [...new Set(
 )].slice(0, 3);
 
 const artistNames = releaseArtists.map(a => a.name).join(', ');
-const pageTitle = `${release.title} - Discografía`;
-const pageDescription = release.description || `Detalles de la colección "${release.title}" por ${artistNames}.`;
 const descriptionParagraphs = release.descriptionLong
   ? release.descriptionLong.split('\n\n').filter(p => p.trim() !== '')
   : null;
 
-// ✅ Determinar si hay Music Card asociada
 const associatedMusicCard = musicCards.find(card => card.associatedRelease === release.id);
 
 const breadcrumbs = [
@@ -47,7 +50,11 @@ const breadcrumbs = [
 ];
 ---
 
-<Layout title={pageTitle} description={pageDescription} breadcrumbs={breadcrumbs}>
+<Layout 
+  title={`${release.title} - Discografía`} 
+  description={release.description || `Obra de ${artistNames} en DAG Klassical`}
+  breadcrumbs={breadcrumbs}
+>
   <div class="max-w-4xl mx-auto pt-8 px-4">
     <a href="/musica/discografia" class="text-slate-700 hover:text-dag-burgundy flex items-center text-sm">
       ← Volver a Discografía
@@ -107,7 +114,6 @@ const breadcrumbs = [
           ))}
         </p>
 
-        <!-- ✅ Etiquetas de género: más oscuras y legibles -->
         {allGenres.length > 0 && (
           <div class="flex flex-wrap gap-1 my-2">
             {allGenres.map(genre => (
@@ -121,7 +127,6 @@ const breadcrumbs = [
           </div>
         )}
 
-        <!-- ✅ Metadatos: "Lanzamiento" en vez de género -->
         <p class="text-slate-500 mb-4 text-sm">
           Lanzamiento • {new Date(release.releaseDate).toLocaleDateString('es-VE', { day: '2-digit', month: '2-digit', year: 'numeric' })} • {release.type}
         </p>
@@ -151,61 +156,81 @@ const breadcrumbs = [
       </div>
     </div>
 
-    <!-- ✅ Metadatos inmutables con estilo de Music Card -->
-<div class="mt-8 pt-6 border-t border-platinum flex flex-col md:flex-row gap-6">
-  <!-- Columna izquierda: metadatos -->
-  <div class="md:w-1/3 py-4 w-full">
-    <div class="bg-white/50 border border-platinum rounded-md p-4">
-      <p class="text-xs font-['Source_Code_Pro'] text-slate-600">
-        <span class="font-semibold">UUID:</span> {release.metadata?.uuid || '—'}
-      </p>
-      <p class="text-xs font-['Source_Code_Pro'] text-slate-600">
-        <span class="font-semibold">Timestamp:</span> {release.metadata?.timestamp || '—'}
-      </p>
-      <p class="text-xs font-['Source_Code_Pro'] text-slate-600">
-        <span class="font-semibold">Operador:</span> {release.metadata?.operator || '—'}
-      </p>
+    <!-- ✅ Metadatos + CTA en dos columnas -->
+    <div class="mt-8 pt-6 border-t border-platinum flex flex-col md:flex-row gap-6">
+      <div class="md:w-1/3 p-4">
+        <ImmutableStamp 
+          uuid={release.metadata?.uuid || '—'}
+          timestamp={release.metadata?.timestamp || '—'}
+          operator={release.metadata?.operator || '—'}
+        />
+      </div>
+      <div class="md:w-2/3 p-4 flex items-center justify-center">
+        {associatedMusicCard ? (
+          <div class="p-4 bg-white border border-platinum rounded text-center max-w-md w-full">
+            <p class="text-slate-700 mb-3">
+              Disponible este álbum en Music Card.
+            </p>
+            <a
+              href={`/blockchain/music-cards/${associatedMusicCard.id}`}
+              class="inline-block bg-dag-burgundy text-white px-4 py-2 rounded hover:bg-opacity-90 font-montserrat-bold"
+            >
+              Ver la Music Card
+            </a>
+          </div>
+        ) : (
+          <div class="bg-white border border-platinum rounded p-4 text-center max-w-md w-full">
+            <p class="text-slate-700 mb-3">
+              ¿Te gustaría una Music Card de esta obra?  
+              Suscríbete para recibir novedades sobre "{release.title}".
+            </p>
+            <form 
+              action="https://formspree.io/f/TU-FORM-ID" 
+              method="POST"
+              class="flex flex-col sm:flex-row gap-2 justify-center"
+            >
+              <input
+                type="email"
+                name="email"
+                placeholder="tu@correo.com"
+                class="px-3 py-2 border border-platinum rounded w-full sm:w-auto text-sm text-center sm:text-left"
+                required
+              />
+              <input type="hidden" name="obra" value={release.title} />
+              <input type="hidden" name="_subject" value={`Suscripción - Obra: ${release.title}`} />
+              <button
+                type="submit"
+                class="bg-dag-burgundy text-white px-4 py-2 rounded hover:bg-opacity-90 font-montserrat-bold text-sm"
+              >
+                Suscríbete
+              </button>
+            </form>
+          </div>
+        )}
+      </div>
     </div>
-  </div>
 
-  <!-- Columna derecha: CTA -->
-  <div class="md:w-2/3 p-4 flex items-center justify-center">
-    {associatedMusicCard ? (
-      <div class="py-4 bg-white border border-platinum rounded text-center max-w-full w-full">
-        <p class="text-slate-700 mb-3">
-          Disponible este álbum en Music Card.
-        </p>
-        <a
-          href={`/blockchain/music-cards/${associatedMusicCard.id}`}
-          class="inline-block bg-dag-burgundy text-white px-4 py-2 rounded hover:bg-opacity-90 font-montserrat-bold"
-        >
-          Ver la Music Card
-        </a>
-      </div>
-    ) : (
-      <div class="bg-white border border-platinum rounded p-4 text-center max-w-full w-full">
-        <p class="text-slate-700 mb-3">
-          ¿Te gustaría una Music Card de esta obra?  
-          Suscríbete para recibir novedades sobre "{release.title}".
-        </p>
-        <form class="flex flex-col sm:flex-row gap-2 justify-center">
-          <input
-            type="email"
-            name="email"
-            placeholder="tu@correo.com"
-            class="px-3 py-2 border border-platinum rounded w-full sm:w-auto text-sm text-center sm:text-left"
-            required
-          />
-          <button
-            type="submit"
-            class="bg-dag-burgundy text-white px-4 py-2 rounded hover:bg-opacity-90 font-montserrat-bold text-sm"
+    <!-- ✅ Navegación Anterior/Siguiente entre releases -->
+    {(prevRelease || nextRelease) && (
+      <nav class="mt-12 pt-6 border-t border-platinum flex flex-col sm:flex-row justify-between gap-4">
+        {prevRelease ? (
+          <a 
+            href={`/musica/discografia/${prevRelease.id}`} 
+            class="flex items-center text-dag-burgundy hover:text-opacity-80"
           >
-            Suscríbete
-          </button>
-        </form>
-      </div>
+            ← Anterior: {prevRelease.title}
+          </a>
+        ) : <div></div>}
+        
+        {nextRelease ? (
+          <a 
+            href={`/musica/discografia/${nextRelease.id}`} 
+            class="flex items-center text-dag-burgundy hover:text-opacity-80 text-right"
+          >
+            Siguiente: {nextRelease.title} →
+          </a>
+        ) : <div></div>}
+      </nav>
     )}
-  </div>
-</div>  
   </article>
 </Layout>
