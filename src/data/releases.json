@@ -189,63 +189,118 @@
     "demoAvailable": true
   },
   {
-    "id": "virginia-ramirez-capitulos",
-    "title": "Capítulos",
-    "artistIds": [
-      "virginia-ramirez"
-    ],
-    "genre": [
-      "jazz"
-    ],
-    "releaseDate": "2025-01-01",
-    "type": "álbum",
-    "status": "lanzado",
-    "description": "\"Capítulos\" es un viaje sonoro a través de los éxitos más emblemáticos de Virginia Ramírez, meticulosamente remasterizados. Este álbum celebra su dominio técnico al piano y su magistral fusión entre el jazz moderno y los ritmos latinoamericanos. Cada pieza, ahora inmutable en blockchain, es un testimonio de elegancia y profundidad que redefine los greatest hits como obra artística autónoma.",
-    "descriptionLong": "Capítulos: Donde los Éxitos se Convierten en Legado\n\n\"Capítulos\" es un viaje sonoro a través de los éxitos más celebrados de Virginia Ramírez, reuniendo en un solo volumen aquellas piezas que se han convertido en emblemas de su sonido único. Cada tema, seleccionado meticulosamente de sus álbumes anteriores, ha sido remasterizado para ofrecer una experiencia auditiva renovada y de la más alta fidelidad, permitiendo tanto a nuevos oyentes como a seguidores de larga data redescubrir la profundidad y el color de su música.\n\nEl álbum es un testimonio del dominio técnico de Virginia al piano y su habilidad innata para fusionar ritmos. Desde la sofisticación armónica del jazz moderno hasta la cadencia irresistible de la tradición latinoamericana, \"Capítulos\" navega por un espectro emocional y rítmico vasto. Los oyentes podrán deleitarse con la sensualidad del jazz tradicional y el LatinJazz, unificado por el sello inconfundible de su interpretación: elegante, poderosa y profundamente sentida.\n\nMás que una simple recopilación, \"Capítulos\" es una declaración artística. Representa una pausa, un respiro para contemplar el camino recorrido y saborear los logros que han definido su sonido. En DAG KLASSICAL, esta obra trasciende el formato digital para convertirse en un legado cultural inmutable, confirmando el lugar de Virginia Ramírez como una voz esencial y perdurable en la música instrumental.",
-    "coverImage": "/covers/cover-capitulos-virginia-ramirez.png",
-    "fullAlbumAvailable": false,
-    "sheetMusicAvailable": false,
-    "platforms": {
-      "spotify": null,
-      "apple": null,
-      "youtube": null,
-      "tidal": null,
-      "deezer": null
-    },
-    "tracks": [
-      {
-        "title": "Capítulo I",
-        "duration": "5:20"
-      },
-      {
-        "title": "Capítulo II",
-        "duration": "4:45"
-      },
-      {
-        "title": "Capítulo III",
-        "duration": "6:10"
-      },
-      {
-        "title": "Capítulo IV",
-        "duration": "5:30"
-      },
-      {
-        "title": "Capítulo V",
-        "duration": "4:55"
-      }
-    ],
-    "duration": "26:40",
-    "commentary": "Más que una simple recopilación, 'Capítulos' es una declaración artística: una pausa para contemplar el camino recorrido y saborear los logros que han definido su sonido.",
-    "commentaryAuthor": "Virginia Ramírez",
-    "musicCards": [
-      "mc-2025-ramirez-capitulos-std"
-    ],
-    "metadata": {
-      "uuid": "urn:uuid:14861e8c-507a-4a88-ad3c-6e5aab5b213d",
-      "timestamp": "2025-11-27T18:00:00Z",
-      "operator": "cto@dagklassical.com"
-    }
+  "id": "virginia-ramirez-capitulos",
+  "workTitle": "Capítulos",
+  "composer": "Virginia Ramírez",
+  "performers": ["Virginia Ramírez"],
+  "title": "Capítulos",
+  "artistIds": ["virginia-ramirez"],
+  "genre": "jazz",
+  "releaseDate": "2024-06-28",
+  "type": "álbum",
+  "status": "lanzado",
+  "description": "\"Capítulos\" es un viaje sonoro a través de los éxitos más emblemáticos de Virginia Ramírez, meticulosamente remasterizados. Este álbum celebra su dominio técnico al piano y su magistral fusión entre el jazz moderno y los ritmos latinoamericanos. Cada pieza, ahora inmutable en blockchain, es un testimonio de elegancia y profundidad que redefine los greatest hits como obra artística autónoma.",
+  "descriptionLong": "Capítulos: Donde los Éxitos se Convierten en Legado\n\n\"Capítulos\" es un viaje sonoro a través de los éxitos más celebrados de Virginia Ramírez, reuniendo en un solo volumen aquellas piezas que se han convertido en emblemas de su sonido único. Cada tema, seleccionado meticulosamente de sus álbumes anteriores, ha sido remasterizado para ofrecer una experiencia auditiva renovada y de la más alta fidelidad, permitiendo tanto a nuevos oyentes como a seguidores de larga data redescubrir la profundidad y el color de su música.\n\nEl álbum es un testimonio del dominio técnico de Virginia al piano y su habilidad innata para fusionar ritmos. Desde la sofisticación armónica del jazz moderno hasta la cadencia irresistible de la tradición latinoamericana, \"Capítulos\" navega por un espectro emocional y rítmico vasto. Los oyentes podrán deleitarse con la sensualidad del jazz tradicional y el LatinJazz, unificado por el sello inconfundible de su interpretación: elegante, poderosa y profundamente sentida.\n\nMás que una simple recopilación, \"Capítulos\" es una declaración artística. Representa una pausa, un respiro para contemplar el camino recorrido y saborear los logros que han definido su sonido. En DAG KLASSICAL, esta obra trasciende el formato digital para convertirse en un legado cultural inmutable, confirmando el lugar de Virginia Ramírez como una voz esencial y perdurable en la música instrumental.",
+  "coverImage": "/covers/cover-capitulos-virginia-ramirez.png",
+  "demoAvailable": true,
+  "fullAlbumAvailable": false,
+  "sheetMusicAvailable": false,
+  "platforms": {
+    "spotify": "https://open.spotify.com/album/2dNgFeneZI2RGDaplxxEtL?go=1&nd=1&dlsi=59c46aff44274124",
+    "apple": "https://music.apple.com/ve/album/cap%C3%ADtulos/1837264207",
+    "youtube": "https://music.youtube.com/playlist?list=OLAK5uy_mAr4hlD7HgH3_HPTbkGiax3pF_ciCUSkM",
+    "tidal": null,
+    "deezer": "https://www.deezer.com/us/album/814912391?app_id=140685&utm_source=partner_linkfire&utm_campaign=48d39b5b6a0a4d00867141cb5d303b73&utm_medium=Original&utm_term=lujo-network-3439&utm_content=album-814912391"
   },
+  "tracks": [
+    {
+      "title": "Preludio para Boby",
+      "composer": "Virginia Ramírez",
+      "workCatalogue": "",
+      "duration": "5:43",
+      "demo": "/audio/demo/virginia-ramirez/ramirez-capitulos-preludio-para-boby-demo.mp3"
+    },
+    {
+      "title": "Blues con Sangueo",
+      "composer": "Virginia Ramírez",
+      "workCatalogue": "",
+      "duration": "4:51",
+      "demo": "/audio/demo/virginia-ramirez/ramirez-capitulos-blues-con-sangueo-demo.mp3"
+    },
+    {
+      "title": "Domingo por la Tarde",
+      "composer": "Virginia Ramírez",
+      "workCatalogue": "",
+      "duration": "6:31",
+      "demo": "/audio/demo/virginia-ramirez/ramirez-capitulos-domingo-por-la-tarde-demo.mp3"
+    },
+    {
+      "title": "Días de Julio",
+      "composer": "Virginia Ramírez",
+      "workCatalogue": "",
+      "duration": "7:34",
+      "demo": "/audio/demo/virginia-ramirez/ramirez-capitulos-dias-de-julio-demo.mp3"
+    },
+    {
+      "title": "Don Alen",
+      "composer": "Virginia Ramírez",
+      "workCatalogue": "",
+      "duration": "5:01",
+      "demo": "/audio/demo/virginia-ramirez/ramirez-capitulos-don-alen-demo.mp3"
+    },
+    {
+      "title": "Dulcinea",
+      "composer": "Virginia Ramírez",
+      "workCatalogue": "",
+      "duration": "6:36",
+      "demo": "/audio/demo/virginia-ramirez/ramirez-capitulos-dulcinea-demo.mp3"
+    },
+    {
+      "title": "Espiral de Fuego",
+      "composer": "Virginia Ramírez",
+      "workCatalogue": "",
+      "duration": "6:55",
+      "demo": "/audio/demo/virginia-ramirez/ramirez-capitulos-espiral-de-fuego-demo.mp3"
+    },
+    {
+      "title": "Guasipati",
+      "composer": "Virginia Ramírez",
+      "workCatalogue": "",
+      "duration": "4:36",
+      "demo": "/audio/demo/virginia-ramirez/ramirez-capitulos-guasipati-demo.mp3"
+    },
+    {
+      "title": "Manos y Alma",
+      "composer": "Virginia Ramírez",
+      "workCatalogue": "",
+      "duration": "4:36",
+      "demo": "/audio/demo/virginia-ramirez/ramirez-capitulos-manos-y-alma-demo.mp3"
+    },
+    {
+      "title": "Azul y Verde",
+      "composer": "Virginia Ramírez",
+      "workCatalogue": "",
+      "duration": "8:09",
+      "demo": "/audio/demo/virginia-ramirez/ramirez-capitulos-azul-y-verde-demo.mp3"
+    },
+    {
+      "title": "Rapguinaldo",
+      "composer": "Virginia Ramírez",
+      "workCatalogue": "",
+      "duration": "3:17",
+      "demo": "/audio/demo/virginia-ramirez/ramirez-capitulos-rapguinaldo-demo.mp3"
+    }
+  ],
+  "duration": "1:03:49",
+  "commentary": "Más que una simple recopilación, 'Capítulos' es una declaración artística: una pausa para contemplar el camino recorrido y saborear los logros que han definido su sonido.",
+  "commentaryAuthor": "Virginia Ramírez",
+  "musicCards": ["mc-2025-ramirez-capitulos-std"],
+  "metadata": {
+    "uuid": "urn:uuid:14861e8c-507a-4a88-ad3c-6e5aab5b213d",
+    "timestamp": "2025-11-27T18:00:00Z",
+    "operator": "cto@dagklassical.com"
+  }
+},
   {
   "id": "orquesta-academica-de-moscu-momentos-musicales-vol-1",
   "workTitle": "Momentos Musicales Vol. 1: Barroco Inglés",

@@ -70,27 +70,27 @@
     ],
     "cardImage": "/cards/mc-2025-virginia-capitulos.webp",
     "socialLinks": [
-      {
-        "platform": "Spotify",
-        "url": "https://open.spotify.com/"
-      },
-      {
-        "platform": "Apple Music",
-        "url": "https://music.apple.com/ve"
-      },
-      {
-        "platform": "YouTube Music",
-        "url": "https://music.youtube.com/"
-      },
-      {
-        "platform": "Tidal",
-        "url": "https://tidal.com/"
-      },
-      {
-        "platform": "Deezer",
-        "url": "https://www.deezer.com/us/"
-      }
-    ],
+  {
+    "platform": "Spotify",
+    "url": "https://open.spotify.com/album/2dNgFeneZI2RGDaplxxEtL"
+  },
+  {
+    "platform": "Apple Music",
+    "url": "https://music.apple.com/ve/album/cap%C3%ADtulos/1837264207"
+  },
+  {
+    "platform": "YouTube Music",
+    "url": "https://music.youtube.com/playlist?list=OLAK5uy_mAr4hlD7HgH3_HPTbkGiax3pF_ciCUSkM"
+  },
+  {
+    "platform": "Deezer",
+    "url": "https://www.deezer.com/us/album/814912391"
+  },
+  {
+    "platform": "Tidal",
+    "url": ""
+  }
+],
     "metadata": {
       "uuid": "urn:uuid:77fd8dad-0a38-4838-8c09-49973d8344a9",
       "timestamp": "2025-11-25T10:00:01Z",
