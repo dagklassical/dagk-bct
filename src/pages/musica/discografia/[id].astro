@@ -216,7 +216,7 @@ const breadcrumbs = [
         {prevRelease ? (
           <a 
             href={`/musica/discografia/${prevRelease.id}`} 
-            class="flex items-center text-dag-burgundy hover:text-opacity-80"
+            class="flex items-center text-dag-burgundy hover:text-opacity-80 text-sm"
           >
             ← Anterior: {prevRelease.title}
           </a>
@@ -225,7 +225,7 @@ const breadcrumbs = [
         {nextRelease ? (
           <a 
             href={`/musica/discografia/${nextRelease.id}`} 
-            class="flex items-center text-dag-burgundy hover:text-opacity-80 text-right"
+            class="flex items-center text-dag-burgundy hover:text-opacity-80 text-right text-sm"
           >
             Siguiente: {nextRelease.title} →
           </a>

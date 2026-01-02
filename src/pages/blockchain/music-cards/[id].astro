@@ -191,7 +191,7 @@ const breadcrumbs = [
       </div>
     </div>
 
-    <div class="max-w-4xl mx-auto px-4 mt-8 pt-2 border-t border-platinum">
+    <div class="max-w-4xl mx-auto mt-8 pt-2 border-t border-platinum">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
         <div class="flex flex-col justify-end">
           <ImmutableStamp
@@ -200,16 +200,54 @@ const breadcrumbs = [
             operator={card.metadata.operator}
           />
         </div>
-        <div class="md:col-span-2 pt-4 pb-3 px-5 border border-platinum rounded-md bg-white/50">
-          <p class="text-sm">
-            <span class="text-dag-burgundy font-semibold">CRÉDITOS: </span>
+        <div class="md:col-span-2 p-4 border border-platinum rounded-md bg-white/50">
+          <p class="text-xs text-slate-600 font-['Source_Code_Pro'] leading-relaxed">
+            <span class="text-dag-burgundy">CRÉDITOS: </span>
             Piano y arreglos: {artistNames} | Mezcla y mastering: Danilo Álvarez | 
-            Arte: Leo Gerulewicz | Diseño: Lorien Gascón Rojas
-          </p>
-          <p class="text-sm text-slate-600">Mezclado y masterizado en Mansa Studio®, Lechería, Venezuela.</p>
+            Arte: Leo Gerulewicz | Diseño: Lorien Gascón Rojas | Mezclado y masterizado en Mansa Studio®, Lechería, Venezuela.</p>
         </div>
       </div>
     </div>
+
+    <!-- ✅ Navegación Anterior/Siguiente por fecha de lanzamiento -->
+    {(() => {
+      // Obtener la fecha de lanzamiento del release asociado
+      const getReleaseDate = (mc) => {
+        const rel = releases.find(r => r.id === mc.associatedRelease);
+        return rel?.releaseDate ? new Date(rel.releaseDate) : new Date(0);
+      };
+
+      // Filtrar y ordenar solo Music Cards disponibles
+      const availableCards = musicCards.filter(c => 
+        c.status === 'disponible' || c.status === 'próximo'
+      ).sort((a, b) => getReleaseDate(a) - getReleaseDate(b));
+
+      const currentIndex = availableCards.findIndex(c => c.id === id);
+      const prevCard = currentIndex > 0 ? availableCards[currentIndex - 1] : null;
+      const nextCard = currentIndex < availableCards.length - 1 ? availableCards[currentIndex + 1] : null;
+
+      return (prevCard || nextCard) ? (
+        <nav class="mt-12 pt-6 border-t border-platinum flex flex-col sm:flex-row justify-between gap-4">
+          {prevCard ? (
+            <a 
+              href={`/blockchain/music-cards/${prevCard.id}`} 
+              class="flex items-center text-dag-burgundy hover:text-opacity-80 text-sm"
+            >
+              ← Anterior: {prevCard.title}
+            </a>
+          ) : <div></div>}
+          
+          {nextCard ? (
+            <a 
+              href={`/blockchain/music-cards/${nextCard.id}`} 
+              class="flex items-center text-dag-burgundy hover:text-opacity-80 text-right text-sm"
+            >
+              Siguiente: {nextCard.title} →
+            </a>
+          ) : <div></div>}
+        </nav>
+      ) : null;
+    })()}
 
     <script>
       document.addEventListener('DOMContentLoaded', () => {
