@@ -29,11 +29,12 @@ const releaseArtists = release.artistIds.map(artistId => {
   return artists.find(a => a.id === artistId) || { id: artistId, name: artistId };
 });
 
-const allGenres = [...new Set(
-  releaseArtists.flatMap(artist => 
-    Array.isArray(artist.genre) ? artist.genre : []
-  )
-)].slice(0, 3);
+// ✅ Combina el género del release + géneros de los artistas (máx. 3, sin duplicados)
+const releaseGenre = release.genre ? [release.genre] : [];
+const artistGenres = releaseArtists.flatMap(artist => 
+  Array.isArray(artist.genre) ? artist.genre : []
+);
+const allGenres = [...new Set([...releaseGenre, ...artistGenres])].slice(0, 3);
 
 const artistNames = releaseArtists.map(a => a.name).join(', ');
 const descriptionParagraphs = release.descriptionLong
@@ -69,6 +70,36 @@ const breadcrumbs = [
           class="w-full rounded-md mx-auto shadow-md mt-4"
           onerror="this.src='https://placehold.co/300x300/cccccc/999999?text=Cover'"
         />
+        <!-- Íconos de plataformas: justo debajo de la portada -->
+{release.platforms && (
+  <div class="mt-6 flex justify-center gap-4 flex-wrap">
+    {release.platforms.spotify && (
+      <a href={release.platforms.spotify} target="_blank" rel="noopener" aria-label="Spotify" class="block w-7 h-7 hover:scale-110 transition-transform">
+        <img src="/icons/spotify-color-icon.svg" alt="Spotify" class="w-full h-full" />
+      </a>
+    )}
+    {release.platforms.apple && (
+      <a href={release.platforms.apple} target="_blank" rel="noopener" aria-label="Apple Music" class="block w-7 h-7 hover:scale-110 transition-transform">
+        <img src="/icons/apple-music-color-icon.svg" alt="Apple Music" class="w-full h-full" />
+      </a>
+    )}
+    {release.platforms.youtube && (
+      <a href={release.platforms.youtube} target="_blank" rel="noopener" aria-label="YouTube Music" class="block w-7 h-7 hover:scale-110 transition-transform">
+        <img src="/icons/youtube-music-color-icon.svg" alt="YouTube Music" class="w-full h-full" />
+      </a>
+    )}
+    {release.platforms.tidal && (
+      <a href={release.platforms.tidal} target="_blank" rel="noopener" aria-label="Tidal" class="block w-7 h-7 hover:scale-110 transition-transform">
+        <img src="/icons/tidal-icon.svg" alt="Tidal" class="w-full h-full" />
+      </a>
+    )}
+    {release.platforms.deezer && (
+      <a href={release.platforms.deezer} target="_blank" rel="noopener" aria-label="Deezer" class="block w-7 h-7 hover:scale-110 transition-transform">
+        <img src="/icons/deezer-color-icon.svg" alt="Deezer" class="w-full h-full" />
+      </a>
+    )}
+  </div>
+)}
         {release.tracks?.length > 0 && (
           <section class="mt-6 pt-4 border-t border-platinum">
             <h3 class="text-xl font-bold text-slate-700 mb-2">Tracklist</h3>

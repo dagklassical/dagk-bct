@@ -244,28 +244,32 @@
     }
   },
   {
-    "id": "orquesta-academica-de-moscu",
-    "name": "Orquesta Académica de Moscú",
-    "role": "Ensemble sinfónico",
-    "bio": "La Orquesta Académica de Moscú es una agrupación de élite formada por músicos egresados de los conservatorios moscovitas más prestigiosos. Su serie «Momentos Musicales» reinterpreta con rigor académico y claridad didáctica los pilares del repertorio orquestal, desde el barroco inglés hasta el nacionalismo ruso. En DAG Klassical, cada álbum se certifica en blockchain como documento sonoro inmutable de una tradición viva.",    "avatar": "/artists/profile-orquesta-academica-moscu-01.webp",
-    "bioLong": "Orquesta Académica de Moscú: La Tradición como Puente Hacia lo Inmutable\n\nNacida en el corazón de la capital rusa, la Orquesta Académica de Moscú no es una formación orquestal convencional. Está compuesta por una selección de músicos formados en el Conservatorio Tchaikovsky y otras instituciones de élite, unidos por una misión común: transformar la inmensidad del repertorio académico en experiencias sonoras accesibles, precisas y profundas.\n\nEl Proyecto «Momentos Musicales»\n\nSu iniciativa más emblemática, la serie *Momentos Musicales*, rechaza el formato del álbum recopilatorio para proponer en su lugar una narrativa curatorial. Cada volumen es una inmersión temática —ya sea en la elegancia estructural del Barroco Inglés o en la fuerza telúrica del Nacionalismo Ruso—, cuidadosamente articulada para guiar al oyente desde la curiosidad hasta la comprensión. Las grabaciones, realizadas en condiciones de estudio de referencia, capturan no solo la técnica impecable de la orquesta, sino también su compromiso con la intención compositiva original.\n\nUna Visión para el Siglo XXI\n\nEn una era de efimeridad digital, la Orquesta Académica de Moscú elige la permanencia. Al asociarse con DAG Klassical, sus interpretaciones no solo se distribuyen en alta resolución, sino que se inscriben en blockchain como activos culturales inmutables. Cada obra se convierte así en un faro: una señal clara, verificable y eterna en el océano de contenidos efímeros. La orquesta no solo interpreta música; construye memoria.",
-    "releases": [
-      "orquesta-academica-de-moscu-momentos-musicales-vol-1",
-      "orquesta-academica-de-moscu-momentos-musicales-vol-2",
-      "orquesta-academica-de-moscu-momentos-musicales-vol-3",
-      "orquesta-academica-de-moscu-momentos-musicales-vol-4"
-    ],
-    "country": "Rusia",
-    "city": "Moscú",
-    "genre": [
-      "música-clásica",
-      "nacionalismo-ruso",
-      "barroco"
-    ],
-    "metadata": {
-      "uuid": "urn:uuid:84b83a8d-d45e-461f-bec7-6c4786651b7b",
-      "timestamp": "2025-11-27T17:00:00Z",
-      "operator": "cto@dagklassical.com"
-    }
+  "id": "orquesta-academica-de-moscu",
+  "name": "Orquesta Académica de Moscú",
+  "role": "Orquesta sinfónica",
+  "country": "Rusia",
+  "city": "Moscú",
+  "genre": ["barroco-ingles", "barroco-italiano", "nacionalismo-ruso", "clasico-austriaco"],
+  "bio": "La Orquesta Académica de Moscú es una agrupación de élite formada por músicos egresados de los conservatorios moscovitas más prestigiosos. Su serie «Momentos Musicales» reinterpreta con rigor académico y claridad didáctica los pilares del repertorio orquestal, desde el barroco inglés hasta el nacionalismo ruso. En DAG Klassical, cada álbum se certifica en blockchain como documento sonoro inmutable de una tradición viva.",
+  "bioLong": "Orquesta Académica de Moscú: La Tradición como Puente Hacia lo Inmutable\n\nNacida en el corazón de la capital rusa, la Orquesta Académica de Moscú no es una formación orquestal convencional. Está compuesta por una selección de músicos formados en el Conservatorio Tchaikovsky y otras instituciones de élite, unidos por una misión común: transformar la inmensidad del repertorio académico en experiencias sonoras accesibles, precisas y profundas.\n\nEl Proyecto «Momentos Musicales»\n\nSu iniciativa más emblemática, la serie *Momentos Musicales*, rechaza el formato del álbum recopilatorio para proponer en su lugar una narrativa curatorial. Cada volumen es una inmersión temática —ya sea en la elegancia estructural del Barroco Inglés o en la fuerza telúrica del Nacionalismo Ruso—, cuidadosamente articulada para guiar al oyente desde la curiosidad hasta la comprensión. Las grabaciones, realizadas en condiciones de estudio de referencia, capturan no solo la técnica impecable de la orquesta, sino también su compromiso con la intención compositiva original.\n\nUna Visión para el Siglo XXI\n\nEn una era de efimeridad digital, la Orquesta Académica de Moscú elige la permanencia. Al asociarse con DAG Klassical, sus interpretaciones no solo se distribuyen en alta resolución, sino que se inscriben en blockchain como activos culturales inmutables. Cada obra se convierte así en un faro: una señal clara, verificable y eterna en el océano de contenidos efímeros. La orquesta no solo interpreta música; construye memoria.",
+  "avatar": "/artists/profile-orquesta-academica-moscu-01.webp",
+  "website": null,
+  "social": {
+    "instagram": null,
+    "youtube": null,
+    "facebook": null
+  },
+  "releases": [
+    "orquesta-academica-de-moscu-momentos-musicales-vol-1",
+    "orquesta-academica-de-moscu-momentos-musicales-vol-2",
+    "orquesta-academica-de-moscu-momentos-musicales-vol-3",
+    "orquesta-academica-de-moscu-momentos-musicales-vol-4"
+  ],
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:84b83a8d-d45e-461f-bec7-6c4786651b7b",
+    "timestamp": "2025-11-27T17:00:00Z",
+    "operator": "cto@dagklassical.com"
   }
+}
 ]

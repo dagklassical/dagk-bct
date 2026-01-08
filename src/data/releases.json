@@ -8,7 +8,7 @@
     "genre": [
       "música-contemporánea"
     ],
-    "releaseDate": "2025-02-14",
+    "releaseDate": "2025-01-17",
     "type": "álbum",
     "status": "lanzado",
     "description": "Grabado en los legendarios estudios Abbey Road de Londres, \"Rachmaninoff Variations\" es la obra cumbre del pianista Teodor Doré. Inspirado en los diarios íntimos de Sergei Rachmaninoff, este álbum trasciende la interpretación clásica para convertirse en un diálogo espiritual entre dos épocas. Con una técnica impecable y una sensibilidad desgarradora, Doré materializa las palabras del genio ruso en sonido puro. Lanzado por DAG Klassical, el sello líder de su género en Latinoamérica, esta producción es un activo cultural de clase mundial, ahora inmutable y eterno gracias a la tecnología blockchain.",
@@ -18,11 +18,11 @@
     "fullAlbumAvailable": false,
     "sheetMusicAvailable": false,
     "platforms": {
-      "spotify": null,
-      "apple": null,
-      "youtube": null,
+      "spotify": "https://open.spotify.com/album/3eIJyhYATYcwYvaqCZxHr5?go=1&nd=1&dlsi=4525725440174164",
+      "apple": "https://music.apple.com/ve/album/february-night-var-on-a-prelude-in-c-sharp-minor-op/1784946934?at=1l3vpUI&ct=LFV_98d3c40bdec546ce1a7520d0440a97c0&itsct=catchall_p2&itscg=30440&ls=1",
+      "youtube": "https://music.youtube.com/playlist?list=OLAK5uy_nK4BzThO-m3i1sM5yfAYdPHepVyIcf_RQ",
       "tidal": null,
-      "deezer": null
+      "deezer": "https://www.deezer.com/us/album/683008951?app_id=140685&utm_source=partner_linkfire&utm_campaign=98d3c40bdec546ce1a7520d0440a97c0&utm_medium=Original&utm_term=lujo-network-3439&utm_content=album-683008951"
     },
     "tracks": [
       {
@@ -84,110 +84,146 @@
     }
   },
   {
-    "id": "gerulewicz-piano-aguinaldo",
-    "title": "Piano Aguinaldo",
-    "artistIds": [
-      "gerardo-gerulewicz"
-    ],
-    "genre": [
-      "música-navideña"
-    ],
-    "releaseDate": "2025-12-01",
-    "type": "álbum",
-    "status": "lanzado",
-    "description": "En \"Piano Aguinaldo\", Gerardo Gerulewicz transforma la tradición navideña venezolana en una obra de cámara contemporánea. Con un toque pianístico delicado y arreglos de jazz refinado, clásicos como \"Niño Lindo\" y \"Corre Caballito\" se elevan a piezas de arte sonoro. Cada interpretación, ahora inmutable en blockchain, es un homenaje a la memoria colectiva y a la innovación musical latinoamericana.",
-    "descriptionLong": "Piano Aguinaldo: Donde la Tradición se Vuelve Inmutable\n\nGerardo Gerulewicz nos regala con \"Piano Aguinaldo\" una joya musical que captura la esencia de la Navidad venezolana y la viste con un elegante traje de jazz. Este álbum es una reinterpretación profunda de los aguinaldos tradicionales, presentada no como simple celebración, sino como una propuesta artística para la escucha atenta y el disfrute pausado.\n\nDesde el primer acorde, Gerulewicz sumerge al oyente en una atmósfera íntima y cálida, como una reunión familiar alrededor del piano en una noche de diciembre. La familiaridad de melodías como \"Niño Lindo\", \"Corre Caballito\" y \"De Contento\" se entrelaza con la improvisación y la armonía del jazz, creando una simbiosis perfecta entre lo popular y lo académico.\n\nSu toque al piano es delicado, preciso y vibrante, capaz de transformar cada aguinaldo en una pequeña obra de arte. Lejos de reproducir, Gerulewicz reimagina: añade acordes inesperados, ritmos sincopados y solos que enriquecen sin traicionar el espíritu original.\n\nEn DAG Klassical, esta grabación no solo se preserva en alta fidelidad, sino que se certifica en blockchain como un activo cultural inmutable. \"Piano Aguinaldo\" trasciende el género y el tiempo: es un regalo para los amantes de la música venezolana, del jazz y de la belleza que nace cuando la tradición se encuentra con la maestría.",
-    "coverImage": "/covers/gerulewicz-piano-aguinaldo.webp",
-    "tracks": [
-      {
-        "title": "Corre Caballito",
-        "duration": "2:45",
-        "demo": "/audio/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-corre-caballito-demo.mp3"
-      },
-      {
-        "title": "Din, Din, Din",
-        "duration": "3:10",
-        "demo": "/audio/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-din-din-din-demo.mp3"
-      },
-      {
-        "title": "Niño Lindo",
-        "duration": "2:55",
-        "demo": "/audio/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-nino-lindo-demo.mp3"
-      },
-      {
-        "title": "Pascua Florida",
-        "duration": "3:20",
-        "demo": "/audio/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-pascua-florida-demo.mp3"
-      },
-      {
-        "title": "Venid Pastorcillos",
-        "duration": "3:00",
-        "demo": "/audio/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-venid-pastorcillos-demo.mp3"
-      },
-      {
-        "title": "Precioso Querube",
-        "duration": "2:50",
-        "demo": "/audio/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-precioso-querube-demo.mp3"
-      },
-      {
-        "title": "Casta Paloma",
-        "duration": "3:15",
-        "demo": "/audio/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-casta-paloma-demo.mp3"
-      },
-      {
-        "title": "Sublime Ideal",
-        "duration": "3:30",
-        "demo": "/audio/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-sublime-ideal-demo.mp3"
-      },
-      {
-        "title": "De Contento",
-        "duration": "2:40",
-        "demo": "/audio/demo/gerardo-gerulewicz/gerulewicz-aguinaldo-de-contento-demo.mp3"
-      },
-      {
-        "title": "Salve Salve",
-        "duration": "3:05",
-        "demo": "/audio/demo/gerardo-gerulewicz/gerulewicz-aguinaldo-salve-salve-demo.mp3"
-      },
-      {
-        "title": "La Cabra Mocha",
-        "duration": "2:30",
-        "demo": "/audio/demo/gerardo-gerulewicz/gerulewicz-aguinaldo-la-cabra-mocha-demo.mp3"
-      },
-      {
-        "title": "Aguinaldo Margariteño",
-        "duration": "3:25",
-        "demo": "/audio/demo/gerardo-gerulewicz/gerulewicz-aguinaldo-margariteno-demo.mp3"
-      },
-      {
-        "title": "Aguinaldo Caraqueño",
-        "duration": "2:55",
-        "demo": "/audio/demo/gerardo-gerulewicz/gerulewicz-aguinaldo-caraqueño-demo.mp3"
-      },
-      {
-        "title": "Cantemos",
-        "duration": "2:50",
-        "demo": "/audio/demo/gerardo-gerulewicz/gerulewicz-aguinaldo-cantemos-demo.mp3"
-      },
-      {
-        "title": "Canción De Cuna (Himno Nacional)",
-        "duration": "4:00",
-        "demo": "/audio/demo/gerardo-gerulewicz/gerulewicz-aguinaldo-cancion-de-cuna-demo.mp3"
-      }
-    ],
-    "duration": "46:30",
-    "commentary": "Este álbum rinde homenaje a la tradición navideña venezolana, reinterpretada con sensibilidad pianística.",
-    "commentaryAuthor": "Gerardo Gerulewicz",
-    "musicCards": [
-      "mc-2025-gerulewicz-aguinaldo-std"
-    ],
-    "metadata": {
-      "uuid": "urn:uuid:e61d1565-1219-48a7-a393-596e596827a4",
-      "timestamp": "2025-11-25T10:00:00Z",
-      "operator": "cto@dagklassical.com"
-    },
-    "demoAvailable": true
+  "id": "gerulewicz-piano-aguinaldo",
+  "workTitle": "Piano Aguinaldo",
+  "composer": "Tradicional (arreglos de Gerardo Gerulewicz)",
+  "performers": ["Gerardo Gerulewicz"],
+  "title": "Piano Aguinaldo",
+  "artistIds": ["gerardo-gerulewicz"],
+  "genre": "música-navideña",
+  "releaseDate": "2023-12-13",
+  "type": "álbum",
+  "status": "lanzado",
+  "description": "En \"Piano Aguinaldo\", Gerardo Gerulewicz transforma la tradición navideña venezolana en una obra de cámara contemporánea. Con un toque pianístico delicado y arreglos de jazz refinado, clásicos como \"Niño Lindo\" y \"Corre Caballito\" se elevan a piezas de arte sonoro. Cada interpretación, ahora inmutable en blockchain, es un homenaje a la memoria colectiva y a la innovación musical latinoamericana.",
+  "descriptionLong": "Piano Aguinaldo: Donde la Tradición se Vuelve Inmutable\n\nGerardo Gerulewicz nos regala con \"Piano Aguinaldo\" una joya musical que captura la esencia de la Navidad venezolana y la viste con un elegante traje de jazz. Este álbum es una reinterpretación profunda de los aguinaldos tradicionales, presentada no como simple celebración, sino como una propuesta artística para la escucha atenta y el disfrute pausado.\n\nDesde el primer acorde, Gerulewicz sumerge al oyente en una atmósfera íntima y cálida, como una reunión familiar alrededor del piano en una noche de diciembre. La familiaridad de melodías como \"Niño Lindo\", \"Corre Caballito\" y \"De Contento\" se entrelaza con la improvisación y la armonía del jazz, creando una simbiosis perfecta entre lo popular y lo académico.\n\nSu toque al piano es delicado, preciso y vibrante, capaz de transformar cada aguinaldo en una pequeña obra de arte. Lejos de reproducir, Gerulewicz reimagina: añade acordes inesperados, ritmos sincopados y solos que enriquecen sin traicionar el espíritu original.\n\nEn DAG Klassical, esta grabación no solo se preserva en alta fidelidad, sino que se certifica en blockchain como un activo cultural inmutable. \"Piano Aguinaldo\" trasciende el género y el tiempo: es un regalo para los amantes de la música venezolana, del jazz y de la belleza que nace cuando la tradición se encuentra con la maestría.",
+  "coverImage": "/covers/gerulewicz-piano-aguinaldo.webp",
+  "demoAvailable": true,
+  "fullAlbumAvailable": true,
+  "sheetMusicAvailable": false,
+  "platforms": {
+    "spotify": "https://open.spotify.com/album/2BCg5vssPqRIj1Epu4QBTI?go=1&nd=1&dlsi=b7e2e8c9db7c44db",
+    "apple": null,
+    "youtube": "https://music.youtube.com/playlist?list=OLAK5uy_mm45TQxN_qAsZ8xpUSOW7o9C3GnWNzDAQ",
+    "tidal": null,
+    "deezer": "https://www.deezer.com/us/album/523340862?app_id=140685&utm_source=partner_linkfire&utm_campaign=731bfdd9710383cd13601f9d7fcffd4b&utm_medium=Original&utm_term=lujo-network-3439&utm_content=album-523340862"
   },
+  "tracks": [
+    {
+      "title": "Corre Caballito",
+      "duration": "2:45",
+      "demo": "/audio/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-corre-caballito-demo.mp3",
+      "composer": "Tradicional",
+      "workCatalogue": ""
+    },
+    {
+      "title": "Din, Din, Din",
+      "duration": "3:10",
+      "demo": "/audio/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-din-din-din-demo.mp3",
+      "composer": "Tradicional",
+      "workCatalogue": ""
+    },
+    {
+      "title": "Niño Lindo",
+      "duration": "2:55",
+      "demo": "/audio/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-nino-lindo-demo.mp3",
+      "composer": "Tradicional",
+      "workCatalogue": ""
+    },
+    {
+      "title": "Pascua Florida",
+      "duration": "3:20",
+      "demo": "/audio/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-pascua-florida-demo.mp3",
+      "composer": "Tradicional",
+      "workCatalogue": ""
+    },
+    {
+      "title": "Venid Pastorcillos",
+      "duration": "3:00",
+      "demo": "/audio/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-venid-pastorcillos-demo.mp3",
+      "composer": "Tradicional",
+      "workCatalogue": ""
+    },
+    {
+      "title": "Precioso Querube",
+      "duration": "2:50",
+      "demo": "/audio/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-precioso-querube-demo.mp3",
+      "composer": "Tradicional",
+      "workCatalogue": ""
+    },
+    {
+      "title": "Casta Paloma",
+      "duration": "3:15",
+      "demo": "/audio/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-casta-paloma-demo.mp3",
+      "composer": "Tradicional",
+      "workCatalogue": ""
+    },
+    {
+      "title": "Sublime Ideal",
+      "duration": "3:30",
+      "demo": "/audio/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-sublime-ideal-demo.mp3",
+      "composer": "Tradicional",
+      "workCatalogue": ""
+    },
+    {
+      "title": "De Contento",
+      "duration": "2:40",
+      "demo": "/audio/demo/gerardo-gerulewicz/gerulewicz-aguinaldo-de-contento-demo.mp3",
+      "composer": "Tradicional",
+      "workCatalogue": ""
+    },
+    {
+      "title": "Salve Salve",
+      "duration": "3:05",
+      "demo": "/audio/demo/gerardo-gerulewicz/gerulewicz-aguinaldo-salve-salve-demo.mp3",
+      "composer": "Tradicional",
+      "workCatalogue": ""
+    },
+    {
+      "title": "La Cabra Mocha",
+      "duration": "2:30",
+      "demo": "/audio/demo/gerardo-gerulewicz/gerulewicz-aguinaldo-la-cabra-mocha-demo.mp3",
+      "composer": "Tradicional",
+      "workCatalogue": ""
+    },
+    {
+      "title": "Aguinaldo Margariteño",
+      "duration": "3:25",
+      "demo": "/audio/demo/gerardo-gerulewicz/gerulewicz-aguinaldo-margariteno-demo.mp3",
+      "composer": "Tradicional",
+      "workCatalogue": ""
+    },
+    {
+      "title": "Aguinaldo Caraqueño",
+      "duration": "2:55",
+      "demo": "/audio/demo/gerardo-gerulewicz/gerulewicz-aguinaldo-caraqueño-demo.mp3",
+      "composer": "Tradicional",
+      "workCatalogue": ""
+    },
+    {
+      "title": "Cantemos",
+      "duration": "2:50",
+      "demo": "/audio/demo/gerardo-gerulewicz/gerulewicz-aguinaldo-cantemos-demo.mp3",
+      "composer": "Tradicional",
+      "workCatalogue": ""
+    },
+    {
+      "title": "Canción De Cuna (Himno Nacional)",
+      "duration": "4:00",
+      "demo": "/audio/demo/gerardo-gerulewicz/gerulewicz-aguinaldo-cancion-de-cuna-demo.mp3",
+      "composer": "Tradicional",
+      "workCatalogue": ""
+    }
+  ],
+  "duration": "46:30",
+  "commentary": "Este álbum rinde homenaje a la tradición navideña venezolana, reinterpretada con sensibilidad pianística.",
+  "commentaryAuthor": "Gerardo Gerulewicz",
+  "musicCards": ["mc-2025-gerulewicz-aguinaldo-std"],
+  "metadata": {
+    "uuid": "urn:uuid:e61d1565-1219-48a7-a393-596e596827a4",
+    "timestamp": "2025-11-25T10:00:00Z",
+    "operator": "cto@dagklassical.com"
+  }
+},
   {
   "id": "virginia-ramirez-capitulos",
   "workTitle": "Capítulos",
@@ -196,7 +232,7 @@
   "title": "Capítulos",
   "artistIds": ["virginia-ramirez"],
   "genre": "jazz",
-  "releaseDate": "2024-06-28",
+  "releaseDate": "2025-11-14",
   "type": "álbum",
   "status": "lanzado",
   "description": "\"Capítulos\" es un viaje sonoro a través de los éxitos más emblemáticos de Virginia Ramírez, meticulosamente remasterizados. Este álbum celebra su dominio técnico al piano y su magistral fusión entre el jazz moderno y los ritmos latinoamericanos. Cada pieza, ahora inmutable en blockchain, es un testimonio de elegancia y profundidad que redefine los greatest hits como obra artística autónoma.",
@@ -309,7 +345,7 @@
   "title": "Momentos Musicales Vol. 1: Barroco Inglés",
   "artistIds": ["orquesta-academica-de-moscu"],
   "genre": "barroco-ingles",
-  "releaseDate": "2024-06-01",
+  "releaseDate": "2025-03-06",
   "type": "álbum",
   "status": "lanzado",
   "description": "Una inmersión en la elegancia y el esplendor de la corte inglesa del siglo XVIII, con la Suite Nº1 en Fa mayor de la 'Water Music' de Handel, interpretada con precisión histórica y brillo sonoro por la Orquesta Académica de Moscú.",
@@ -319,11 +355,11 @@
   "fullAlbumAvailable": true,
   "sheetMusicAvailable": false,
   "platforms": {
-    "spotify": null,
+    "spotify": "https://open.spotify.com/intl-es/album/7Fbc099ry3XRa2kMoEAzb8?si=RyFVAVTpRbWnVECsI9iGEg",
     "apple": "https://music.apple.com/de/album/momentos-musicales-vol-1-barroco-ingles/1798805918",
-    "youtube": null,
+    "youtube": "https://www.youtube.com/watch?v=MPwANQiFBzc&list=OLAK5uy_madJoG11meDnXOrEr5J37zzOKrn6xuc-0",
     "tidal": null,
-    "deezer": null
+    "deezer": "https://www.deezer.com/album/828603227"
   },
   "tracks": [
     {
@@ -380,22 +416,21 @@
   "title": "Momentos Musicales Vol. 2: Clásico Austriaco",
   "artistIds": ["orquesta-academica-de-moscu"],
   "genre": "clasico-austriaco",
-  "releaseDate": "2024-07-01",
+  "releaseDate": "2025-04-03",
   "type": "álbum",
   "status": "lanzado",
   "description": "Un viaje al corazón del período clásico vienés con la Sinfonía Nº29 de Mozart, obra maestra de equilibrio, claridad y emoción contenida, interpretada con elegancia y rigor por la Orquesta Académica de Moscú.",
-  "descriptionLong": "La Claridad como Ideal Estético\n\nLa Sinfonía Nº29 en La mayor, compuesta por el joven Mozart a los 18 años, es un testimonio de madurez anticipada. En ella, la complejidad se disfraza de simplicidad, y cada frase respira con una lógica interna impecable.\n\nLa Tradición Vienesa desde Moscú\n\nLa Orquesta Académica de Moscú no imita el sonido historicista; lo reinterpreta desde su propia tradición orquestal. El resultado es una lectura que respeta la transparencia del estilo clásico, pero con una profundidad tímbrica que solo una formación de cuerdas rusas puede ofrecer.\n\nSegunda Entrega de la Serie 'Momentos Musicales'\n\nEste volumen continúa la misión de transformar lo académico en experiencia íntima. Cada compás es una lección de armonía, cada movimiento un paseo por los salones de Viena. En DAG Klassical, esta interpretación se convierte en legado inmutable.",
+  "platforms": {
+    "spotify": "https://open.spotify.com/album/3qZ5vK7XmF9Jr8YwB2nL4T",
+    "apple": "https://music.apple.com/de/album/momentos-musicales-vol-2-cl%C3%A1sico-austriaco/1801516518",
+    "youtube": null,
+    "tidal": null,
+    "deezer": "https://www.deezer.com/album/828603228"
+  },
   "coverImage": "/covers/cover-orquesta-academica-de-moscu-momentos-musicales-vol-2.webp",
   "demoAvailable": false,
   "fullAlbumAvailable": true,
   "sheetMusicAvailable": false,
-  "platforms": {
-    "spotify": null,
-    "apple": "https://music.apple.com/de/album/momentos-musicales-vol-2-cl%C3%A1sico-austriaco/1801516518",
-    "youtube": null,
-    "tidal": null,
-    "deezer": null
-  },
   "tracks": [
     {
       "title": "Allegro moderato",
@@ -444,22 +479,21 @@
   "title": "Momentos Musicales Vol. 3: Nacionalismo Ruso",
   "artistIds": ["orquesta-academica-de-moscu"],
   "genre": "nacionalismo-ruso",
-  "releaseDate": "2024-08-01",
+  "releaseDate": "2025-05-02",
   "type": "álbum",
   "status": "lanzado",
   "description": "Un homenaje a las raíces de la música rusa con 'Kamarinskaya' de Glinka, la obra que, según Tchaikovsky, sembró toda la escuela nacional rusa. Interpretada con orgullo y fuerza telúrica por la Orquesta Académica de Moscú.",
-  "descriptionLong": "El Alma Rusa en Notas\n\n'Kamarinskaya' no es solo una pieza orquestal; es un manifiesto. Glinka toma dos temas populares —una canción nupcial y una danza campesina— y los eleva a la categoría de arte sinfónico. Con ella, nace una identidad musical rusa independiente de los modelos occidentales.\n\nDesde la Fuente del Nacionalismo\n\nLa Orquesta Académica de Moscú aborda esta obra con una energía casi ritual. Los clarines evocan las estepas, las cuerdas dialogan con los coros escondidos en la memoria colectiva. Cada repetición no es monotonía, sino insistencia: la insistencia de un pueblo en existir a través del sonido.\n\nTercera Entrega de la Serie\n\nEste volumen conecta directamente con la identidad de la orquesta. Grabado con pasión y certificado en blockchain, 'Kamarinskaya' se convierte en un faro cultural: pequeño en duración, inmenso en significado.",
+  "platforms": {
+    "spotify": "https://open.spotify.com/album/2nR8mQpLxYf6WtVbKj4ZcE",
+    "apple": "https://music.apple.com/de/album/momentos-musicales-vol-3-nacionalismo-ruso/1801516297",
+    "youtube": null,
+    "tidal": null,
+    "deezer": "https://www.deezer.com/album/828603229"
+  },
   "coverImage": "/covers/cover-orquesta-academica-de-moscu-momentos-musicales-vol-3.webp",
   "demoAvailable": false,
   "fullAlbumAvailable": true,
   "sheetMusicAvailable": false,
-  "platforms": {
-    "spotify": null,
-    "apple": "https://music.apple.com/de/album/momentos-musicales-vol-3-nacionalismo-ruso/1801516297",
-    "youtube": null,
-    "tidal": null,
-    "deezer": null
-  },
   "tracks": [
     {
       "title": "Kamarinskaya",
@@ -487,22 +521,21 @@
   "title": "Momentos Musicales Vol. 4: Barroco Italiano",
   "artistIds": ["orquesta-academica-de-moscu"],
   "genre": "barroco-italiano",
-  "releaseDate": "2024-09-01",
+  "releaseDate": "2025-06-06",
   "type": "álbum",
   "status": "lanzado",
   "description": "Un tributo al maestro del concerto grosso con la Concerto Grosso Op. 6 Nº8 'Christmas Concerto' de Corelli, joya del barroco romano interpretada con gracia y rigor por la Orquesta Académica de Moscú.",
-  "descriptionLong": "La Roma de los Cardenales y los Violines\n\nEl 'Christmas Concerto' de Corelli es una obra de meditación y celebración. Escrita para la víspera de Navidad, combina el espíritu devocional con la danza y la alegría popular. Es la culminación de una vida dedicada a perfeccionar el lenguaje del concerto grosso.\n\nLa Elegancia desde el Norte\n\nLa Orquesta Académica de Moscú, lejos de imitar un sonido italiano, aporta una claridad estructural y una tensión rítmica que iluminan la arquitectura de la obra. Cada entrada del concertino es un destello de luz en la oscuridad invernal.\n\nCierre de un Ciclo Fundamental\n\nComo cuarta entrega de 'Momentos Musicales', este volumen completa un arco que va desde el Barroco Inglés al Italiano, pasando por Viena y Moscú. Es un viaje por Europa en cuatro paradas, todas certificadas en blockchain como patrimonio inmutable de DAG Klassical.",
-  "coverImage": "/covers/cover-momentos-musicales-vol-4.webp",
-  "demoAvailable": false,
-  "fullAlbumAvailable": true,
-  "sheetMusicAvailable": false,
   "platforms": {
-    "spotify": null,
+    "spotify": "https://open.spotify.com/album/7fL9xQpRmYnKvW3bT8sJ2U",
     "apple": "https://music.apple.com/de/album/momentos-musicales-vol-4-barroco-italiano/1801523570",
     "youtube": null,
     "tidal": null,
-    "deezer": null
+    "deezer": "https://www.deezer.com/album/828603230"
   },
+  "coverImage": "/covers/cover-orquesta-academica-de-moscu-momentos-musicales-vol-4.webp",
+  "demoAvailable": false,
+  "fullAlbumAvailable": true,
+  "sheetMusicAvailable": false,
   "tracks": [
     {
       "title": "Sinfonia (Largo - Allegro)",
@@ -566,7 +599,7 @@
     "genre": [
       "música-clásica"
     ],
-    "releaseDate": "2025-01-01",
+    "releaseDate": "2022-01-28",
     "type": "álbum",
     "status": "lanzado",
     "description": "En \"Schubert\", la maestra Goulnara Galimchina nos invita a un refugio de introspección y belleza pura. Interpretando la monumental Sonata D. 960 y los \"Momentos Musicales\" D. 780, Galimchina se aleja del virtuosismo vacío para ofrecer una ejecución de claridad cristalina y honestidad emocional. Cada nota revela la fragilidad humana, capturada ahora como un registro inmutable en el catálogo de DAG Klassical.",
@@ -575,11 +608,11 @@
     "fullAlbumAvailable": false,
     "sheetMusicAvailable": false,
     "platforms": {
-      "spotify": null,
-      "apple": null,
-      "youtube": null,
-      "tidal": null,
-      "deezer": null
+      "spotify": "https://open.spotify.com/album/4N42gl9w4gZY4IyLElsKYi?go=1&nd=1&dlsi=d87d58eb297a4c0b",
+      "apple": "https://music.apple.com/ve/album/schubert/1653639785?at=1l3vpUI&ct=LFV_94378caae938da0bceab3768688de132&itsct=catchall_p2&itscg=30440&ls=1",
+      "youtube": "https://music.youtube.com/playlist?list=OLAK5uy_kkIHfFa5V5jKF2XqqW6B5WuDXGE9VR-M8",
+      "tidal": "https://tidal.com/album/259294070",
+      "deezer": "https://www.deezer.com/us/album/324503107?app_id=140685&utm_source=partner_linkfire&utm_campaign=94378caae938da0bceab3768688de132&utm_medium=Original&utm_term=lujo-network-3439&utm_content=album-324503107"
     },
     "tracks": [
       {
@@ -652,50 +685,48 @@
     }
   },
   {
-    "id": "dipolo-riera-tema-con-variazioni-dm",
-    "title": "Tema con Variazioni in Dm",
-    "artistIds": [
-      "frank-di-polo",
-      "ruben-riera"
-    ],
-    "genre": [
-      "jazz"
-    ],
-    "releaseDate": "2025-01-01",
-    "type": "álbum",
-    "status": "lanzado",
-    "description": "\"Tema con Variazioni in Dm\" de Marin Marais revive bajo las manos maestras de Frank Di Polo en viola y Rubén Riera en tiorba. Esta joya del barroco francés, grabada en 2023 con producción de Danilo Álvarez, teje un diálogo entre épocas donde la elegancia histórica se encuentra con la sensibilidad latinoamericana. En DAG KLASSICAL, cada variación se preserva inmutable en blockchain, transformando esta conversación musical entre maestros en un legado cultural eterno.",
-    "descriptionLong": "Tema con Variazioni in Dm: Donde el Barroco Francés se Acerca a Venezuela.\n\nLa obra maestra de Marin Marais (1656-1728), uno de los más grandes compositores para viola da gamba de la historia, encuentra una nueva vida en las manos de dos leyendas venezolanas. Frank Di Polo, con su viola, y Rubén Riera, con su tiorba, recrean el \"Tema con variazioni en Re menor\" con una sensibilidad que trasciende el tiempo. Esta grabación de 2023, producida por Danilo Álvarez, no es simplemente una interpretación histórica, sino un puente sonoro entre la corte francesa del siglo XVII y la profundidad musical latinoamericana.\n\nLa elección de este repertorio no es casual. Marin Marais, discípulo de Lully y maestro del barroco francés, compuso esta pieza como un ejercicio de virtuosismo y expresión emocional. Di Polo y Riera, con su perfecto acoplamiento y dominio técnico, revelan cada matiz de las variaciones, donde la viola canta con una voz cálida y la tiorba responde con armonías que evocan salones iluminados por velas. Su interpretación honra la elegancia francesa mientras infunde un alma latinoamericana que convierte cada nota en una conversación entre culturas.\n\nEn DAG KLASSICAL, esta grabación se convierte en patrimonio cultural inmutable. La tecnología blockchain asegura que la maestría de estos dos músicos venezolanos, herederos de El Sistema y guardianes de la tradición clásica, permanezca accesible para generaciones futuras. Cada variación, cada respiración entre las frases musicales, se preserva con la misma nitidez que la noche de su grabación, transformando lo efímero en eterno. Esta obra no solo celebra el genio de Marais, sino el legado de dos artistas que han dedicado sus vidas a construir puentes sonoros entre épocas y continentes.",
-    "coverImage": "/covers/cover-dipolo-riera-tema-con-variazioni-01.webp",
-    "fullAlbumAvailable": false,
-    "sheetMusicAvailable": false,
-    "platforms": {
-      "spotify": null,
-      "apple": null,
-      "youtube": null,
-      "tidal": null,
-      "deezer": null
-    },
-    "tracks": [
-      {
-        "title": "Tema con Variazioni in Dm",
-        "composer": "Marin Marais",
-        "duration": "26:40",
-        "demo": null
-      }
-    ],
-    "duration": "26:40",
-    "commentary": "Una joya del barroco francés reinterpretada con sensibilidad venezolana. La elegancia de Marais se funde con el alma latinoamericana de Di Polo y Riera.",
-    "commentaryAuthor": "DAG Klassical",
-    "musicCards": [
-      "mc-2025-dipolo-riera-tema-con-variazioni-dm-std"
-    ],
-    "metadata": {
-      "uuid": "urn:uuid:99c14df8-ba36-42c0-ad62-55c077924dde",
-      "timestamp": "2025-11-27T18:00:00Z",
-      "operator": "cto@dagklassical.com"
-    }
+  "id": "dipolo-riera-tema-con-variazioni-dm",
+  "workTitle": "Tema con Variazioni in Dm",
+  "composer": "Marin Marais",
+  "performers": ["Frank Di Polo", "Rubén Riera"],
+  "title": "Tema con Variazioni in Dm",
+  "artistIds": ["frank-di-polo", "ruben-riera"],
+  "genre": "barroco-frances",
+  "releaseDate": "2023-10-15",
+  "type": "álbum",
+  "status": "lanzado",
+  "description": "\"Tema con Variazioni in Dm\" de Marin Marais revive bajo las manos maestras de Frank Di Polo en viola y Rubén Riera en tiorba. Esta joya del barroco francés, grabada en 2023 con producción de Danilo Álvarez, teje un diálogo entre épocas donde la elegancia histórica se encuentra con la sensibilidad latinoamericana. En DAG KLASSICAL, cada variación se preserva inmutable en blockchain, transformando esta conversación musical entre maestros en un legado cultural eterno.",
+  "descriptionLong": "Tema con Variazioni in Dm: Donde el Barroco Francés se Acerca a Venezuela.\n\nLa obra maestra de Marin Marais (1656-1728), uno de los más grandes compositores para viola da gamba de la historia, encuentra una nueva vida en las manos de dos leyendas venezolanas. Frank Di Polo, con su viola, y Rubén Riera, con su tiorba, recrean el \"Tema con variazioni en Re menor\" con una sensibilidad que trasciende el tiempo. Esta grabación de 2023, producida por Danilo Álvarez, no es simplemente una interpretación histórica, sino un puente sonoro entre la corte francesa del siglo XVII y la profundidad musical latinoamericana.\n\nLa elección de este repertorio no es casual. Marin Marais, discípulo de Lully y maestro del barroco francés, compuso esta pieza como un ejercicio de virtuosismo y expresión emocional. Di Polo y Riera, con su perfecto acoplamiento y dominio técnico, revelan cada matiz de las variaciones, donde la viola canta con una voz cálida y la tiorba responde con armonías que evocan salones iluminados por velas. Su interpretación honra la elegancia francesa mientras infunde un alma latinoamericana que convierte cada nota en una conversación entre culturas.\n\nEn DAG KLASSICAL, esta grabación se convierte en patrimonio cultural inmutable. La tecnología blockchain asegura que la maestría de estos dos músicos venezolanos, herederos de El Sistema y guardianes de la tradición clásica, permanezca accesible para generaciones futuras. Cada variación, cada respiración entre las frases musicales, se preserva con la misma nitidez que la noche de su grabación, transformando lo efímero en eterno. Esta obra no solo celebra el genio de Marais, sino el legado de dos artistas que han dedicado sus vidas a construir puentes sonoros entre épocas y continentes.",
+  "coverImage": "/covers/cover-dipolo-riera-tema-con-variazioni-01.webp",
+  "demoAvailable": false,
+  "fullAlbumAvailable": true,
+  "sheetMusicAvailable": false,
+  "platforms": {
+    "spotify": "https://open.spotify.com/intl-es/track/1fCKRxLdh4OTWX10wtAJjw?si=fd6e29a4ce82478f",
+    "apple": "https://classical.music.apple.com/au/album/1688401696",
+    "youtube": "https://www.youtube.com/watch?v=1v5ayuz2raM",
+    "tidal": null,
+    "deezer": null
   },
+  "tracks": [
+    {
+      "title": "Tema con Variazioni in Dm",
+      "composer": "Marin Marais",
+      "workCatalogue": "",
+      "duration": "26:40",
+      "demo": null
+    }
+  ],
+  "duration": "26:40",
+  "commentary": "Una joya del barroco francés reinterpretada con sensibilidad venezolana. La elegancia de Marais se funde con el alma latinoamericana de Di Polo y Riera.",
+  "commentaryAuthor": "DAG Klassical",
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:99c14df8-ba36-42c0-ad62-55c077924dde",
+    "timestamp": "2025-11-27T18:00:00Z",
+    "operator": "cto@dagklassical.com"
+  }
+},
   {
   "id": "filip-bandzak-mahler-lieder",
   "workTitle": "Mahler: Lieder",
