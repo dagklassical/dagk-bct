@@ -22,8 +22,9 @@ export async function getStaticPaths() {
   return Array.from(artistIds).map(id => ({ params: { id } }));
 }
 
-const { id } = Astro.params;
+const id = Astro.params.id as string;
 const artist = artists.find(a => a.id === id);
+
 if (!artist) {
   return Astro.redirect('/blockchain/music-cards');
 }
@@ -61,7 +62,7 @@ const breadcrumbs = [
               : 'Artista';
             
             return (
-              <a href={`/blockchain/music-cards/${card.id}`} class="group block bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden" key={card.id}>
+              <a href={`/blockchain/music-cards/${card.id}`} class="group block bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
                 <div class="aspect-[5/8]">
                   <img src={card.cardImage || '/images/placeholder-card.jpg'} alt={card.title} class="w-full h-full object-cover" loading="lazy" />
                 </div>

@@ -23,7 +23,7 @@ if (!card) {
 }
 
 // Helper seguro para enlaces
-const getSocialLink = (platformName) => {
+const getSocialLink = (platformName: string): string | null => {
   return card.socialLinks?.find(link => link.platform === platformName)?.url || null;
 };
 
@@ -34,12 +34,41 @@ const tidalUrl = getSocialLink('Tidal');
 const deezerUrl = getSocialLink('Deezer');
 
 const release = releases.find(r => r.id === card.associatedRelease);
-const artistList = release?.artistIds?.map(artistId => 
-  artists.find(a => a.id === artistId)
-).filter(Boolean) || [];
+const artistList = release?.artistIds
+  ?.map(artistId => artists.find(a => a.id === artistId))
+  .filter((a): a is NonNullable<typeof a> => a !== undefined) || [];
 
 const artistNames = artistList.map(a => a.name).join(', ') || 'Artista no identificado';
-const artistId = artistList[0]?.id || 'unknown'; // para ExclusiveAccessGate
+const artistId = artistList.length > 0 ? artistList[0].id : 'unknown'; // para ExclusiveAccessGate
+
+// === Calcular duración total (si hay tracks) ===
+let totalDuration = "0:00";
+if (release?.tracks) {
+  const totalSecs = release.tracks.reduce((sum, t) => {
+    if (!t.duration || typeof t.duration !== 'string') return sum;
+    const parts = t.duration.split(':');
+    const mins = Number(parts[0]) || 0;
+    const secs = Number(parts[1]) || 0;
+    return sum + (mins * 60 + secs);
+  }, 0);
+  const totalMins = Math.floor(totalSecs / 60);
+  const totalSecsRemain = totalSecs % 60;
+  totalDuration = `${totalMins}:${totalSecsRemain.toString().padStart(2, '0')}`;
+}
+
+// === Navegación Anterior/Siguiente por fecha de lanzamiento ===
+const getReleaseDate = (mc: typeof musicCards[0]) => {
+  const rel = releases.find(r => r.id === mc.associatedRelease);
+  return rel?.releaseDate ? new Date(rel.releaseDate) : new Date(0);
+};
+
+const availableCards = musicCards.filter(c => 
+  c.status === 'disponible' || c.status === 'próximo'
+).sort((a, b) => getReleaseDate(a).getTime() - getReleaseDate(b).getTime());
+
+const currentIndex = availableCards.findIndex(c => c.id === id);
+const prevCard = currentIndex > 0 ? availableCards[currentIndex - 1] : null;
+const nextCard = currentIndex < availableCards.length - 1 ? availableCards[currentIndex + 1] : null;
 
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
@@ -166,7 +195,6 @@ const breadcrumbs = [
             <div class="flex flex-wrap gap-2">
               {artistList.map(artist => (
                 <a
-                  key={artist.id}
                   href={`/musica/artistas/${artist.id}`}
                   class="inline-block bg-white px-3 py-1.5 rounded text-sm border border-platinum hover:bg-dag-burgundy/5 transition-colors"
                 >
@@ -183,6 +211,7 @@ const breadcrumbs = [
             <span class="px-2 py-1 bg-black/5 text-slate-800 text-xs font-mono rounded">FLAC 24/192</span>
             <span class="px-2 py-1 bg-black/5 text-slate-800 text-xs font-mono rounded">MP3 320 kbps</span>
             <span class="px-2 py-1 bg-dag-burgundy/10 text-dag-burgundy text-xs font-mono rounded">Certificado en Polygon</span>
+            <span class="px-2 py-1 bg-black/5 text-slate-800 text-xs font-mono rounded">Duración: {totalDuration}</span>
           </div>
           <p class="mt-3 text-sm text-slate-600">
             {card.edition} • {card.blockchain} • {card.price}
@@ -210,69 +239,58 @@ const breadcrumbs = [
     </div>
 
     <!-- ✅ Navegación Anterior/Siguiente por fecha de lanzamiento -->
-    {(() => {
-      // Obtener la fecha de lanzamiento del release asociado
-      const getReleaseDate = (mc) => {
-        const rel = releases.find(r => r.id === mc.associatedRelease);
-        return rel?.releaseDate ? new Date(rel.releaseDate) : new Date(0);
-      };
-
-      // Filtrar y ordenar solo Music Cards disponibles
-      const availableCards = musicCards.filter(c => 
-        c.status === 'disponible' || c.status === 'próximo'
-      ).sort((a, b) => getReleaseDate(a) - getReleaseDate(b));
-
-      const currentIndex = availableCards.findIndex(c => c.id === id);
-      const prevCard = currentIndex > 0 ? availableCards[currentIndex - 1] : null;
-      const nextCard = currentIndex < availableCards.length - 1 ? availableCards[currentIndex + 1] : null;
-
-      return (prevCard || nextCard) ? (
-        <nav class="mt-12 pt-6 border-t border-platinum flex flex-col sm:flex-row justify-between gap-4">
-          {prevCard ? (
-            <a 
-              href={`/blockchain/music-cards/${prevCard.id}`} 
-              class="flex items-center text-dag-burgundy hover:text-opacity-80 text-sm"
-            >
-              ← Anterior: {prevCard.title}
-            </a>
-          ) : <div></div>}
-          
-          {nextCard ? (
-            <a 
-              href={`/blockchain/music-cards/${nextCard.id}`} 
-              class="flex items-center text-dag-burgundy hover:text-opacity-80 text-right text-sm"
-            >
-              Siguiente: {nextCard.title} →
-            </a>
-          ) : <div></div>}
-        </nav>
-      ) : null;
-    })()}
+    {(prevCard || nextCard) && (
+      <nav class="mt-12 pt-6 border-t border-platinum flex flex-col sm:flex-row justify-between gap-4">
+        {prevCard ? (
+          <a 
+            href={`/blockchain/music-cards/${prevCard.id}`} 
+            class="flex items-center text-dag-burgundy hover:text-opacity-80 text-sm"
+          >
+            ← Anterior: {prevCard.title}
+          </a>
+        ) : <div></div>}
+        
+        {nextCard ? (
+          <a 
+            href={`/blockchain/music-cards/${nextCard.id}`} 
+            class="flex items-center text-dag-burgundy hover:text-opacity-80 text-right text-sm"
+          >
+            Siguiente: {nextCard.title} →
+          </a>
+        ) : <div></div>}
+      </nav>
+    )}
 
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        const player = document.getElementById('music-player');
-        const firstTrack = document.querySelector('[data-demo]');
-        if (player && firstTrack && firstTrack.dataset.demo) {
-          player.src = firstTrack.dataset.demo;
+        const player = document.getElementById('music-player') as HTMLAudioElement | null;
+        const firstTrack = document.querySelector('[data-demo]') as HTMLElement | null;
+        if (player && firstTrack) {
+          const demoSrc = firstTrack.dataset.demo;
+          if (demoSrc) {
+            player.src = demoSrc;
+          }
         }
       });
 
       document.addEventListener('click', (e) => {
-        const trackElement = e.target.closest('[data-demo]');
-        if (trackElement) {
-          const demoSrc = trackElement.dataset.demo;
-          if (demoSrc) {
-            const player = document.getElementById('music-player');
-            if (player) {
-              player.src = demoSrc;
-              player.load();
-              player.play().catch(err => {
-                console.warn('Reproducción fallida:', err);
-              });
-            }
-          }
-        }
+        const target = e.target as HTMLElement | null;
+        if (!target) return;
+
+        const trackElement = target.closest('[data-demo]') as HTMLElement | null;
+        if (!trackElement) return;
+
+        const demoSrc = trackElement.dataset.demo;
+        if (!demoSrc) return;
+
+        const player = document.getElementById('music-player') as HTMLAudioElement | null;
+        if (!player) return;
+
+        player.src = demoSrc;
+        player.load();
+        player.play().catch((err: any) => {
+          console.warn('Reproducción fallida:', err);
+        });
       });
     </script>
   </article>

@@ -2,15 +2,13 @@
 // src/pages/blockchain/acceso/[token].astro
 import Layout from '../../../layouts/Layout.astro';
 
-// ✅ Indica que esta página NO debe prerrenderizarse
-//    (se renderiza en el servidor en cada request)
 export const prerender = false;
 
-// Obtiene el token de la URL
 const { token } = Astro.params;
 
-// 🔐 Lógica de validación (ajusta según tu backend real)
-// Por ahora, usamos una lista blanca de tokens de demostración
+// ✅ Asegurar que token sea string
+const tokenString = typeof token === 'string' ? token : '';
+
 const validDemoTokens = new Set([
   'gerulewicz-aguinaldo',
   'dag-demo',
@@ -18,13 +16,12 @@ const validDemoTokens = new Set([
   'goulnara-schubert-std'
 ]);
 
-const isValid = validDemoTokens.has(token);
+const isValid = validDemoTokens.has(tokenString);
 const title = isValid ? 'Acceso Premium' : 'Token no válido';
 const description = isValid
   ? 'Contenido exclusivo de tu Music Card DAG Klassical.'
   : 'El token proporcionado no es válido o ha expirado.';
 
-// ✅ Breadcrumbs sin incluir el token (no es legible)
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
   { label: 'Blockchain', href: '/blockchain' },
@@ -44,14 +41,13 @@ const breadcrumbs = [
         <div class="bg-white p-6 rounded-lg border border-platinum">
           <h2 class="text-xl font-semibold mb-3">Tu Music Card</h2>
           <p>Esta obra ha sido certificada en blockchain como un activo cultural inmutable.</p>
-          {/* Aquí integrarás tu contenido real cuando tengas el nodo */}
         </div>
       </>
     ) : (
       <>
         <h1 class="text-2xl font-bold text-red-600 mb-4">Acceso Denegado</h1>
         <p class="mb-4">
-          El token <code class="bg-gray-200 px-1 rounded">{token}</code> no es válido.
+          El token <code class="bg-gray-200 px-1 rounded">{tokenString || '—'}</code> no es válido.
         </p>
         <a href="/" class="inline-block text-dag-burgundy hover:underline">
           ← Volver al inicio

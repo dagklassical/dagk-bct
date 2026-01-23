@@ -60,8 +60,8 @@ const breadcrumbs = generateBreadcrumbs(Astro.url.pathname);
     <!-- Script del slider cargado desde public/ -->
     <script src="/scripts/slider.js" defer></script>
 
-    <!-- ✅ Script de scroll-to-top: seguro en cliente -->
-    <script type="module" is:client>
+    <!-- ✅ Script de scroll-to-top (cliente por defecto) -->
+    <script type="module">
       const button = document.getElementById('scroll-to-top');
       if (button) {
         window.addEventListener('scroll', () => {

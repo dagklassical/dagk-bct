@@ -31,9 +31,19 @@ const releaseArtists = release.artistIds.map(artistId => {
 
 // ✅ Combina el género del release + géneros de los artistas (máx. 3, sin duplicados)
 const releaseGenre = release.genre ? [release.genre] : [];
-const artistGenres = releaseArtists.flatMap(artist => 
-  Array.isArray(artist.genre) ? artist.genre : []
-);
+const artistGenres: string[] = [];
+
+for (const artistId of release.artistIds || []) {
+  const artist = artists.find(a => a.id === artistId);
+  if (artist && artist.genre) {
+    if (Array.isArray(artist.genre)) {
+      artistGenres.push(...artist.genre);
+    } else {
+      artistGenres.push(artist.genre);
+    }
+  }
+}
+
 const allGenres = [...new Set([...releaseGenre, ...artistGenres])].slice(0, 3);
 
 const artistNames = releaseArtists.map(a => a.name).join(', ');
@@ -146,17 +156,19 @@ const breadcrumbs = [
         </p>
 
         {allGenres.length > 0 && (
-          <div class="flex flex-wrap gap-1 my-2">
-            {allGenres.map(genre => (
-              <span 
-                key={genre}
-                class="text-xs bg-white text-slate-800 px-2 py-0.5 rounded border border-platinum font-medium"
-              >
-                {genre.replace(/-/g, ' ')}
-              </span>
-            ))}
-          </div>
-        )}
+  <div class="flex flex-wrap gap-1 my-2">
+    {allGenres.map(genre => {
+      const genreString = Array.isArray(genre) ? genre[0] : genre;
+      return (
+        <span
+          class="text-xs bg-white text-slate-800 px-2 py-0.5 rounded border border-platinum font-medium"
+        >
+          {genreString.replace(/-/g, ' ')}
+        </span>
+      );
+    })}
+  </div>
+)}
 
         <p class="text-slate-500 mb-4 text-sm">
           Lanzamiento • {new Date(release.releaseDate).toLocaleDateString('es-VE', { day: '2-digit', month: '2-digit', year: 'numeric' })} • {release.type}

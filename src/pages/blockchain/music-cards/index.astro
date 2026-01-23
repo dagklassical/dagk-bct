@@ -31,7 +31,8 @@ export async function getStaticPaths() {
   return paths;
 }
 
-const { artist } = Astro.params;
+const artist = (Astro.params as { artist?: string }).artist;
+const artistId = typeof artist === 'string' ? artist : null;
 
 // Filtrar Music Cards según contexto
 let filteredCards, pageTitle, pageDescription;
@@ -108,7 +109,6 @@ const breadcrumbs = artist
               <a 
                 href={`/blockchain/music-cards/${card.id}`} 
                 class="group block bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden"
-                key={card.id}
               >
                 <div class="aspect-[5/8]">
                   <img 

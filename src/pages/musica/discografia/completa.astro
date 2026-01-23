@@ -4,7 +4,19 @@ import Layout from '../../../layouts/Layout.astro';
 import releases from '../../../data/releases.json';
 import artists from '../../../data/artists.json';
 
-const artistMap = artists.reduce((acc, a) => ({ ...acc, [a.id]: a }), {});
+// ✅ Tipado explícito para evitar errores de índice
+interface ArtistMap {
+  [id: string]: {
+    id: string;
+    name: string;
+    // Puedes añadir otros campos si los usas
+  };
+}
+
+const artistMap = artists.reduce((acc, a) => {
+  acc[a.id] = a;
+  return acc;
+}, {} as ArtistMap);
 
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
@@ -30,7 +42,6 @@ const breadcrumbs = [
         <a 
           href={`/musica/discografia/${release.id}`} 
           class="block group border border-slate-200 rounded-xl p-5 hover:border-dag-burgundy transition-colors bg-white shadow-sm"
-          key={release.id}
         >
           <div class="aspect-square w-full bg-slate-100 rounded-lg overflow-hidden mb-4">
             {release.coverImage ? (

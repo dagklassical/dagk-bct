@@ -5,10 +5,10 @@ import releases from '../../../data/releases.json';
 import artists from '../../../data/artists.json';
 
 // Helper: obtener nombres de intérpretes
-const getPerformerNames = (release) => {
+const getPerformerNames = (release: typeof releases[0]) => {
   if (release.artistIds) {
     return release.artistIds
-      .map(id => artists.find(a => a.id === id)?.name)
+      .map((id: string) => artists.find(a => a.id === id)?.name)
       .filter(Boolean)
       .join(', ') || 'Intérpretes no especificados';
   }
@@ -59,8 +59,7 @@ const breadcrumbs = [
             Todos
           </button>
           {allGenres.map(genre => (
-            <button 
-              key={genre}
+            <button
               data-filter={genre}
               class="px-3 py-1.5 rounded-lg text-sm border border-platinum bg-white hover:bg-dag-burgundy hover:text-white transition-colors"
             >
@@ -89,7 +88,6 @@ const breadcrumbs = [
             <a 
               href={`/musica/discografia/${release.id}`} 
               class="block group bg-white rounded-md overflow-hidden shadow-sm hover:shadow-lg transition-shadow h-full"
-              key={release.id}
               data-genres={JSON.stringify(genres)}
             >
               <div class="aspect-[1/1] relative">
@@ -102,8 +100,7 @@ const breadcrumbs = [
                 {/* Etiquetas de género */}
                 <div class="absolute top-2 left-2 flex flex-wrap gap-1">
                   {displayGenres.map((g, i) => (
-                    <span 
-                      key={i}
+                    <span
                       class={`text-xs px-1.5 py-0.5 rounded ${
                         g.startsWith('+') 
                           ? 'bg-gray/70 text-slate-700' 
@@ -150,34 +147,35 @@ const breadcrumbs = [
 
   <!-- Script de filtrado con reset de scroll -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const filterButtons = document.querySelectorAll('[data-filter]');
-      const cards = document.querySelectorAll('[data-genres]');
-      const container = document.querySelector('.max-w-6xl');
-      
-      filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-          const filter = button.dataset.filter;
-          
-          // Reset scroll
-          if (container) {
-            container.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-          
-          // Actualizar botones activos
-          filterButtons.forEach(btn => 
-            btn.classList.remove('bg-dag-burgundy', 'text-white')
-          );
-          button.classList.add('bg-dag-burgundy', 'text-white');
-          
-          // Filtrar tarjetas
-          cards.forEach(card => {
-            const genres = JSON.parse(card.dataset.genres || '[]');
-            const matches = (filter === 'all') || genres.includes(filter);
-            card.style.display = matches ? 'block' : 'none';
-          });
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('[data-filter]') as NodeListOf<HTMLElement>;
+    const cards = document.querySelectorAll('[data-genres]') as NodeListOf<HTMLElement>;
+    const container = document.querySelector('.max-w-6xl') as HTMLElement | null;
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+        
+        // Reset scroll
+        if (container) {
+          container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        
+        // Actualizar botones activos
+        filterButtons.forEach(btn => 
+          btn.classList.remove('bg-dag-burgundy', 'text-white')
+        );
+        button.classList.add('bg-dag-burgundy', 'text-white');
+        
+        // Filtrar tarjetas
+        cards.forEach(card => {
+          const genresStr = card.dataset.genres;
+          const genres = genresStr ? JSON.parse(genresStr) : [];
+          const matches = (filter === 'all') || genres.includes(filter);
+          (card as HTMLElement).style.display = matches ? 'block' : 'none';
         });
       });
     });
-  </script>
+  });
+</script>
 </Layout>

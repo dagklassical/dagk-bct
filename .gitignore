@@ -35,3 +35,6 @@ scripts/remove-astro-keys.mjs
 
 # snippets
 snippets/
+
+# local agent
+docs/local-agent/

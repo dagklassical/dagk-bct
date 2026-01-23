@@ -90,7 +90,6 @@ const breadcrumbs = [
                   const iconPath = `/icons/${platform}.svg`;
                   return (
                     <a
-                      key={platform}
                       href={url}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -115,7 +114,7 @@ const breadcrumbs = [
               <h3 class="text-h3 font-advent mb-4 text-slate-900">Obras en DAG Klassical</h3>
               <ul class="space-y-3">
                 {artistReleases.map(release => (
-                  <li key={release.id}>
+                  <li>
                     <a 
                       href={`/musica/discografia/${release.id}`} 
                       class="text-slate-900 hover:text-dag-burgundy text-lg font-medium"
@@ -141,7 +140,7 @@ const breadcrumbs = [
         {artist.bioLong ? (
           <div class="text-slate-700 space-y-4">
             {artist.bioLong.split('\n\n').map((para, i) => (
-              <p key={i}>{para}</p>
+              <p>{para}</p>
             ))}
           </div>
         ) : artist.bio ? (
