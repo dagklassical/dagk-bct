@@ -161,19 +161,42 @@ const breadcrumbs = [
 
         {release?.description && <p class="mb-5 text-slate-700">{release.description}</p>}
 
-        <section class="mb-12">
-          <h3 class="text-h3 font-advent mb-3">Privilegios propios</h3>
-          <ul class="list-disc pl-5 space-y-1 mb-2">
-            {card.benefits.map((benefit) => (
-              <li class="text-slate-700">{benefit}</li>
-            ))}
-          </ul>
-          <ExclusiveAccessGate artistId={artistId} />
-        </section>
+        <section class="mb-6">
+  <h3 class="text-h3 font-advent mb-3">Privilegios propios</h3>
+  <ul class="list-disc pl-5 space-y-1 mb-8">
+    {card.benefits.map((benefit) => (
+      <li class="text-slate-700">{benefit}</li>
+    ))}
+  </ul>
+  
+<!-- ✅ Botón de acceso exclusivo con placeholder simple -->
+<div class="bg-dag-burgundy/10 p-4 rounded-lg border border-dag-burgundy/30">
+  <h4 class="font-semibold mb-2">¿Eres poseedor de esta Music Card?</h4>
+  <p class="text-sm mb-2">
+    <strong>· {card.title}</strong>
+  </p>
+  
+  <form action="/blockchain/acceso" method="get" class="flex gap-2">
+    <input
+      type="text"
+      name="token"
+      placeholder="Ingrese aquí su token"
+      class="px-3 py-2 border border-platinum rounded text-sm flex-grow"
+      required
+    />
+    <button
+      type="submit"
+      class="bg-dag-burgundy text-white px-4 py-2 rounded hover:bg-opacity-90 text-sm font-medium"
+    >
+      Acceder
+    </button>
+  </form>
+</div>
+</section>
 
         <!-- === SOBRE EL(LOS) ARTISTA(S) === -->
         {artistList.length === 1 ? (
-          <section class="mb-8 bg-gray95 p-4 rounded-md">
+          <section class="mb-8 bg-gray95 py-4 rounded-md">
             <h3 class="text-h3 font-advent mb-3">Sobre {artistList[0].name}</h3>
             {artistList[0].bio && (
               <p class="text-slate-700 mb-3">{artistList[0].bio}</p>
@@ -186,7 +209,7 @@ const breadcrumbs = [
             </a>
           </section>
         ) : (
-          <section class="mb-8 bg-gray95 p-4 rounded-md">
+          <section class="mb-8 bg-gray95 py-4 rounded-md">
             <h3 class="text-h3 font-advent mb-3">Conoce a los artistas</h3>
             <p class="text-slate-700 mb-3">
               Para una mejor experiencia y conocer el universo artístico de cada creador, 

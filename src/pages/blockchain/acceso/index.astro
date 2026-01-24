@@ -1,0 +1,32 @@
+---
+// src/pages/blockchain/acceso/index.astro
+import Layout from '../../../layouts/Layout.astro';
+
+// Obtener el token de la URL (query parameter)
+const url = new URL(Astro.request.url);
+const token = url.searchParams.get('token');
+
+if (token) {
+  // Redirigir a la página de token específico
+  return Astro.redirect(`/blockchain/acceso/${token}`);
+}
+
+// Si no hay token, mostrar página genérica
+const title = 'Acceso a Music Cards';
+const description = 'Ingresa tu token para acceder a tu contenido exclusivo.';
+const breadcrumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Blockchain', href: '/blockchain' },
+  { label: 'Acceso Privado', href: '/blockchain/acceso' },
+];
+---
+
+<Layout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <div class="max-w-4xl mx-auto px-4 py-12 text-center">
+    <h1 class="text-3xl font-bold mb-6">Acceso a Music Cards</h1>
+    <p class="mb-8">Por favor, usa el formulario en la página de tu Music Card para acceder.</p>
+    <a href="/blockchain/music-cards" class="text-dag-burgundy hover:underline">
+      ← Volver a Music Cards
+    </a>
+  </div>
+</Layout>
