@@ -120,7 +120,7 @@
   "releases": ["filip-bandzak-mahler-lieder"],
   "musicCards": [],
   "metadata": {
-    "uuid": "urn:uuid:$(uuidgen)",
+    "uuid": "urn:uuid:bae18af8-29ba-4e0f-81df-dd6880b0fe08",
     "timestamp": "2025-12-31T08:00:00Z",
     "operator": "cto@dagklassical.com"
   }
@@ -144,7 +144,7 @@
   "releases": ["filip-bandzak-mahler-lieder"],
   "musicCards": [],
   "metadata": {
-    "uuid": "urn:uuid:$(uuidgen)",
+    "uuid": "urn:uuid:3637510a-b696-4b35-a205-45c991a15acb",
     "timestamp": "2025-12-31T08:00:00Z",
     "operator": "cto@dagklassical.com"
   }
@@ -168,7 +168,7 @@
   "releases": ["nareh-arghamanyan-piano-works-armenian-composers"],
   "musicCards": [],
   "metadata": {
-    "uuid": "urn:uuid:$(uuidgen)",
+    "uuid": "urn:uuid:182f0e49-66c6-49fb-96e9-4ee4d9b1ce83",
     "timestamp": "2025-12-31T09:00:00Z",
     "operator": "cto@dagklassical.com"
   }
