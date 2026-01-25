@@ -1,0 +1,229 @@
+---
+// src/pages/blockchain/acceso/5e6c44-gerardo-gerulewicz-piano-aguinaldo.astro
+import Layout from '../../../layouts/Layout.astro';
+import releases from '../../../data/releases.json';
+
+// ✅ Obtener release por ID
+const releaseId = 'gerulewicz-piano-aguinaldo';
+const release = releases.find(r => r.id === releaseId);
+if (!release) {
+  throw new Error(`Release "${releaseId}" no encontrado en releases.json`);
+}
+
+// ✅ Construir tracks desde el JSON (data-driven)
+const tracks = release.tracks.map(track => ({
+  title: track.title,
+  duration: track.duration.trim(),
+  file: track.protected || ''
+}));
+
+const albumInfo = {
+  title: release.workTitle || release.title,
+  artist: "Gerardo Gerulewicz",
+  description: release.descriptionLong || release.description,
+  bio: "Pianista y compositor venezolano especializado en la reinterpretación de aguinaldos tradicionales con arreglos contemporáneos.",
+  totalDuration: release.duration || '68:32',
+  tracks
+};
+
+// ✅ Serializar para usar en el script del cliente
+const tracksJson = JSON.stringify(tracks);
+---
+
+<Layout title={`Contenido Exclusivo: ${albumInfo.title} – Gerardo Gerulewicz`} description="Acceso exclusivo para poseedores de la Music Card. Audio FLAC, partitura digital y notas del compositor.">
+  <!-- Hero full viewport con CTA -->
+  <div class="relative h-screen w-full overflow-hidden">
+    <img 
+      src="https://audio.dagklassical.com/protected/audio/gerulewicz-piano-aguinaldo/hero-gg-tocando-kolendy-embajada-polonia.webp"
+      alt={`${albumInfo.title} – Gerardo Gerulewicz`}
+      loading="lazy"
+      class="absolute inset-0 w-full h-full object-cover"
+      onerror="this.src='/covers/gerulewicz-aguinaldo.jpg'"
+    />
+    
+    <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+      <div class="max-w-4xl mx-auto px-4 text-white text-center">
+        <h1 class="text-4xl md:text-6xl font-bold mb-2">{albumInfo.title}</h1>
+        <p class="text-xl mb-4">por Gerardo Gerulewicz</p>
+        <p class="text-lg opacity-90 mb-8">{albumInfo.totalDuration} • {albumInfo.tracks.length} pistas</p>
+        
+        <!-- ✅ CTA con ID para scroll suave -->
+        <a href="#descargas-section" id="hero-cta" class="inline-block bg-dag-burgundy text-white px-8 py-4 rounded-lg hover:bg-opacity-90 font-medium text-lg">
+          ↓ Descargar Contenido Exclusivo
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <article class="max-w-6xl mx-auto px-4 py-12 pb-32">
+    <div class="grid lg:grid-cols-2 gap-12">
+      <!-- Columna izquierda: Biografía -->
+      <div class="space-y-8">
+        <section>
+          <h2 class="text-2xl font-advent font-semibold mb-4">Sobre el Álbum</h2>
+          <p class="text-slate-700 leading-relaxed whitespace-pre-line">
+            {albumInfo.description}
+          </p>
+        </section>
+        
+        <section>
+          <h2 class="text-2xl font-advent font-semibold mb-4">Sobre el Artista</h2>
+          <p class="text-slate-700 leading-relaxed">{albumInfo.bio}</p>
+          
+          <details class="mt-4 bg-gray95 p-4 rounded-lg">
+            <summary class="cursor-pointer text-dag-burgundy hover:underline font-medium list-none">
+              Ver biografía completa
+            </summary>
+            <div class="mt-3 prose prose-slate max-w-none text-slate-700">
+              <p>Gerardo Gerulewicz nació en Caracas, Venezuela. Estudió piano en el Conservatorio Vicente Emilio Sojo y ha dedicado su carrera a la reinterpretación de la música tradicional venezolana con lenguajes contemporáneos.</p>
+              <p>Su trabajo con los aguinaldos ha sido reconocido internacionalmente por su innovación armónica y respeto por la raíz folclórica.</p>
+            </div>
+          </details>
+        </section>
+        
+        <section class="bg-gray95 p-6 rounded-lg">
+          <h3 class="font-semibold mb-3">Créditos</h3>
+          <p><strong>Piano y arreglos:</strong> Gerardo Gerulewicz</p>
+          <p><strong>Mezcla y mastering:</strong> Danilo Álvarez</p>
+          <p><strong>Arte:</strong> Leo Gerulewicz</p>
+          <p><strong>Diseño:</strong> Lorien Gascón Rojas</p>
+          <p class="mt-2 text-sm text-slate-600">
+            Mezclado y masterizado en Mansa Studio, Lechería, Venezuela. MMXXIII
+          </p>
+        </section>
+      </div>
+      
+      <!-- Columna derecha: Tracklist y descargas -->
+      <div class="space-y-8">
+        <section>
+          <h2 class="text-2xl font-advent font-semibold mb-4">Tracklist</h2>
+          <div class="bg-white p-6 rounded-lg border border-platinum">
+            <ol class="space-y-3">
+              {albumInfo.tracks.map((track, index) => (
+                <li class="flex justify-between items-center border-b border-slate-100 pb-2 last:border-0">
+                  <span class="flex-grow">{index + 1}. {track.title}</span>
+                  <span class="text-slate-500 text-sm ml-4 whitespace-nowrap">{track.duration}</span>
+                  <button data-track-index={index} class="text-dag-burgundy hover:underline text-sm ml-4">
+                    Escuchar
+                  </button>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+        
+        <section id="descargas-section">
+          <h2 class="text-2xl font-advent font-semibold mb-4">Descargas</h2>
+          <div class="space-y-4">
+            <a 
+              href="https://audio.dagklassical.com/protected/audio/gerulewicz-piano-aguinaldo/gerulewicz-piano-aguinaldo-complete.flac" 
+              download="Gerardo-Gerulewicz_Piano-Aguinaldo_Complete.flac"
+              class="block bg-dag-burgundy text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition-colors font-medium text-center"
+            >
+              Descargar Álbum Completo (FLAC)
+            </a>
+          </div>
+        </section>
+        
+        <section>
+          <h3 class="font-semibold mb-3">Partitura Digital</h3>
+          <p class="text-slate-700 mb-3">Partitura completa en PDF, firmada por Gerardo Gerulewicz.</p>
+          <a 
+            href="https://audio.dagklassical.com/protected/audio/gerulewicz-piano-aguinaldo/gerulewicz-partitura.pdf" 
+            download
+            class="text-dag-burgundy hover:underline font-medium"
+          >
+            Descargar Partitura →
+          </a>
+        </section>
+      </div>
+    </div>
+    
+    <div class="mt-12 p-6 border-t border-platinum text-sm text-slate-600 bg-gray95 rounded-lg">
+      <h3 class="font-semibold mb-2">Metadatos Inmutables</h3>
+      <p><strong>UUID:</strong> {release.metadata?.uuid || 'urn:uuid:b2c3d4e5-6789-01ab-cdef-234567890003'}</p>
+      <p><strong>Timestamp:</strong> {release.metadata?.timestamp || '2025-11-25T10:00:00Z'}</p>
+      <p><strong>Operador:</strong> cto@dagklassical.com</p>
+      <p class="mt-2 text-xs">
+        Music Card ID: <code>mc-2025-5e6c44-gerardo-gerulewicz-piano-aguinaldo-std</code>
+      </p>
+    </div>
+  </article>
+
+  <!-- Player fijo -->
+<div class="fixed bottom-0 left-0 right-0 bg-white/40 backdrop-blur-sm border-t border-platinum p-4 z-50">
+  <div class="max-w-6xl mx-auto flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <button id="prev-btn" class="text-dag-burgundy text-xl">⏮</button>
+      <!-- ✅ Añadir data-tracks aquí -->
+      <audio 
+        id="fixed-player" 
+        controls 
+        class="w-80"
+        data-tracks={tracksJson}
+      ></audio>
+      <button id="next-btn" class="text-dag-burgundy text-xl">⏭</button>
+    </div>
+    <div class="text-base font-medium text-slate-900 min-w-[200px] text-right">
+      <span id="current-track">Selecciona una pista</span>
+    </div>
+  </div>
+</div>
+
+  <!-- ✅ Script limpio, seguro y sin warnings -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // ✅ Leer tracks desde el atributo data
+    const player = document.getElementById('fixed-player');
+    const tracks = player ? JSON.parse(player.dataset.tracks || '[]') : [];
+    
+    let currentTrackIndex = -1;
+    const trackNameElement = document.getElementById('current-track');
+
+    function playTrack(index: number) {
+      if (!player || !trackNameElement || index < 0 || index >= tracks.length) return;
+      const track = tracks[index];
+      if (!track.file) return;
+      const url = `https://audio.dagklassical.com/protected/audio/gerulewicz-piano-aguinaldo/${track.file}`;
+      if (player instanceof HTMLAudioElement) {
+        player.src = url;
+        player.load();
+        player.play().catch(err => console.warn('Reproducción fallida:', err));
+      }
+      trackNameElement.textContent = `${index + 1}. ${track.title}`;
+      currentTrackIndex = index;
+    }
+
+    // Eventos de navegación
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    if (prevBtn) prevBtn.addEventListener('click', () => { if (currentTrackIndex > 0) playTrack(currentTrackIndex - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', () => { if (currentTrackIndex < tracks.length - 1) playTrack(currentTrackIndex + 1); });
+
+    // Eventos desde tracklist
+    document.querySelectorAll('button[data-track-index]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const target = e.currentTarget;
+        if (target instanceof Element) {
+          const indexStr = target.getAttribute('data-track-index');
+          const index = indexStr ? parseInt(indexStr, 10) : -1;
+          if (index >= 0) playTrack(index);
+        }
+      });
+    });
+
+    // Scroll suave con offset
+    const heroCta = document.getElementById('hero-cta');
+    if (heroCta) {
+      heroCta.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.getElementById('descargas-section');
+        if (target) {
+          const offsetTop = target.offsetTop - 85;
+          window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+        }
+      });
+    }
+  });
+</script>
+</Layout>

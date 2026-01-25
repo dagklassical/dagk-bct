@@ -2,16 +2,13 @@
 // src/pages/blockchain/acceso/index.astro
 import Layout from '../../../layouts/Layout.astro';
 
-// Obtener el token de la URL (query parameter)
 const url = new URL(Astro.request.url);
 const token = url.searchParams.get('token');
 
 if (token) {
-  // Redirigir a la página de token específico
   return Astro.redirect(`/blockchain/acceso/${token}`);
 }
 
-// Si no hay token, mostrar página genérica
 const title = 'Acceso a Music Cards';
 const description = 'Ingresa tu token para acceder a tu contenido exclusivo.';
 const breadcrumbs = [

@@ -1,6 +1,6 @@
 [
   {
-    "id": "mc-2025-gerulewicz-aguinaldo-std",
+    "id": "mc-2025-5e6c44-gerardo-gerulewicz-piano-aguinaldo-std",
     "title": "Piano Aguinaldo",
     "artist": "Gerardo Gerulewicz",
     "edition": "Estándar",
@@ -49,7 +49,7 @@
     }
   },
   {
-    "id": "mc-2025-ramirez-capitulos-std",
+    "id": "mc-2025-cdb244-virginia-ramirez-capitulos-std",
     "title": "Capítulos",
     "artist": "Virginia Ramírez",
     "edition": "Estándar",
@@ -70,27 +70,27 @@
     ],
     "cardImage": "/cards/mc-2025-virginia-capitulos.webp",
     "socialLinks": [
-  {
-    "platform": "Spotify",
-    "url": "https://open.spotify.com/album/2dNgFeneZI2RGDaplxxEtL"
-  },
-  {
-    "platform": "Apple Music",
-    "url": "https://music.apple.com/ve/album/cap%C3%ADtulos/1837264207"
-  },
-  {
-    "platform": "YouTube Music",
-    "url": "https://music.youtube.com/playlist?list=OLAK5uy_mAr4hlD7HgH3_HPTbkGiax3pF_ciCUSkM"
-  },
-  {
-    "platform": "Deezer",
-    "url": "https://www.deezer.com/us/album/814912391"
-  },
-  {
-    "platform": "Tidal",
-    "url": ""
-  }
-],
+      {
+        "platform": "Spotify",
+        "url": "https://open.spotify.com/album/2dNgFeneZI2RGDaplxxEtL"
+      },
+      {
+        "platform": "Apple Music",
+        "url": "https://music.apple.com/ve/album/cap%C3%ADtulos/1837264207"
+      },
+      {
+        "platform": "YouTube Music",
+        "url": "https://music.youtube.com/playlist?list=OLAK5uy_mAr4hlD7HgH3_HPTbkGiax3pF_ciCUSkM"
+      },
+      {
+        "platform": "Deezer",
+        "url": "https://www.deezer.com/us/album/814912391"
+      },
+      {
+        "platform": "Tidal",
+        "url": ""
+      }
+    ],
     "metadata": {
       "uuid": "urn:uuid:77fd8dad-0a38-4838-8c09-49973d8344a9",
       "timestamp": "2025-11-25T10:00:01Z",
@@ -98,7 +98,7 @@
     }
   },
   {
-    "id": "mc-2025-goulnara-schubert-std",
+    "id": "mc-2025-61664f-goulnara-galimchina-schubert-d960-d780-std",
     "title": "Schubert",
     "artist": "Goulnara Galimchina",
     "edition": "Estándar",
@@ -147,7 +147,7 @@
     }
   },
   {
-    "id": "mc-2025-teodor-dore-february-night-std",
+    "id": "mc-2025-edc247-teodor-dore-february-night-std",
     "title": "February Night",
     "artist": "Teodor Dore",
     "edition": "Estándar",

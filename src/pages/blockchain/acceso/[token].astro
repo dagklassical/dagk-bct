@@ -1,26 +1,46 @@
 ---
 // src/pages/blockchain/acceso/[token].astro
 import Layout from '../../../layouts/Layout.astro';
+import musicCards from '../../../data/music-cards.json';
 
 export const prerender = false;
 
 const { token } = Astro.params;
-
-// ✅ Asegurar que token sea string
 const tokenString = typeof token === 'string' ? token : '';
 
-const validDemoTokens = new Set([
-  'gerulewicz-aguinaldo',
-  'dag-demo',
-  'capa8-test',
-  'goulnara-schubert-std'
-]);
+// ✅ Función con tipado explícito
+function normalizeName(name: string): string {
+  return name
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9-]/g, '');
+}
 
-const isValid = validDemoTokens.has(tokenString);
-const title = isValid ? 'Acceso Premium' : 'Token no válido';
+// ✅ Generar tokens válidos automáticamente
+const validTokens = new Set();
+
+for (const card of musicCards) {
+  if (card.status === 'disponible') {
+    const idParts = card.id.split('-');
+    if (idParts.length >= 6) {
+      const tokenParts = idParts.slice(2, -1);
+      const generatedToken = tokenParts.join('-');
+      validTokens.add(generatedToken);
+    }
+  }
+}
+
+// ✅ Añadir tokens de demo manualmente
+validTokens.add('dag-demo');
+validTokens.add('capa8-test');
+
+const isValid = validTokens.has(toString);
+const title = isValid ? 'Acceso Premium' : 'Acceso Restringido';
 const description = isValid
   ? 'Contenido exclusivo de tu Music Card DAG Klassical.'
-  : 'El token proporcionado no es válido o ha expirado.';
+  : 'Acceso restringido a coleccionistas verificados.';
 
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
@@ -38,20 +58,46 @@ const breadcrumbs = [
           Gracias por ser parte de DAG Klassical. Aquí encontrarás tu obra completa en FLAC 24/192,
           partitura firmada digitalmente, notas interpretativas y acceso a masterclasses privadas.
         </p>
+        
         <div class="bg-white p-6 rounded-lg border border-platinum">
-          <h2 class="text-xl font-semibold mb-3">Tu Music Card</h2>
-          <p>Esta obra ha sido certificada, en blockchain, como un activo cultural inmutable.</p>
+          <p class="mb-4">Redirigiendo a tu contenido exclusivo...</p>
+          <script>
+            window.location.href = `/blockchain/acceso/${toString}`;
+          </script>
+          <a href={`/blockchain/acceso/${toString}`} class="text-dag-burgundy hover:underline">
+            Ir manualmente →
+          </a>
         </div>
       </>
     ) : (
       <>
-        <h1 class="text-2xl font-bold text-red-600 mb-4">Acceso Denegado</h1>
-        <p class="mb-4">
-          El token <code class="bg-gray-200 px-1 rounded">{tokenString || '—'}</code> no es válido.
+        <h1 class="text-2xl font-bold text-red-600 mb-6">Acceso Restringido</h1>
+        <p class="mb-6 text-lg">
+          Este contenido está reservado exclusivamente para poseedores verificados de Music Cards DAG Klassical.
         </p>
-        <a href="/" class="inline-block text-dag-burgundy hover:underline">
-          ← Volver al inicio
-        </a>
+        
+        <div class="bg-blue-50 border-l-4 border-blue-400 p-6 rounded-lg mb-8">
+          <p class="text-blue-800 mb-4">
+            <strong>¿Te interesa coleccionar música clásica verificable en blockchain?</strong>
+          </p>
+          <p class="text-blue-700">
+            Descubre nuestras Music Cards: obras únicas con audio en calidad de estudio maestro, 
+            partituras digitales firmadas y acceso exclusivo a contenido premium.
+          </p>
+        </div>
+
+        <!-- ✅ CTA prominente sin redirección automática -->
+        <div class="text-center">
+          <a 
+            href="https://www.dagklassical.com/blockchain"
+            class="inline-block bg-dag-burgundy text-white px-8 py-4 rounded-lg hover:bg-opacity-90 transition-colors font-medium text-lg"
+          >
+            Conoce Nuestras Music Cards
+          </a>
+          <p class="mt-4 text-slate-600">
+            Únete a la revolución de la música clásica verificable
+          </p>
+        </div>
       </>
     )}
   </div>
