@@ -95,7 +95,7 @@ const breadcrumbs = artist
             : 'No hay colecciones disponibles en este momento.'}
         </p>
       ) : (
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
           {filteredCards.map(card => {
             const release = releases.find(r => r.id === card.associatedRelease);
             const performers = release 
@@ -108,7 +108,7 @@ const breadcrumbs = artist
             return (
               <a 
                 href={`/blockchain/music-cards/${card.id}`} 
-                class="group block bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden"
+                class="group block bg-white rounded-md shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden"
               >
                 <div class="aspect-[5/8]">
                   <img 
@@ -133,12 +133,19 @@ const breadcrumbs = artist
       )}
     </div>
 
-    <div class="text-center mt-8">
-      {!artist && (
-        <a href="/blockchain" class="btn-primary inline-block px-6 py-3">
-          Explorar Tecnología Blockchain
-        </a>
-      )}
-    </div>
+    <!-- ✅ Bloque explicativo final -->
+<section class="max-w-4xl mx-auto px-8 mt-16 text-center">
+  <h2 class="text-2xl font-bold mb-4">¿Sabes qué es una Music Card?</h2>
+  <p class="text-slate-600 mb-6 max-w-2xl mx-auto">
+    Colecciones únicas certificadas en blockchain, con audio en calidad de estudio maestro, 
+    partituras digitales y acceso exclusivo a contenido premium.
+  </p>
+  <a 
+    href="https://www.dagklassical.com/blockchain" 
+    class="inline-block bg-dag-burgundy text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition-colors font-medium"
+  >
+    Conoce más sobre Music Cards
+  </a>
+</section>
   </main>
 </Layout>

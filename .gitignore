@@ -38,3 +38,6 @@ snippets/
 
 # local agent
 docs/local-agent/
+
+# .vscode
+.vscode

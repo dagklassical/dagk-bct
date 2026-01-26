@@ -11,6 +11,7 @@ if (!release) {
 }
 
 // ✅ Construir tracks desde el JSON (data-driven)
+// Usamos la tracklist oficial de DAG Klassical: 15 tracks
 const tracks = release.tracks.map(track => ({
   title: track.title,
   duration: track.duration.trim(),
@@ -22,7 +23,7 @@ const albumInfo = {
   artist: "Gerardo Gerulewicz",
   description: release.descriptionLong || release.description,
   bio: "Pianista y compositor venezolano especializado en la reinterpretación de aguinaldos tradicionales con arreglos contemporáneos.",
-  totalDuration: release.duration || '68:32',
+  totalDuration: release.duration || '46:30',
   tracks
 };
 
@@ -68,33 +69,39 @@ const tracksJson = JSON.stringify(tracks);
         
         <section>
           <h2 class="text-2xl font-advent font-semibold mb-4">Sobre el Artista</h2>
-          <p class="text-slate-700 leading-relaxed">{albumInfo.bio}</p>
-          
-          <details class="mt-4 bg-gray95 p-4 rounded-lg">
-            <summary class="cursor-pointer text-dag-burgundy hover:underline font-medium list-none">
-              Ver biografía completa
-            </summary>
-            <div class="mt-3 prose prose-slate max-w-none text-slate-700">
-              <p>Gerardo Gerulewicz nació en Caracas, Venezuela. Estudió piano en el Conservatorio Vicente Emilio Sojo y ha dedicado su carrera a la reinterpretación de la música tradicional venezolana con lenguajes contemporáneos.</p>
-              <p>Su trabajo con los aguinaldos ha sido reconocido internacionalmente por su innovación armónica y respeto por la raíz folclórica.</p>
-            </div>
-          </details>
-        </section>
-        
-        <section class="bg-gray95 p-6 rounded-lg">
-          <h3 class="font-semibold mb-3">Créditos</h3>
-          <p><strong>Piano y arreglos:</strong> Gerardo Gerulewicz</p>
-          <p><strong>Mezcla y mastering:</strong> Danilo Álvarez</p>
-          <p><strong>Arte:</strong> Leo Gerulewicz</p>
-          <p><strong>Diseño:</strong> Lorien Gascón Rojas</p>
-          <p class="mt-2 text-sm text-slate-600">
-            Mezclado y masterizado en Mansa Studio, Lechería, Venezuela. MMXXIII
+          <p class="text-slate-700 leading-relaxed">
+            Pianista y compositor venezolano especializado en la reinterpretación de aguinaldos tradicionales con arreglos contemporáneos.
           </p>
+          
+          <!-- ✅ Desplegable con fade in/out -->
+          <div class="mt-4">
+            <button 
+              id="toggle-bio-btn"
+              class="text-dag-burgundy hover:underline font-medium flex items-center gap-1 transition-colors"
+            >
+              <span id="bio-toggle-text">Ver biografía completa</span>
+              <svg id="bio-arrow" class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            
+            <!-- ✅ Contenedor con transición de opacidad -->
+            <div id="full-bio-container" class="mt-3 overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
+              <div class="bg-gray95 p-4 rounded-lg prose prose-slate max-w-none text-slate-700 space-y-4">
+                <p>Gerardo Gerulewicz nació en Caracas, Venezuela, en 1968. Estudió piano en el Conservatorio Vicente Emilio Sojo bajo la tutela de maestros como Sylvia Constantinidis y Beatriz Zúñiga.</p>
+                <p>Su formación continuó en Europa, donde profundizó en la interpretación del repertorio clásico y contemporáneo. Sin embargo, fue su regreso a Venezuela lo que marcó un giro decisivo en su carrera: la redescubierta de los aguinaldos tradicionales como fuente inagotable de inspiración.</p>
+                <p>Desde entonces, Gerulewicz ha dedicado su obra a la relectura de estas piezas populares, infundiéndolas con lenguajes armónicos del jazz, la música impresionista y el minimalismo contemporáneo. Su enfoque no busca reemplazar la tradición, sino dialogar con ella desde la contemporaneidad.</p>
+                <p>Ha colaborado con orquestas en América Latina y Europa, y sus grabaciones han sido elogiadas por su sensibilidad tímbrica y rigor estructural. "Piano Aguinaldo" representa la culminación de más de una década de investigación sonora sobre la navidad venezolana.</p>
+                <p>Actualmente dirige talleres de música tradicional en el Sistema de Orquestas Juveniles e Infantiles de Venezuela, donde también coordina servidores para la preservación del patrimonio audiovisual musical.</p>
+              </div>
+            </div>
+          </div>
         </section>
       </div>
       
-      <!-- Columna derecha: Tracklist y descargas -->
+      <!-- Columna derecha: Tracklist, Descargas, Partitura -->
       <div class="space-y-8">
+        <!-- Bloque 1: Tracklist -->
         <section>
           <h2 class="text-2xl font-advent font-semibold mb-4">Tracklist</h2>
           <div class="bg-white p-6 rounded-lg border border-platinum">
@@ -112,6 +119,7 @@ const tracksJson = JSON.stringify(tracks);
           </div>
         </section>
         
+        <!-- Bloque 2: Descargas -->
         <section id="descargas-section">
           <h2 class="text-2xl font-advent font-semibold mb-4">Descargas</h2>
           <div class="space-y-4">
@@ -125,6 +133,7 @@ const tracksJson = JSON.stringify(tracks);
           </div>
         </section>
         
+        <!-- Bloque 3: Partitura Digital -->
         <section>
           <h3 class="font-semibold mb-3">Partitura Digital</h3>
           <p class="text-slate-700 mb-3">Partitura completa en PDF, firmada por Gerardo Gerulewicz.</p>
@@ -139,91 +148,156 @@ const tracksJson = JSON.stringify(tracks);
       </div>
     </div>
     
-    <div class="mt-12 p-6 border-t border-platinum text-sm text-slate-600 bg-gray95 rounded-lg">
-      <h3 class="font-semibold mb-2">Metadatos Inmutables</h3>
-      <p><strong>UUID:</strong> {release.metadata?.uuid || 'urn:uuid:b2c3d4e5-6789-01ab-cdef-234567890003'}</p>
-      <p><strong>Timestamp:</strong> {release.metadata?.timestamp || '2025-11-25T10:00:00Z'}</p>
-      <p><strong>Operador:</strong> cto@dagklassical.com</p>
-      <p class="mt-2 text-xs">
-        Music Card ID: <code>mc-2025-5e6c44-gerardo-gerulewicz-piano-aguinaldo-std</code>
-      </p>
+    <!-- ✅ Especificaciones Técnicas y Créditos (estilo demo) -->
+    <div class="max-w-4xl mx-auto mt-12 pt-8 border-t border-platinum">
+      <div class="mb-8 p-5 border border-platinum rounded-lg bg-white">
+        <h4 class="font-semibold mb-2">Especificaciones Técnicas</h4>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2 py-1 bg-black/5 text-slate-800 text-xs font-mono rounded">FLAC 24/192</span>
+          <span class="px-2 py-1 bg-black/5 text-slate-800 text-xs font-mono rounded">MP3 320 kbps</span>
+          <span class="px-2 py-1 bg-dag-burgundy/10 text-dag-burgundy text-xs font-mono rounded">Certificado en Polygon</span>
+          <span class="px-2 py-1 bg-black/5 text-slate-800 text-xs font-mono rounded">Duración: {albumInfo.totalDuration}</span>
+        </div>
+        <p class="mt-3 text-sm text-slate-600">
+          Edición Estándar • Blockchain: Polygon • Acceso Premium Incluido
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
+        <div class="flex flex-col justify-end">
+          <div class="p-4 border border-platinum rounded-md bg-white/50">
+            <p class="text-xs text-slate-600 font-mono leading-relaxed">
+              <span class="text-dag-burgundy font-semibold">UUID:</span><br/>
+              {release.metadata?.uuid || 'urn:uuid:a1b2c3d4-5678-90ab-cdef-123456789002'}
+            </p>
+            <p class="text-xs text-slate-600 font-mono mt-2">
+              <span class="text-dag-burgundy font-semibold">Timestamp:</span><br/>
+              {release.metadata?.timestamp || '2025-11-25T10:00:00Z'}
+            </p>
+            <p class="text-xs text-slate-600 font-mono mt-2">
+              <span class="text-dag-burgundy font-semibold">Operador:</span><br/>
+              cto@dagklassical.com
+            </p>
+          </div>
+        </div>
+        <div class="md:col-span-2 p-4 border border-platinum rounded-md bg-white/50">
+          <p class="text-xs text-slate-600 font-mono leading-relaxed">
+            <span class="text-dag-burgundy font-semibold">CRÉDITOS: </span>
+            Piano y arreglos: Gerardo Gerulewicz | Mezcla y mastering: Danilo Álvarez | 
+            Arte: Leo Gerulewicz | Diseño: Lorien Gascón Rojas | Mezclado y masterizado en Mansa Studio®, Lechería, Venezuela.
+          </p>
+        </div>
+      </div>
     </div>
   </article>
 
   <!-- Player fijo -->
-<div class="fixed bottom-0 left-0 right-0 bg-white/40 backdrop-blur-sm border-t border-platinum p-4 z-50">
-  <div class="max-w-6xl mx-auto flex items-center justify-between">
-    <div class="flex items-center gap-4">
-      <button id="prev-btn" class="text-dag-burgundy text-xl">⏮</button>
-      <!-- ✅ Añadir data-tracks aquí -->
-      <audio 
-        id="fixed-player" 
-        controls 
-        class="w-80"
-        data-tracks={tracksJson}
-      ></audio>
-      <button id="next-btn" class="text-dag-burgundy text-xl">⏭</button>
-    </div>
-    <div class="text-base font-medium text-slate-900 min-w-[200px] text-right">
-      <span id="current-track">Selecciona una pista</span>
+  <div class="fixed bottom-0 left-0 right-0 bg-white/40 backdrop-blur-sm border-t border-platinum p-4 z-50">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <button id="prev-btn" class="text-dag-burgundy text-xl">⏮</button>
+        <audio 
+          id="fixed-player" 
+          controls 
+          class="w-80"
+          data-tracks={tracksJson}
+        ></audio>
+        <button id="next-btn" class="text-dag-burgundy text-xl">⏭</button>
+      </div>
+      <div class="text-base font-medium text-slate-900 min-w-[200px] text-right">
+        <span id="current-track">Selecciona una pista</span>
+      </div>
     </div>
   </div>
-</div>
 
-  <!-- ✅ Script limpio, seguro y sin warnings -->
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    // ✅ Leer tracks desde el atributo data
-    const player = document.getElementById('fixed-player');
-    const tracks = player ? JSON.parse(player.dataset.tracks || '[]') : [];
-    
-    let currentTrackIndex = -1;
-    const trackNameElement = document.getElementById('current-track');
+  <!-- ✅ Script completo con corrección de null -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const player = document.getElementById('fixed-player');
+      const tracks = player ? JSON.parse(player.dataset.tracks || '[]') : [];
+      
+      let currentTrackIndex = -1;
+      const trackNameElement = document.getElementById('current-track');
 
-    function playTrack(index: number) {
-      if (!player || !trackNameElement || index < 0 || index >= tracks.length) return;
-      const track = tracks[index];
-      if (!track.file) return;
-      const url = `https://audio.dagklassical.com/protected/audio/gerulewicz-piano-aguinaldo/${track.file}`;
-      if (player instanceof HTMLAudioElement) {
-        player.src = url;
-        player.load();
-        player.play().catch(err => console.warn('Reproducción fallida:', err));
+      function playTrack(index: number) {
+        if (!player || !trackNameElement || index < 0 || index >= tracks.length) return;
+        const track = tracks[index];
+        if (!track.file) return;
+        const url = `https://audio.dagklassical.com/protected/audio/gerulewicz-piano-aguinaldo/${track.file}`;
+        if (player instanceof HTMLAudioElement) {
+          player.src = url;
+          player.load();
+          player.play().catch(err => console.warn('Reproducción fallida:', err));
+        }
+        trackNameElement.textContent = `${index + 1}. ${track.title}`;
+        currentTrackIndex = index;
       }
-      trackNameElement.textContent = `${index + 1}. ${track.title}`;
-      currentTrackIndex = index;
-    }
 
-    // Eventos de navegación
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
-    if (prevBtn) prevBtn.addEventListener('click', () => { if (currentTrackIndex > 0) playTrack(currentTrackIndex - 1); });
-    if (nextBtn) nextBtn.addEventListener('click', () => { if (currentTrackIndex < tracks.length - 1) playTrack(currentTrackIndex + 1); });
+      // Navegación
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+      if (prevBtn) prevBtn.addEventListener('click', () => { if (currentTrackIndex > 0) playTrack(currentTrackIndex - 1); });
+      if (nextBtn) nextBtn.addEventListener('click', () => { if (currentTrackIndex < tracks.length - 1) playTrack(currentTrackIndex + 1); });
 
-    // Eventos desde tracklist
-    document.querySelectorAll('button[data-track-index]').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const target = e.currentTarget;
-        if (target instanceof Element) {
-          const indexStr = target.getAttribute('data-track-index');
-          const index = indexStr ? parseInt(indexStr, 10) : -1;
-          if (index >= 0) playTrack(index);
-        }
+      // Tracklist
+      document.querySelectorAll('button[data-track-index]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const target = e.currentTarget;
+          if (target instanceof Element) {
+            const indexStr = target.getAttribute('data-track-index');
+            const index = indexStr ? parseInt(indexStr, 10) : -1;
+            if (index >= 0) playTrack(index);
+          }
+        });
       });
+
+      // Scroll suave
+      const heroCta = document.getElementById('hero-cta');
+      if (heroCta) {
+        heroCta.addEventListener('click', (e) => {
+          e.preventDefault();
+          const target = document.getElementById('descargas-section');
+          if (target) {
+            const offsetTop = target.offsetTop - 85;
+            window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+          }
+        });
+      }
+
+      // Fade in/out biografía
+      const toggleBtn = document.getElementById('toggle-bio-btn');
+      const bioContainer = document.getElementById('full-bio-container');
+      const bioText = document.getElementById('bio-toggle-text');
+      const arrow = document.getElementById('bio-arrow');
+      
+      let isExpanded = false;
+      
+      if (toggleBtn && bioContainer && bioText && arrow) {
+        toggleBtn.addEventListener('click', () => {
+          isExpanded = !isExpanded;
+          
+          if (isExpanded) {
+            const content = bioContainer.querySelector('div');
+            const height = content ? content.scrollHeight : 0;
+            
+            bioContainer.style.maxHeight = height + 'px';
+            bioContainer.style.opacity = '1';
+            bioContainer.style.paddingTop = '0.75rem';
+            bioContainer.style.paddingBottom = '0.75rem';
+            
+            bioText.textContent = 'Ver menos';
+            arrow.style.transform = 'rotate(180deg)';
+          } else {
+            bioContainer.style.maxHeight = '0';
+            bioContainer.style.opacity = '0';
+            bioContainer.style.paddingTop = '0';
+            bioContainer.style.paddingBottom = '0';
+            
+            bioText.textContent = 'Ver biografía completa';
+            arrow.style.transform = 'rotate(0deg)';
+          }
+        });
+      }
     });
-
-    // Scroll suave con offset
-    const heroCta = document.getElementById('hero-cta');
-    if (heroCta) {
-      heroCta.addEventListener('click', (e) => {
-        e.preventDefault();
-        const target = document.getElementById('descargas-section');
-        if (target) {
-          const offsetTop = target.offsetTop - 85;
-          window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-        }
-      });
-    }
-  });
-</script>
+  </script>
 </Layout>
