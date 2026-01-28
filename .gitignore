@@ -32,6 +32,9 @@ bustling-belt/
 
 # scripts
 scripts/remove-astro-keys.mjs
+scripts/build-album-safe.sh
+scripts/build-album.sh
+scripts/migrate-releases-urls-to-filenames.js
 
 # snippets
 snippets/
@@ -41,3 +44,9 @@ docs/local-agent/
 
 # .vscode
 .vscode
+
+# Archivos de audio demo (no deben estar en el repo)
+public/audio/demo/
+
+# Backups temporales
+*.backup.json

@@ -23,7 +23,7 @@ if (!card) {
 }
 
 // Helper seguro para enlaces
-const getSocialLink = (platformName: string): string | null => {
+const getSocialLink = (platformName: string) => {
   return card.socialLinks?.find(link => link.platform === platformName)?.url || null;
 };
 
@@ -36,10 +36,22 @@ const deezerUrl = getSocialLink('Deezer');
 const release = releases.find(r => r.id === card.associatedRelease);
 const artistList = release?.artistIds
   ?.map(artistId => artists.find(a => a.id === artistId))
-  .filter((a): a is NonNullable<typeof a> => a !== undefined) || [];
+  .filter((a) => a !== undefined) || [];
 
 const artistNames = artistList.map(a => a.name).join(', ') || 'Artista no identificado';
-const artistId = artistList.length > 0 ? artistList[0].id : 'unknown'; // para ExclusiveAccessGate
+const artistId = artistList.length > 0 ? artistList[0].id : 'unknown';
+
+// ✅ Construir base URL para demos (absoluta)
+const releaseBase = release?.id?.replace(/-[^-]+$/, '') || 'unknown';
+const BASE_URL_DEMO = release?.demoBasePath 
+  ? `https://audio.dagklassical.com/audio/demo/${release.demoBasePath}/`
+  : null;
+
+// ✅ Generar tracks con URLs de demo completas
+const tracksWithDemos = release?.tracks.map(track => {
+  if (!track.demoFile || !BASE_URL_DEMO) return { ...track, demoUrl: null };
+  return { ...track, demoUrl: `${BASE_URL_DEMO}${track.demoFile}` };
+}) || [];
 
 // === Calcular duración total (si hay tracks) ===
 let totalDuration = "0:00";
@@ -57,7 +69,7 @@ if (release?.tracks) {
 }
 
 // === Navegación Anterior/Siguiente por fecha de lanzamiento ===
-const getReleaseDate = (mc: typeof musicCards[0]) => {
+const getReleaseDate = (mc: { id?: string; title?: string; artist?: string; edition?: string; associatedRelease: any; totalSupply?: number; available?: number; blockchain?: string; contractAddress?: string; tokenId?: string; price?: string; status?: string; benefits?: string[]; cardImage?: string; socialLinks?: { platform: string; url: string; }[]; metadata?: { uuid: string; timestamp: string; operator: string; }; }) => {
   const rel = releases.find(r => r.id === mc.associatedRelease);
   return rel?.releaseDate ? new Date(rel.releaseDate) : new Date(0);
 };
@@ -127,24 +139,21 @@ const breadcrumbs = [
           <audio id="music-player" controls class="w-full h-16 mb-3" preload="none"></audio>
         </div>
 
-        {release?.tracks && (
+        {tracksWithDemos.length > 0 && (
           <section class="bg-white p-5 rounded-lg border border-platinum max-h-[300px] overflow-y-auto">
             <h3 class="text-lg font-semibold mb-3">Tracklist</h3>
             <ol class="space-y-2">
-              {release.tracks.map((track, i) => {
-                const demoSrc = typeof track.demo === 'string' ? track.demo : null;
-                return (
-                  <li 
-                    data-demo={demoSrc}
-                    class={`flex justify-between items-center px-2 py-2 text-xs border-b border-slate-100 last:border-0 cursor-pointer hover:bg-slate-50 ${
-                      i % 2 === 0 ? 'bg-gray95/40' : 'bg-gray95'
-                    }`} 
-                  >
-                    <span class="font-medium">{i + 1}. {track.title}</span>
-                    <span class="text-slate-500 text-sm">{track.duration}</span>
-                  </li>
-                );
-              })}
+              {tracksWithDemos.map((track, i) => (
+                <li 
+                  data-demo={track.demoUrl || ''}
+                  class={`flex justify-between items-center px-2 py-2 text-xs border-b border-slate-100 last:border-0 cursor-pointer hover:bg-slate-50 ${
+                    i % 2 === 0 ? 'bg-gray95/40' : 'bg-gray95'
+                  }`} 
+                >
+                  <span class="font-medium">{i + 1}. {track.title}</span>
+                  <span class="text-slate-500 text-sm">{track.duration}</span>
+                </li>
+              ))}
             </ol>
           </section>
         )}
@@ -194,7 +203,7 @@ const breadcrumbs = [
 </div>
 </section>
 
-        <!-- === SOBRE EL(LOS) ARTISTA(S) === -->
+        {/* === SOBRE EL(LOS) ARTISTA(S) === */}
         {artistList.length === 1 ? (
           <section class="mb-8 bg-gray95 py-4 rounded-md">
             <h3 class="text-h3 font-advent mb-3">Sobre {artistList[0].name}</h3>
@@ -261,7 +270,7 @@ const breadcrumbs = [
       </div>
     </div>
 
-    <!-- ✅ Navegación Anterior/Siguiente por fecha de lanzamiento -->
+    {/* ✅ Navegación Anterior/Siguiente por fecha de lanzamiento */}
     {(prevCard || nextCard) && (
       <nav class="mt-12 pt-6 border-t border-platinum flex flex-col sm:flex-row justify-between gap-4">
         {prevCard ? (
@@ -285,36 +294,38 @@ const breadcrumbs = [
     )}
 
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const player = document.getElementById('music-player') as HTMLAudioElement | null;
-        const firstTrack = document.querySelector('[data-demo]') as HTMLElement | null;
-        if (player && firstTrack) {
-          const demoSrc = firstTrack.dataset.demo;
-          if (demoSrc) {
-            player.src = demoSrc;
-          }
-        }
-      });
+  document.addEventListener('DOMContentLoaded', () => {
+    const player = document.getElementById('music-player');
+    if (!player || !(player instanceof HTMLAudioElement)) return;
 
-      document.addEventListener('click', (e) => {
-        const target = e.target as HTMLElement | null;
-        if (!target) return;
-
-        const trackElement = target.closest('[data-demo]') as HTMLElement | null;
-        if (!trackElement) return;
-
-        const demoSrc = trackElement.dataset.demo;
-        if (!demoSrc) return;
-
-        const player = document.getElementById('music-player') as HTMLAudioElement | null;
-        if (!player) return;
-
+    // Cargar primer track automáticamente si existe
+    const firstTrack = document.querySelector('[data-demo]');
+    if (firstTrack && firstTrack instanceof HTMLElement) {
+      const demoSrc = firstTrack.dataset.demo;
+      if (demoSrc && demoSrc.trim() !== '') {
         player.src = demoSrc;
-        player.load();
-        player.play().catch((err: any) => {
-          console.warn('Reproducción fallida:', err);
-        });
-      });
-    </script>
+      }
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!(e.target instanceof HTMLElement)) return;
+    
+    const trackElement = e.target.closest('[data-demo]');
+    if (!trackElement || !(trackElement instanceof HTMLElement)) return;
+
+    const demoSrc = trackElement.dataset.demo;
+    if (!demoSrc || demoSrc.trim() === '') return;
+
+    const player = document.getElementById('music-player');
+    if (!player || !(player instanceof HTMLAudioElement)) return;
+
+    player.src = demoSrc;
+    player.load();
+    player.play().catch(err => {
+      console.warn('Reproducción fallida:', err);
+    });
+  });
+</script>
   </article>
 </Layout>

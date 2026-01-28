@@ -1,6 +1,7 @@
 [
   {
     "id": "teodor-dore-february-night",
+    "demoBasePath": "teodor-dore/february-night",
     "title": "February Night",
     "artistIds": [
       "teodor-dore"
@@ -28,56 +29,56 @@
       {
         "title": "From the Diaries of Sergei Rachmaninoff",
         "duration": "5:20",
-        "demo": "/audio/demo/teodor-dore/february-night/01-from-the-diaries-of-sergei-rachmaninoff-demo.mp3",
-        "protected": ""
+        "protected": "",
+        "demoFile": "01-from-the-diaries-of-sergei-rachmaninoff-demo.mp3"
       },
       {
         "title": "February Night",
         "duration": "4:15",
-        "demo": "/audio/demo/teodor-dore/february-night/02-february-night-demo.mp3",
-        "protected": ""
+        "protected": "",
+        "demoFile": "02-february-night-demo.mp3"
       },
       {
         "title": "Émigré’s Letter from Istanbul",
         "duration": "3:50",
-        "demo": "/audio/demo/teodor-dore/february-night/03-emigres-letter-from-istanbul-demo.mp3",
-        "protected": ""
+        "protected": "",
+        "demoFile": "03-emigres-letter-from-istanbul-demo.mp3"
       },
       {
         "title": "Andante Allegro",
         "duration": "6:30",
-        "demo": "/audio/demo/teodor-dore/february-night/04-andante-allegro-demo.mp3",
-        "protected": ""
+        "protected": "",
+        "demoFile": "04-andante-allegro-demo.mp3"
       },
       {
         "title": "Émigré’s Letter from Tbilisi",
         "duration": "4:05",
-        "demo": "/audio/demo/teodor-dore/february-night/05-emigres-letter-from-tbilisi-demo.mp3",
-        "protected": ""
+        "protected": "",
+        "demoFile": "05-emigres-letter-from-tbilisi-demo.mp3"
       },
       {
         "title": "September: Verkhny Lars",
         "duration": "3:40",
-        "demo": "/audio/demo/teodor-dore/february-night/06-september-verkhniylars-demo.mp3",
-        "protected": ""
+        "protected": "",
+        "demoFile": "06-september-verkhniylars-demo.mp3"
       },
       {
         "title": "Refugee’s Letter from Boston",
         "duration": "5:10",
-        "demo": "/audio/demo/teodor-dore/february-night/07-refugees-letter-from-boston-demo.mp3",
-        "protected": ""
+        "protected": "",
+        "demoFile": "07-refugees-letter-from-boston-demo.mp3"
       },
       {
         "title": "December: New Home, New Hope",
         "duration": "4:25",
-        "demo": "/audio/demo/teodor-dore/february-night/08-december-newhome-newhope-demo.mp3",
-        "protected": ""
+        "protected": "",
+        "demoFile": "08-december-newhome-newhope-demo.mp3"
       },
       {
         "title": "From the Diaries of Sergei Rachmaninoff (Nro. 2)",
         "duration": "4:50",
-        "demo": "/audio/demo/teodor-dore/february-night/09-from-the-diaries-of-sergei-rachmaninoff-nro-2-demo.mp3",
-        "protected": ""
+        "protected": "",
+        "demoFile": "09-from-the-diaries-of-sergei-rachmaninoff-nro-2-demo.mp3"
       }
     ],
     "duration": "42:05",
@@ -94,6 +95,7 @@
   },
   {
     "id": "gerulewicz-piano-aguinaldo",
+    "demoBasePath": "gerardo-gerulewicz/piano-aguinaldo",
     "workTitle": "Piano Aguinaldo",
     "composer": "Tradicional (arreglos de Gerardo Gerulewicz)",
     "performers": [
@@ -124,130 +126,130 @@
       {
         "title": "Corre Caballito",
         "duration": "2:45",
-        "demo": "https://audio.dagklassical.com/audio/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-corre-caballito-demo.mp3",
         "composer": "Tradicional",
         "workCatalogue": "",
-        "protected": "corre-caballito.flac"
+        "protected": "corre-caballito.flac",
+        "demoFile": "gerulewicz-aguinaldo-corre-caballito-demo.mp3"
       },
       {
         "title": "Din, Din, Din",
         "duration": "3:10",
-        "demo": "https://audio.dagklassical.com/audio/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-din-din-din-demo.mp3",
         "composer": "Tradicional",
         "workCatalogue": "",
-        "protected": "din-din-din.flac"
+        "protected": "din-din-din.flac",
+        "demoFile": "gerulewicz-aguinaldo-din-din-din-demo.mp3"
       },
       {
         "title": "Niño Lindo",
         "duration": "2:55",
-        "demo": "https://audio.dagklassical.com/audio/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-nino-lindo-demo.mp3",
         "composer": "Tradicional",
         "workCatalogue": "",
-        "protected": "nino-lindo.flac"
+        "protected": "nino-lindo.flac",
+        "demoFile": "gerulewicz-aguinaldo-nino-lindo-demo.mp3"
       },
       {
         "title": "Pascua Florida",
         "duration": "3:20",
-        "demo": "https://audio.dagklassical.com/audio/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-pascua-florida-demo.mp3",
         "composer": "Tradicional",
         "workCatalogue": "",
-        "protected": "pascua-florida.flac"
+        "protected": "pascua-florida.flac",
+        "demoFile": "gerulewicz-aguinaldo-pascua-florida-demo.mp3"
       },
       {
         "title": "Venid Pastorcillos",
         "duration": "3:00",
-        "demo": "https://audio.dagklassical.com/audio/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-venid-pastorcillos-demo.mp3",
         "composer": "Tradicional",
         "workCatalogue": "",
-        "protected": "venid-pastorcillos.flac"
+        "protected": "venid-pastorcillos.flac",
+        "demoFile": "gerulewicz-aguinaldo-venid-pastorcillos-demo.mp3"
       },
       {
         "title": "Precioso Querube",
         "duration": "2:50",
-        "demo": "https://audio.dagklassical.com/audio/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-precioso-querube-demo.mp3",
         "composer": "Tradicional",
         "workCatalogue": "",
-        "protected": "precioso-querube.flac"
+        "protected": "precioso-querube.flac",
+        "demoFile": "gerulewicz-aguinaldo-precioso-querube-demo.mp3"
       },
       {
         "title": "Casta Paloma",
         "duration": "3:15",
-        "demo": "https://audio.dagklassical.com/audio/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-casta-paloma-demo.mp3",
         "composer": "Tradicional",
         "workCatalogue": "",
-        "protected": "casta-paloma.flac"
+        "protected": "casta-paloma.flac",
+        "demoFile": "gerulewicz-aguinaldo-casta-paloma-demo.mp3"
       },
       {
         "title": "Sublime Ideal",
         "duration": "3:30",
-        "demo": "https://audio.dagklassical.com/audio/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-sublime-ideal-demo.mp3",
         "composer": "Tradicional",
         "workCatalogue": "",
-        "protected": "sublime-ideal.flac"
+        "protected": "sublime-ideal.flac",
+        "demoFile": "gerulewicz-aguinaldo-sublime-ideal-demo.mp3"
       },
       {
         "title": "De Contento",
         "duration": "2:40",
-        "demo": "https://audio.dagklassical.com/audio/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-de-contento-demo.mp3",
         "composer": "Tradicional",
         "workCatalogue": "",
-        "protected": "de-contento.flac"
+        "protected": "de-contento.flac",
+        "demoFile": "gerulewicz-aguinaldo-de-contento-demo.mp3"
       },
       {
         "title": "Salve Salve",
         "duration": "3:05",
-        "demo": "https://audio.dagklassical.com/audio/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-salve-salve-demo.mp3",
         "composer": "Tradicional",
         "workCatalogue": "",
-        "protected": "salve-salve.flac"
+        "protected": "salve-salve.flac",
+        "demoFile": "gerulewicz-aguinaldo-salve-salve-demo.mp3"
       },
       {
         "title": "Aguinaldo Caraqueño",
         "duration": "2:55",
-        "demo": "https://audio.dagklassical.com/audio/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-caraqueno-demo.mp3",
         "composer": "Tradicional",
         "workCatalogue": "",
-        "protected": "aguinaldo-caraqueno.flac"
+        "protected": "aguinaldo-caraqueno.flac",
+        "demoFile": "gerulewicz-aguinaldo-caraqueno-demo.mp3"
       },
       {
         "title": "A ti te cantamos preciosa María",
         "duration": "3:14",
-        "demo": "https://audio.dagklassical.com/audio/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-a-ti-te-cantamos-demo.mp3",
         "composer": "Tradicional",
         "workCatalogue": "",
-        "protected": "a-ti-te-cantamos.flac"
+        "protected": "a-ti-te-cantamos.flac",
+        "demoFile": "gerulewicz-aguinaldo-a-ti-te-cantamos-demo.mp3"
       },
       {
         "title": "La Cabra Mocha",
         "duration": "2:30",
-        "demo": "https://audio.dagklassical.com/audio/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-la-cabra-mocha-demo.mp3",
         "composer": "Tradicional",
         "workCatalogue": "",
-        "protected": "la-cabra-mocha.flac"
+        "protected": "la-cabra-mocha.flac",
+        "demoFile": "gerulewicz-aguinaldo-la-cabra-mocha-demo.mp3"
       },
       {
         "title": "Aguinaldo Margariteño",
         "duration": "3:25",
-        "demo": "https://audio.dagklassical.com/audio/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-margariteno-demo.mp3",
         "composer": "Tradicional",
         "workCatalogue": "",
-        "protected": "aguinaldo-margariteno.flac"
+        "protected": "aguinaldo-margariteno.flac",
+        "demoFile": "gerulewicz-aguinaldo-margariteno-demo.mp3"
       },
       {
         "title": "Cantemos",
         "duration": "2:50",
-        "demo": "https://audio.dagklassical.com/audio/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-cantemos-demo.mp3",
         "composer": "Tradicional",
         "workCatalogue": "",
-        "protected": "cantemos.flac"
+        "protected": "cantemos.flac",
+        "demoFile": "gerulewicz-aguinaldo-cantemos-demo.mp3"
       },
       {
         "title": "Canción De Cuna (Himno Nacional)",
         "duration": "4:00",
-        "demo": "https://audio.dagklassical.com/audio/demo/gerardo-gerulewicz/piano-aguinaldo/gerulewicz-aguinaldo-cancion-de-cuna-demo.mp3",
         "composer": "Tradicional",
         "workCatalogue": "",
-        "protected": "himno-de-venezuela-cancion-de-cuna.flac"
+        "protected": "himno-de-venezuela-cancion-de-cuna.flac",
+        "demoFile": "gerulewicz-aguinaldo-cancion-de-cuna-demo.mp3"
       }
     ],
     "duration": "46:30",
@@ -264,6 +266,7 @@
   },
   {
     "id": "virginia-ramirez-capitulos",
+    "demoBasePath": "virginia-ramirez/capitulos",
     "workTitle": "Capítulos",
     "composer": "Virginia Ramírez",
     "performers": [
@@ -279,6 +282,7 @@
     "status": "lanzado",
     "description": "\"Capítulos\" es un viaje sonoro a través de los éxitos más emblemáticos de Virginia Ramírez, meticulosamente remasterizados. Este álbum celebra su dominio técnico al piano y su magistral fusión entre el jazz moderno y los ritmos latinoamericanos. Cada pieza, ahora inmutable en blockchain, es un testimonio de elegancia y profundidad que redefine los greatest hits como obra artística autónoma.",
     "descriptionLong": "Capítulos: Donde los Éxitos se Convierten en Legado\n\n\"Capítulos\" es un viaje sonoro a través de los éxitos más celebrados de Virginia Ramírez, reuniendo en un solo volumen aquellas piezas que se han convertido en emblemas de su sonido único. Cada tema, seleccionado meticulosamente de sus álbumes anteriores, ha sido remasterizado para ofrecer una experiencia auditiva renovada y de la más alta fidelidad, permitiendo tanto a nuevos oyentes como a seguidores de larga data redescubrir la profundidad y el color de su música.\n\nEl álbum es un testimonio del dominio técnico de Virginia al piano y su habilidad innata para fusionar ritmos. Desde la sofisticación armónica del jazz moderno hasta la cadencia irresistible de la tradición latinoamericana, \"Capítulos\" navega por un espectro emocional y rítmico vasto. Los oyentes podrán deleitarse con la sensualidad del jazz tradicional y el LatinJazz, unificado por el sello inconfundible de su interpretación: elegante, poderosa y profundamente sentida.\n\nMás que una simple recopilación, \"Capítulos\" es una declaración artística. Representa una pausa, un respiro para contemplar el camino recorrido y saborear los logros que han definido su sonido. En DAG KLASSICAL, esta obra trasciende el formato digital para convertirse en un legado cultural inmutable, confirmando el lugar de Virginia Ramírez como una voz esencial y perdurable en la música instrumental.",
+    "bioExtended": "La grabación de 'Capítulos' se realizó en Mansa Studio, Lechería, Venezuela, bajo la producción artística de Danilo Álvarez. Virginia trabajó con un piano Steinway & Sons de cola modelo D-274, capturado con una configuración de micrófonos Neumann U87 en modo binaural para preservar la espacialidad acústica del instrumento.\n\nEl proceso de mastering se ejecutó en 24-bit/192kHz en DAG Klassical Studios, utilizando conversores dCS y monitores Genelec 8351B, garantizando la máxima fidelidad al sonido original. Cada track fue procesado individualmente para resaltar las sutilezas dinámicas y armónicas características del lenguaje pianístico de Virginia Ramírez.\n\nEsta obra representa el primer álbum de Virginia certificado en blockchain, convirtiéndolo en un activo cultural inmutable para las generaciones futuras. Como poseedor de esta Music Card, tienes acceso exclusivo al álbum completo en formato FLAC sin pérdida, junto con contenido adicional que se añadirá próximamente.",
     "coverImage": "/covers/cover-capitulos-virginia-ramirez.png",
     "demoAvailable": true,
     "fullAlbumAvailable": false,
@@ -296,88 +300,88 @@
         "composer": "Virginia Ramírez",
         "workCatalogue": "",
         "duration": "5:43",
-        "demo": "/audio/demo/virginia-ramirez/ramirez-capitulos-preludio-para-boby-demo.mp3",
-        "protected": ""
+        "protected": "ramirez-capitulos-preludio-para-boby.flac",
+        "demoFile": "ramirez-capitulos-preludio-para-boby-demo.mp3"
       },
       {
         "title": "Blues con Sangueo",
         "composer": "Virginia Ramírez",
         "workCatalogue": "",
         "duration": "4:51",
-        "demo": "/audio/demo/virginia-ramirez/ramirez-capitulos-blues-con-sangueo-demo.mp3",
-        "protected": ""
+        "protected": "ramirez-capitulos-blues-con-sangueo.flac",
+        "demoFile": "ramirez-capitulos-blues-con-sangueo-demo.mp3"
       },
       {
         "title": "Domingo por la Tarde",
         "composer": "Virginia Ramírez",
         "workCatalogue": "",
         "duration": "6:31",
-        "demo": "/audio/demo/virginia-ramirez/ramirez-capitulos-domingo-por-la-tarde-demo.mp3",
-        "protected": ""
+        "protected": "ramirez-capitulos-domingo-por-la-tarde.flac",
+        "demoFile": "ramirez-capitulos-domingo-por-la-tarde-demo.mp3"
       },
       {
         "title": "Días de Julio",
         "composer": "Virginia Ramírez",
         "workCatalogue": "",
         "duration": "7:34",
-        "demo": "/audio/demo/virginia-ramirez/ramirez-capitulos-dias-de-julio-demo.mp3",
-        "protected": ""
+        "protected": "ramirez-capitulos-dias-de-julio-demo.flac",
+        "demoFile": "ramirez-capitulos-dias-de-julio-demo.mp3"
       },
       {
         "title": "Don Alen",
         "composer": "Virginia Ramírez",
         "workCatalogue": "",
         "duration": "5:01",
-        "demo": "/audio/demo/virginia-ramirez/ramirez-capitulos-don-alen-demo.mp3",
-        "protected": ""
+        "protected": "ramirez-capitulos-don-alen.flac",
+        "demoFile": "ramirez-capitulos-don-alen-demo.mp3"
       },
       {
         "title": "Dulcinea",
         "composer": "Virginia Ramírez",
         "workCatalogue": "",
         "duration": "6:36",
-        "demo": "/audio/demo/virginia-ramirez/ramirez-capitulos-dulcinea-demo.mp3",
-        "protected": ""
+        "protected": "ramirez-capitulos-dulcinea.flac",
+        "demoFile": "ramirez-capitulos-dulcinea-demo.mp3"
       },
       {
         "title": "Espiral de Fuego",
         "composer": "Virginia Ramírez",
         "workCatalogue": "",
         "duration": "6:55",
-        "demo": "/audio/demo/virginia-ramirez/ramirez-capitulos-espiral-de-fuego-demo.mp3",
-        "protected": ""
+        "protected": "amirez-capitulos-espiral-de-fuego.flac",
+        "demoFile": "ramirez-capitulos-espiral-de-fuego-demo.mp3"
       },
       {
         "title": "Guasipati",
         "composer": "Virginia Ramírez",
         "workCatalogue": "",
         "duration": "4:36",
-        "demo": "/audio/demo/virginia-ramirez/ramirez-capitulos-guasipati-demo.mp3",
-        "protected": ""
+        "protected": "ramirez-capitulos-guasipati.flac",
+        "demoFile": "ramirez-capitulos-guasipati-demo.mp3"
       },
       {
         "title": "Manos y Alma",
         "composer": "Virginia Ramírez",
         "workCatalogue": "",
         "duration": "4:36",
-        "demo": "/audio/demo/virginia-ramirez/ramirez-capitulos-manos-y-alma-demo.mp3",
-        "protected": ""
+        "protected": "ramirez-capitulos-manos-y-alma.flac",
+        "demoFile": "ramirez-capitulos-manos-y-alma-demo.mp3"
       },
       {
         "title": "Azul y Verde",
         "composer": "Virginia Ramírez",
         "workCatalogue": "",
         "duration": "8:09",
-        "demo": "/audio/demo/virginia-ramirez/ramirez-capitulos-azul-y-verde-demo.mp3",
-        "protected": ""
+        "protected": "ramirez-capitulos-azul-y-verde.flac",
+        "demoFile": "ramirez-capitulos-azul-y-verde-demo.mp3"
       },
       {
         "title": "Rapguinaldo",
         "composer": "Virginia Ramírez",
         "workCatalogue": "",
         "duration": "3:17",
-        "demo": "/audio/demo/virginia-ramirez/ramirez-capitulos-rapguinaldo-demo.mp3",
-        "protected": ""
+        "protected": "ramirez-capitulos-rapguinaldo.flac",
+        "demoFile": "ramirez-capitulos-rapguinaldo-demo.mp3"
       }
     ],
     "duration": "1:03:49",
@@ -425,41 +429,41 @@
         "title": "Overture (Largo - Allegro)",
         "duration": "3:20",
         "composer": "Georg Frideric Handel",
-        "demo": null,
         "workCatalogue": "HWV 348",
-        "protected": ""
+        "protected": "",
+        "demoFile": ""
       },
       {
         "title": "Adagio",
         "duration": "1:45",
         "composer": "Georg Frideric Handel",
-        "demo": null,
         "workCatalogue": "HWV 348",
-        "protected": ""
+        "protected": "",
+        "demoFile": ""
       },
       {
         "title": "Allegro - Andante",
         "duration": "2:10",
         "composer": "Georg Frideric Handel",
-        "demo": null,
         "workCatalogue": "HWV 348",
-        "protected": ""
+        "protected": "",
+        "demoFile": ""
       },
       {
         "title": "Minuet",
         "duration": "2:00",
         "composer": "Georg Frideric Handel",
-        "demo": null,
         "workCatalogue": "HWV 348",
-        "protected": ""
+        "protected": "",
+        "demoFile": ""
       },
       {
         "title": "Air",
         "duration": "1:50",
         "composer": "Georg Frideric Handel",
-        "demo": null,
         "workCatalogue": "HWV 348",
-        "protected": ""
+        "protected": "",
+        "demoFile": ""
       }
     ],
     "duration": "11:05",
@@ -504,33 +508,33 @@
         "title": "Allegro moderato",
         "duration": "6:30",
         "composer": "Wolfgang Amadeus Mozart",
-        "demo": null,
         "workCatalogue": "KV 201",
-        "protected": ""
+        "protected": "",
+        "demoFile": ""
       },
       {
         "title": "Andante",
         "duration": "5:15",
         "composer": "Wolfgang Amadeus Mozart",
-        "demo": null,
         "workCatalogue": "KV 201",
-        "protected": ""
+        "protected": "",
+        "demoFile": ""
       },
       {
         "title": "Menuetto. Allegro",
         "duration": "2:40",
         "composer": "Wolfgang Amadeus Mozart",
-        "demo": null,
         "workCatalogue": "KV 201",
-        "protected": ""
+        "protected": "",
+        "demoFile": ""
       },
       {
         "title": "Allegro con spirito",
         "duration": "4:20",
         "composer": "Wolfgang Amadeus Mozart",
-        "demo": null,
         "workCatalogue": "KV 201",
-        "protected": ""
+        "protected": "",
+        "demoFile": ""
       }
     ],
     "duration": "18:45",
@@ -575,9 +579,9 @@
         "title": "Kamarinskaya",
         "duration": "8:50",
         "composer": "Mijaíl Glinka",
-        "demo": null,
         "workCatalogue": "",
-        "protected": ""
+        "protected": "",
+        "demoFile": ""
       }
     ],
     "duration": "8:50",
@@ -622,49 +626,49 @@
         "title": "Sinfonia (Largo - Allegro)",
         "duration": "2:30",
         "composer": "Arcangelo Corelli",
-        "demo": null,
         "workCatalogue": "Op. 6 No. 8",
-        "protected": ""
+        "protected": "",
+        "demoFile": ""
       },
       {
         "title": "Allemanda (Allegro)",
         "duration": "2:10",
         "composer": "Arcangelo Corelli",
-        "demo": null,
         "workCatalogue": "Op. 6 No. 8",
-        "protected": ""
+        "protected": "",
+        "demoFile": ""
       },
       {
         "title": "Adagio",
         "duration": "1:50",
         "composer": "Arcangelo Corelli",
-        "demo": null,
         "workCatalogue": "Op. 6 No. 8",
-        "protected": ""
+        "protected": "",
+        "demoFile": ""
       },
       {
         "title": "Sarabanda (Vivace)",
         "duration": "2:00",
         "composer": "Arcangelo Corelli",
-        "demo": null,
         "workCatalogue": "Op. 6 No. 8",
-        "protected": ""
+        "protected": "",
+        "demoFile": ""
       },
       {
         "title": "Allegro",
         "duration": "1:40",
         "composer": "Arcangelo Corelli",
-        "demo": null,
         "workCatalogue": "Op. 6 No. 8",
-        "protected": ""
+        "protected": "",
+        "demoFile": ""
       },
       {
         "title": "Pastorale (Largo)",
         "duration": "3:20",
         "composer": "Arcangelo Corelli",
-        "demo": null,
         "workCatalogue": "Op. 6 No. 8",
-        "protected": ""
+        "protected": "",
+        "demoFile": ""
       }
     ],
     "duration": "13:30",
@@ -679,6 +683,7 @@
   },
   {
     "id": "goulnara-galimchina-schubert-d960-d780",
+    "demoBasePath": "goulnara-galimchina/schubert",
     "title": "Schubert: Sonata D960 & Momentos Musicales D780",
     "artistIds": [
       "goulnara-galimchina"
@@ -707,64 +712,64 @@
         "composer": "Franz Schubert",
         "workCatalogue": "Sonata D960",
         "duration": "12:30",
-        "demo": "/audio/demo/goulnara-galimchina/schubert/goulnara-schubert-d960-01-moderato-demo.mp3",
-        "protected": ""
+        "protected": "",
+        "demoFile": "goulnara-schubert-d960-01-moderato-demo.mp3"
       },
       {
         "title": "II. Andante sostenuto",
         "composer": "Franz Schubert",
         "workCatalogue": "Sonata D960",
         "duration": "8:45",
-        "demo": "/audio/demo/goulnara-galimchina/schubert/goulnara-schubert-d960-02-andante-demo.mp3",
-        "protected": ""
+        "protected": "",
+        "demoFile": "goulnara-schubert-d960-02-andante-demo.mp3"
       },
       {
         "title": "III. Scherzo. Allegro vivace con delicatezza",
         "composer": "Franz Schubert",
         "workCatalogue": "Sonata D960",
         "duration": "4:20",
-        "demo": "/audio/demo/goulnara-galimchina/schubert/goulnara-schubert-d960-03-scherzo-demo.mp3",
-        "protected": ""
+        "protected": "",
+        "demoFile": "goulnara-schubert-d960-03-scherzo-demo.mp3"
       },
       {
         "title": "IV. Allegro, ma non troppo",
         "composer": "Franz Schubert",
         "workCatalogue": "Sonata D960",
         "duration": "7:50",
-        "demo": "/audio/demo/goulnara-galimchina/schubert/goulnara-schubert-d960-04-allegro-demo.mp3",
-        "protected": ""
+        "protected": "",
+        "demoFile": "goulnara-schubert-d960-04-allegro-demo.mp3"
       },
       {
         "title": "Momento musical No. 1 en Do mayor",
         "composer": "Franz Schubert",
         "workCatalogue": "D780",
         "duration": "3:40",
-        "demo": "/audio/demo/goulnara-galimchina/schubert/goulnara-schubert-d780-01-moderato-demo.mp3",
-        "protected": ""
+        "protected": "",
+        "demoFile": "goulnara-schubert-d780-01-moderato-demo.mp3"
       },
       {
         "title": "Momento musical No. 2 en La bemol mayor",
         "composer": "Franz Schubert",
         "workCatalogue": "D780",
         "duration": "3:15",
-        "demo": "/audio/demo/goulnara-galimchina/schubert/goulnara-schubert-d780-02-andantino-demo.mp3",
-        "protected": ""
+        "protected": "",
+        "demoFile": "goulnara-schubert-d780-02-andantino-demo.mp3"
       },
       {
         "title": "Momento musical No. 4 en Fa menor",
         "composer": "Franz Schubert",
         "workCatalogue": "D780",
         "duration": "2:50",
-        "demo": "/audio/demo/goulnara-galimchina/schubert/goulnara-schubert-d780-04-moderato-demo.mp3",
-        "protected": ""
+        "protected": "",
+        "demoFile": "goulnara-schubert-d780-04-moderato-demo.mp3"
       },
       {
         "title": "Momento musical No. 6 en La bemol mayor",
         "composer": "Franz Schubert",
         "workCatalogue": "D780",
         "duration": "2:30",
-        "demo": "/audio/demo/goulnara-galimchina/schubert/goulnara-schubert-d780-06-allegretto-demo.mp3",
-        "protected": ""
+        "protected": "",
+        "demoFile": "goulnara-schubert-d780-06-allegretto-demo.mp3"
       }
     ],
     "duration": "46:00",
@@ -815,8 +820,8 @@
         "composer": "Marin Marais",
         "workCatalogue": "",
         "duration": "26:40",
-        "demo": null,
-        "protected": ""
+        "protected": "",
+        "demoFile": ""
       }
     ],
     "duration": "26:40",
@@ -864,41 +869,41 @@
         "title": "Ich bin der Welt abhanden gekommen",
         "composer": "Gustav Mahler",
         "duration": "5:20",
-        "demo": null,
         "workCatalogue": "de Rückert-Lieder",
-        "protected": ""
+        "protected": "",
+        "demoFile": ""
       },
       {
         "title": "Um Mitternacht",
         "composer": "Gustav Mahler",
         "duration": "4:45",
-        "demo": null,
         "workCatalogue": "",
-        "protected": ""
+        "protected": "",
+        "demoFile": ""
       },
       {
         "title": "Liebst du um Schönheit",
         "composer": "Gustav Mahler",
         "duration": "3:10",
-        "demo": null,
         "workCatalogue": "de Rückert-Lieder",
-        "protected": ""
+        "protected": "",
+        "demoFile": ""
       },
       {
         "title": "Nicht wiedersehen!",
         "composer": "Gustav Mahler",
         "duration": "3:50",
-        "demo": null,
         "workCatalogue": "",
-        "protected": ""
+        "protected": "",
+        "demoFile": ""
       },
       {
         "title": "Revelge",
         "composer": "Gustav Mahler",
         "duration": "5:00",
-        "demo": null,
         "workCatalogue": "de Des Knaben Wunderhorn",
-        "protected": ""
+        "protected": "",
+        "demoFile": ""
       }
     ],
     "duration": "22:05",

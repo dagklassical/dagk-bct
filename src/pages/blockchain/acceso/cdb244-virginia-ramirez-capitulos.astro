@@ -1,12 +1,12 @@
 ---
-// src/pages/blockchain/acceso/5e6c44-gerardo-gerulewicz-piano-aguinaldo.astro
+// src/pages/blockchain/acceso/cdb244-virginia-ramirez-capitulos.astro
 import Layout from '../../../layouts/Layout.astro';
 import releases from '../../../data/releases.json';
 import artists from '../../../data/artists.json';
 
 // ✅ Obtener release y artista
-const releaseId = 'gerulewicz-piano-aguinaldo';
-const artistId = 'gerardo-gerulewicz';
+const releaseId = 'virginia-ramirez-capitulos';
+const artistId = 'virginia-ramirez';
 
 const release = releases.find(r => r.id === releaseId);
 const artist = artists.find(a => a.id === artistId);
@@ -16,8 +16,8 @@ if (!release || !artist) {
 }
 
 // ✅ URLs sin espacios
-const BASE_URL_PROTECTED = 'https://audio.dagklassical.com/protected/audio/gerulewicz-piano-aguinaldo/';
-const BASE_URL_DEMO = 'https://audio.dagklassical.com/audio/demo/gerardo-gerulewicz/piano-aguinaldo/';
+const BASE_URL_PROTECTED = 'https://audio.dagklassical.com/protected/audio/virginia-ramirez-capitulos/';
+const BASE_URL_DEMO = 'https://audio.dagklassical.com/audio/demo/virginia-ramirez/capitulos/';
 
 const tracks = release.tracks.map(track => ({
   title: track.title,
@@ -26,12 +26,12 @@ const tracks = release.tracks.map(track => ({
 }));
 
 const albumInfo = {
-  title: release.workTitle || release.title,
-  artist: artist.name,
-  tagline: artist.tagline || '',
-  description: release.descriptionLong || release.description,
-  bioShort: artist.bio || 'Pianista y compositor venezolano especializado en la reinterpretación de aguinaldos tradicionales con arreglos contemporáneos.',
-  bioExtended: artist.bioLong || 'Biografía completa no disponible.',
+  title: release.title || 'Capítulos',
+  artist: artist.name || 'Virginia Ramírez',
+  tagline: artist.tagline || 'Entre la Tradición y la Vanguardia',
+  description: release.descriptionLong || release.description || '',
+  bioShort: artist.bio || 'Artista multidisciplinaria venezolana que fusiona canto, piano y circo contemporáneo.',
+  bioExtended: release.bioExtended || 'Historia exclusiva no disponible.',
   totalDuration: release.duration || '46:30',
   tracks
 };
@@ -43,11 +43,11 @@ const tracksJson = JSON.stringify(tracks);
   <!-- Hero full viewport con CTA -->
   <div class="relative h-screen w-full overflow-hidden">
     <img 
-      src="https://audio.dagklassical.com/protected/audio/gerulewicz-piano-aguinaldo/hero-gg-tocando-kolendy-embajada-polonia.webp"
+      src="https://audio.dagklassical.com/protected/audio/virginia-ramirez-capitulos/hero-virginia-ramirez-capitulos.webp"
       alt={`${albumInfo.title} – ${albumInfo.artist}`}
       loading="lazy"
       class="absolute inset-0 w-full h-full object-cover"
-      onerror="this.src='/covers/cover-gerardo-villancicos-polacos.webp'"
+      onerror="this.src='/hero/hero-virginia-ramirez.webp'"
     />
     
     <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
@@ -88,7 +88,7 @@ const tracksJson = JSON.stringify(tracks);
               id="toggle-bio-btn"
               class="text-dag-burgundy hover:underline font-medium flex items-center gap-1 transition-colors"
             >
-              <span id="bio-toggle-text">Ver biografía completa</span>
+              <span id="bio-toggle-text">Ver historia exclusiva de esta obra</span>
               <svg id="bio-arrow" class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
@@ -102,7 +102,7 @@ const tracksJson = JSON.stringify(tracks);
                     .map(paragraph => (
                       <p>{paragraph}</p>
                     )) || (
-                      <p>Biografía completa no disponible.</p>
+                      <p>Historia exclusiva no disponible en este momento.</p>
                     )
                 }
               </div>
@@ -134,8 +134,8 @@ const tracksJson = JSON.stringify(tracks);
           <h2 class="text-2xl font-advent font-semibold mb-4">Descargas</h2>
           <div class="space-y-4">
             <a 
-              href="https://audio.dagklassical.com/protected/audio/gerulewicz-piano-aguinaldo/gerulewicz-piano-aguinaldo-complete.flac" 
-              download="Gerardo-Gerulewicz_Piano-Aguinaldo_Complete.flac"
+              href="https://audio.dagklassical.com/protected/audio/virginia-ramirez-capitulos/virginia-ramirez-capitulos-complete.flac" 
+              download="Virginia-Ramirez_Capitulos_Complete.flac"
               class="block bg-dag-burgundy text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition-colors font-medium text-center"
             >
               Descargar Álbum Completo (FLAC)
@@ -145,9 +145,9 @@ const tracksJson = JSON.stringify(tracks);
         
         <section>
           <h3 class="font-semibold mb-3">Partitura Digital</h3>
-          <p class="text-slate-700 mb-3">Partitura completa en PDF, firmada por Gerardo Gerulewicz.</p>
+          <p class="text-slate-700 mb-3">Partitura completa en PDF, firmada por Virginia Ramírez.</p>
           <a 
-            href="https://audio.dagklassical.com/protected/audio/gerulewicz-piano-aguinaldo/gerulewicz-partitura.pdf" 
+            href="https://audio.dagklassical.com/protected/audio/virginia-ramirez-capitulos/virginia-partitura.pdf" 
             download
             class="text-dag-burgundy hover:underline font-medium"
           >
@@ -176,11 +176,11 @@ const tracksJson = JSON.stringify(tracks);
           <div class="p-4 border border-platinum rounded-md bg-white/50">
             <p class="text-xs text-slate-600 font-mono leading-relaxed">
               <span class="text-dag-burgundy font-semibold">UUID:</span><br/>
-              {release.metadata?.uuid || 'urn:uuid:a1b2c3d4-5678-90ab-cdef-123456789002'}
+              {release.metadata?.uuid || 'urn:uuid:cdb244-0000-0000-0000-000000000002'}
             </p>
             <p class="text-xs text-slate-600 font-mono mt-2">
               <span class="text-dag-burgundy font-semibold">Timestamp:</span><br/>
-              {release.metadata?.timestamp || '2025-11-25T10:00:00Z'}
+              {release.metadata?.timestamp || '2025-12-10T14:30:00Z'}
             </p>
             <p class="text-xs text-slate-600 font-mono mt-2">
               <span class="text-dag-burgundy font-semibold">Operador:</span><br/>
@@ -191,8 +191,9 @@ const tracksJson = JSON.stringify(tracks);
         <div class="md:col-span-2 p-4 border border-platinum rounded-md bg-white/50">
           <p class="text-xs text-slate-600 font-mono leading-relaxed">
             <span class="text-dag-burgundy font-semibold">CRÉDITOS: </span>
-            Piano y arreglos: {albumInfo.artist} | Mezcla y mastering: Danilo Álvarez | 
-            Arte: Leo Gerulewicz | Diseño: Lorien Gascón Rojas | Mezclado y masterizado en Mansa Studio®, Lechería, Venezuela.
+            Voz y piano: {albumInfo.artist} | Mezcla y mastering: Danilo Álvarez | 
+            Arte: Leo Gerulewicz | Diseño: Lorien Gascón Rojas | 
+            Grabado y masterizado en Mansa Studio®, Lechería, Venezuela.
           </p>
         </div>
       </div>
@@ -300,7 +301,7 @@ const tracksJson = JSON.stringify(tracks);
             bioContainer.style.paddingTop = '0';
             bioContainer.style.paddingBottom = '0';
             
-            bioText.textContent = 'Ver biografía completa';
+            bioText.textContent = 'Ver historia exclusiva de esta obra';
             arrow.style.transform = 'rotate(0deg)';
           }
         });
