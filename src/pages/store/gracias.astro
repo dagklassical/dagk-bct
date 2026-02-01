@@ -1,0 +1,71 @@
+---
+// src/pages/store/gracias.astro
+import Layout from '../../layouts/Layout.astro';
+import musicCards from '../../data/music-cards.json';
+
+const urlParams = new URL(Astro.request.url).searchParams;
+const cardId = urlParams.get('card') || '';
+const reservedCard = cardId ? musicCards.find(card => card.id === cardId) : null;
+---
+
+<Layout title="¡Gracias por tu reserva! | DAG Klassical">
+  <div class="max-w-2xl mx-auto px-4 py-16 text-center">
+    <div class="mb-8">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto text-dag-burgundy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    </div>
+    
+    <h1 class="text-3xl font-bold mb-4">¡Gracias por tu reserva!</h1>
+    
+    {reservedCard ? (
+      <>
+        <p class="text-lg text-slate-700 mb-4">
+          Has reservado <strong>{reservedCard.title}</strong>.
+        </p>
+        <p class="text-slate-700 mb-6 max-w-prose mx-auto">
+          En breve recibirás instrucciones para completar tu adquisición y acceder a tu Music Card exclusiva.
+        </p>
+        
+        <!-- ✅ CTA principal: volver a la obra -->
+        <div class="mb-6">
+          <a 
+            href={`/blockchain/music-cards/${reservedCard.id}`}
+            class="inline-block bg-dag-burgundy text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition-colors font-medium"
+          >
+            ← Volver a {reservedCard.title}
+          </a>
+        </div>
+
+        <!-- ✅ CTA secundario: explorar otras -->
+        <p class="text-sm text-slate-600 mb-3">¿Te interesan otras obras?</p>
+        <a 
+          href="/blockchain/music-cards"
+          class="inline-block text-dag-burgundy hover:underline font-medium"
+        >
+          Explorar todas las Music Cards →
+        </a>
+      </>
+    ) : (
+      <>
+        <p class="text-lg text-slate-700 mb-6 max-w-prose mx-auto">
+          Hemos recibido tu solicitud. En breve te contactaremos con las instrucciones para completar tu adquisición.
+        </p>
+        
+        <!-- ✅ Solo CTA secundario si no hay obra específica -->
+        <a 
+          href="/blockchain/music-cards"
+          class="inline-block bg-dag-burgundy text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition-colors font-medium"
+        >
+          ← Explorar Music Cards
+        </a>
+      </>
+    )}
+
+    <div class="mt-8 bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-lg max-w-prose mx-auto">
+      <p class="text-blue-800">
+        ¿Preguntas? Escríbenos a <a href="mailto:dagklassical.cto@gmail.com" class="underline">dagklassical.cto@gmail.com</a>
+      </p>
+    </div>
+  </div>
+</Layout>
