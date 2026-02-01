@@ -12,6 +12,7 @@
     "tokenId": "2001",
     "price": "0.12 MATIC",
     "status": "disponible",
+    "workType": "Obra para piano",
     "benefits": [
       "Audio FLAC 24-bit/192kHz",
       "Partitura digital firmada",
@@ -61,6 +62,7 @@
     "tokenId": "2101",
     "price": "0.10 MATIC",
     "status": "disponible",
+    "workType": "Obra para piano",
     "benefits": [
       "Audio FLAC 24-bit/192kHz",
       "Partitura digital firmada",

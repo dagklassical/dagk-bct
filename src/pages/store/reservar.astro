@@ -1,0 +1,95 @@
+---
+// src/pages/store/reservar.astro
+import Layout from '../../layouts/Layout.astro';
+import musicCards from '../../data/music-cards.json'; // ← AÑADIDO
+
+const urlParams = new URL(Astro.request.url).searchParams;
+const cardId = urlParams.get('card') || '';
+const selectedCard = cardId ? musicCards.find(card => card.id === cardId) : null; // ← AÑADIDO
+---
+
+<Layout 
+  title="Reservar Music Card | DAG Klassical" 
+  description="Reserva tu Music Card y recibe instrucciones de pago seguro."
+>
+  <div class="max-w-2xl mx-auto px-4 py-12">
+    <h1 class="text-3xl font-bold mb-6">Reservar Music Card</h1>
+    
+    {cardId ? (
+      <p class="mb-6 text-slate-700">
+        La obra con ID: <code class="bg-gray-100 px-1 rounded text-dag-burgundy">{cardId}</code> titulada como <strong>{selectedCard?.title || 'título no disponible'}</strong> ha sido seleccionada.
+        Completando el formulario recibirás las instrucciones para realizar tu adquisición.
+      </p>
+    ) : (
+      <p class="mb-6">Por favor, selecciona una Music Card desde la tienda.</p>
+    )}
+
+    <!-- resto del formulario sin cambios -->
+
+    <div class="bg-blue-50 p-6 rounded-lg mb-8 border border-blue-200">
+      <h2 class="text-xl font-semibold mb-3">Métodos de Pago Disponibles</h2>
+      <ul class="list-disc pl-5 space-y-1 text-slate-700">
+        <li>Transferencia bancaria (Venezuela)</li>
+        <li>Zelle o PayPal (internacional)</li>
+        <li>USDT (TRC20 o ERC20)</li>
+        <li>Bitcoin (BTC)</li>
+      </ul>
+      <p class="mt-3 text-sm text-slate-600">
+        Tras confirmar tu pago, recibirás acceso inmediato a tu Music Card en blockchain.
+      </p>
+    </div>
+
+    <form action="https://formspree.io/f/xlglddqy" method="POST">
+      <input type="hidden" name="card_id" value={cardId} />
+      
+      <div class="mb-5">
+        <label for="name" class="block mb-2 font-medium">Nombre completo</label>
+        <input 
+          type="text" 
+          id="name" 
+          name="name" 
+          required 
+          class="w-full p-3 border border-slate-300 rounded focus:ring-2 focus:ring-dag-burgundy focus:outline-none"
+        />
+      </div>
+      
+      <div class="mb-5">
+        <label for="email" class="block mb-2 font-medium">Email</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          required 
+          class="w-full p-3 border border-slate-300 rounded focus:ring-2 focus:ring-dag-burgundy focus:outline-none"
+        />
+      </div>
+      
+      <div class="mb-6">
+        <label for="payment" class="block mb-2 font-medium">Método de pago preferido</label>
+        <select 
+          id="payment" 
+          name="payment_method" 
+          required 
+          class="w-full p-3 border border-slate-300 rounded focus:ring-2 focus:ring-dag-burgundy focus:outline-none"
+        >
+          <option value="">Selecciona una opción</option>
+          <option value="bank_venezuela">Transferencia (Venezuela)</option>
+          <option value="zelle_paypal">Zelle / PayPal</option>
+          <option value="usdt">USDT (Tether)</option>
+          <option value="btc">Bitcoin (BTC)</option>
+        </select>
+      </div>
+      
+      <button 
+        type="submit" 
+        class="w-full bg-dag-burgundy text-white py-3 rounded-md font-medium hover:bg-opacity-90 transition-colors"
+      >
+        Enviar Solicitud de Reserva
+      </button>
+    </form>
+
+    <p class="mt-6 text-sm text-slate-500 text-center">
+      Tus datos son confidenciales y solo se usarán para coordinar tu adquisición.
+    </p>
+  </div>
+</Layout>

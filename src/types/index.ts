@@ -1,12 +1,10 @@
-// src/types/index.ts
-
 export interface Artist {
   id: string;
   name: string;
   avatar?: string;
   website?: string;
   social?: {
-    [platform: string]: string | null | undefined; //
+    [platform: string]: string | null | undefined;
   };
 }
 
@@ -67,8 +65,9 @@ export interface MusicCard {
   blockchain: string;
   contractAddress: string;
   tokenId: string;
-  price: string;
+  price: number;               // ✅ ahora es number
   status: string;
+  workType?: string;           // ✅ campo opcional añadido
   benefits: string[];
   cardImage: string;
   socialLinks: MusicCardSocialLink[];

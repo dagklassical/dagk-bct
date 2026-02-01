@@ -170,8 +170,24 @@ const breadcrumbs = [
 
         {release?.description && <p class="mb-5 text-slate-700">{release.description}</p>}
 
+<!-- ✅ CTA para nuevos coleccionistas -->
+{card.status === 'disponible' && (
+  <div class="bg-blue-50 p-5 rounded-lg mb-8 border border-blue-20">
+    <h3 class="text-xl font-semibold mb-2">¿Deseas adquirir esta Music Card?</h3>
+    <p class="text-slate-700 mb-3">
+      Únete a los coleccionistas verificados y obtén acceso inmediato al audio maestro, partitura firmada y contenido exclusivo.
+    </p>
+    <a 
+      href={`/store/reservar?card=${card.id}`}
+      class="inline-block bg-dag-burgundy text-white px-5 py-2.5 rounded hover:bg-opacity-90 transition-colors text-sm font-medium"
+    >
+      Reservar Ahora →
+    </a>
+  </div>
+)}
+
         <section class="mb-6">
-  <h3 class="text-h3 font-advent mb-3">Privilegios propios</h3>
+  <h3 class="text-h3 font-advent mb-3 pl-5">Privilegios propios</h3>
   <ul class="list-disc pl-5 space-y-1 mb-8">
     {card.benefits.map((benefit) => (
       <li class="text-slate-700">{benefit}</li>
@@ -179,11 +195,9 @@ const breadcrumbs = [
   </ul>
   
 <!-- ✅ Botón de acceso exclusivo con placeholder simple -->
-<div class="bg-dag-burgundy/10 p-4 rounded-lg border border-dag-burgundy/30">
-  <h4 class="font-semibold mb-2">¿Eres poseedor de esta Music Card?</h4>
-  <p class="text-sm mb-2">
-    <strong>· {card.title}</strong>
-  </p>
+<div class="bg-dag-burgundy/10 p-5 rounded-lg border border-dag-burgundy/30">
+  <h3 class="text-xl font-semibold mb-2">¿Eres poseedor de esta Music Card?</h3>
+  <p class="mb-2">· {card.title}</p>
   
   <form action="/blockchain/acceso" method="get" class="flex gap-2">
     <input
@@ -246,8 +260,9 @@ const breadcrumbs = [
             <span class="px-2 py-1 bg-black/5 text-slate-800 text-xs font-mono rounded">Duración: {totalDuration}</span>
           </div>
           <p class="mt-3 text-sm text-slate-600">
-            {card.edition} • {card.blockchain} • {card.price}
-          </p>
+  {card.edition} • {card.blockchain} • 
+  <span class="font-semibold text-dag-burgundy">${card.price} USD</span>
+</p>
         </section>
       </div>
     </div>

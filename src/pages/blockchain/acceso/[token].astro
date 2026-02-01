@@ -8,7 +8,7 @@ export const prerender = false;
 const { token } = Astro.params;
 const tokenString = typeof token === 'string' ? token : '';
 
-// ✅ Función con tipado explícito
+// ✅ Normaliza nombre (aunque no se usa directamente aquí)
 function normalizeName(name: string): string {
   return name
     .toLowerCase()
@@ -18,25 +18,26 @@ function normalizeName(name: string): string {
     .replace(/[^a-z0-9-]/g, '');
 }
 
-// ✅ Generar tokens válidos automáticamente
-const validTokens = new Set();
+// ✅ Generar tokens válidos desde IDs de Music Cards disponibles
+const validTokens = new Set<string>();
 
 for (const card of musicCards) {
-  if (card.status === 'disponible') {
+  if (card.status === 'disponible' || card.status === 'vendida') {
     const idParts = card.id.split('-');
     if (idParts.length >= 6) {
-      const tokenParts = idParts.slice(2, -1);
+      // Ej: uuidCorto-nombre-apellido-obra-edicion → extrae "nombre-apellido-obra"
+      const tokenParts = idParts.slice(1, -1); // excluye uuidCorto y edición
       const generatedToken = tokenParts.join('-');
       validTokens.add(generatedToken);
     }
   }
 }
 
-// ✅ Añadir tokens de demo manualmente
+// ✅ Tokens de demostración
 validTokens.add('dag-demo');
 validTokens.add('capa8-test');
 
-const isValid = validTokens.has(toString);
+const isValid = validTokens.has(tokenString);
 const title = isValid ? 'Acceso Premium' : 'Acceso Restringido';
 const description = isValid
   ? 'Contenido exclusivo de tu Music Card DAG Klassical.'
@@ -58,15 +59,44 @@ const breadcrumbs = [
           Gracias por ser parte de DAG Klassical. Aquí encontrarás tu obra completa en FLAC 24/192,
           partitura firmada digitalmente, notas interpretativas y acceso a masterclasses privadas.
         </p>
-        
-        <div class="bg-white p-6 rounded-lg border border-platinum">
-          <p class="mb-4">Redirigiendo a tu contenido exclusivo...</p>
-          <script>
-            window.location.href = `/blockchain/acceso/${toString}`;
-          </script>
-          <a href={`/blockchain/acceso/${toString}`} class="text-dag-burgundy hover:underline">
-            Ir manualmente →
-          </a>
+
+        <div class="space-y-6">
+          <div class="bg-white p-6 rounded-lg border border-platinum">
+            <h2 class="text-xl font-semibold mb-3">🎧 Audio Maestro</h2>
+            <p class="mb-4">Descarga en calidad de estudio: FLAC 24-bit / 192kHz</p>
+            <a 
+              href={`https://audio.dagklassical.com/flac/${tokenString}.flac`} 
+              class="text-dag-burgundy hover:underline font-medium"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Descargar audio →
+            </a>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg border border-platinum">
+            <h2 class="text-xl font-semibold mb-3">🎼 Partitura Digital</h2>
+            <p class="mb-4">Partitura firmada digitalmente por el intérprete</p>
+            <a 
+              href={`/scores/${tokenString}.pdf`} 
+              class="text-dag-burgundy hover:underline font-medium"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver partitura →
+            </a>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg border border-platinum">
+            <h2 class="text-xl font-semibold mb-3">🎥 Contenido Exclusivo</h2>
+            <p class="mb-4">Masterclass privada y material detrás de cámaras</p>
+            <a 
+              href={`/extras/${tokenString}/`} 
+              class="text-dag-burgundy hover:underline font-medium"
+            >
+              Acceder al contenido →
+            </a>
+          </div>
         </div>
       </>
     ) : (
@@ -86,10 +116,9 @@ const breadcrumbs = [
           </p>
         </div>
 
-        <!-- ✅ CTA prominente sin redirección automática -->
         <div class="text-center">
           <a 
-            href="https://www.dagklassical.com/blockchain"
+            href="/blockchain"
             class="inline-block bg-dag-burgundy text-white px-8 py-4 rounded-lg hover:bg-opacity-90 transition-colors font-medium text-lg"
           >
             Conoce Nuestras Music Cards

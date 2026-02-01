@@ -1,0 +1,58 @@
+---
+// src/pages/store.astro
+import Layout from '../layouts/Layout.astro';
+import musicCards from '../data/music-cards.json';
+
+const availableCards = musicCards.filter(card => 
+  card.status === 'disponible' && card.price && card.title
+);
+---
+
+<Layout 
+  title="Music Cards Premium | DAG Klassical" 
+  description="Colecciona música clásica verificable en blockchain con audio maestro y partituras digitales."
+>
+  <div class="max-w-6xl mx-auto px-4 py-12">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold mb-4">Music Cards Premium</h1>
+      <p class="text-lg text-slate-600 max-w-3xl mx-auto">
+        Cada Music Card es un activo digital único, certificado en blockchain Polygon, 
+        con audio en FLAC 24/192, partituras firmadas y contenido exclusivo.
+      </p>
+    </div>
+
+{availableCards.map(card => (
+  <div class="border border-platinum rounded-lg overflow-hidden hover:shadow-md transition-shadow">
+    <div class="p-6">
+      <h2 class="text-xl font-bold mb-2">{card.title}</h2>
+      <p class="text-slate-600 mb-2">{card.artist}</p>
+      <p class="text-sm text-slate-500 mb-4">{card.workType || 'Obra clásica'}</p>
+      
+      <div class="flex justify-between items-center mb-4">
+        <span class="font-bold text-dag-burgundy">${card.price} USD</span>
+        {card.edition && <span class="text-xs bg-gray-100 px-2 py-1 rounded">Ed. {card.edition}</span>}
+      </div>
+
+      <a 
+        href={`/store/reservar?card=${card.id}`}
+        class="block w-full bg-dag-burgundy text-white text-center py-3 rounded-md hover:bg-opacity-90 transition-colors"
+      >
+        Reservar Ahora
+      </a>
+    </div>
+  </div>
+))}
+      </div>
+    ) : (
+      <div class="text-center py-12">
+        <p class="text-lg text-slate-600">Próximamente: nuevas Music Cards en lanzamiento.</p>
+        <a 
+          href="/blockchain"
+          class="mt-4 inline-block text-dag-burgundy hover:underline"
+        >
+          Conoce el proyecto →
+        </a>
+      </div>
+    )}
+  </div>
+</Layout>
