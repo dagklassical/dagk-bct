@@ -9,120 +9,95 @@ const selectedCard = cardId ? musicCards.find(card => card.id === cardId) : null
 ---
 
 <Layout 
-  title={`Reservar ${selectedCard?.title || 'Music Card'} | DAG Klassical`}
+  title="Reservar Music Card | DAG Klassical" 
   description="Reserva tu Music Card y recibe instrucciones de pago seguro."
 >
-  <div class="max-w-2xl mx-auto px-4 py-8">
-    <!-- Enlace de retorno -->
-    <div class="mb-6 text-center">
-      <a 
-        href="/blockchain/music-cards"
-        class="inline-block text-slate-700 hover:text-dag-burgundy text-sm"
-      >
-        ← Volver a Music Cards
-      </a>
-    </div>
-
-    <!-- Hero reducido (solo si hay card válida) -->
-    {selectedCard && (
-      <div class="mb-8 text-center">
-        <img 
-          src={selectedCard.cardImage}
-          alt={`Music Card: ${selectedCard.title}`}
-          class="w-full max-w-xs mx-auto rounded-lg shadow-sm border border-platinum"
-          onerror="this.src='https://placehold.co/300x400/eeeeee/999999?text=Music+Card'"
-        />
-        <p class="mt-3 text-sm text-slate-600 font-medium">
-          {selectedCard.title}
-        </p>
-      </div>
+  <div class="max-w-2xl mx-auto px-4 py-12">
+    <h1 class="text-3xl font-bold mb-6">Reservar Music Card</h1>
+    
+    {cardId ? (
+      <p class="mb-6 text-slate-700">
+        La obra con ID: <code class="bg-gray-100 px-1 rounded text-dag-burgundy">{cardId}</code> titulada como <strong>{selectedCard?.title || 'título no disponible'}</strong> ha sido seleccionada.
+        Completando el formulario recibirás las instrucciones para realizar tu adquisición.
+      </p>
+    ) : (
+      <p class="mb-6">Por favor, selecciona una Music Card desde la tienda.</p>
     )}
 
-    <!-- Contenedor del formulario -->
-    <div class="bg-white border border-platinum rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-      <h1 class="text-2xl font-bold mb-4 text-center">
-        Reservar {selectedCard ? selectedCard.title : 'una Music Card'}
-      </h1>
+    <div class="bg-blue-50 p-6 rounded-lg mb-8 border border-blue-200">
+      <h2 class="text-xl font-semibold mb-3">Métodos de Pago Disponibles</h2>
+      <ul class="list-disc pl-5 space-y-1 text-slate-700">
+        <li>Transferencia bancaria (Venezuela)</li>
+        <li>Zelle o PayPal (internacional)</li>
+        <li>USDT (TRC20 o ERC20)</li>
+        <li>Bitcoin (BTC)</li>
+      </ul>
+      <p class="mt-3 text-sm text-slate-600">
+        Tras confirmar tu pago, recibirás acceso inmediato a tu Music Card en blockchain.
+      </p>
+    </div>
 
-      {selectedCard ? (
-        <p class="mb-5 text-slate-700 text-center">
-          Has seleccionado la obra con ID: <code class="bg-gray-100 px-1.5 py-0.5 rounded text-xs">{cardId}</code>.
-        </p>
-      ) : (
-        <p class="mb-5 text-center text-slate-600">
-          Por favor, selecciona una Music Card desde la tienda.
-        </p>
-      )}
-
-      <!-- Métodos de pago -->
-      <div class="bg-blue-50 p-4 rounded-lg mb-6 border border-blue-200">
-        <h2 class="text-sm font-semibold text-blue-800 mb-2">Métodos de Pago Disponibles</h2>
-        <ul class="list-disc pl-4 text-sm text-blue-700 space-y-1">
-          <li>Transferencia bancaria (Venezuela)</li>
-          <li>Zelle o PayPal (internacional)</li>
-          <li>USDT (TRC20 o ERC20)</li>
-          <li>Bitcoin (BTC)</li>
-        </ul>
+    <!-- Formulario sin action (envío por AJAX) -->
+    <form id="reservation-form" class="space-y-5">
+      <input type="hidden" name="card_id" value={cardId} />
+      
+      <div class="mb-5">
+        <label for="name" class="block mb-2 font-medium">Nombre completo</label>
+        <input 
+          type="text" 
+          id="name" 
+          name="name" 
+          required 
+          class="w-full p-3 border border-slate-300 rounded focus:ring-2 focus:ring-dag-burgundy focus:outline-none"
+        />
+      </div>
+      
+      <div class="mb-5">
+        <label for="email" class="block mb-2 font-medium">Email</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          required 
+          class="w-full p-3 border border-slate-300 rounded focus:ring-2 focus:ring-dag-burgundy focus:outline-none"
+        />
+      </div>
+      
+      <div class="mb-6">
+        <label for="payment" class="block mb-2 font-medium">Método de pago preferido</label>
+        <select 
+          id="payment" 
+          name="payment_method" 
+          required 
+          class="w-full p-3 border border-slate-300 rounded focus:ring-2 focus:ring-dag-burgundy focus:outline-none"
+        >
+          <option value="">Selecciona una opción</option>
+          <option value="bank_venezuela">Transferencia (Venezuela)</option>
+          <option value="zelle_paypal">Zelle / PayPal</option>
+          <option value="usdt">USDT (Tether)</option>
+          <option value="btc">Bitcoin (BTC)</option>
+        </select>
       </div>
 
-      <!-- Formulario sin action (envío por AJAX) -->
-      <form id="reservation-form" class="space-y-4">
-        <input type="hidden" name="card_id" value={cardId} />
+      <!-- Honeypot anti-bot -->
+      <div class="hidden">
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+      </div>
+      
+      <button 
+        type="submit" 
+        class="w-full bg-dag-burgundy text-white py-3 rounded-md font-medium hover:bg-opacity-90 transition-colors"
+      >
+        Enviar Solicitud de Reserva
+      </button>
+    </form>
 
-        <div>
-          <label for="name" class="block mb-2 font-medium text-slate-700">Nombre completo</label>
-          <input 
-            type="text" 
-            id="name" 
-            name="name" 
-            required 
-            class="w-full p-3 border border-slate-300 rounded focus:ring-1 focus:ring-dag-burgundy focus:outline-none"
-          />
-        </div>
-
-        <div>
-          <label for="email" class="block mb-2 font-medium text-slate-700">Email</label>
-          <input 
-            type="email" 
-            id="email" 
-            name="email" 
-            required 
-            class="w-full p-3 border border-slate-300 rounded focus:ring-1 focus:ring-dag-burgundy focus:outline-none"
-          />
-        </div>
-
-        <div>
-          <label for="payment" class="block mb-2 font-medium text-slate-700">Método de pago preferido</label>
-          <select 
-            id="payment" 
-            name="payment_method" 
-            required 
-            class="w-full p-3 border border-slate-300 rounded focus:ring-1 focus:ring-dag-burgundy focus:outline-none"
-          >
-            <option value="">Selecciona una opción</option>
-            <option value="bank_venezuela">Transferencia (Venezuela)</option>
-            <option value="zelle_paypal">Zelle / PayPal</option>
-            <option value="usdt">USDT (Tether)</option>
-            <option value="btc">Bitcoin (BTC)</option>
-          </select>
-        </div>
-
-        <!-- Honeypot anti-bot -->
-        <div class="hidden">
-          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
-        </div>
-
-        <button 
-          type="submit" 
-          class="w-full bg-dag-burgundy text-white py-3 rounded-md font-medium hover:bg-opacity-90 transition-colors"
-        >
-          Enviar Solicitud de Reserva
-        </button>
-      </form>
-    </div>
+    <p class="mt-6 text-sm text-slate-500 text-center">
+      Tus datos son confidenciales y solo se usarán para coordinar tu adquisición.
+    </p>
   </div>
 
-  <!-- ✅ Script seguro y tipado -->
+  <!-- ✅ Script AJAX seguro y sin warnings -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const form = document.getElementById('reservation-form');
@@ -132,10 +107,12 @@ const selectedCard = cardId ? musicCards.find(card => card.id === cardId) : null
         e.preventDefault();
         
         const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
+        // Convertir todos los valores a string para evitar errores de tipo File
+        const data = Object.fromEntries(
+          Array.from(formData.entries()).map(([key, value]) => [key, value.toString()])
+        );
         
-        // Protección anti-bot
-        if (data._gotcha) return;
+        if (data._gotcha) return; // anti-bot
         
         try {
           const res = await fetch('https://formspree.io/f/xlglddqy', {
@@ -145,12 +122,12 @@ const selectedCard = cardId ? musicCards.find(card => card.id === cardId) : null
           });
           
           if (res.ok) {
-            window.location.href = '/store/gracias';
+            window.location.href = `/store/gracias?card=${encodeURIComponent(data.card_id)}`;
           } else {
-            alert('Hubo un error al enviar tu solicitud. Por favor, inténtalo de nuevo.');
+            alert('Hubo un error. Por favor, inténtalo de nuevo.');
           }
         } catch (err) {
-          alert('Error de conexión. Verifica tu internet e inténtalo nuevamente.');
+          alert('Error de conexión. Verifica tu internet.');
         }
       });
     });
