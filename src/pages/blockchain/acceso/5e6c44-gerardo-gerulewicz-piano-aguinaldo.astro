@@ -15,7 +15,7 @@ if (!release || !artist) {
   throw new Error(`Release o artista no encontrado: ${releaseId} / ${artistId}`);
 }
 
-// ✅ URLs sin espacios
+// ✅ URLs sin espacios (corregido)
 const BASE_URL_PROTECTED = 'https://audio.dagklassical.com/protected/audio/gerulewicz-piano-aguinaldo/';
 const BASE_URL_DEMO = 'https://audio.dagklassical.com/audio/demo/gerardo-gerulewicz/piano-aguinaldo/';
 
@@ -47,7 +47,7 @@ const tracksJson = JSON.stringify(tracks);
       alt={`${albumInfo.title} – ${albumInfo.artist}`}
       loading="lazy"
       class="absolute inset-0 w-full h-full object-cover"
-      onerror="this.src='/covers/cover-gerardo-villancicos-polacos.webp'"
+      onerror="this.src='/hero/hero-gg-tocando-kolendy-embajada-polonia.webp'"
     />
     
     <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
@@ -199,62 +199,76 @@ const tracksJson = JSON.stringify(tracks);
     </div>
   </article>
 
-  <!-- Player fijo -->
+  <!-- Player fijo con título a la derecha -->
   <div class="fixed bottom-0 left-0 right-0 bg-white/40 backdrop-blur-sm border-t border-platinum p-4">
-    <div class="max-w-6xl mx-auto flex items-center justify-between">
-      <div class="flex items-center gap-4">
-        <button id="prev-btn" class="text-dag-burgundy text-xl">⏮</button>
-        <audio 
-          id="fixed-player" 
-          controls 
-          class="w-80"
-          data-tracks={tracksJson}
-        ></audio>
-        <button id="next-btn" class="text-dag-burgundy text-xl">⏭</button>
-      </div>
-      <div class="text-base font-medium text-slate-900 min-w-[200px] text-right">
-        <span id="current-track">Selecciona una pista</span>
-      </div>
+    <div class="max-w-6xl mx-auto flex items-center gap-4">
+      <!-- Controles del player -->
+      <button id="prev-btn" class="text-dag-burgundy text-xl">⏮</button>
+      <audio 
+        id="fixed-player" 
+        controls 
+        class="w-80"
+        data-tracks={tracksJson}
+      ></audio>
+      <button id="next-btn" class="text-dag-burgundy text-xl">⏭</button>
+      
+      <!-- Título del track justo a la derecha -->
+      <span id="current-track" class="font-semibold text-slate-900 text-base min-w-[200px]">
+        Selecciona una pista
+      </span>
     </div>
   </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const player = document.getElementById('fixed-player');
-      const tracks = player ? JSON.parse(player.dataset.tracks || '[]') : [];
-      
+      const tracksStr = document.getElementById('fixed-player')?.dataset.tracks;
+      const tracks = tracksStr ? JSON.parse(tracksStr) : [];
       let currentTrackIndex = -1;
       const trackNameElement = document.getElementById('current-track');
 
       function playTrack(index: number) {
-        if (!player || !trackNameElement || index < 0 || index >= tracks.length) return;
-        const track = tracks[index];
-        if (!track.file) return;
-        const url = track.file;
-        if (player instanceof HTMLAudioElement) {
-          player.src = url;
-          player.load();
-          player.play().catch(err => console.warn('Reproducción fallida:', err));
+        if (index < 0 || index >= tracks.length || !tracks[index].file) return;
+        
+        const audioPlayer = document.getElementById('fixed-player');
+        if (!(audioPlayer instanceof HTMLAudioElement)) return;
+        
+        audioPlayer.src = tracks[index].file;
+        audioPlayer.load();
+        audioPlayer.play().catch(err => console.warn('Reproducción fallida:', err));
+        
+        if (trackNameElement) {
+          trackNameElement.textContent = `${index + 1}. ${tracks[index].title}`;
         }
-        trackNameElement.textContent = `${index + 1}. ${track.title}`;
         currentTrackIndex = index;
       }
 
       // Navegación
       const prevBtn = document.getElementById('prev-btn');
       const nextBtn = document.getElementById('next-btn');
-      if (prevBtn) prevBtn.addEventListener('click', () => { if (currentTrackIndex > 0) playTrack(currentTrackIndex - 1); });
-      if (nextBtn) nextBtn.addEventListener('click', () => { if (currentTrackIndex < tracks.length - 1) playTrack(currentTrackIndex + 1); });
+      
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          if (currentTrackIndex > 0) playTrack(currentTrackIndex - 1);
+        });
+      }
+      
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          if (currentTrackIndex < tracks.length - 1) playTrack(currentTrackIndex + 1);
+        });
+      }
 
       // Tracklist
       document.querySelectorAll('button[data-track-index]').forEach(btn => {
         btn.addEventListener('click', (e) => {
           const target = e.currentTarget;
-          if (target instanceof Element) {
-            const indexStr = target.getAttribute('data-track-index');
-            const index = indexStr ? parseInt(indexStr, 10) : -1;
-            if (index >= 0) playTrack(index);
-          }
+          if (!(target instanceof Element)) return;
+          
+          const indexStr = target.getAttribute('data-track-index');
+          if (indexStr === null) return;
+          
+          const index = parseInt(indexStr, 10);
+          if (!isNaN(index)) playTrack(index);
         });
       });
 
@@ -277,21 +291,17 @@ const tracksJson = JSON.stringify(tracks);
       const bioText = document.getElementById('bio-toggle-text');
       const arrow = document.getElementById('bio-arrow');
       
-      let isExpanded = false;
-      
       if (toggleBtn && bioContainer && bioText && arrow) {
         toggleBtn.addEventListener('click', () => {
-          isExpanded = !isExpanded;
+          const isExpanded = bioContainer.style.maxHeight !== '0px';
           
-          if (isExpanded) {
+          if (!isExpanded) {
             const content = bioContainer.querySelector('div');
             const height = content ? content.scrollHeight : 0;
-            
             bioContainer.style.maxHeight = height + 'px';
             bioContainer.style.opacity = '1';
             bioContainer.style.paddingTop = '0.75rem';
             bioContainer.style.paddingBottom = '0.75rem';
-            
             bioText.textContent = 'Ver menos';
             arrow.style.transform = 'rotate(180deg)';
           } else {
@@ -299,7 +309,6 @@ const tracksJson = JSON.stringify(tracks);
             bioContainer.style.opacity = '0';
             bioContainer.style.paddingTop = '0';
             bioContainer.style.paddingBottom = '0';
-            
             bioText.textContent = 'Ver biografía completa';
             arrow.style.transform = 'rotate(0deg)';
           }

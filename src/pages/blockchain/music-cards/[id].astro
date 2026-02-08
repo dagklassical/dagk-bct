@@ -39,10 +39,8 @@ const artistList = release?.artistIds
   .filter((a) => a !== undefined) || [];
 
 const artistNames = artistList.map(a => a.name).join(', ') || 'Artista no identificado';
-const artistId = artistList.length > 0 ? artistList[0].id : 'unknown';
 
 // ✅ Construir base URL para demos (absoluta)
-const releaseBase = release?.id?.replace(/-[^-]+$/, '') || 'unknown';
 const BASE_URL_DEMO = release?.demoBasePath 
   ? `https://audio.dagklassical.com/audio/demo/${release.demoBasePath}/`
   : null;
@@ -69,7 +67,7 @@ if (release?.tracks) {
 }
 
 // === Navegación Anterior/Siguiente por fecha de lanzamiento ===
-const getReleaseDate = (mc: { id?: string; title?: string; artist?: string; edition?: string; associatedRelease: any; totalSupply?: number; available?: number; blockchain?: string; contractAddress?: string; tokenId?: string; price?: string; status?: string; benefits?: string[]; cardImage?: string; socialLinks?: { platform: string; url: string; }[]; metadata?: { uuid: string; timestamp: string; operator: string; }; }) => {
+const getReleaseDate = (mc: any) => {
   const rel = releases.find(r => r.id === mc.associatedRelease);
   return rel?.releaseDate ? new Date(rel.releaseDate) : new Date(0);
 };
@@ -145,14 +143,15 @@ const breadcrumbs = [
             <ol class="space-y-2">
               {tracksWithDemos.map((track, i) => (
                 <li 
-                  data-demo={track.demoUrl || ''}
-                  class={`flex justify-between items-center px-2 py-2 text-xs border-b border-slate-100 last:border-0 cursor-pointer hover:bg-slate-50 ${
-                    i % 2 === 0 ? 'bg-gray95/40' : 'bg-gray95'
-                  }`} 
-                >
-                  <span class="font-medium">{i + 1}. {track.title}</span>
-                  <span class="text-slate-500 text-sm">{track.duration}</span>
-                </li>
+  data-demo={track.demoUrl || ''}
+  data-track-index={i}
+  class={`flex justify-between items-center px-2 py-2 text-xs border-b border-slate-100 last:border-0 cursor-pointer transition-colors ${
+    i % 2 === 0 ? 'bg-gray95/40' : 'bg-gray95'
+  } hover:bg-slate-50`}
+>
+  <span class="font-medium">{i + 1}. {track.title}</span>
+  <span class="text-slate-500 text-sm">{track.duration}</span>
+</li>
               ))}
             </ol>
           </section>
@@ -308,38 +307,62 @@ const breadcrumbs = [
       </nav>
     )}
 
-    <script>
+<script>
   document.addEventListener('DOMContentLoaded', () => {
     const player = document.getElementById('music-player');
     if (!player || !(player instanceof HTMLAudioElement)) return;
 
-    // Cargar primer track automáticamente si existe
-    const firstTrack = document.querySelector('[data-demo]');
-    if (firstTrack && firstTrack instanceof HTMLElement) {
-      const demoSrc = firstTrack.dataset.demo;
+    // Cargar primer track
+    const firstTrackItem = document.querySelector('[data-track-index="0"]');
+    if (firstTrackItem && firstTrackItem instanceof HTMLElement) {
+      const demoSrc = firstTrackItem.dataset.demo;
       if (demoSrc && demoSrc.trim() !== '') {
         player.src = demoSrc;
+        player.load();
+        setActiveTrack(0);
       }
     }
-  });
 
-  document.addEventListener('click', (e) => {
-    if (!(e.target instanceof HTMLElement)) return;
-    
-    const trackElement = e.target.closest('[data-demo]');
-    if (!trackElement || !(trackElement instanceof HTMLElement)) return;
+    // Manejar clics
+    document.addEventListener('click', (e) => {
+      // Verificar que el target sea un Element
+      if (!(e.target instanceof Element)) return;
+      
+      const trackItem = e.target.closest('[data-track-index]');
+      if (!trackItem || !(trackItem instanceof HTMLElement)) return;
 
-    const demoSrc = trackElement.dataset.demo;
-    if (!demoSrc || demoSrc.trim() === '') return;
+      const demoSrc = trackItem.dataset.demo;
+      if (!demoSrc || demoSrc.trim() === '') return;
 
-    const player = document.getElementById('music-player');
-    if (!player || !(player instanceof HTMLAudioElement)) return;
+      player.src = demoSrc;
+      player.load();
+      player.play().catch(() => {});
 
-    player.src = demoSrc;
-    player.load();
-    player.play().catch(err => {
-      console.warn('Reproducción fallida:', err);
+      const indexStr = trackItem.dataset.trackIndex;
+      if (indexStr === undefined) return;
+      
+      const index = parseInt(indexStr, 10);
+      if (!isNaN(index)) {
+        setActiveTrack(index);
+      }
     });
+
+    function setActiveTrack(index: number) {
+      // Quitar clase activa
+      document.querySelectorAll('[data-track-index]').forEach(item => {
+        if (item instanceof HTMLElement) {
+          item.classList.remove('bg-dag-burgundy/20', 'border-l-4', 'border-dag-burgundy');
+          item.classList.add('hover:bg-slate-50');
+        }
+      });
+      
+      // Añadir clase activa
+      const activeItem = document.querySelector(`[data-track-index="${index}"]`);
+      if (activeItem instanceof HTMLElement) {
+        activeItem.classList.add('bg-dag-burgundy/20', 'border-l-4', 'border-dag-burgundy');
+        activeItem.classList.remove('hover:bg-slate-50');
+      }
+    }
   });
 </script>
   </article>

@@ -21,12 +21,19 @@ const { srcFlac, srcMp3, title } = Astro.props;
 
 <script>
   document.querySelectorAll('.audio-player-wrapper').forEach(wrapper => {
+    // Tipado seguro: wrapper es HTMLElement
     const audio = wrapper.querySelector('audio');
-    const source = document.createElement('source');
-    const srcFlac = wrapper.dataset.srcFlac;
-    const srcMp3 = wrapper.dataset.srcMp3;
+    if (!audio) return;
 
+    // Acceder a dataset de forma segura
+    const srcFlac = (wrapper as HTMLElement).dataset.srcFlac;
+    const srcMp3 = (wrapper as HTMLElement).dataset.srcMp3;
+
+    if (!srcFlac || !srcMp3) return;
+
+    const source = document.createElement('source');
     const canPlayFLAC = audio.canPlayType('audio/flac');
+
     if (canPlayFLAC === 'probably' || canPlayFLAC === 'maybe') {
       source.src = srcFlac;
       source.type = 'audio/flac';
