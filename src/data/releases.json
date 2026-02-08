@@ -14,6 +14,7 @@
     "status": "lanzado",
     "description": "Grabado en los legendarios estudios Abbey Road de Londres, \"Rachmaninoff Variations\" es la obra cumbre del pianista Teodor Doré. Inspirado en los diarios íntimos de Sergei Rachmaninoff, este álbum trasciende la interpretación clásica para convertirse en un diálogo espiritual entre dos épocas. Con una técnica impecable y una sensibilidad desgarradora, Doré materializa las palabras del genio ruso en sonido puro. Lanzado por DAG Klassical, el sello líder de su género en Latinoamérica, esta producción es un activo cultural de clase mundial, ahora inmutable y eterno gracias a la tecnología blockchain.",
     "descriptionLong": "Rachmaninoff Variations: Ecos de un Diario en Abbey Road\n\n\"Rachmaninoff Variations\" no es simplemente un álbum de piano; es la culminación de un viaje introspectivo que comenzó en la vibrante Barcelona de 2022 y cristalizó un año después en la meca de la grabación mundial: Abbey Road Studios.\n\nLa Génesis: De la Palabra al Sonido\n\nEl proyecto nace de una inmersión profunda de Teodor Doré en los diarios personales de Sergei Rachmaninoff. Lo que el compositor ruso plasmó en papel —sus dudas, sus anhelos, su melancolía—, Doré lo ha traducido al lenguaje universal de las teclas. Cada variación es un \"eco emocional\", una respuesta contemporánea a los pensamientos de un genio del pasado, creando una intimidad que rara vez se logra en una grabación de estudio.\n\nUn Hito para la Música Académica Latinoamericana\n\nBajo el sello DAG Klassical, la casa discográfica más importante del género en la región, este lanzamiento marca un antes y un después. La gira internacional que acompañó al disco confirmó lo que la crítica especializada ya señalaba: Doré ha logrado imprimir su sello distintivo sin sacrificar la esencia romántica de la obra original. Es un homenaje que respira modernidad y respeto.\n\nEl Valor de lo Colectivo y lo Eterno\n\n\"Mi más sincero agradecimiento a cada miembro del equipo que me acompañó durante todo este viaje\", declara el artista. Este espíritu de colaboración, unido a la acústica perfecta de Abbey Road y la seguridad de la tecnología blockchain, convierte a \"Rachmaninoff Variations\" en una obra de arte total. Una pieza de colección que invita a la reflexión y que permanecerá inalterable en el tiempo como testimonio de la excelencia musical.",
+    "bioExtended": "La grabación de ‘February Night’ se realizó en Mansa Studio, Lechería, Venezuela, bajo la producción artística de Danilo Álvarez. Teodor trabajó con un piano Steinway & Sons de cola, capturado con micrófonos Neumann U87 en configuración binaural...",
     "coverImage": "/covers/cover-february-night-01.webp",
     "demoAvailable": true,
     "fullAlbumAvailable": false,
@@ -29,56 +30,56 @@
       {
         "title": "From the Diaries of Sergei Rachmaninoff",
         "duration": "5:20",
-        "protected": "",
-        "demoFile": "01-from-the-diaries-of-sergei-rachmaninoff-demo.mp3"
+        "protected": "dore-february-from-the-diaries-of-sergei-rachmaninoff.flac",
+        "demoFile": "dore-february-from-the-diaries-of-sergei-rachmaninoff-demo.mp3"
       },
       {
         "title": "February Night",
         "duration": "4:15",
-        "protected": "",
-        "demoFile": "02-february-night-demo.mp3"
+        "protected": "dore-february-february-night.flac",
+        "demoFile": "dore-february-february-night-demo.mp3"
       },
       {
         "title": "Émigré’s Letter from Istanbul",
         "duration": "3:50",
-        "protected": "",
-        "demoFile": "03-emigres-letter-from-istanbul-demo.mp3"
+        "protected": "dore-february-emigres-letter-from-istanbul.flac",
+        "demoFile": "dore-february-emigres-letter-from-istanbul-demo.mp3"
       },
       {
         "title": "Andante Allegro",
         "duration": "6:30",
-        "protected": "",
-        "demoFile": "04-andante-allegro-demo.mp3"
+        "protected": "dore-february-andante-allegro.flac",
+        "demoFile": "dore-february-andante-allegro-demo.mp3"
       },
       {
         "title": "Émigré’s Letter from Tbilisi",
         "duration": "4:05",
-        "protected": "",
-        "demoFile": "05-emigres-letter-from-tbilisi-demo.mp3"
+        "protected": "dore-february-emigres-letter-from-tbilisi.flac",
+        "demoFile": "dore-february-emigres-letter-from-tbilisi-demo.mp3"
       },
       {
         "title": "September: Verkhny Lars",
         "duration": "3:40",
-        "protected": "",
-        "demoFile": "06-september-verkhniylars-demo.mp3"
+        "protected": "dore-february-september-verkhniylars.flac",
+        "demoFile": "dore-february-september-verkhniylars-demo.mp3"
       },
       {
         "title": "Refugee’s Letter from Boston",
         "duration": "5:10",
-        "protected": "",
-        "demoFile": "07-refugees-letter-from-boston-demo.mp3"
+        "protected": "dore-february-refugees-letter-from-boston.flac",
+        "demoFile": "dore-february-refugees-letter-from-boston-demo.mp3"
       },
       {
         "title": "December: New Home, New Hope",
         "duration": "4:25",
-        "protected": "",
-        "demoFile": "08-december-newhome-newhope-demo.mp3"
+        "protected": "dore-february-december-newhome-newhope.flac",
+        "demoFile": "dore-february-december-newhome-newhope-demo.mp3"
       },
       {
         "title": "From the Diaries of Sergei Rachmaninoff (Nro. 2)",
         "duration": "4:50",
-        "protected": "",
-        "demoFile": "09-from-the-diaries-of-sergei-rachmaninoff-nro-2-demo.mp3"
+        "protected": "dore-february-from-the-diaries-of-sergei-rachmaninoff-nro-2.flac",
+        "demoFile": "dore-february-from-the-diaries-of-sergei-rachmaninoff-nro-2-demo.mp3"
       }
     ],
     "duration": "42:05",
@@ -209,7 +210,7 @@
         "composer": "Tradicional",
         "workCatalogue": "",
         "protected": "gerulewicz-aguinaldo-aguinaldo-caraqueno.flac",
-        "demoFile": "gerulewicz-aguinaldo-caraqueno-demo.mp3"
+        "demoFile": "gerulewicz-aguinaldo-aguinaldo-caraqueno-demo.mp3"
       },
       {
         "title": "A ti te cantamos preciosa María",
@@ -233,7 +234,7 @@
         "composer": "Tradicional",
         "workCatalogue": "",
         "protected": "gerulewicz-aguinaldo-aguinaldo-margariteno.flac",
-        "demoFile": "gerulewicz-aguinaldo-margariteno-demo.mp3"
+        "demoFile": "gerulewicz-aguinaldo-aguinaldo-margariteno-demo.mp3"
       },
       {
         "title": "Cantemos",
@@ -324,7 +325,7 @@
         "composer": "Virginia Ramírez",
         "workCatalogue": "",
         "duration": "7:34",
-        "protected": "ramirez-capitulos-dias-de-julio-demo.flac",
+        "protected": "ramirez-capitulos-dias-de-julio.flac",
         "demoFile": "ramirez-capitulos-dias-de-julio-demo.mp3"
       },
       {
@@ -348,7 +349,7 @@
         "composer": "Virginia Ramírez",
         "workCatalogue": "",
         "duration": "6:55",
-        "protected": "amirez-capitulos-espiral-de-fuego.flac",
+        "protected": "ramirez-capitulos-espiral-de-fuego.flac",
         "demoFile": "ramirez-capitulos-espiral-de-fuego-demo.mp3"
       },
       {
