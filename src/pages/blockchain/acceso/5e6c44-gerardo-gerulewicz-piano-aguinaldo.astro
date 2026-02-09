@@ -16,7 +16,7 @@ if (!release || !artist) {
 }
 
 // ✅ URLs sin espacios (corregido)
-const BASE_URL_PROTECTED = 'https://audio.dagklassical.com/protected/audio/gerulewicz-piano-aguinaldo/';
+const BASE_URL_PROTECTED = 'https://audio.dagklassical.com/stream/gerulewicz-piano-aguinaldo/';
 const BASE_URL_DEMO = 'https://audio.dagklassical.com/audio/demo/gerardo-gerulewicz/piano-aguinaldo/';
 
 const tracks = release.tracks.map(track => ({
@@ -55,7 +55,7 @@ const tracksJson = JSON.stringify(tracks);
         <h1 class="text-4xl md:text-6xl font-bold mb-2">{albumInfo.title}</h1>
         <p class="text-xl mb-2">por {albumInfo.artist}</p>
         {albumInfo.tagline && (
-          <p class="text-lg opacity-90 italic mb-6">"{albumInfo.tagline}"</p>
+          <p class="text-lg opacity-90 italic mb-6 font-semibold">"{albumInfo.tagline}"</p>
         )}
         <p class="text-lg opacity-90 mb-8">{albumInfo.totalDuration} • {albumInfo.tracks.length} pistas</p>
         
@@ -213,9 +213,9 @@ const tracksJson = JSON.stringify(tracks);
       <button id="next-btn" class="text-dag-burgundy text-xl">⏭</button>
       
       <!-- Título del track justo a la derecha -->
-      <span id="current-track" class="font-semibold text-slate-900 text-base min-w-[200px]">
-        Selecciona una pista
-      </span>
+      <span id="current-track" class="font-semibold text-slate-900 text-base min-w-[200px] drop-shadow-[0_2px_4px_rgba(255,255,255,1)]">
+  Selecciona una pista
+</span>
     </div>
   </div>
 

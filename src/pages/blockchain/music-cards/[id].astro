@@ -348,21 +348,29 @@ const breadcrumbs = [
     });
 
     function setActiveTrack(index: number) {
-      // Quitar clase activa
-      document.querySelectorAll('[data-track-index]').forEach(item => {
-        if (item instanceof HTMLElement) {
-          item.classList.remove('bg-dag-burgundy/20', 'border-l-4', 'border-dag-burgundy');
-          item.classList.add('hover:bg-slate-50');
-        }
-      });
-      
-      // Añadir clase activa
-      const activeItem = document.querySelector(`[data-track-index="${index}"]`);
-      if (activeItem instanceof HTMLElement) {
-        activeItem.classList.add('bg-dag-burgundy/20', 'border-l-4', 'border-dag-burgundy');
-        activeItem.classList.remove('hover:bg-slate-50');
-      }
+  // Quitar estado activo de todos los tracks
+  document.querySelectorAll('[data-track-index]').forEach(item => {
+    if (item instanceof HTMLElement) {
+      // Eliminar todas las clases de fondo y borde relacionadas
+      item.classList.remove(
+        'bg-dag-burgundy/20',
+        'border-l-4',
+        'border-dag-burgundy',
+        'bg-gray95/40',
+        'bg-gray95'
+      );
+      // Restaurar el estado hover
+      item.classList.add('hover:bg-slate-50');
     }
+  });
+  
+  // Aplicar estado activo al track seleccionado
+  const activeItem = document.querySelector(`[data-track-index="${index}"]`);
+  if (activeItem instanceof HTMLElement) {
+    activeItem.classList.add('bg-dag-burgundy/20', 'border-l-4', 'border-dag-burgundy');
+    activeItem.classList.remove('hover:bg-slate-50', 'bg-gray95/40', 'bg-gray95');
+  }
+}
   });
 </script>
   </article>
