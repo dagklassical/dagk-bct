@@ -30,55 +30,55 @@
       {
         "title": "From the Diaries of Sergei Rachmaninoff",
         "duration": "5:20",
-        "protected": "dore-february-from-the-diaries-of-sergei-rachmaninoff.flac",
+        "protected": "001-dore-february-from-the-diaries-of-sergei-rachmaninoff.flac",
         "demoFile": "dore-february-from-the-diaries-of-sergei-rachmaninoff-demo.mp3"
       },
       {
         "title": "February Night",
         "duration": "4:15",
-        "protected": "dore-february-february-night.flac",
+        "protected": "002-dore-february-february-night.flac",
         "demoFile": "dore-february-february-night-demo.mp3"
       },
       {
         "title": "Émigré’s Letter from Istanbul",
         "duration": "3:50",
-        "protected": "dore-february-emigres-letter-from-istanbul.flac",
+        "protected": "003-dore-february-emigres-letter-from-istanbul.flac",
         "demoFile": "dore-february-emigres-letter-from-istanbul-demo.mp3"
       },
       {
         "title": "Andante Allegro",
         "duration": "6:30",
-        "protected": "dore-february-andante-allegro.flac",
+        "protected": "004-dore-february-andante-allegro.flac",
         "demoFile": "dore-february-andante-allegro-demo.mp3"
       },
       {
         "title": "Émigré’s Letter from Tbilisi",
         "duration": "4:05",
-        "protected": "dore-february-emigres-letter-from-tbilisi.flac",
+        "protected": "005-dore-february-emigres-letter-from-tbilisi.flac",
         "demoFile": "dore-february-emigres-letter-from-tbilisi-demo.mp3"
       },
       {
         "title": "September: Verkhny Lars",
         "duration": "3:40",
-        "protected": "dore-february-september-verkhniylars.flac",
+        "protected": "006-dore-february-september-verkhniylars.flac",
         "demoFile": "dore-february-september-verkhniylars-demo.mp3"
       },
       {
         "title": "Refugee’s Letter from Boston",
         "duration": "5:10",
-        "protected": "dore-february-refugees-letter-from-boston.flac",
+        "protected": "007-dore-february-refugees-letter-from-boston.flac",
         "demoFile": "dore-february-refugees-letter-from-boston-demo.mp3"
       },
       {
         "title": "December: New Home, New Hope",
         "duration": "4:25",
-        "protected": "dore-february-december-newhome-newhope.flac",
+        "protected": "008-dore-february-december-newhome-newhope.flac",
         "demoFile": "dore-february-december-newhome-newhope-demo.mp3"
       },
       {
         "title": "From the Diaries of Sergei Rachmaninoff (Nro. 2)",
         "duration": "4:50",
-        "protected": "dore-february-from-the-diaries-of-sergei-rachmaninoff-nro-2.flac",
+        "protected": "009-dore-february-from-the-diaries-of-sergei-rachmaninoff-nro-2.flac",
         "demoFile": "dore-february-from-the-diaries-of-sergei-rachmaninoff-nro-2-demo.mp3"
       }
     ],
@@ -129,7 +129,7 @@
         "duration": "2:45",
         "composer": "Tradicional",
         "workCatalogue": "",
-        "protected": "gerulewicz-aguinaldo-corre-caballito.flac",
+        "protected": "001-gerulewicz-aguinaldo-corre-caballito.flac",
         "demoFile": "gerulewicz-aguinaldo-corre-caballito-demo.mp3"
       },
       {
@@ -137,7 +137,7 @@
         "duration": "3:10",
         "composer": "Tradicional",
         "workCatalogue": "",
-        "protected": "gerulewicz-aguinaldo-din-din-din.flac",
+        "protected": "002-gerulewicz-aguinaldo-din-din-din.flac",
         "demoFile": "gerulewicz-aguinaldo-din-din-din-demo.mp3"
       },
       {
@@ -145,7 +145,7 @@
         "duration": "2:55",
         "composer": "Tradicional",
         "workCatalogue": "",
-        "protected": "gerulewicz-aguinaldo-nino-lindo.flac",
+        "protected": "003-gerulewicz-aguinaldo-nino-lindo.flac",
         "demoFile": "gerulewicz-aguinaldo-nino-lindo-demo.mp3"
       },
       {
@@ -153,7 +153,7 @@
         "duration": "3:20",
         "composer": "Tradicional",
         "workCatalogue": "",
-        "protected": "gerulewicz-aguinaldo-pascua-florida.flac",
+        "protected": "004-gerulewicz-aguinaldo-pascua-florida.flac",
         "demoFile": "gerulewicz-aguinaldo-pascua-florida-demo.mp3"
       },
       {
@@ -161,7 +161,7 @@
         "duration": "3:00",
         "composer": "Tradicional",
         "workCatalogue": "",
-        "protected": "gerulewicz-aguinaldo-venid-pastorcillos.flac",
+        "protected": "005-gerulewicz-aguinaldo-venid-pastorcillos.flac",
         "demoFile": "gerulewicz-aguinaldo-venid-pastorcillos-demo.mp3"
       },
       {
@@ -169,7 +169,7 @@
         "duration": "2:50",
         "composer": "Tradicional",
         "workCatalogue": "",
-        "protected": "gerulewicz-aguinaldo-precioso-querube.flac",
+        "protected": "006-gerulewicz-aguinaldo-precioso-querube.flac",
         "demoFile": "gerulewicz-aguinaldo-precioso-querube-demo.mp3"
       },
       {
@@ -177,7 +177,7 @@
         "duration": "3:15",
         "composer": "Tradicional",
         "workCatalogue": "",
-        "protected": "gerulewicz-aguinaldo-casta-paloma.flac",
+        "protected": "007-gerulewicz-aguinaldo-casta-paloma.flac",
         "demoFile": "gerulewicz-aguinaldo-casta-paloma-demo.mp3"
       },
       {
@@ -185,7 +185,7 @@
         "duration": "3:30",
         "composer": "Tradicional",
         "workCatalogue": "",
-        "protected": "gerulewicz-aguinaldo-sublime-ideal.flac",
+        "protected": "008-gerulewicz-aguinaldo-sublime-ideal.flac",
         "demoFile": "gerulewicz-aguinaldo-sublime-ideal-demo.mp3"
       },
       {
@@ -193,7 +193,7 @@
         "duration": "2:40",
         "composer": "Tradicional",
         "workCatalogue": "",
-        "protected": "gerulewicz-aguinaldo-de-contento.flac",
+        "protected": "009-gerulewicz-aguinaldo-de-contento.flac",
         "demoFile": "gerulewicz-aguinaldo-de-contento-demo.mp3"
       },
       {
@@ -201,7 +201,7 @@
         "duration": "3:05",
         "composer": "Tradicional",
         "workCatalogue": "",
-        "protected": "gerulewicz-aguinaldo-salve-salve.flac",
+        "protected": "010-gerulewicz-aguinaldo-salve-salve.flac",
         "demoFile": "gerulewicz-aguinaldo-salve-salve-demo.mp3"
       },
       {
@@ -209,7 +209,7 @@
         "duration": "2:55",
         "composer": "Tradicional",
         "workCatalogue": "",
-        "protected": "gerulewicz-aguinaldo-aguinaldo-caraqueno.flac",
+        "protected": "011-gerulewicz-aguinaldo-aguinaldo-caraqueno.flac",
         "demoFile": "gerulewicz-aguinaldo-aguinaldo-caraqueno-demo.mp3"
       },
       {
@@ -217,7 +217,7 @@
         "duration": "3:14",
         "composer": "Tradicional",
         "workCatalogue": "",
-        "protected": "gerulewicz-aguinaldo-a-ti-te-cantamos.flac",
+        "protected": "012-gerulewicz-aguinaldo-a-ti-te-cantamos.flac",
         "demoFile": "gerulewicz-aguinaldo-a-ti-te-cantamos-demo.mp3"
       },
       {
@@ -225,7 +225,7 @@
         "duration": "2:30",
         "composer": "Tradicional",
         "workCatalogue": "",
-        "protected": "gerulewicz-aguinaldo-la-cabra-mocha.flac",
+        "protected": "013-gerulewicz-aguinaldo-la-cabra-mocha.flac",
         "demoFile": "gerulewicz-aguinaldo-la-cabra-mocha-demo.mp3"
       },
       {
@@ -233,7 +233,7 @@
         "duration": "3:25",
         "composer": "Tradicional",
         "workCatalogue": "",
-        "protected": "gerulewicz-aguinaldo-aguinaldo-margariteno.flac",
+        "protected": "014-gerulewicz-aguinaldo-aguinaldo-margariteno.flac",
         "demoFile": "gerulewicz-aguinaldo-aguinaldo-margariteno-demo.mp3"
       },
       {
@@ -241,7 +241,7 @@
         "duration": "2:50",
         "composer": "Tradicional",
         "workCatalogue": "",
-        "protected": "gerulewicz-aguinaldo-cantemos.flac",
+        "protected": "015-gerulewicz-aguinaldo-cantemos.flac",
         "demoFile": "gerulewicz-aguinaldo-cantemos-demo.mp3"
       },
       {
@@ -249,7 +249,7 @@
         "duration": "4:00",
         "composer": "Tradicional",
         "workCatalogue": "",
-        "protected": "gerulewicz-aguinaldo-himno-de-venezuela-cancion-de-cuna.flac",
+        "protected": "016-gerulewicz-aguinaldo-himno-de-venezuela-cancion-de-cuna.flac",
         "demoFile": "gerulewicz-aguinaldo-cancion-de-cuna-demo.mp3"
       }
     ],
@@ -301,7 +301,7 @@
         "composer": "Virginia Ramírez",
         "workCatalogue": "",
         "duration": "5:43",
-        "protected": "ramirez-capitulos-preludio-para-boby.flac",
+        "protected": "001-ramirez-capitulos-preludio-para-boby.flac",
         "demoFile": "ramirez-capitulos-preludio-para-boby-demo.mp3"
       },
       {
@@ -309,7 +309,7 @@
         "composer": "Virginia Ramírez",
         "workCatalogue": "",
         "duration": "4:51",
-        "protected": "ramirez-capitulos-blues-con-sangueo.flac",
+        "protected": "002-ramirez-capitulos-blues-con-sangueo.flac",
         "demoFile": "ramirez-capitulos-blues-con-sangueo-demo.mp3"
       },
       {
@@ -317,7 +317,7 @@
         "composer": "Virginia Ramírez",
         "workCatalogue": "",
         "duration": "6:31",
-        "protected": "ramirez-capitulos-domingo-por-la-tarde.flac",
+        "protected": "003-ramirez-capitulos-domingo-por-la-tarde.flac",
         "demoFile": "ramirez-capitulos-domingo-por-la-tarde-demo.mp3"
       },
       {
@@ -325,7 +325,7 @@
         "composer": "Virginia Ramírez",
         "workCatalogue": "",
         "duration": "7:34",
-        "protected": "ramirez-capitulos-dias-de-julio.flac",
+        "protected": "004-ramirez-capitulos-dias-de-julio.flac",
         "demoFile": "ramirez-capitulos-dias-de-julio-demo.mp3"
       },
       {
@@ -333,7 +333,7 @@
         "composer": "Virginia Ramírez",
         "workCatalogue": "",
         "duration": "5:01",
-        "protected": "ramirez-capitulos-don-alen.flac",
+        "protected": "005-ramirez-capitulos-don-alen.flac",
         "demoFile": "ramirez-capitulos-don-alen-demo.mp3"
       },
       {
@@ -341,7 +341,7 @@
         "composer": "Virginia Ramírez",
         "workCatalogue": "",
         "duration": "6:36",
-        "protected": "ramirez-capitulos-dulcinea.flac",
+        "protected": "006-ramirez-capitulos-dulcinea.flac",
         "demoFile": "ramirez-capitulos-dulcinea-demo.mp3"
       },
       {
@@ -349,7 +349,7 @@
         "composer": "Virginia Ramírez",
         "workCatalogue": "",
         "duration": "6:55",
-        "protected": "ramirez-capitulos-espiral-de-fuego.flac",
+        "protected": "007-ramirez-capitulos-espiral-de-fuego.flac",
         "demoFile": "ramirez-capitulos-espiral-de-fuego-demo.mp3"
       },
       {
@@ -357,7 +357,7 @@
         "composer": "Virginia Ramírez",
         "workCatalogue": "",
         "duration": "4:36",
-        "protected": "ramirez-capitulos-guasipati.flac",
+        "protected": "008-ramirez-capitulos-guasipati.flac",
         "demoFile": "ramirez-capitulos-guasipati-demo.mp3"
       },
       {
@@ -365,7 +365,7 @@
         "composer": "Virginia Ramírez",
         "workCatalogue": "",
         "duration": "4:36",
-        "protected": "ramirez-capitulos-manos-y-alma.flac",
+        "protected": "009-ramirez-capitulos-manos-y-alma.flac",
         "demoFile": "ramirez-capitulos-manos-y-alma-demo.mp3"
       },
       {
@@ -373,7 +373,7 @@
         "composer": "Virginia Ramírez",
         "workCatalogue": "",
         "duration": "8:09",
-        "protected": "ramirez-capitulos-azul-y-verde.flac",
+        "protected": "010-ramirez-capitulos-azul-y-verde.flac",
         "demoFile": "ramirez-capitulos-azul-y-verde-demo.mp3"
       },
       {
@@ -381,7 +381,7 @@
         "composer": "Virginia Ramírez",
         "workCatalogue": "",
         "duration": "3:17",
-        "protected": "ramirez-capitulos-rapguinaldo.flac",
+        "protected": "011-ramirez-capitulos-rapguinaldo.flac",
         "demoFile": "ramirez-capitulos-rapguinaldo-demo.mp3"
       }
     ],
