@@ -1,0 +1,32 @@
+{
+  "id": "cdb244-virginia-ramirez-capitulos",
+  "type": "album",
+  "status": "active",
+  "associatedRelease": "virginia-ramirez-capitulos",
+  "associatedArtists": ["virginia-ramirez"],
+  "content": {
+    "audio": {
+      "baseUrl": "https://audio.dagklassical.com/stream/virginia-ramirez-capitulos/",
+      "format": "flac",
+      "quality": "24/192"
+    },
+    "score": {
+      "url": "https://audio.dagklassical.com/protected/audio/virginia-ramirez-capitulos/virginia-partitura.pdf",
+      "format": "pdf",
+      "signed": true
+    }
+  },
+  "access": {
+    "method": "token_url"
+  },
+  "theme": {
+    "heroImage": "https://audio.dagklassical.com/protected/audio/virginia-ramirez-capitulos/hero-virginia-ramirez-capitulos.webp",
+    "fallbackHero": "/hero/hero-virginia-ramirez.webp",
+    "primaryColor": "#800020"
+  },
+  "metadata": {
+    "uuid": "urn:uuid:cdb244-0000-0000-0000-000000000002",
+    "timestamp": "2025-12-10T14:30:00Z",
+    "operator": "cto@dagklassical.com"
+  }
+}

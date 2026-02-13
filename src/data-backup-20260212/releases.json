@@ -1,0 +1,920 @@
+[
+  {
+    "id": "teodor-dore-february-night",
+    "demoBasePath": "teodor-dore/february-night",
+    "title": "February Night",
+    "artistIds": [
+      "teodor-dore"
+    ],
+    "genre": [
+      "música-contemporánea"
+    ],
+    "releaseDate": "2025-01-17",
+    "type": "álbum",
+    "status": "lanzado",
+    "description": "Grabado en los legendarios estudios Abbey Road de Londres, \"Rachmaninoff Variations\" es la obra cumbre del pianista Teodor Doré. Inspirado en los diarios íntimos de Sergei Rachmaninoff, este álbum trasciende la interpretación clásica para convertirse en un diálogo espiritual entre dos épocas. Con una técnica impecable y una sensibilidad desgarradora, Doré materializa las palabras del genio ruso en sonido puro. Lanzado por DAG Klassical, el sello líder de su género en Latinoamérica, esta producción es un activo cultural de clase mundial, ahora inmutable y eterno gracias a la tecnología blockchain.",
+    "descriptionLong": "Rachmaninoff Variations: Ecos de un Diario en Abbey Road\n\n\"Rachmaninoff Variations\" no es simplemente un álbum de piano; es la culminación de un viaje introspectivo que comenzó en la vibrante Barcelona de 2022 y cristalizó un año después en la meca de la grabación mundial: Abbey Road Studios.\n\nLa Génesis: De la Palabra al Sonido\n\nEl proyecto nace de una inmersión profunda de Teodor Doré en los diarios personales de Sergei Rachmaninoff. Lo que el compositor ruso plasmó en papel —sus dudas, sus anhelos, su melancolía—, Doré lo ha traducido al lenguaje universal de las teclas. Cada variación es un \"eco emocional\", una respuesta contemporánea a los pensamientos de un genio del pasado, creando una intimidad que rara vez se logra en una grabación de estudio.\n\nUn Hito para la Música Académica Latinoamericana\n\nBajo el sello DAG Klassical, la casa discográfica más importante del género en la región, este lanzamiento marca un antes y un después. La gira internacional que acompañó al disco confirmó lo que la crítica especializada ya señalaba: Doré ha logrado imprimir su sello distintivo sin sacrificar la esencia romántica de la obra original. Es un homenaje que respira modernidad y respeto.\n\nEl Valor de lo Colectivo y lo Eterno\n\n\"Mi más sincero agradecimiento a cada miembro del equipo que me acompañó durante todo este viaje\", declara el artista. Este espíritu de colaboración, unido a la acústica perfecta de Abbey Road y la seguridad de la tecnología blockchain, convierte a \"Rachmaninoff Variations\" en una obra de arte total. Una pieza de colección que invita a la reflexión y que permanecerá inalterable en el tiempo como testimonio de la excelencia musical.",
+    "bioExtended": "La grabación de ‘February Night’ se realizó en Mansa Studio, Lechería, Venezuela, bajo la producción artística de Danilo Álvarez. Teodor trabajó con un piano Steinway & Sons de cola, capturado con micrófonos Neumann U87 en configuración binaural...",
+    "coverImage": "/covers/cover-february-night-01.webp",
+    "demoAvailable": true,
+    "fullAlbumAvailable": false,
+    "sheetMusicAvailable": false,
+    "platforms": {
+      "spotify": "https://open.spotify.com/album/3eIJyhYATYcwYvaqCZxHr5?go=1&nd=1&dlsi=4525725440174164",
+      "apple": "https://music.apple.com/ve/album/february-night-var-on-a-prelude-in-c-sharp-minor-op/1784946934?at=1l3vpUI&ct=LFV_98d3c40bdec546ce1a7520d0440a97c0&itsct=catchall_p2&itscg=30440&ls=1",
+      "youtube": "https://music.youtube.com/playlist?list=OLAK5uy_nK4BzThO-m3i1sM5yfAYdPHepVyIcf_RQ",
+      "tidal": null,
+      "deezer": "https://www.deezer.com/us/album/683008951?app_id=140685&utm_source=partner_linkfire&utm_campaign=98d3c40bdec546ce1a7520d0440a97c0&utm_medium=Original&utm_term=lujo-network-3439&utm_content=album-683008951"
+    },
+    "tracks": [
+      {
+        "title": "From the Diaries of Sergei Rachmaninoff",
+        "duration": "5:20",
+        "protected": "001-dore-february-from-the-diaries-of-sergei-rachmaninoff.flac",
+        "demoFile": "dore-february-from-the-diaries-of-sergei-rachmaninoff-demo.mp3"
+      },
+      {
+        "title": "February Night",
+        "duration": "4:15",
+        "protected": "002-dore-february-february-night.flac",
+        "demoFile": "dore-february-february-night-demo.mp3"
+      },
+      {
+        "title": "Émigré’s Letter from Istanbul",
+        "duration": "3:50",
+        "protected": "003-dore-february-emigres-letter-from-istanbul.flac",
+        "demoFile": "dore-february-emigres-letter-from-istanbul-demo.mp3"
+      },
+      {
+        "title": "Andante Allegro",
+        "duration": "6:30",
+        "protected": "004-dore-february-andante-allegro.flac",
+        "demoFile": "dore-february-andante-allegro-demo.mp3"
+      },
+      {
+        "title": "Émigré’s Letter from Tbilisi",
+        "duration": "4:05",
+        "protected": "005-dore-february-emigres-letter-from-tbilisi.flac",
+        "demoFile": "dore-february-emigres-letter-from-tbilisi-demo.mp3"
+      },
+      {
+        "title": "September: Verkhny Lars",
+        "duration": "3:40",
+        "protected": "006-dore-february-september-verkhniylars.flac",
+        "demoFile": "dore-february-september-verkhniylars-demo.mp3"
+      },
+      {
+        "title": "Refugee’s Letter from Boston",
+        "duration": "5:10",
+        "protected": "007-dore-february-refugees-letter-from-boston.flac",
+        "demoFile": "dore-february-refugees-letter-from-boston-demo.mp3"
+      },
+      {
+        "title": "December: New Home, New Hope",
+        "duration": "4:25",
+        "protected": "008-dore-february-december-newhome-newhope.flac",
+        "demoFile": "dore-february-december-newhome-newhope-demo.mp3"
+      },
+      {
+        "title": "From the Diaries of Sergei Rachmaninoff (Nro. 2)",
+        "duration": "4:50",
+        "protected": "009-dore-february-from-the-diaries-of-sergei-rachmaninoff-nro-2.flac",
+        "demoFile": "dore-february-from-the-diaries-of-sergei-rachmaninoff-nro-2-demo.mp3"
+      }
+    ],
+    "duration": "42:05",
+    "commentary": "Cada pieza es una carta sonora escrita desde el umbral del exilio, donde la música se convierte en el único puente con la patria perdida.",
+    "commentaryAuthor": "Teodor Doré",
+    "musicCards": [
+      "mc-2025-teodor-dore-february-night-std"
+    ],
+    "metadata": {
+      "uuid": "urn:uuid:ccc6726b-ed17-44c5-b4dc-243b357be75b",
+      "timestamp": "2025-11-28T11:00:00Z",
+      "operator": "cto@dagklassical.com"
+    }
+  },
+  {
+    "id": "gerulewicz-piano-aguinaldo",
+    "demoBasePath": "gerardo-gerulewicz/piano-aguinaldo",
+    "workTitle": "Piano Aguinaldo",
+    "composer": "Tradicional (arreglos de Gerardo Gerulewicz)",
+    "performers": [
+      "Gerardo Gerulewicz"
+    ],
+    "title": "Piano Aguinaldo",
+    "artistIds": [
+      "gerardo-gerulewicz"
+    ],
+    "genre": "música-navideña",
+    "releaseDate": "2023-12-13",
+    "type": "álbum",
+    "status": "lanzado",
+    "description": "En \"Piano Aguinaldo\", Gerardo Gerulewicz transforma la tradición navideña venezolana en una obra de cámara contemporánea. Con un toque pianístico delicado y arreglos de jazz refinado, clásicos como \"Niño Lindo\" y \"Corre Caballito\" se elevan a piezas de arte sonoro. Cada interpretación, ahora inmutable en blockchain, es un homenaje a la memoria colectiva y a la innovación musical latinoamericana.",
+    "descriptionLong": "Piano Aguinaldo: Donde la Tradición se Vuelve Inmutable\n\nGerardo Gerulewicz nos regala con \"Piano Aguinaldo\" una joya musical que captura la esencia de la Navidad venezolana y la viste con un elegante traje de jazz. Este álbum es una reinterpretación profunda de los aguinaldos tradicionales, presentada no como simple celebración, sino como una propuesta artística para la escucha atenta y el disfrute pausado.\n\nDesde el primer acorde, Gerulewicz sumerge al oyente en una atmósfera íntima y cálida, como una reunión familiar alrededor del piano en una noche de diciembre. La familiaridad de melodías como \"Niño Lindo\", \"Corre Caballito\" y \"De Contento\" se entrelaza con la improvisación y la armonía del jazz, creando una simbiosis perfecta entre lo popular y lo académico.\n\nSu toque al piano es delicado, preciso y vibrante, capaz de transformar cada aguinaldo en una pequeña obra de arte. Lejos de reproducir, Gerulewicz reimagina: añade acordes inesperados, ritmos sincopados y solos que enriquecen sin traicionar el espíritu original.\n\nEn DAG Klassical, esta grabación no solo se preserva en alta fidelidad, sino que se certifica en blockchain como un activo cultural inmutable. \"Piano Aguinaldo\" trasciende el género y el tiempo: es un regalo para los amantes de la música venezolana, del jazz y de la belleza que nace cuando la tradición se encuentra con la maestría.",
+    "coverImage": "/covers/gerulewicz-piano-aguinaldo.webp",
+    "demoAvailable": true,
+    "fullAlbumAvailable": true,
+    "sheetMusicAvailable": false,
+    "platforms": {
+      "spotify": "https://open.spotify.com/album/2BCg5vssPqRIj1Epu4QBTI?go=1&nd=1&dlsi=b7e2e8c9db7c44db",
+      "apple": null,
+      "youtube": "https://music.youtube.com/playlist?list=OLAK5uy_mm45TQxN_qAsZ8xpUSOW7o9C3GnWNzDAQ",
+      "tidal": null,
+      "deezer": "https://www.deezer.com/us/album/523340862?app_id=140685&utm_source=partner_linkfire&utm_campaign=731bfdd9710383cd13601f9d7fcffd4b&utm_medium=Original&utm_term=lujo-network-3439&utm_content=album-523340862"
+    },
+    "tracks": [
+      {
+        "title": "Corre Caballito",
+        "duration": "2:45",
+        "composer": "Tradicional",
+        "workCatalogue": "",
+        "protected": "001-gerulewicz-aguinaldo-corre-caballito.flac",
+        "demoFile": "gerulewicz-aguinaldo-corre-caballito-demo.mp3"
+      },
+      {
+        "title": "Din, Din, Din",
+        "duration": "3:10",
+        "composer": "Tradicional",
+        "workCatalogue": "",
+        "protected": "002-gerulewicz-aguinaldo-din-din-din.flac",
+        "demoFile": "gerulewicz-aguinaldo-din-din-din-demo.mp3"
+      },
+      {
+        "title": "Niño Lindo",
+        "duration": "2:55",
+        "composer": "Tradicional",
+        "workCatalogue": "",
+        "protected": "003-gerulewicz-aguinaldo-nino-lindo.flac",
+        "demoFile": "gerulewicz-aguinaldo-nino-lindo-demo.mp3"
+      },
+      {
+        "title": "Pascua Florida",
+        "duration": "3:20",
+        "composer": "Tradicional",
+        "workCatalogue": "",
+        "protected": "004-gerulewicz-aguinaldo-pascua-florida.flac",
+        "demoFile": "gerulewicz-aguinaldo-pascua-florida-demo.mp3"
+      },
+      {
+        "title": "Venid Pastorcillos",
+        "duration": "3:00",
+        "composer": "Tradicional",
+        "workCatalogue": "",
+        "protected": "005-gerulewicz-aguinaldo-venid-pastorcillos.flac",
+        "demoFile": "gerulewicz-aguinaldo-venid-pastorcillos-demo.mp3"
+      },
+      {
+        "title": "Precioso Querube",
+        "duration": "2:50",
+        "composer": "Tradicional",
+        "workCatalogue": "",
+        "protected": "006-gerulewicz-aguinaldo-precioso-querube.flac",
+        "demoFile": "gerulewicz-aguinaldo-precioso-querube-demo.mp3"
+      },
+      {
+        "title": "Casta Paloma",
+        "duration": "3:15",
+        "composer": "Tradicional",
+        "workCatalogue": "",
+        "protected": "007-gerulewicz-aguinaldo-casta-paloma.flac",
+        "demoFile": "gerulewicz-aguinaldo-casta-paloma-demo.mp3"
+      },
+      {
+        "title": "Sublime Ideal",
+        "duration": "3:30",
+        "composer": "Tradicional",
+        "workCatalogue": "",
+        "protected": "008-gerulewicz-aguinaldo-sublime-ideal.flac",
+        "demoFile": "gerulewicz-aguinaldo-sublime-ideal-demo.mp3"
+      },
+      {
+        "title": "De Contento",
+        "duration": "2:40",
+        "composer": "Tradicional",
+        "workCatalogue": "",
+        "protected": "009-gerulewicz-aguinaldo-de-contento.flac",
+        "demoFile": "gerulewicz-aguinaldo-de-contento-demo.mp3"
+      },
+      {
+        "title": "Salve Salve",
+        "duration": "3:05",
+        "composer": "Tradicional",
+        "workCatalogue": "",
+        "protected": "010-gerulewicz-aguinaldo-salve-salve.flac",
+        "demoFile": "gerulewicz-aguinaldo-salve-salve-demo.mp3"
+      },
+      {
+        "title": "Aguinaldo Caraqueño",
+        "duration": "2:55",
+        "composer": "Tradicional",
+        "workCatalogue": "",
+        "protected": "011-gerulewicz-aguinaldo-aguinaldo-caraqueno.flac",
+        "demoFile": "gerulewicz-aguinaldo-aguinaldo-caraqueno-demo.mp3"
+      },
+      {
+        "title": "A ti te cantamos preciosa María",
+        "duration": "3:14",
+        "composer": "Tradicional",
+        "workCatalogue": "",
+        "protected": "012-gerulewicz-aguinaldo-a-ti-te-cantamos.flac",
+        "demoFile": "gerulewicz-aguinaldo-a-ti-te-cantamos-demo.mp3"
+      },
+      {
+        "title": "La Cabra Mocha",
+        "duration": "2:30",
+        "composer": "Tradicional",
+        "workCatalogue": "",
+        "protected": "013-gerulewicz-aguinaldo-la-cabra-mocha.flac",
+        "demoFile": "gerulewicz-aguinaldo-la-cabra-mocha-demo.mp3"
+      },
+      {
+        "title": "Aguinaldo Margariteño",
+        "duration": "3:25",
+        "composer": "Tradicional",
+        "workCatalogue": "",
+        "protected": "014-gerulewicz-aguinaldo-aguinaldo-margariteno.flac",
+        "demoFile": "gerulewicz-aguinaldo-aguinaldo-margariteno-demo.mp3"
+      },
+      {
+        "title": "Cantemos",
+        "duration": "2:50",
+        "composer": "Tradicional",
+        "workCatalogue": "",
+        "protected": "015-gerulewicz-aguinaldo-cantemos.flac",
+        "demoFile": "gerulewicz-aguinaldo-cantemos-demo.mp3"
+      },
+      {
+        "title": "Canción De Cuna (Himno Nacional)",
+        "duration": "4:00",
+        "composer": "Tradicional",
+        "workCatalogue": "",
+        "protected": "016-gerulewicz-aguinaldo-himno-de-venezuela-cancion-de-cuna.flac",
+        "demoFile": "gerulewicz-aguinaldo-cancion-de-cuna-demo.mp3"
+      }
+    ],
+    "duration": "46:30",
+    "commentary": "Este álbum rinde homenaje a la tradición navideña venezolana, reinterpretada con sensibilidad pianística.",
+    "commentaryAuthor": "Gerardo Gerulewicz",
+    "musicCards": [
+      "mc-2025-gerulewicz-aguinaldo-std"
+    ],
+    "metadata": {
+      "uuid": "urn:uuid:e61d1565-1219-48a7-a393-596e596827a4",
+      "timestamp": "2025-11-25T10:00:00Z",
+      "operator": "cto@dagklassical.com"
+    }
+  },
+  {
+    "id": "virginia-ramirez-capitulos",
+    "demoBasePath": "virginia-ramirez/capitulos",
+    "workTitle": "Capítulos",
+    "composer": "Virginia Ramírez",
+    "performers": [
+      "Virginia Ramírez"
+    ],
+    "title": "Capítulos",
+    "artistIds": [
+      "virginia-ramirez"
+    ],
+    "genre": "jazz",
+    "releaseDate": "2025-11-14",
+    "type": "álbum",
+    "status": "lanzado",
+    "description": "\"Capítulos\" es un viaje sonoro a través de los éxitos más emblemáticos de Virginia Ramírez, meticulosamente remasterizados. Este álbum celebra su dominio técnico al piano y su magistral fusión entre el jazz moderno y los ritmos latinoamericanos. Cada pieza, ahora inmutable en blockchain, es un testimonio de elegancia y profundidad que redefine los greatest hits como obra artística autónoma.",
+    "descriptionLong": "Capítulos: Donde los Éxitos se Convierten en Legado\n\n\"Capítulos\" es un viaje sonoro a través de los éxitos más celebrados de Virginia Ramírez, reuniendo en un solo volumen aquellas piezas que se han convertido en emblemas de su sonido único. Cada tema, seleccionado meticulosamente de sus álbumes anteriores, ha sido remasterizado para ofrecer una experiencia auditiva renovada y de la más alta fidelidad, permitiendo tanto a nuevos oyentes como a seguidores de larga data redescubrir la profundidad y el color de su música.\n\nEl álbum es un testimonio del dominio técnico de Virginia al piano y su habilidad innata para fusionar ritmos. Desde la sofisticación armónica del jazz moderno hasta la cadencia irresistible de la tradición latinoamericana, \"Capítulos\" navega por un espectro emocional y rítmico vasto. Los oyentes podrán deleitarse con la sensualidad del jazz tradicional y el LatinJazz, unificado por el sello inconfundible de su interpretación: elegante, poderosa y profundamente sentida.\n\nMás que una simple recopilación, \"Capítulos\" es una declaración artística. Representa una pausa, un respiro para contemplar el camino recorrido y saborear los logros que han definido su sonido. En DAG KLASSICAL, esta obra trasciende el formato digital para convertirse en un legado cultural inmutable, confirmando el lugar de Virginia Ramírez como una voz esencial y perdurable en la música instrumental.",
+    "bioExtended": "La grabación de 'Capítulos' se realizó en Mansa Studio, Lechería, Venezuela, bajo la producción artística de Danilo Álvarez. Virginia trabajó con un piano Steinway & Sons de cola modelo D-274, capturado con una configuración de micrófonos Neumann U87 en modo binaural para preservar la espacialidad acústica del instrumento.\n\nEl proceso de mastering se ejecutó en 24-bit/192kHz en DAG Klassical Studios, utilizando conversores dCS y monitores Genelec 8351B, garantizando la máxima fidelidad al sonido original. Cada track fue procesado individualmente para resaltar las sutilezas dinámicas y armónicas características del lenguaje pianístico de Virginia Ramírez.\n\nEsta obra representa el primer álbum de Virginia certificado en blockchain, convirtiéndolo en un activo cultural inmutable para las generaciones futuras. Como poseedor de esta Music Card, tienes acceso exclusivo al álbum completo en formato FLAC sin pérdida, junto con contenido adicional que se añadirá próximamente.",
+    "coverImage": "/covers/cover-capitulos-virginia-ramirez.png",
+    "demoAvailable": true,
+    "fullAlbumAvailable": false,
+    "sheetMusicAvailable": false,
+    "platforms": {
+      "spotify": "https://open.spotify.com/album/2dNgFeneZI2RGDaplxxEtL?go=1&nd=1&dlsi=59c46aff44274124",
+      "apple": "https://music.apple.com/ve/album/cap%C3%ADtulos/1837264207",
+      "youtube": "https://music.youtube.com/playlist?list=OLAK5uy_mAr4hlD7HgH3_HPTbkGiax3pF_ciCUSkM",
+      "tidal": null,
+      "deezer": "https://www.deezer.com/us/album/814912391?app_id=140685&utm_source=partner_linkfire&utm_campaign=48d39b5b6a0a4d00867141cb5d303b73&utm_medium=Original&utm_term=lujo-network-3439&utm_content=album-814912391"
+    },
+    "tracks": [
+      {
+        "title": "Preludio para Boby",
+        "composer": "Virginia Ramírez",
+        "workCatalogue": "",
+        "duration": "5:43",
+        "protected": "001-ramirez-capitulos-preludio-para-boby.flac",
+        "demoFile": "ramirez-capitulos-preludio-para-boby-demo.mp3"
+      },
+      {
+        "title": "Blues con Sangueo",
+        "composer": "Virginia Ramírez",
+        "workCatalogue": "",
+        "duration": "4:51",
+        "protected": "002-ramirez-capitulos-blues-con-sangueo.flac",
+        "demoFile": "ramirez-capitulos-blues-con-sangueo-demo.mp3"
+      },
+      {
+        "title": "Domingo por la Tarde",
+        "composer": "Virginia Ramírez",
+        "workCatalogue": "",
+        "duration": "6:31",
+        "protected": "003-ramirez-capitulos-domingo-por-la-tarde.flac",
+        "demoFile": "ramirez-capitulos-domingo-por-la-tarde-demo.mp3"
+      },
+      {
+        "title": "Días de Julio",
+        "composer": "Virginia Ramírez",
+        "workCatalogue": "",
+        "duration": "7:34",
+        "protected": "004-ramirez-capitulos-dias-de-julio.flac",
+        "demoFile": "ramirez-capitulos-dias-de-julio-demo.mp3"
+      },
+      {
+        "title": "Don Alen",
+        "composer": "Virginia Ramírez",
+        "workCatalogue": "",
+        "duration": "5:01",
+        "protected": "005-ramirez-capitulos-don-alen.flac",
+        "demoFile": "ramirez-capitulos-don-alen-demo.mp3"
+      },
+      {
+        "title": "Dulcinea",
+        "composer": "Virginia Ramírez",
+        "workCatalogue": "",
+        "duration": "6:36",
+        "protected": "006-ramirez-capitulos-dulcinea.flac",
+        "demoFile": "ramirez-capitulos-dulcinea-demo.mp3"
+      },
+      {
+        "title": "Espiral de Fuego",
+        "composer": "Virginia Ramírez",
+        "workCatalogue": "",
+        "duration": "6:55",
+        "protected": "007-ramirez-capitulos-espiral-de-fuego.flac",
+        "demoFile": "ramirez-capitulos-espiral-de-fuego-demo.mp3"
+      },
+      {
+        "title": "Guasipati",
+        "composer": "Virginia Ramírez",
+        "workCatalogue": "",
+        "duration": "4:36",
+        "protected": "008-ramirez-capitulos-guasipati.flac",
+        "demoFile": "ramirez-capitulos-guasipati-demo.mp3"
+      },
+      {
+        "title": "Manos y Alma",
+        "composer": "Virginia Ramírez",
+        "workCatalogue": "",
+        "duration": "4:36",
+        "protected": "009-ramirez-capitulos-manos-y-alma.flac",
+        "demoFile": "ramirez-capitulos-manos-y-alma-demo.mp3"
+      },
+      {
+        "title": "Azul y Verde",
+        "composer": "Virginia Ramírez",
+        "workCatalogue": "",
+        "duration": "8:09",
+        "protected": "010-ramirez-capitulos-azul-y-verde.flac",
+        "demoFile": "ramirez-capitulos-azul-y-verde-demo.mp3"
+      },
+      {
+        "title": "Rapguinaldo",
+        "composer": "Virginia Ramírez",
+        "workCatalogue": "",
+        "duration": "3:17",
+        "protected": "011-ramirez-capitulos-rapguinaldo.flac",
+        "demoFile": "ramirez-capitulos-rapguinaldo-demo.mp3"
+      }
+    ],
+    "duration": "1:03:49",
+    "commentary": "Más que una simple recopilación, 'Capítulos' es una declaración artística: una pausa para contemplar el camino recorrido y saborear los logros que han definido su sonido.",
+    "commentaryAuthor": "Virginia Ramírez",
+    "musicCards": [
+      "mc-2025-ramirez-capitulos-std"
+    ],
+    "metadata": {
+      "uuid": "urn:uuid:14861e8c-507a-4a88-ad3c-6e5aab5b213d",
+      "timestamp": "2025-11-27T18:00:00Z",
+      "operator": "cto@dagklassical.com"
+    }
+  },
+  {
+    "id": "orquesta-academica-de-moscu-momentos-musicales-vol-1",
+    "workTitle": "Momentos Musicales Vol. 1: Barroco Inglés",
+    "composer": "Georg Frideric Handel",
+    "performers": [
+      "Orquesta Académica de Moscú"
+    ],
+    "title": "Momentos Musicales Vol. 1: Barroco Inglés",
+    "artistIds": [
+      "orquesta-academica-de-moscu"
+    ],
+    "genre": "barroco-ingles",
+    "releaseDate": "2025-03-06",
+    "type": "álbum",
+    "status": "lanzado",
+    "description": "Una inmersión en la elegancia y el esplendor de la corte inglesa del siglo XVIII, con la Suite Nº1 en Fa mayor de la 'Water Music' de Handel, interpretada con precisión histórica y brillo sonoro por la Orquesta Académica de Moscú.",
+    "descriptionLong": "El Nacimiento de una Tradición Sinfónica\n\nLa 'Water Music' de Handel no fue solo música de entretenimiento; fue un acto político y cultural que marcó el nacimiento de la música orquestal pública en Inglaterra. Compuesta para el rey Jorge I, esta suite combina danzas francesas, aires italianos y una pompa británica única.\n\nUna Interpretación de Referencia\n\nLa Orquesta Académica de Moscú aborda esta obra con un enfoque que equilibra la fidelidad histórica y la resonancia moderna. Cada entrada de trompa, cada frase de violín, está calibrada para evocar las aguas del Támesis y la grandeza de una monarquía en auge.\n\nPrimera Entrega de una Serie Esencial\n\nComo inicio de la serie 'Momentos Musicales', este volumen establece el estándar: grabaciones de alta fidelidad, contextualización curatorial y una misión clara: hacer del repertorio académico una experiencia accesible, profunda y eterna, ahora certificada en blockchain por DAG Klassical.",
+    "coverImage": "/covers/cover-orquesta-academica-de-moscu-momentos-musicales-vol-1.webp",
+    "demoAvailable": false,
+    "fullAlbumAvailable": true,
+    "sheetMusicAvailable": false,
+    "platforms": {
+      "spotify": "https://open.spotify.com/intl-es/album/7Fbc099ry3XRa2kMoEAzb8?si=RyFVAVTpRbWnVECsI9iGEg",
+      "apple": "https://music.apple.com/de/album/momentos-musicales-vol-1-barroco-ingles/1798805918",
+      "youtube": "https://www.youtube.com/watch?v=MPwANQiFBzc&list=OLAK5uy_madJoG11meDnXOrEr5J37zzOKrn6xuc-0",
+      "tidal": null,
+      "deezer": "https://www.deezer.com/album/828603227"
+    },
+    "tracks": [
+      {
+        "title": "Overture (Largo - Allegro)",
+        "duration": "3:20",
+        "composer": "Georg Frideric Handel",
+        "workCatalogue": "HWV 348",
+        "protected": "",
+        "demoFile": ""
+      },
+      {
+        "title": "Adagio",
+        "duration": "1:45",
+        "composer": "Georg Frideric Handel",
+        "workCatalogue": "HWV 348",
+        "protected": "",
+        "demoFile": ""
+      },
+      {
+        "title": "Allegro - Andante",
+        "duration": "2:10",
+        "composer": "Georg Frideric Handel",
+        "workCatalogue": "HWV 348",
+        "protected": "",
+        "demoFile": ""
+      },
+      {
+        "title": "Minuet",
+        "duration": "2:00",
+        "composer": "Georg Frideric Handel",
+        "workCatalogue": "HWV 348",
+        "protected": "",
+        "demoFile": ""
+      },
+      {
+        "title": "Air",
+        "duration": "1:50",
+        "composer": "Georg Frideric Handel",
+        "workCatalogue": "HWV 348",
+        "protected": "",
+        "demoFile": ""
+      }
+    ],
+    "duration": "11:05",
+    "commentary": "Handel no compuso para la posteridad; compuso para el momento. Nosotros lo preservamos para la eternidad.",
+    "commentaryAuthor": "Orquesta Académica de Moscú",
+    "musicCards": [],
+    "metadata": {
+      "uuid": "urn:uuid:$(uuidgen)",
+      "timestamp": "2025-12-31T10:00:00Z",
+      "operator": "cto@dagklassical.com"
+    }
+  },
+  {
+    "id": "orquesta-academica-de-moscu-momentos-musicales-vol-2",
+    "workTitle": "Momentos Musicales Vol. 2: Clásico Austriaco",
+    "composer": "Wolfgang Amadeus Mozart",
+    "performers": [
+      "Orquesta Académica de Moscú"
+    ],
+    "title": "Momentos Musicales Vol. 2: Clásico Austriaco",
+    "artistIds": [
+      "orquesta-academica-de-moscu"
+    ],
+    "genre": "clasico-austriaco",
+    "releaseDate": "2025-04-03",
+    "type": "álbum",
+    "status": "lanzado",
+    "description": "Un viaje al corazón del período clásico vienés con la Sinfonía Nº29 de Mozart, obra maestra de equilibrio, claridad y emoción contenida, interpretada con elegancia y rigor por la Orquesta Académica de Moscú.",
+    "platforms": {
+      "spotify": "https://open.spotify.com/album/3qZ5vK7XmF9Jr8YwB2nL4T",
+      "apple": "https://music.apple.com/de/album/momentos-musicales-vol-2-cl%C3%A1sico-austriaco/1801516518",
+      "youtube": null,
+      "tidal": null,
+      "deezer": "https://www.deezer.com/album/828603228"
+    },
+    "coverImage": "/covers/cover-orquesta-academica-de-moscu-momentos-musicales-vol-2.webp",
+    "demoAvailable": false,
+    "fullAlbumAvailable": true,
+    "sheetMusicAvailable": false,
+    "tracks": [
+      {
+        "title": "Allegro moderato",
+        "duration": "6:30",
+        "composer": "Wolfgang Amadeus Mozart",
+        "workCatalogue": "KV 201",
+        "protected": "",
+        "demoFile": ""
+      },
+      {
+        "title": "Andante",
+        "duration": "5:15",
+        "composer": "Wolfgang Amadeus Mozart",
+        "workCatalogue": "KV 201",
+        "protected": "",
+        "demoFile": ""
+      },
+      {
+        "title": "Menuetto. Allegro",
+        "duration": "2:40",
+        "composer": "Wolfgang Amadeus Mozart",
+        "workCatalogue": "KV 201",
+        "protected": "",
+        "demoFile": ""
+      },
+      {
+        "title": "Allegro con spirito",
+        "duration": "4:20",
+        "composer": "Wolfgang Amadeus Mozart",
+        "workCatalogue": "KV 201",
+        "protected": "",
+        "demoFile": ""
+      }
+    ],
+    "duration": "18:45",
+    "commentary": "En Mozart, la perfección no es fría; es el latido de un corazón que conoce la belleza absoluta.",
+    "commentaryAuthor": "Orquesta Académica de Moscú",
+    "musicCards": [],
+    "metadata": {
+      "uuid": "urn:uuid:$(uuidgen)",
+      "timestamp": "2025-12-31T10:00:00Z",
+      "operator": "cto@dagklassical.com"
+    }
+  },
+  {
+    "id": "orquesta-academica-de-moscu-momentos-musicales-vol-3",
+    "workTitle": "Momentos Musicales Vol. 3: Nacionalismo Ruso",
+    "composer": "Mijaíl Glinka",
+    "performers": [
+      "Orquesta Académica de Moscú"
+    ],
+    "title": "Momentos Musicales Vol. 3: Nacionalismo Ruso",
+    "artistIds": [
+      "orquesta-academica-de-moscu"
+    ],
+    "genre": "nacionalismo-ruso",
+    "releaseDate": "2025-05-02",
+    "type": "álbum",
+    "status": "lanzado",
+    "description": "Un homenaje a las raíces de la música rusa con 'Kamarinskaya' de Glinka, la obra que, según Tchaikovsky, sembró toda la escuela nacional rusa. Interpretada con orgullo y fuerza telúrica por la Orquesta Académica de Moscú.",
+    "platforms": {
+      "spotify": "https://open.spotify.com/album/2nR8mQpLxYf6WtVbKj4ZcE",
+      "apple": "https://music.apple.com/de/album/momentos-musicales-vol-3-nacionalismo-ruso/1801516297",
+      "youtube": null,
+      "tidal": null,
+      "deezer": "https://www.deezer.com/album/828603229"
+    },
+    "coverImage": "/covers/cover-orquesta-academica-de-moscu-momentos-musicales-vol-3.webp",
+    "demoAvailable": false,
+    "fullAlbumAvailable": true,
+    "sheetMusicAvailable": false,
+    "tracks": [
+      {
+        "title": "Kamarinskaya",
+        "duration": "8:50",
+        "composer": "Mijaíl Glinka",
+        "workCatalogue": "",
+        "protected": "",
+        "demoFile": ""
+      }
+    ],
+    "duration": "8:50",
+    "commentary": "Glinka no compuso música rusa; descubrió que ya existía en el alma del pueblo.",
+    "commentaryAuthor": "Orquesta Académica de Moscú",
+    "musicCards": [],
+    "metadata": {
+      "uuid": "urn:uuid:$(uuidgen)",
+      "timestamp": "2025-12-31T10:00:00Z",
+      "operator": "cto@dagklassical.com"
+    }
+  },
+  {
+    "id": "orquesta-academica-de-moscu-momentos-musicales-vol-4",
+    "workTitle": "Momentos Musicales Vol. 4: Barroco Italiano",
+    "composer": "Arcangelo Corelli",
+    "performers": [
+      "Orquesta Académica de Moscú"
+    ],
+    "title": "Momentos Musicales Vol. 4: Barroco Italiano",
+    "artistIds": [
+      "orquesta-academica-de-moscu"
+    ],
+    "genre": "barroco-italiano",
+    "releaseDate": "2025-06-06",
+    "type": "álbum",
+    "status": "lanzado",
+    "description": "Un tributo al maestro del concerto grosso con la Concerto Grosso Op. 6 Nº8 'Christmas Concerto' de Corelli, joya del barroco romano interpretada con gracia y rigor por la Orquesta Académica de Moscú.",
+    "platforms": {
+      "spotify": "https://open.spotify.com/album/7fL9xQpRmYnKvW3bT8sJ2U",
+      "apple": "https://music.apple.com/de/album/momentos-musicales-vol-4-barroco-italiano/1801523570",
+      "youtube": null,
+      "tidal": null,
+      "deezer": "https://www.deezer.com/album/828603230"
+    },
+    "coverImage": "/covers/cover-orquesta-academica-de-moscu-momentos-musicales-vol-4.webp",
+    "demoAvailable": false,
+    "fullAlbumAvailable": true,
+    "sheetMusicAvailable": false,
+    "tracks": [
+      {
+        "title": "Sinfonia (Largo - Allegro)",
+        "duration": "2:30",
+        "composer": "Arcangelo Corelli",
+        "workCatalogue": "Op. 6 No. 8",
+        "protected": "",
+        "demoFile": ""
+      },
+      {
+        "title": "Allemanda (Allegro)",
+        "duration": "2:10",
+        "composer": "Arcangelo Corelli",
+        "workCatalogue": "Op. 6 No. 8",
+        "protected": "",
+        "demoFile": ""
+      },
+      {
+        "title": "Adagio",
+        "duration": "1:50",
+        "composer": "Arcangelo Corelli",
+        "workCatalogue": "Op. 6 No. 8",
+        "protected": "",
+        "demoFile": ""
+      },
+      {
+        "title": "Sarabanda (Vivace)",
+        "duration": "2:00",
+        "composer": "Arcangelo Corelli",
+        "workCatalogue": "Op. 6 No. 8",
+        "protected": "",
+        "demoFile": ""
+      },
+      {
+        "title": "Allegro",
+        "duration": "1:40",
+        "composer": "Arcangelo Corelli",
+        "workCatalogue": "Op. 6 No. 8",
+        "protected": "",
+        "demoFile": ""
+      },
+      {
+        "title": "Pastorale (Largo)",
+        "duration": "3:20",
+        "composer": "Arcangelo Corelli",
+        "workCatalogue": "Op. 6 No. 8",
+        "protected": "",
+        "demoFile": ""
+      }
+    ],
+    "duration": "13:30",
+    "commentary": "En Corelli, la Navidad no se canta; se deja oír en el silencio entre las notas.",
+    "commentaryAuthor": "Orquesta Académica de Moscú",
+    "musicCards": [],
+    "metadata": {
+      "uuid": "urn:uuid:$(uuidgen)",
+      "timestamp": "2025-12-31T10:00:00Z",
+      "operator": "cto@dagklassical.com"
+    }
+  },
+  {
+    "id": "goulnara-galimchina-schubert-d960-d780",
+    "demoBasePath": "goulnara-galimchina/schubert",
+    "title": "Schubert: Sonata D960 & Momentos Musicales D780",
+    "artistIds": [
+      "goulnara-galimchina"
+    ],
+    "genre": [
+      "música-clásica"
+    ],
+    "releaseDate": "2022-01-28",
+    "type": "álbum",
+    "status": "lanzado",
+    "description": "En \"Schubert\", la maestra Goulnara Galimchina nos invita a un refugio de introspección y belleza pura. Interpretando la monumental Sonata D. 960 y los \"Momentos Musicales\" D. 780, Galimchina se aleja del virtuosismo vacío para ofrecer una ejecución de claridad cristalina y honestidad emocional. Cada nota revela la fragilidad humana, capturada ahora como un registro inmutable en el catálogo de DAG Klassical.",
+    "coverImage": "/covers/cover-schubert-01.webp",
+    "demoAvailable": true,
+    "fullAlbumAvailable": false,
+    "sheetMusicAvailable": false,
+    "platforms": {
+      "spotify": "https://open.spotify.com/album/4N42gl9w4gZY4IyLElsKYi?go=1&nd=1&dlsi=d87d58eb297a4c0b",
+      "apple": "https://music.apple.com/ve/album/schubert/1653639785?at=1l3vpUI&ct=LFV_94378caae938da0bceab3768688de132&itsct=catchall_p2&itscg=30440&ls=1",
+      "youtube": "https://music.youtube.com/playlist?list=OLAK5uy_kkIHfFa5V5jKF2XqqW6B5WuDXGE9VR-M8",
+      "tidal": "https://tidal.com/album/259294070",
+      "deezer": "https://www.deezer.com/us/album/324503107?app_id=140685&utm_source=partner_linkfire&utm_campaign=94378caae938da0bceab3768688de132&utm_medium=Original&utm_term=lujo-network-3439&utm_content=album-324503107"
+    },
+    "tracks": [
+      {
+        "title": "I. Molto moderato",
+        "composer": "Franz Schubert",
+        "workCatalogue": "Sonata D960",
+        "duration": "12:30",
+        "protected": "",
+        "demoFile": "goulnara-schubert-d960-01-moderato-demo.mp3"
+      },
+      {
+        "title": "II. Andante sostenuto",
+        "composer": "Franz Schubert",
+        "workCatalogue": "Sonata D960",
+        "duration": "8:45",
+        "protected": "",
+        "demoFile": "goulnara-schubert-d960-02-andante-demo.mp3"
+      },
+      {
+        "title": "III. Scherzo. Allegro vivace con delicatezza",
+        "composer": "Franz Schubert",
+        "workCatalogue": "Sonata D960",
+        "duration": "4:20",
+        "protected": "",
+        "demoFile": "goulnara-schubert-d960-03-scherzo-demo.mp3"
+      },
+      {
+        "title": "IV. Allegro, ma non troppo",
+        "composer": "Franz Schubert",
+        "workCatalogue": "Sonata D960",
+        "duration": "7:50",
+        "protected": "",
+        "demoFile": "goulnara-schubert-d960-04-allegro-demo.mp3"
+      },
+      {
+        "title": "Momento musical No. 1 en Do mayor",
+        "composer": "Franz Schubert",
+        "workCatalogue": "D780",
+        "duration": "3:40",
+        "protected": "",
+        "demoFile": "goulnara-schubert-d780-01-moderato-demo.mp3"
+      },
+      {
+        "title": "Momento musical No. 2 en La bemol mayor",
+        "composer": "Franz Schubert",
+        "workCatalogue": "D780",
+        "duration": "3:15",
+        "protected": "",
+        "demoFile": "goulnara-schubert-d780-02-andantino-demo.mp3"
+      },
+      {
+        "title": "Momento musical No. 4 en Fa menor",
+        "composer": "Franz Schubert",
+        "workCatalogue": "D780",
+        "duration": "2:50",
+        "protected": "",
+        "demoFile": "goulnara-schubert-d780-04-moderato-demo.mp3"
+      },
+      {
+        "title": "Momento musical No. 6 en La bemol mayor",
+        "composer": "Franz Schubert",
+        "workCatalogue": "D780",
+        "duration": "2:30",
+        "protected": "",
+        "demoFile": "goulnara-schubert-d780-06-allegretto-demo.mp3"
+      }
+    ],
+    "duration": "46:00",
+    "commentary": "Schubert en su máxima expresión lírica y estructural. La Sonata D960, compuesta semanas antes de su muerte, es un testamento sonoro de serenidad y despedida. Los Momentos Musicales, en tanto, capturan destellos de belleza introspectiva.",
+    "commentaryAuthor": "Goulnara Galímchina",
+    "musicCards": [
+      "mc-2025-goulnara-schubert-std"
+    ],
+    "metadata": {
+      "uuid": "urn:uuid:1abcbf08-b30d-4a65-be99-ab0f97bd993b",
+      "timestamp": "2025-11-28T09:00:00Z",
+      "operator": "cto@dagklassical.com"
+    }
+  },
+  {
+    "id": "dipolo-riera-tema-con-variazioni-dm",
+    "workTitle": "Tema con Variazioni in Dm",
+    "composer": "Marin Marais",
+    "performers": [
+      "Frank Di Polo",
+      "Rubén Riera"
+    ],
+    "title": "Tema con Variazioni in Dm",
+    "artistIds": [
+      "frank-di-polo",
+      "ruben-riera"
+    ],
+    "genre": "barroco-frances",
+    "releaseDate": "2023-10-15",
+    "type": "álbum",
+    "status": "lanzado",
+    "description": "\"Tema con Variazioni in Dm\" de Marin Marais revive bajo las manos maestras de Frank Di Polo en viola y Rubén Riera en tiorba. Esta joya del barroco francés, grabada en 2023 con producción de Danilo Álvarez, teje un diálogo entre épocas donde la elegancia histórica se encuentra con la sensibilidad latinoamericana. En DAG KLASSICAL, cada variación se preserva inmutable en blockchain, transformando esta conversación musical entre maestros en un legado cultural eterno.",
+    "descriptionLong": "Tema con Variazioni in Dm: Donde el Barroco Francés se Acerca a Venezuela.\n\nLa obra maestra de Marin Marais (1656-1728), uno de los más grandes compositores para viola da gamba de la historia, encuentra una nueva vida en las manos de dos leyendas venezolanas. Frank Di Polo, con su viola, y Rubén Riera, con su tiorba, recrean el \"Tema con variazioni en Re menor\" con una sensibilidad que trasciende el tiempo. Esta grabación de 2023, producida por Danilo Álvarez, no es simplemente una interpretación histórica, sino un puente sonoro entre la corte francesa del siglo XVII y la profundidad musical latinoamericana.\n\nLa elección de este repertorio no es casual. Marin Marais, discípulo de Lully y maestro del barroco francés, compuso esta pieza como un ejercicio de virtuosismo y expresión emocional. Di Polo y Riera, con su perfecto acoplamiento y dominio técnico, revelan cada matiz de las variaciones, donde la viola canta con una voz cálida y la tiorba responde con armonías que evocan salones iluminados por velas. Su interpretación honra la elegancia francesa mientras infunde un alma latinoamericana que convierte cada nota en una conversación entre culturas.\n\nEn DAG KLASSICAL, esta grabación se convierte en patrimonio cultural inmutable. La tecnología blockchain asegura que la maestría de estos dos músicos venezolanos, herederos de El Sistema y guardianes de la tradición clásica, permanezca accesible para generaciones futuras. Cada variación, cada respiración entre las frases musicales, se preserva con la misma nitidez que la noche de su grabación, transformando lo efímero en eterno. Esta obra no solo celebra el genio de Marais, sino el legado de dos artistas que han dedicado sus vidas a construir puentes sonoros entre épocas y continentes.",
+    "coverImage": "/covers/cover-dipolo-riera-tema-con-variazioni-01.webp",
+    "demoAvailable": false,
+    "fullAlbumAvailable": true,
+    "sheetMusicAvailable": false,
+    "platforms": {
+      "spotify": "https://open.spotify.com/intl-es/track/1fCKRxLdh4OTWX10wtAJjw?si=fd6e29a4ce82478f",
+      "apple": "https://classical.music.apple.com/au/album/1688401696",
+      "youtube": "https://www.youtube.com/watch?v=1v5ayuz2raM",
+      "tidal": null,
+      "deezer": null
+    },
+    "tracks": [
+      {
+        "title": "Tema con Variazioni in Dm",
+        "composer": "Marin Marais",
+        "workCatalogue": "",
+        "duration": "26:40",
+        "protected": "",
+        "demoFile": ""
+      }
+    ],
+    "duration": "26:40",
+    "commentary": "Una joya del barroco francés reinterpretada con sensibilidad venezolana. La elegancia de Marais se funde con el alma latinoamericana de Di Polo y Riera.",
+    "commentaryAuthor": "DAG Klassical",
+    "musicCards": [],
+    "metadata": {
+      "uuid": "urn:uuid:99c14df8-ba36-42c0-ad62-55c077924dde",
+      "timestamp": "2025-11-27T18:00:00Z",
+      "operator": "cto@dagklassical.com"
+    }
+  },
+  {
+    "id": "filip-bandzak-mahler-lieder",
+    "workTitle": "Mahler: Lieder",
+    "composer": "Gustav Mahler",
+    "performers": [
+      "Filip Bandžak",
+      "Anton Aslamas"
+    ],
+    "title": "Mahler: Lieder",
+    "artistIds": [
+      "filip-bandzak",
+      "anton-aslamas"
+    ],
+    "genre": "lied-alemán",
+    "releaseDate": "2022-09-16",
+    "type": "álbum",
+    "status": "lanzado",
+    "description": "Una interpretación íntima y poderosa de las Lieder de Gustav Mahler por el barítono checo Filip Bandžak y el pianista venezolano Anton Aslamas. Esta colaboración une la profundidad emocional del lied centroeuropeo con una sensibilidad latinoamericana, preservada en blockchain como legado inmutable.",
+    "descriptionLong": "Diálogo con el Alma: Mahler en Tiempos de Inmutabilidad\n\nGustav Mahler escribió sus Lieder como cartas al universo: confesiones líricas cargadas de nostalgia, amor efímero y la angustia existencial. En esta grabación, Filip Bandžak no canta; dialoga con cada palabra, entregando cada frase con una honestidad vocal que rara vez se escucha en el repertorio contemporáneo.\n\nUna Colaboración Transnacional\n\nAnton Aslamas, desde el piano, construye un paisaje sonoro que no acompaña, sino que responde, sostiene y amplifica cada matiz del texto. Nacido en Venezuela y formado en la tradición orquestal de El Sistema, Aslamas aporta una calidez tímbrica que equilibra la densidad emocional de Mahler, creando una lectura que es a la vez fiel y profundamente personal.\n\nUn Legado Certificado\n\nPublicado por DAG Klassical, este álbum no se limita a la alta fidelidad. Cada pista está certificada en blockchain, garantizando que esta interpretación —fruto del encuentro entre Praga, Caracas y el alma de Mahler— permanecerá accesible, auténtica e inmutable para las generaciones futuras. Esta no es solo una grabación: es un acto de preservación cultural.",
+    "coverImage": "/covers/cover-filip-bandzak-mahler-lieder.webp",
+    "demoAvailable": false,
+    "fullAlbumAvailable": true,
+    "sheetMusicAvailable": false,
+    "platforms": {
+      "spotify": null,
+      "apple": "https://music.apple.com/cz/album/mahler-lieder-feat-anton-aslamas/1644560465",
+      "youtube": null,
+      "tidal": null,
+      "deezer": null
+    },
+    "tracks": [
+      {
+        "title": "Ich bin der Welt abhanden gekommen",
+        "composer": "Gustav Mahler",
+        "duration": "5:20",
+        "workCatalogue": "de Rückert-Lieder",
+        "protected": "",
+        "demoFile": ""
+      },
+      {
+        "title": "Um Mitternacht",
+        "composer": "Gustav Mahler",
+        "duration": "4:45",
+        "workCatalogue": "",
+        "protected": "",
+        "demoFile": ""
+      },
+      {
+        "title": "Liebst du um Schönheit",
+        "composer": "Gustav Mahler",
+        "duration": "3:10",
+        "workCatalogue": "de Rückert-Lieder",
+        "protected": "",
+        "demoFile": ""
+      },
+      {
+        "title": "Nicht wiedersehen!",
+        "composer": "Gustav Mahler",
+        "duration": "3:50",
+        "workCatalogue": "",
+        "protected": "",
+        "demoFile": ""
+      },
+      {
+        "title": "Revelge",
+        "composer": "Gustav Mahler",
+        "duration": "5:00",
+        "workCatalogue": "de Des Knaben Wunderhorn",
+        "protected": "",
+        "demoFile": ""
+      }
+    ],
+    "duration": "22:05",
+    "commentary": "Mahler no es música para oídos, sino para almas que han conocido la soledad.",
+    "commentaryAuthor": "Filip Bandžak",
+    "musicCards": [],
+    "metadata": {
+      "uuid": "urn:uuid:$(uuidgen)",
+      "timestamp": "2025-12-31T09:30:00Z",
+      "operator": "cto@dagklassical.com"
+    }
+  }
+]

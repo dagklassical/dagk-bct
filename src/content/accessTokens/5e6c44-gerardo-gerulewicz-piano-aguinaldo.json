@@ -1,0 +1,32 @@
+{
+  "id": "5e6c44-gerardo-gerulewicz-piano-aguinaldo",
+  "type": "album",
+  "status": "active",
+  "associatedRelease": "gerulewicz-piano-aguinaldo",
+  "associatedArtists": ["gerardo-gerulewicz"],
+  "content": {
+    "audio": {
+      "baseUrl": "https://audio.dagklassical.com/stream/gerulewicz-piano-aguinaldo/",
+      "format": "flac",
+      "quality": "24/192"
+    },
+    "score": {
+      "url": "https://audio.dagklassical.com/protected/audio/gerulewicz-piano-aguinaldo/gerulewicz-partitura.pdf",
+      "format": "pdf",
+      "signed": true
+    }
+  },
+  "access": {
+    "method": "token_url"
+  },
+  "theme": {
+    "heroImage": "https://audio.dagklassical.com/protected/audio/gerulewicz-piano-aguinaldo/hero-gg-tocando-kolendy-embajada-polonia.webp",
+    "fallbackHero": "/hero/hero-gg-tocando-kolendy-embajada-polonia.webp",
+    "primaryColor": "#800020"
+  },
+  "metadata": {
+    "uuid": "urn:uuid:5e6c44-0000-0000-0000-000000000001",
+    "timestamp": "2025-11-25T10:00:00Z",
+    "operator": "cto@dagklassical.com"
+  }
+}
