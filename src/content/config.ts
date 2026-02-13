@@ -146,8 +146,8 @@ const accessTokensCollection = defineCollection({
 });
 
 export const collections = {
-  artists: artistsCollection,
-  releases: releasesCollection,
-  musicCards: musicCardsCollection,
-  accessTokens: accessTokensCollection
+//  artists: artistsCollection,
+//  releases: releasesCollection,
+//  musicCards: musicCardsCollection,
+//  accessTokens: accessTokensCollection
 };
