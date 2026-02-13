@@ -1,5 +1,31 @@
 {
   "id": "placeholder",
-  "title": "Placeholder Card",
-  "active": false
+  "title": "Music Card Placeholder",
+  "workTitle": "Obra Placeholder",
+  "composer": "Compositor Anónimo",
+  "artist": "Placeholder Artist",
+  "performers": ["Placeholder Artist"],
+  "edition": "Estándar",
+  "associatedRelease": "placeholder",
+  "totalSupply": 100,
+  "available": 100,
+  "blockchain": "Polygon",
+  "contractAddress": "0x0000000000000000000000000000000000000000",
+  "tokenId": "PLACEHOLDER-001",
+  "price": "0.00",
+  "status": "proximamente",
+  "workType": "Pieza instrumental",
+  "benefits": ["Acceso al audio maestro", "Partitura digital"],
+  "cardImage": "/images/placeholder-card.jpg",
+  "socialLinks": [
+    {
+      "platform": "Spotify",
+      "url": ""
+    }
+  ],
+  "metadata": {
+    "uuid": "urn:uuid:33333333-3333-3333-3333-333333333333",
+    "timestamp": "2025-01-01T00:00:00.000Z",
+    "operator": "admin@dagklassical.com"
+  }
 }

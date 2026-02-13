@@ -1,5 +1,36 @@
 {
   "id": "placeholder",
+  "workTitle": "Obra Placeholder",
+  "composer": "Compositor Anónimo",
+  "performers": ["Placeholder Artist"],
   "title": "Placeholder Release",
-  "active": false
+  "artistIds": ["placeholder"],
+  "genre": "Clásica",
+  "releaseDate": "2025-01-01",
+  "type": "álbum",
+  "status": "anunciado",
+  "description": "Release placeholder para estructura de contenido.",
+  "descriptionLong": "Descripción extendida del release placeholder. Esta entrada sirve para mantener la integridad de la colección mientras se prepara contenido real.",
+  "coverImage": "/images/placeholder-cover.jpg",
+  "demoAvailable": false,
+  "fullAlbumAvailable": false,
+  "sheetMusicAvailable": false,
+  "platforms": {
+    "spotify": null,
+    "apple": null,
+    "youtube": null,
+    "tidal": null,
+    "deezer": null
+  },
+  "tracks": [],
+  "duration": "0:00",
+  "commentary": null,
+  "commentaryAuthor": null,
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:22222222-2222-2222-2222-222222222222",
+    "timestamp": "2025-01-01T00:00:00.000Z",
+    "operator": "admin@dagklassical.com"
+  },
+  "bioExtended": null
 }
