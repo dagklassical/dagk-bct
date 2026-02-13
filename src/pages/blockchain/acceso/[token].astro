@@ -1,133 +1,464 @@
 ---
-// src/pages/blockchain/acceso/[token].astro
+// src/pages/blockchain/acceso/[token].astro - CON HOWLER
 import Layout from '../../../layouts/Layout.astro';
-import musicCards from '../../../data/music-cards.json';
+import { getEntry } from 'astro:content';
+import { getAllArtists } from '../../../lib/data/dag-repository';
 
 export const prerender = false;
 
 const { token } = Astro.params;
-const tokenString = typeof token === 'string' ? token : '';
 
-// ✅ Normaliza nombre (aunque no se usa directamente aquí)
-function normalizeName(name: string): string {
-  return name
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/[^a-z0-9-]/g, '');
+if (!token) {
+  return Astro.redirect('/blockchain/acceso/?error=token_invalido');
 }
 
-// ✅ Generar tokens válidos desde IDs de Music Cards disponibles
-const validTokens = new Set<string>();
+const accessToken = await getEntry('accessTokens', token);
 
-for (const card of musicCards) {
-  if (card.status === 'disponible' || card.status === 'vendida') {
-    const idParts = card.id.split('-');
-    if (idParts.length >= 6) {
-      // Ej: uuidCorto-nombre-apellido-obra-edicion → extrae "nombre-apellido-obra"
-      const tokenParts = idParts.slice(1, -1); // excluye uuidCorto y edición
-      const generatedToken = tokenParts.join('-');
-      validTokens.add(generatedToken);
-    }
-  }
+if (!accessToken) {
+  return Astro.redirect(`/blockchain/acceso/?error=token_invalido&token=${encodeURIComponent(token)}`);
 }
 
-// ✅ Tokens de demostración
-validTokens.add('dag-demo');
-validTokens.add('capa8-test');
+if (accessToken.data.status !== 'active') {
+  return Astro.redirect(`/blockchain/acceso/?error=token_inactivo&token=${encodeURIComponent(token)}`);
+}
 
-const isValid = validTokens.has(tokenString);
-const title = isValid ? 'Acceso Premium' : 'Acceso Restringido';
-const description = isValid
-  ? 'Contenido exclusivo de tu Music Card DAG Klassical.'
-  : 'Acceso restringido a coleccionistas verificados.';
+const release = await getEntry('releases', accessToken.data.associatedRelease);
+const artistsData = await getAllArtists();
 
-const breadcrumbs = [
-  { label: 'Inicio', href: '/' },
-  { label: 'Blockchain', href: '/blockchain' },
-  { label: 'Acceso Privado', href: '/blockchain/acceso' },
-];
+const artists = [];
+for (const artistId of accessToken.data.associatedArtists) {
+  const artist = artistsData.find((a) => a.data.id === artistId);
+  if (artist) artists.push(artist);
+}
+
+if (!release) {
+  return new Response('Release no encontrado', { status: 404 });
+}
+
+const primaryArtist = artists[0];
+
+const albumInfo = {
+  title: release.data.workTitle || release.data.title,
+  artist: artists.map((a) => a.data.name).filter(Boolean).join(', ') || 'Artista',
+  tagline: primaryArtist?.data.tagline || '',
+  description: release.data.descriptionLong || release.data.description || '',
+  bioShort: primaryArtist?.data.bio || '',
+  bioExtended: release.data.bioExtended || primaryArtist?.data.bioLong || '',
+  totalDuration: release.data.duration || '0:00',
+  tracks: release.data.tracks?.map((track, index) => ({
+    index: index,
+    title: track.title,
+    duration: track.duration.trim(),
+    file: track.protected 
+      ? `${accessToken.data.content.audio.baseUrl}${track.protected}`
+      : ''
+  })) || []
+};
+
+const tracksJson = JSON.stringify(albumInfo.tracks);
+const tokenMeta = accessToken.data;
+const releaseMeta = release.data;
 ---
 
-<Layout title={title} description={description} breadcrumbs={breadcrumbs}>
-  <div class="max-w-4xl mx-auto px-4 py-12">
-    {isValid ? (
-      <>
-        <h1 class="text-3xl font-bold mb-6">Contenido Exclusivo Desbloqueado</h1>
-        <p class="mb-6">
-          Gracias por ser parte de DAG Klassical. Aquí encontrarás tu obra completa en FLAC 24/192,
-          partitura firmada digitalmente, notas interpretativas y acceso a masterclasses privadas.
-        </p>
-
-        <div class="space-y-6">
-          <div class="bg-white p-6 rounded-lg border border-platinum">
-            <h2 class="text-xl font-semibold mb-3">🎧 Audio Maestro</h2>
-            <p class="mb-4">Descarga en calidad de estudio: FLAC 24-bit / 192kHz</p>
-            <a 
-              href={`https://audio.dagklassical.com/flac/${tokenString}.flac`} 
-              class="text-dag-burgundy hover:underline font-medium"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Descargar audio →
-            </a>
-          </div>
-
-          <div class="bg-white p-6 rounded-lg border border-platinum">
-            <h2 class="text-xl font-semibold mb-3">🎼 Partitura Digital</h2>
-            <p class="mb-4">Partitura firmada digitalmente por el intérprete</p>
-            <a 
-              href={`/scores/${tokenString}.pdf`} 
-              class="text-dag-burgundy hover:underline font-medium"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Ver partitura →
-            </a>
-          </div>
-
-          <div class="bg-white p-6 rounded-lg border border-platinum">
-            <h2 class="text-xl font-semibold mb-3">🎥 Contenido Exclusivo</h2>
-            <p class="mb-4">Masterclass privada y material detrás de cámaras</p>
-            <a 
-              href={`/extras/${tokenString}/`} 
-              class="text-dag-burgundy hover:underline font-medium"
-            >
-              Acceder al contenido →
-            </a>
-          </div>
-        </div>
-      </>
-    ) : (
-      <>
-        <h1 class="text-2xl font-bold text-red-600 mb-6">Acceso Restringido</h1>
-        <p class="mb-6 text-lg">
-          Este contenido está reservado exclusivamente para poseedores verificados de Music Cards DAG Klassical.
-        </p>
+<Layout title={`Contenido Exclusivo: ${albumInfo.title} – ${albumInfo.artist}`} 
+        description="Acceso exclusivo para poseedores de la Music Card. Audio FLAC, partitura digital y notas del compositor.">
+  
+  <!-- Hero -->
+  <div class="relative h-screen w-full overflow-hidden">
+    <img 
+      src={tokenMeta.theme.heroImage}
+      alt={`${albumInfo.title} – ${albumInfo.artist}`}
+      loading="lazy"
+      class="absolute inset-0 w-full h-full object-cover"
+      onerror={`this.src='${tokenMeta.theme.fallbackHero}'`}
+    />
+    
+    <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+      <div class="max-w-4xl mx-auto px-4 text-white text-center">
+        <h1 class="text-4xl md:text-6xl font-bold mb-2">{albumInfo.title}</h1>
+        <p class="text-xl mb-2">por {albumInfo.artist}</p>
+        {albumInfo.tagline && (
+          <p class="text-lg opacity-90 italic mb-6 font-semibold">"{albumInfo.tagline}"</p>
+        )}
+        <p class="text-lg opacity-90 mb-8">{albumInfo.totalDuration} • {albumInfo.tracks.length} pistas</p>
         
-        <div class="bg-blue-50 border-l-4 border-blue-400 p-6 rounded-lg mb-8">
-          <p class="text-blue-800 mb-4">
-            <strong>¿Te interesa coleccionar música clásica verificable en blockchain?</strong>
-          </p>
-          <p class="text-blue-700">
-            Descubre nuestras Music Cards: obras únicas con audio en calidad de estudio maestro, 
-            partituras digitales firmadas y acceso exclusivo a contenido premium.
-          </p>
-        </div>
-
-        <div class="text-center">
-          <a 
-            href="/blockchain"
-            class="inline-block bg-dag-burgundy text-white px-8 py-4 rounded-lg hover:bg-opacity-90 transition-colors font-medium text-lg"
-          >
-            Conoce Nuestras Music Cards
-          </a>
-          <p class="mt-4 text-slate-600">
-            Únete a la revolución de la música clásica verificable
-          </p>
-        </div>
-      </>
-    )}
+        <a href="#descargas-section" id="hero-cta" class="inline-block bg-dag-burgundy text-white px-8 py-4 rounded-lg hover:bg-opacity-90 font-medium text-lg">
+          ↓ Descargar Contenido Exclusivo
+        </a>
+      </div>
+    </div>
   </div>
+
+  <article class="max-w-6xl mx-auto px-4 py-12 pb-32">
+    <div class="grid lg:grid-cols-2 gap-12">
+      <!-- Columna izquierda -->
+      <div class="space-y-8">
+        <section>
+          <h2 class="text-2xl font-advent font-semibold mb-4">Sobre el Álbum</h2>
+          <p class="text-slate-700 leading-relaxed whitespace-pre-line">
+            {albumInfo.description}
+          </p>
+        </section>
+        
+        <section>
+          <h2 class="text-2xl font-advent font-semibold mb-4">Sobre el Artista</h2>
+          <p class="text-slate-700 leading-relaxed">
+            {albumInfo.bioShort}
+          </p>
+          
+          <div class="mt-4">
+            <button 
+              id="toggle-bio-btn"
+              class="text-dag-burgundy hover:underline font-medium flex items-center gap-1 transition-colors"
+            >
+              <span id="bio-toggle-text">Ver historia exclusiva de esta obra</span>
+              <svg id="bio-arrow" class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            
+            <div id="full-bio-container" class="mt-3 overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
+              <div class="bg-gray95 p-4 rounded-lg prose prose-slate max-w-none text-slate-700 space-y-4">
+                {albumInfo.bioExtended
+                  ? albumInfo.bioExtended.split('\n\n').map((paragraph) => (
+                      <p>{paragraph}</p>
+                    ))
+                  : <p>Historia exclusiva no disponible en este momento.</p>
+                }
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      
+      <!-- Columna derecha -->
+      <div class="space-y-8">
+        <section>
+          <h2 class="text-2xl font-advent font-semibold mb-4">Tracklist</h2>
+          <div class="bg-white p-6 rounded-lg border border-platinum">
+            <ol class="space-y-3" id="tracklist">
+              {albumInfo.tracks.map((track) => (
+                <li 
+                  class="flex justify-between items-center border-b border-slate-100 pb-2 last:border-0 cursor-pointer hover:bg-slate-50 transition-colors p-2 rounded"
+                  data-track-index={track.index}
+                  data-track-file={track.file}
+                >
+                  <span class="flex-grow font-medium">{track.index + 1}. {track.title}</span>
+                  <span class="text-slate-500 text-sm ml-4 whitespace-nowrap">{track.duration}</span>
+                  <span class="play-indicator text-dag-burgundy ml-4 opacity-0">▶</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+        
+        <section id="descargas-section">
+          <h2 class="text-2xl font-advent font-semibold mb-4">Descargas</h2>
+          <div class="space-y-4">
+            <a 
+              href={`${tokenMeta.content.audio.baseUrl}${release.data.id}-complete.flac`}
+              download={`${release.data.id}-complete.flac`}
+              class="block bg-dag-burgundy text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition-colors font-medium text-center"
+            >
+              Descargar Álbum Completo (FLAC)
+            </a>
+          </div>
+        </section>
+        
+        {tokenMeta.content.score && (
+          <section>
+            <h3 class="font-semibold mb-3">Partitura Digital</h3>
+            <p class="text-slate-700 mb-3">
+              Partitura completa en PDF{tokenMeta.content.score.signed ? ', firmada' : ''}.
+            </p>
+            <a 
+              href={tokenMeta.content.score.url}
+              download
+              class="text-dag-burgundy hover:underline font-medium"
+            >
+              Descargar Partitura →
+            </a>
+          </section>
+        )}
+      </div>
+    </div>
+    
+    <div class="max-w-4xl mx-auto mt-12 pt-8 border-t border-platinum">
+      <div class="mb-8 p-5 border border-platinum rounded-lg bg-white">
+        <h4 class="font-semibold mb-2">Especificaciones Técnicas</h4>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2 py-1 bg-black/5 text-slate-800 text-xs font-mono rounded">FLAC {tokenMeta.content.audio.quality}</span>
+          <span class="px-2 py-1 bg-black/5 text-slate-800 text-xs font-mono rounded">MP3 320 kbps</span>
+          <span class="px-2 py-1 bg-dag-burgundy/10 text-dag-burgundy text-xs font-mono rounded">Certificado en Polygon</span>
+          <span class="px-2 py-1 bg-black/5 text-slate-800 text-xs font-mono rounded">Duración: {albumInfo.totalDuration}</span>
+        </div>
+        <p class="mt-3 text-sm text-slate-600">
+          Edición Estándar • Blockchain: Polygon • Acceso Premium Incluido
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
+        <div class="flex flex-col justify-end">
+          <div class="p-4 border border-platinum rounded-md bg-white/50">
+            <p class="text-xs text-slate-600 font-mono leading-relaxed">
+              <span class="text-dag-burgundy font-semibold">UUID:</span><br/>
+              {tokenMeta.metadata.uuid}
+            </p>
+            <p class="text-xs text-slate-600 font-mono mt-2">
+              <span class="text-dag-burgundy font-semibold">Timestamp:</span><br/>
+              {tokenMeta.metadata.timestamp}
+            </p>
+            <p class="text-xs text-slate-600 font-mono mt-2">
+              <span class="text-dag-burgundy font-semibold">Operador:</span><br/>
+              {tokenMeta.metadata.operator}
+            </p>
+          </div>
+        </div>
+        <div class="md:col-span-2 p-4 border border-platinum rounded-md bg-white/50">
+          <p class="text-xs text-slate-600 font-mono leading-relaxed">
+            <span class="text-dag-burgundy font-semibold">CRÉDITOS: </span>
+            {release.data.performers.join(', ')} | 
+            Mezcla y mastering: Danilo Álvarez | 
+            Arte: Leo Gerulewicz | Diseño: Lorien Gascón Rojas | 
+            Grabado y masterizado en Mansa Studio®, Lechería, Venezuela.
+          </p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Player fijo con Howler -->
+  <div class="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-platinum p-4 z-50">
+    <div class="max-w-6xl mx-auto flex items-center gap-4">
+      <button id="prev-btn" class="text-dag-burgundy text-2xl hover:scale-110 transition-transform p-2">⏮</button>
+      
+      <button id="play-pause-btn" class="text-dag-burgundy text-3xl hover:scale-110 transition-transform p-2">
+        <span id="play-icon">▶</span>
+      </button>
+      
+      <button id="next-btn" class="text-dag-burgundy text-2xl hover:scale-110 transition-transform p-2">⏭</button>
+      
+      <div class="flex-grow mx-4">
+        <div class="flex justify-between text-sm text-slate-600 mb-1">
+          <span id="current-time">0:00</span>
+          <span id="total-time">0:00</span>
+        </div>
+        <div class="h-2 bg-slate-200 rounded-full overflow-hidden cursor-pointer" id="progress-container">
+          <div id="progress-bar" class="h-full bg-dag-burgundy w-0 transition-all duration-100"></div>
+        </div>
+      </div>
+      
+      <span id="current-track" class="font-semibold text-slate-900 text-sm min-w-[200px] text-right truncate">
+        Selecciona una pista
+      </span>
+    </div>
+  </div>
+
+  <!-- Howler.js desde CDN o tu bundle -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js" integrity="sha512-xi9rXW1XA9XK8rH9bRdQqvgL7aR5FfD2V7V5P3C1E1zC6M5O5t5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5" crossorigin="anonymous"></script>
+  
+  <script define:vars={{ tracksJson }}>
+    document.addEventListener('DOMContentLoaded', function() {
+      const tracks = JSON.parse(tracksJson);
+      let currentTrackIndex = -1;
+      let sound = null;
+      let isPlaying = false;
+      
+      const playPauseBtn = document.getElementById('play-pause-btn');
+      const playIcon = document.getElementById('play-icon');
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+      const currentTrackEl = document.getElementById('current-track');
+      const currentTimeEl = document.getElementById('current-time');
+      const totalTimeEl = document.getElementById('total-time');
+      const progressBar = document.getElementById('progress-bar');
+      const progressContainer = document.getElementById('progress-container');
+      
+      function formatTime(secs) {
+        const minutes = Math.floor(secs / 60) || 0;
+        const seconds = Math.floor(secs - minutes * 60) || 0;
+        return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+      }
+      
+      function updateProgress() {
+        if (sound) {
+          const seek = sound.seek() || 0;
+          const duration = sound.duration() || 0;
+          currentTimeEl.textContent = formatTime(seek);
+          totalTimeEl.textContent = formatTime(duration);
+          
+          if (duration > 0) {
+            const percent = (seek / duration) * 100;
+            progressBar.style.width = percent + '%';
+          }
+          
+          if (isPlaying) {
+            requestAnimationFrame(updateProgress);
+          }
+        }
+      }
+      
+      function setActiveTrack(index) {
+        document.querySelectorAll('#tracklist li').forEach(function(li) {
+          li.classList.remove('bg-dag-burgundy/10');
+          li.querySelector('.play-indicator').classList.add('opacity-0');
+        });
+        
+        const activeLi = document.querySelector('[data-track-index="' + index + '"]');
+        if (activeLi) {
+          activeLi.classList.add('bg-dag-burgundy/10');
+          activeLi.querySelector('.play-indicator').classList.remove('opacity-0');
+        }
+      }
+      
+      function playTrack(index) {
+        if (index < 0 || index >= tracks.length) return;
+        if (!tracks[index].file) {
+          console.warn('No hay archivo para track', index);
+          return;
+        }
+        
+        if (sound) {
+          sound.stop();
+          sound.unload();
+        }
+        
+        currentTrackIndex = index;
+        
+        sound = new Howl({
+          src: [tracks[index].file],
+          html5: true,
+          format: ['flac'],
+          preload: true,
+          
+          onload: function() {
+            totalTimeEl.textContent = formatTime(sound.duration());
+          },
+          
+          onplay: function() {
+            isPlaying = true;
+            playIcon.textContent = '⏸';
+            currentTrackEl.textContent = (index + 1) + '. ' + tracks[index].title;
+            setActiveTrack(index);
+            updateProgress();
+          },
+          
+          onpause: function() {
+            isPlaying = false;
+            playIcon.textContent = '▶';
+          },
+          
+          onend: function() {
+            if (currentTrackIndex < tracks.length - 1) {
+              playTrack(currentTrackIndex + 1);
+            } else {
+              isPlaying = false;
+              playIcon.textContent = '▶';
+              progressBar.style.width = '0%';
+            }
+          },
+          
+          onloaderror: function(id, err) {
+            console.error('Error cargando audio:', err);
+            currentTrackEl.textContent = 'Error al cargar';
+            isPlaying = false;
+            playIcon.textContent = '▶';
+          },
+          
+          onplayerror: function(id, err) {
+            console.error('Error reproduciendo:', err);
+            sound.once('unlock', function() {
+              sound.play();
+            });
+          }
+        });
+        
+        sound.play();
+      }
+      
+      function togglePlay() {
+        if (!sound) {
+          if (tracks.length > 0) playTrack(0);
+          return;
+        }
+        
+        if (isPlaying) {
+          sound.pause();
+        } else {
+          sound.play();
+        }
+      }
+      
+      playPauseBtn.addEventListener('click', togglePlay);
+      
+      prevBtn.addEventListener('click', function() {
+        if (currentTrackIndex > 0) {
+          playTrack(currentTrackIndex - 1);
+        }
+      });
+      
+      nextBtn.addEventListener('click', function() {
+        if (currentTrackIndex < tracks.length - 1) {
+          playTrack(currentTrackIndex + 1);
+        }
+      });
+      
+      progressContainer.addEventListener('click', function(e) {
+        if (!sound) return;
+        const rect = progressContainer.getBoundingClientRect();
+        const percent = (e.clientX - rect.left) / rect.width;
+        const duration = sound.duration();
+        sound.seek(duration * percent);
+      });
+      
+      document.querySelectorAll('#tracklist li').forEach(function(li) {
+        li.addEventListener('click', function() {
+          const index = parseInt(this.dataset.trackIndex);
+          if (!isNaN(index)) {
+            if (index === currentTrackIndex && isPlaying) {
+              togglePlay();
+            } else {
+              playTrack(index);
+            }
+          }
+        });
+      });
+      
+      document.getElementById('hero-cta').addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.getElementById('descargas-section');
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+      
+      const toggleBtn = document.getElementById('toggle-bio-btn');
+      const bioContainer = document.getElementById('full-bio-container');
+      const bioText = document.getElementById('bio-toggle-text');
+      const arrow = document.getElementById('bio-arrow');
+      
+      if (toggleBtn && bioContainer && bioText && arrow) {
+        toggleBtn.addEventListener('click', function() {
+          const isExpanded = bioContainer.style.maxHeight && bioContainer.style.maxHeight !== '0px';
+          
+          if (!isExpanded) {
+            const content = bioContainer.querySelector('div');
+            bioContainer.style.maxHeight = content ? content.scrollHeight + 'px' : '500px';
+            bioContainer.style.opacity = '1';
+            bioContainer.style.paddingTop = '0.75rem';
+            bioContainer.style.paddingBottom = '0.75rem';
+            bioText.textContent = 'Ver menos';
+            arrow.style.transform = 'rotate(180deg)';
+          } else {
+            bioContainer.style.maxHeight = '0';
+            bioContainer.style.opacity = '0';
+            bioContainer.style.paddingTop = '0';
+            bioContainer.style.paddingBottom = '0';
+            bioText.textContent = 'Ver historia exclusiva de esta obra';
+            arrow.style.transform = 'rotate(0deg)';
+          }
+        });
+      }
+    });
+  </script>
 </Layout>

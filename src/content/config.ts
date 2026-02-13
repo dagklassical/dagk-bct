@@ -1,19 +1,153 @@
+// src/content/config.ts - VERSIÓN CORREGIDA CON TODOS LOS CAMPOS
 import { defineCollection, z } from 'astro:content';
 
-const noticias = defineCollection({
-  schema: z.object({
-    title: z.string(),
-    date: z.coerce.date(),
-    image: z.string().optional(),
-    summary: z.string().optional(),
-    // ✅ CORRECCIÓN: Acepta tanto array como string para tags
-    tags: z.array(z.string()).optional().default([]),
-    // Si prefieres mantener compatibilidad con strings:
-    // tags: z.union([z.array(z.string()), z.string()]).optional().transform(val => {
-    //   if (typeof val === 'string') return [val];
-    //   return val || [];
-    // })
-  }),
+const metadataSchema = z.object({
+  uuid: z.string().startsWith('urn:uuid:'),
+  timestamp: z.string().datetime(),
+  operator: z.string().email()
 });
 
-export const collections = { noticias };
+// ============ ARTISTS (con campos faltantes) ============
+const artistsCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    id: z.string(),
+    name: z.string(),
+    role: z.string(),
+    country: z.string(),
+    city: z.string().optional(),
+    genre: z.array(z.string()),
+    bio: z.string(),
+    bioLong: z.string(), // ← FALTABA
+    avatar: z.string(),
+    website: z.string().url(),
+    social: z.object({
+      instagram: z.string().url().optional(),
+      youtube: z.string().url().optional()
+    }).optional(),
+    releases: z.array(z.string()),
+    musicCards: z.array(z.string()),
+    metadata: metadataSchema,
+    tagline: z.string().optional() // ← FALTABA
+  })
+});
+
+// ============ RELEASES (con campos faltantes) ============
+const releasesCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    id: z.string(),
+    workTitle: z.string(), // ← FALTABA
+    composer: z.string(),
+    performers: z.array(z.string()), // ← FALTABA
+    title: z.string(),
+    artistIds: z.array(z.string()),
+    genre: z.string(),
+    releaseDate: z.string(),
+    type: z.enum(['álbum', 'ep', 'single', 'compilation']),
+    status: z.enum(['lanzado', 'anunciado', 'proximamente']),
+    description: z.string(),
+    descriptionLong: z.string(), // ← FALTABA
+    coverImage: z.string(),
+    demoAvailable: z.boolean().default(false),
+    fullAlbumAvailable: z.boolean().default(false),
+    sheetMusicAvailable: z.boolean().default(false),
+    platforms: z.object({
+      spotify: z.string().url().nullable(),
+      apple: z.string().url().nullable(),
+      youtube: z.string().url().nullable(),
+      tidal: z.string().url().nullable(),
+      deezer: z.string().url().nullable()
+    }),
+    tracks: z.array(
+      z.object({
+        title: z.string(),
+        duration: z.string(),
+        demo: z.string().optional(),
+        protected: z.string().optional(),
+        composer: z.string().optional(),
+        workCatalogue: z.string().optional()
+      })
+    ),
+    duration: z.string(), // ← FALTABA
+    commentary: z.string().optional(),
+    commentaryAuthor: z.string().optional(),
+    musicCards: z.array(z.string()),
+    metadata: metadataSchema,
+    bioExtended: z.string().optional() // ← FALTABA
+  })
+});
+
+// ============ MUSIC CARDS ============
+const musicCardsCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    id: z.string(),
+    title: z.string(),
+    workTitle: z.string(),
+    composer: z.string(),
+    artist: z.string(),
+    performers: z.array(z.string()),
+    edition: z.enum(['Estándar', 'Limitada', 'Única', 'Founder']),
+    associatedRelease: z.string(),
+    totalSupply: z.number().int(),
+    available: z.number().int(),
+    blockchain: z.literal('Polygon'),
+    contractAddress: z.string().regex(/^0x[a-fA-F0-9]{40}$/),
+    tokenId: z.string(),
+    price: z.string(),
+    status: z.enum(['disponible', 'agotado', 'proximamente', 'próximo', 'vendida']),
+    workType: z.string(),
+    benefits: z.array(z.string()),
+    cardImage: z.string(),
+    socialLinks: z.array(
+      z.object({
+        platform: z.string(),
+        url: z.string().url().or(z.literal(''))
+      })
+    ),
+    metadata: metadataSchema
+  })
+});
+
+// ============ ACCESS TOKENS ============
+const accessTokensCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    id: z.string(),
+    type: z.enum(['album', 'single', 'ep']),
+    status: z.enum(['active', 'expired', 'revoked']).default('active'),
+    associatedRelease: z.string(),
+    associatedArtists: z.array(z.string()),
+    content: z.object({
+      audio: z.object({
+        baseUrl: z.string().url(),
+        format: z.enum(['flac', 'mp3', 'both']).default('flac'),
+        quality: z.string().default('24/192')
+      }),
+      score: z.object({
+        url: z.string().url(),
+        format: z.enum(['pdf', 'interactive']).default('pdf'),
+        signed: z.boolean().default(true)
+      }).optional()
+    }),
+    access: z.object({
+      method: z.enum(['token_url', 'wallet_verification', 'password']),
+      expiresAt: z.string().datetime().optional(),
+      maxUses: z.number().int().optional()
+    }),
+    theme: z.object({
+      heroImage: z.string().url(),
+      fallbackHero: z.string(),
+      primaryColor: z.string().default('#800020')
+    }),
+    metadata: metadataSchema
+  })
+});
+
+export const collections = {
+  artists: artistsCollection,
+  releases: releasesCollection,
+  musicCards: musicCardsCollection,
+  accessTokens: accessTokensCollection
+};
