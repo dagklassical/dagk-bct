@@ -1,4 +1,4 @@
-// src/content/config.ts - VERSIÓN CORREGIDA CON TODOS LOS CAMPOS
+// src/content/config.ts - VERSIÓN COMPLETA CON KEBAB-CASE
 import { defineCollection, z } from 'astro:content';
 
 const metadataSchema = z.object({
@@ -7,7 +7,7 @@ const metadataSchema = z.object({
   operator: z.string().email()
 });
 
-// ============ ARTISTS (con campos faltantes) ============
+// ============ ARTISTS ============
 const artistsCollection = defineCollection({
   type: 'data',
   schema: z.object({
@@ -18,7 +18,7 @@ const artistsCollection = defineCollection({
     city: z.string().optional(),
     genre: z.array(z.string()),
     bio: z.string(),
-    bioLong: z.string(), // ← FALTABA
+    bioLong: z.string(),
     avatar: z.string(),
     website: z.string().url(),
     social: z.object({
@@ -28,18 +28,18 @@ const artistsCollection = defineCollection({
     releases: z.array(z.string()),
     musicCards: z.array(z.string()),
     metadata: metadataSchema,
-    tagline: z.string().optional() // ← FALTABA
+    tagline: z.string().optional()
   })
 });
 
-// ============ RELEASES (con campos faltantes) ============
+// ============ RELEASES ============
 const releasesCollection = defineCollection({
   type: 'data',
   schema: z.object({
     id: z.string(),
-    workTitle: z.string(), // ← FALTABA
+    workTitle: z.string(),
     composer: z.string(),
-    performers: z.array(z.string()), // ← FALTABA
+    performers: z.array(z.string()),
     title: z.string(),
     artistIds: z.array(z.string()),
     genre: z.string(),
@@ -47,7 +47,7 @@ const releasesCollection = defineCollection({
     type: z.enum(['álbum', 'ep', 'single', 'compilation']),
     status: z.enum(['lanzado', 'anunciado', 'proximamente']),
     description: z.string(),
-    descriptionLong: z.string(), // ← FALTABA
+    descriptionLong: z.string(),
     coverImage: z.string(),
     demoAvailable: z.boolean().default(false),
     fullAlbumAvailable: z.boolean().default(false),
@@ -69,16 +69,16 @@ const releasesCollection = defineCollection({
         workCatalogue: z.string().optional()
       })
     ),
-    duration: z.string(), // ← FALTABA
+    duration: z.string(),
     commentary: z.string().optional(),
     commentaryAuthor: z.string().optional(),
     musicCards: z.array(z.string()),
     metadata: metadataSchema,
-    bioExtended: z.string().optional() // ← FALTABA
+    bioExtended: z.string().optional()
   })
 });
 
-// ============ MUSIC CARDS ============
+// ============ MUSIC-CARDS (kebab-case en export) ============
 const musicCardsCollection = defineCollection({
   type: 'data',
   schema: z.object({
@@ -145,9 +145,10 @@ const accessTokensCollection = defineCollection({
   })
 });
 
+// ============ EXPORTS CON KEBAB-CASE ============
 export const collections = {
-//  artists: artistsCollection,
-//  releases: releasesCollection,
-//  musicCards: musicCardsCollection,
-//  accessTokens: accessTokensCollection
+  artists: artistsCollection,
+  releases: releasesCollection,
+  'music-cards': musicCardsCollection,  // ← KEBAB-CASE
+  accessTokens: accessTokensCollection
 };

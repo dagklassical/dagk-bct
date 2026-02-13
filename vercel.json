@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/blockchain/musicCards/:path*",
+      "destination": "/blockchain/music-cards/:path*",
+      "permanent": true
+    }
+  ]
+}

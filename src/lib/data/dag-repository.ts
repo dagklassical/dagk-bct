@@ -21,11 +21,11 @@ export async function getReleaseBySlug(slug: string) {
 
 // ============ MUSIC CARDS ============
 export async function getAllMusicCards() {
-  return await getCollection('musicCards');
+  return await getCollection('music-cards');
 }
 
 export async function getMusicCardBySlug(slug: string) {
-  return await getEntry('musicCards', slug);
+  return await getEntry('music-cards', slug);
 }
 
 // ============ ACCESS TOKENS ============
