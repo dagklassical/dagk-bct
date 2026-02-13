@@ -70,11 +70,11 @@ const releasesCollection = defineCollection({
       })
     ),
     duration: z.string(),
-    commentary: z.string().optional(),
-    commentaryAuthor: z.string().optional(),
+    commentary: z.string().nullable().optional(),        // ← CAMBIADO
+    commentaryAuthor: z.string().nullable().optional(),  // ← CAMBIADO
     musicCards: z.array(z.string()),
     metadata: metadataSchema,
-    bioExtended: z.string().optional()
+    bioExtended: z.string().nullable().optional()        // ← CAMBIADO
   })
 });
 
@@ -145,10 +145,23 @@ const accessTokensCollection = defineCollection({
   })
 });
 
+// ============ NOTICIAS ============
+const noticiasCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    date: z.date(),
+    image: z.string(),
+    summary: z.string(),
+    tags: z.array(z.string())
+  })
+});
+
 // ============ EXPORTS CON KEBAB-CASE ============
 export const collections = {
   artists: artistsCollection,
   releases: releasesCollection,
-  'music-cards': musicCardsCollection,  // ← KEBAB-CASE
-  accessTokens: accessTokensCollection
+  'music-cards': musicCardsCollection,
+  accessTokens: accessTokensCollection,
+  noticias: noticiasCollection
 };
