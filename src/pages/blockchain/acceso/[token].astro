@@ -256,211 +256,229 @@ const releaseMeta = release.data;
     </div>
   </div>
 
-  <!-- Howler.js desde CDN o tu bundle -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js" integrity="sha512-xi9rXW1XA9XK8rH9bRdQqvgL7aR5FfD2V7V5P3C1E1zC6M5O5t5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5" crossorigin="anonymous"></script>
-  
-  <script define:vars={{ tracksJson }}>
-    document.addEventListener('DOMContentLoaded', function() {
-      const tracks = JSON.parse(tracksJson);
-      let currentTrackIndex = -1;
-      let sound = null;
-      let isPlaying = false;
-      
-      const playPauseBtn = document.getElementById('play-pause-btn');
-      const playIcon = document.getElementById('play-icon');
-      const prevBtn = document.getElementById('prev-btn');
-      const nextBtn = document.getElementById('next-btn');
-      const currentTrackEl = document.getElementById('current-track');
-      const currentTimeEl = document.getElementById('current-time');
-      const totalTimeEl = document.getElementById('total-time');
-      const progressBar = document.getElementById('progress-bar');
-      const progressContainer = document.getElementById('progress-container');
-      
-      function formatTime(secs) {
-        const minutes = Math.floor(secs / 60) || 0;
-        const seconds = Math.floor(secs - minutes * 60) || 0;
-        return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
-      }
-      
-      function updateProgress() {
-        if (sound) {
-          const seek = sound.seek() || 0;
-          const duration = sound.duration() || 0;
-          currentTimeEl.textContent = formatTime(seek);
-          totalTimeEl.textContent = formatTime(duration);
-          
-          if (duration > 0) {
-            const percent = (seek / duration) * 100;
-            progressBar.style.width = percent + '%';
-          }
-          
-          if (isPlaying) {
-            requestAnimationFrame(updateProgress);
-          }
-        }
-      }
-      
-      function setActiveTrack(index) {
-        document.querySelectorAll('#tracklist li').forEach(function(li) {
-          li.classList.remove('bg-dag-burgundy/10');
-          li.querySelector('.play-indicator').classList.add('opacity-0');
-        });
+<!-- Reemplazar el CDN de Howler -->
+<script src="https://unpkg.com/wavesurfer.js@7/dist/wavesurfer.min.js"></script>
+
+<script define:vars={{ tracksJson }}>
+  document.addEventListener('DOMContentLoaded', function() {
+    const tracks = JSON.parse(tracksJson);
+    let currentTrackIndex = -1;
+    let wavesurfer = null;
+    
+    const playBtn = document.getElementById('play-pause-btn');
+    const playIcon = document.getElementById('play-icon');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const currentTrackEl = document.getElementById('current-track');
+    const currentTimeEl = document.getElementById('current-time');
+    const totalTimeEl = document.getElementById('total-time');
+    const progressContainer = document.getElementById('progress-container');
+    const progressBar = document.getElementById('progress-bar');
+    
+    // Crear contenedor de waveform si no existe
+    let waveformContainer = document.getElementById('waveform');
+    if (!waveformContainer) {
+      waveformContainer = document.createElement('div');
+      waveformContainer.id = 'waveform';
+      waveformContainer.className = 'w-full h-16 mb-2';
+      document.querySelector('.bg-white.border')?.insertBefore(
+        waveformContainer, 
+        document.getElementById('music-player')
+      );
+    }
+    
+    function formatTime(secs) {
+      if (!secs || isNaN(secs)) return '0:00';
+      const minutes = Math.floor(secs / 60) || 0;
+      const seconds = Math.floor(secs % 60) || 0;
+      return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+    }
+    
+    function updateProgress() {
+      if (wavesurfer) {
+        const current = wavesurfer.getCurrentTime() || 0;
+        const duration = wavesurfer.getDuration() || 0;
+        currentTimeEl.textContent = formatTime(current);
+        totalTimeEl.textContent = formatTime(duration);
         
-        const activeLi = document.querySelector('[data-track-index="' + index + '"]');
-        if (activeLi) {
-          activeLi.classList.add('bg-dag-burgundy/10');
-          activeLi.querySelector('.play-indicator').classList.remove('opacity-0');
+        if (duration > 0) {
+          const percent = (current / duration) * 100;
+          progressBar.style.width = percent + '%';
         }
       }
-      
-      function playTrack(index) {
-        if (index < 0 || index >= tracks.length) return;
-        if (!tracks[index].file) {
-          console.warn('No hay archivo para track', index);
-          return;
-        }
-        
-        if (sound) {
-          sound.stop();
-          sound.unload();
-        }
-        
-        currentTrackIndex = index;
-        
-        sound = new Howl({
-          src: [tracks[index].file],
-          html5: true,
-          format: ['flac'],
-          preload: true,
-          
-          onload: function() {
-            totalTimeEl.textContent = formatTime(sound.duration());
-          },
-          
-          onplay: function() {
-            isPlaying = true;
-            playIcon.textContent = '⏸';
-            currentTrackEl.textContent = (index + 1) + '. ' + tracks[index].title;
-            setActiveTrack(index);
-            updateProgress();
-          },
-          
-          onpause: function() {
-            isPlaying = false;
-            playIcon.textContent = '▶';
-          },
-          
-          onend: function() {
-            if (currentTrackIndex < tracks.length - 1) {
-              playTrack(currentTrackIndex + 1);
-            } else {
-              isPlaying = false;
-              playIcon.textContent = '▶';
-              progressBar.style.width = '0%';
-            }
-          },
-          
-          onloaderror: function(id, err) {
-            console.error('Error cargando audio:', err);
-            currentTrackEl.textContent = 'Error al cargar';
-            isPlaying = false;
-            playIcon.textContent = '▶';
-          },
-          
-          onplayerror: function(id, err) {
-            console.error('Error reproduciendo:', err);
-            sound.once('unlock', function() {
-              sound.play();
-            });
-          }
-        });
-        
-        sound.play();
-      }
-      
-      function togglePlay() {
-        if (!sound) {
-          if (tracks.length > 0) playTrack(0);
-          return;
-        }
-        
-        if (isPlaying) {
-          sound.pause();
-        } else {
-          sound.play();
-        }
-      }
-      
-      playPauseBtn.addEventListener('click', togglePlay);
-      
-      prevBtn.addEventListener('click', function() {
-        if (currentTrackIndex > 0) {
-          playTrack(currentTrackIndex - 1);
-        }
+    }
+    
+    function setActiveTrack(index) {
+      document.querySelectorAll('#tracklist li').forEach(function(li) {
+        li.classList.remove('bg-dag-burgundy/10', 'border-l-4', 'border-dag-burgundy');
+        li.querySelector('.play-indicator')?.classList.add('opacity-0');
       });
       
-      nextBtn.addEventListener('click', function() {
+      const activeLi = document.querySelector('[data-track-index="' + index + '"]');
+      if (activeLi) {
+        activeLi.classList.add('bg-dag-burgundy/10', 'border-l-4', 'border-dag-burgundy');
+        activeLi.querySelector('.play-indicator')?.classList.remove('opacity-0');
+      }
+    }
+    
+    function destroyWavesurfer() {
+      if (wavesurfer) {
+        wavesurfer.destroy();
+        wavesurfer = null;
+      }
+    }
+    
+    function playTrack(index) {
+      if (index < 0 || index >= tracks.length) return;
+      
+      const track = tracks[index];
+      if (!track.file && !track.demoUrl) {
+        console.warn('No hay archivo para track', index);
+        return;
+      }
+      
+      const audioUrl = track.file || track.demoUrl;
+      
+      destroyWavesurfer();
+      currentTrackIndex = index;
+      
+      // Crear nueva instancia de Wavesurfer
+      wavesurfer = WaveSurfer.create({
+        container: '#waveform',
+        waveColor: '#94a3b8',
+        progressColor: '#800020',
+        cursorColor: '#800020',
+        barWidth: 2,
+        barGap: 1,
+        height: 64,
+        backend: 'WebAudio',
+        url: audioUrl,
+      });
+      
+      // Eventos
+      wavesurfer.on('ready', function() {
+        totalTimeEl.textContent = formatTime(wavesurfer.getDuration());
+        wavesurfer.play();
+      });
+      
+      wavesurfer.on('play', function() {
+        playIcon.textContent = '⏸';
+        currentTrackEl.textContent = (index + 1) + '. ' + track.title;
+        setActiveTrack(index);
+      });
+      
+      wavesurfer.on('pause', function() {
+        playIcon.textContent = '▶';
+      });
+      
+      wavesurfer.on('finish', function() {
         if (currentTrackIndex < tracks.length - 1) {
           playTrack(currentTrackIndex + 1);
+        } else {
+          playIcon.textContent = '▶';
+          progressBar.style.width = '0%';
         }
       });
       
-      progressContainer.addEventListener('click', function(e) {
-        if (!sound) return;
-        const rect = progressContainer.getBoundingClientRect();
-        const percent = (e.clientX - rect.left) / rect.width;
-        const duration = sound.duration();
-        sound.seek(duration * percent);
+      wavesurfer.on('error', function(err) {
+        console.error('Error Wavesurfer:', err);
+        currentTrackEl.textContent = 'Error al cargar audio';
+        playIcon.textContent = '▶';
       });
       
-      document.querySelectorAll('#tracklist li').forEach(function(li) {
-        li.addEventListener('click', function() {
-          const index = parseInt(this.dataset.trackIndex);
-          if (!isNaN(index)) {
-            if (index === currentTrackIndex && isPlaying) {
-              togglePlay();
-            } else {
-              playTrack(index);
-            }
-          }
-        });
-      });
-      
-      document.getElementById('hero-cta').addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.getElementById('descargas-section');
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-      
-      const toggleBtn = document.getElementById('toggle-bio-btn');
-      const bioContainer = document.getElementById('full-bio-container');
-      const bioText = document.getElementById('bio-toggle-text');
-      const arrow = document.getElementById('bio-arrow');
-      
-      if (toggleBtn && bioContainer && bioText && arrow) {
-        toggleBtn.addEventListener('click', function() {
-          const isExpanded = bioContainer.style.maxHeight && bioContainer.style.maxHeight !== '0px';
-          
-          if (!isExpanded) {
-            const content = bioContainer.querySelector('div');
-            bioContainer.style.maxHeight = content ? content.scrollHeight + 'px' : '500px';
-            bioContainer.style.opacity = '1';
-            bioContainer.style.paddingTop = '0.75rem';
-            bioContainer.style.paddingBottom = '0.75rem';
-            bioText.textContent = 'Ver menos';
-            arrow.style.transform = 'rotate(180deg)';
-          } else {
-            bioContainer.style.maxHeight = '0';
-            bioContainer.style.opacity = '0';
-            bioContainer.style.paddingTop = '0';
-            bioContainer.style.paddingBottom = '0';
-            bioText.textContent = 'Ver historia exclusiva de esta obra';
-            arrow.style.transform = 'rotate(0deg)';
-          }
-        });
+      wavesurfer.on('audioprocess', updateProgress);
+    }
+    
+    function togglePlay() {
+      if (!wavesurfer) {
+        if (tracks.length > 0) playTrack(0);
+        return;
+      }
+      wavesurfer.playPause();
+    }
+    
+    // Event listeners
+    playBtn?.addEventListener('click', togglePlay);
+    
+    prevBtn?.addEventListener('click', function() {
+      if (currentTrackIndex > 0) {
+        playTrack(currentTrackIndex - 1);
       }
     });
-  </script>
+    
+    nextBtn?.addEventListener('click', function() {
+      if (currentTrackIndex < tracks.length - 1) {
+        playTrack(currentTrackIndex + 1);
+      }
+    });
+    
+    progressContainer?.addEventListener('click', function(e) {
+      if (!wavesurfer) return;
+      const rect = progressContainer.getBoundingClientRect();
+      const percent = (e.clientX - rect.left) / rect.width;
+      const duration = wavesurfer.getDuration();
+      wavesurfer.seekTo(percent);
+    });
+    
+    // Click en tracklist
+    document.querySelectorAll('#tracklist li').forEach(function(li) {
+      li.addEventListener('click', function() {
+        const index = parseInt(this.dataset.trackIndex);
+        if (isNaN(index)) return;
+        
+        if (index === currentTrackIndex && wavesurfer?.isPlaying()) {
+          togglePlay();
+        } else {
+          playTrack(index);
+        }
+      });
+    });
+    
+    // Hero CTA scroll
+    document.getElementById('hero-cta')?.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('descargas-section')?.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+      });
+    });
+    
+    // Toggle bio
+    const toggleBtn = document.getElementById('toggle-bio-btn');
+    const bioContainer = document.getElementById('full-bio-container');
+    const bioText = document.getElementById('bio-toggle-text');
+    const arrow = document.getElementById('bio-arrow');
+    
+    if (toggleBtn && bioContainer && bioText && arrow) {
+      toggleBtn.addEventListener('click', function() {
+        const isExpanded = bioContainer.style.maxHeight && bioContainer.style.maxHeight !== '0px';
+        
+        if (!isExpanded) {
+          const content = bioContainer.querySelector('div');
+          bioContainer.style.maxHeight = content ? content.scrollHeight + 'px' : '500px';
+          bioContainer.style.opacity = '1';
+          bioContainer.style.paddingTop = '0.75rem';
+          bioContainer.style.paddingBottom = '0.75rem';
+          bioText.textContent = 'Ver menos';
+          arrow.style.transform = 'rotate(180deg)';
+        } else {
+          bioContainer.style.maxHeight = '0';
+          bioContainer.style.opacity = '0';
+          bioContainer.style.paddingTop = '0';
+          bioContainer.style.paddingBottom = '0';
+          bioText.textContent = 'Ver historia exclusiva de esta obra';
+          arrow.style.transform = 'rotate(0deg)';
+        }
+      });
+    }
+    
+    // Cargar primer track automáticamente (sin reproducir)
+    if (tracks.length > 0) {
+      const firstTrack = tracks[0];
+      if (firstTrack.file || firstTrack.demoUrl) {
+        currentTrackEl.textContent = '1. ' + firstTrack.title;
+      }
+    }
+  });
+</script>
 </Layout>

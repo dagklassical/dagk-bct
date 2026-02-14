@@ -122,6 +122,15 @@
   .news-content hr {
     @apply my-12 border-platinum border-t-2;
   }
+
+  #waveform {
+  background: #f8f9fa;
+  border-radius: 4px;
+  }
+
+  #waveform wave {
+  border-radius: 4px;
+  }
 }
 
 /* ✅ ESTILOS RESPONSIVE PARA MÓVILES */
