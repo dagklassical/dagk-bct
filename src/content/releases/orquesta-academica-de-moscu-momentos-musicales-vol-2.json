@@ -1,0 +1,77 @@
+{
+  "id": "orquesta-academica-de-moscu-momentos-musicales-vol-2",
+  "workTitle": "Momentos Musicales Vol. 2: Clásico Austriaco",
+  "composer": "Wolfgang Amadeus Mozart",
+  "performers": [
+    "Orquesta Académica de Moscú"
+  ],
+  "title": "Momentos Musicales Vol. 2: Clásico Austriaco",
+  "artistIds": [
+    "orquesta-academica-de-moscu"
+  ],
+  "genre": "clasico-austriaco",
+  "releaseDate": "2025-04-03",
+  "type": "álbum",
+  "status": "lanzado",
+  "description": "Un viaje al corazón del período clásico vienés con la Sinfonía Nº29 de Mozart, obra maestra de equilibrio, claridad y emoción contenida, interpretada con elegancia y rigor por la Orquesta Académica de Moscú.",
+  "descriptionLong": "",
+  "coverImage": "/covers/cover-orquesta-academica-de-moscu-momentos-musicales-vol-2.webp",
+  "demoAvailable": false,
+  "fullAlbumAvailable": true,
+  "sheetMusicAvailable": false,
+  "platforms": {
+    "spotify": "https://open.spotify.com/album/3qZ5vK7XmF9Jr8YwB2nL4T",
+    "apple": "https://music.apple.com/de/album/momentos-musicales-vol-2-cl%C3%A1sico-austriaco/1801516518",
+    "youtube": null,
+    "tidal": null,
+    "deezer": "https://www.deezer.com/album/828603228"
+  },
+  "tracks": [
+    {
+      "number": "001",
+      "title": "Allegro moderato",
+      "duration": "6:30",
+      "demo": null,
+      "protected": null,
+      "composer": "Wolfgang Amadeus Mozart",
+      "workCatalogue": "KV 201"
+    },
+    {
+      "number": "002",
+      "title": "Andante",
+      "duration": "5:15",
+      "demo": null,
+      "protected": null,
+      "composer": "Wolfgang Amadeus Mozart",
+      "workCatalogue": "KV 201"
+    },
+    {
+      "number": "003",
+      "title": "Menuetto. Allegro",
+      "duration": "2:40",
+      "demo": null,
+      "protected": null,
+      "composer": "Wolfgang Amadeus Mozart",
+      "workCatalogue": "KV 201"
+    },
+    {
+      "number": "004",
+      "title": "Allegro con spirito",
+      "duration": "4:20",
+      "demo": null,
+      "protected": null,
+      "composer": "Wolfgang Amadeus Mozart",
+      "workCatalogue": "KV 201"
+    }
+  ],
+  "duration": "18:45",
+  "commentary": "En Mozart, la perfección no es fría; es el latido de un corazón que conoce la belleza absoluta.",
+  "commentaryAuthor": "Orquesta Académica de Moscú",
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:$(uuidgen)",
+    "timestamp": "2025-12-31T10:00:00Z",
+    "operator": "cto@dagklassical.com"
+  },
+  "bioExtended": null
+}

@@ -29,7 +29,7 @@
     "tracks": [
       {
         "title": "From the Diaries of Sergei Rachmaninoff",
-        "duration": "5:20",
+        "duration": "1:00",
         "protected": "001-dore-february-from-the-diaries-of-sergei-rachmaninoff.flac",
         "demoFile": "dore-february-from-the-diaries-of-sergei-rachmaninoff-demo.mp3"
       },
@@ -714,7 +714,7 @@
         "workCatalogue": "Sonata D960",
         "duration": "12:30",
         "protected": "",
-        "demoFile": "goulnara-schubert-d960-01-moderato-demo.mp3"
+        "demoFile": "001-galimchina-sonata-d960-1er-mov-molto-moderato-demo.mp3"
       },
       {
         "title": "II. Andante sostenuto",
@@ -722,7 +722,7 @@
         "workCatalogue": "Sonata D960",
         "duration": "8:45",
         "protected": "",
-        "demoFile": "goulnara-schubert-d960-02-andante-demo.mp3"
+        "demoFile": "002-galimchina-sonata-d960-2do-mov-andante-sostenuto-demo.mp3"
       },
       {
         "title": "III. Scherzo. Allegro vivace con delicatezza",
@@ -730,7 +730,7 @@
         "workCatalogue": "Sonata D960",
         "duration": "4:20",
         "protected": "",
-        "demoFile": "goulnara-schubert-d960-03-scherzo-demo.mp3"
+        "demoFile": "003-galimchina-sonata-d960-3er-mov-scherzo-allegro-vivace-con-delicatezza-demo.mp3"
       },
       {
         "title": "IV. Allegro, ma non troppo",
@@ -738,7 +738,7 @@
         "workCatalogue": "Sonata D960",
         "duration": "7:50",
         "protected": "",
-        "demoFile": "goulnara-schubert-d960-04-allegro-demo.mp3"
+        "demoFile": "004-galimchina-sonata-d960-4to-mov-allegro-ma-non-troppo-demo.mp3"
       },
       {
         "title": "Momento musical No. 1 en Do mayor",
@@ -746,7 +746,7 @@
         "workCatalogue": "D780",
         "duration": "3:40",
         "protected": "",
-        "demoFile": "goulnara-schubert-d780-01-moderato-demo.mp3"
+        "demoFile": "005-galimchina-momento-musical-1-op-94-d780-moderatto-demo.mp3"
       },
       {
         "title": "Momento musical No. 2 en La bemol mayor",
@@ -754,7 +754,7 @@
         "workCatalogue": "D780",
         "duration": "3:15",
         "protected": "",
-        "demoFile": "goulnara-schubert-d780-02-andantino-demo.mp3"
+        "demoFile": "006-galimchina-momento-musical-2-op-94-d780-andantino-demo.mp3"
       },
       {
         "title": "Momento musical No. 4 en Fa menor",
@@ -762,7 +762,7 @@
         "workCatalogue": "D780",
         "duration": "2:50",
         "protected": "",
-        "demoFile": "goulnara-schubert-d780-04-moderato-demo.mp3"
+        "demoFile": "007-galimchina-momento-musical-4-op-94-d780-moderatto-demo.mp3"
       },
       {
         "title": "Momento musical No. 6 en La bemol mayor",
@@ -770,7 +770,7 @@
         "workCatalogue": "D780",
         "duration": "2:30",
         "protected": "",
-        "demoFile": "goulnara-schubert-d780-06-allegretto-demo.mp3"
+        "demoFile": "008-galimchina-momento-musical-6-op-94-d780-allegretto-demo.mp3"
       }
     ],
     "duration": "46:00",

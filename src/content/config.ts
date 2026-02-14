@@ -42,7 +42,7 @@ const releasesCollection = defineCollection({
     performers: z.array(z.string()),
     title: z.string(),
     artistIds: z.array(z.string()),
-    genre: z.string(),
+    genre: z.union([z.string(), z.array(z.string())]).optional(),  // ← Ambos
     releaseDate: z.string(),
     type: z.enum(['álbum', 'ep', 'single', 'compilation']),
     status: z.enum(['lanzado', 'anunciado', 'proximamente']),
@@ -63,18 +63,18 @@ const releasesCollection = defineCollection({
       z.object({
         title: z.string(),
         duration: z.string(),
-        demo: z.string().optional(),
-        protected: z.string().optional(),
-        composer: z.string().optional(),
-        workCatalogue: z.string().optional()
+        demo: z.string().optional().nullable(),
+        protected: z.string().optional().nullable(),
+        composer: z.string().optional().nullable(),
+        workCatalogue: z.string().optional().nullable()
       })
     ),
     duration: z.string(),
-    commentary: z.string().nullable().optional(),        // ← CAMBIADO
-    commentaryAuthor: z.string().nullable().optional(),  // ← CAMBIADO
+    commentary: z.string().nullable().optional(),
+    commentaryAuthor: z.string().nullable().optional(),
     musicCards: z.array(z.string()),
     metadata: metadataSchema,
-    bioExtended: z.string().nullable().optional()        // ← CAMBIADO
+    bioExtended: z.string().nullable().optional()
   })
 });
 

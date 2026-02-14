@@ -1,0 +1,50 @@
+{
+  "id": "orquesta-academica-de-moscu-momentos-musicales-vol-3",
+  "workTitle": "Momentos Musicales Vol. 3: Nacionalismo Ruso",
+  "composer": "Mijaíl Glinka",
+  "performers": [
+    "Orquesta Académica de Moscú"
+  ],
+  "title": "Momentos Musicales Vol. 3: Nacionalismo Ruso",
+  "artistIds": [
+    "orquesta-academica-de-moscu"
+  ],
+  "genre": "nacionalismo-ruso",
+  "releaseDate": "2025-05-02",
+  "type": "álbum",
+  "status": "lanzado",
+  "description": "Un homenaje a las raíces de la música rusa con 'Kamarinskaya' de Glinka, la obra que, según Tchaikovsky, sembró toda la escuela nacional rusa. Interpretada con orgullo y fuerza telúrica por la Orquesta Académica de Moscú.",
+  "descriptionLong": "",
+  "coverImage": "/covers/cover-orquesta-academica-de-moscu-momentos-musicales-vol-3.webp",
+  "demoAvailable": false,
+  "fullAlbumAvailable": true,
+  "sheetMusicAvailable": false,
+  "platforms": {
+    "spotify": "https://open.spotify.com/album/2nR8mQpLxYf6WtVbKj4ZcE",
+    "apple": "https://music.apple.com/de/album/momentos-musicales-vol-3-nacionalismo-ruso/1801516297",
+    "youtube": null,
+    "tidal": null,
+    "deezer": "https://www.deezer.com/album/828603229"
+  },
+  "tracks": [
+    {
+      "number": "001",
+      "title": "Kamarinskaya",
+      "duration": "8:50",
+      "demo": null,
+      "protected": null,
+      "composer": "Mijaíl Glinka",
+      "workCatalogue": null
+    }
+  ],
+  "duration": "8:50",
+  "commentary": "Glinka no compuso música rusa; descubrió que ya existía en el alma del pueblo.",
+  "commentaryAuthor": "Orquesta Académica de Moscú",
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:$(uuidgen)",
+    "timestamp": "2025-12-31T10:00:00Z",
+    "operator": "cto@dagklassical.com"
+  },
+  "bioExtended": null
+}

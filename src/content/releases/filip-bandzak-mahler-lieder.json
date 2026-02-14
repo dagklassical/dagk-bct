@@ -1,0 +1,88 @@
+{
+  "id": "filip-bandzak-mahler-lieder",
+  "workTitle": "Mahler: Lieder",
+  "composer": "Gustav Mahler",
+  "performers": [
+    "Filip Bandžak",
+    "Anton Aslamas"
+  ],
+  "title": "Mahler: Lieder",
+  "artistIds": [
+    "filip-bandzak",
+    "anton-aslamas"
+  ],
+  "genre": "lied-alemán",
+  "releaseDate": "2022-09-16",
+  "type": "álbum",
+  "status": "lanzado",
+  "description": "Una interpretación íntima y poderosa de las Lieder de Gustav Mahler por el barítono checo Filip Bandžak y el pianista venezolano Anton Aslamas. Esta colaboración une la profundidad emocional del lied centroeuropeo con una sensibilidad latinoamericana, preservada en blockchain como legado inmutable.",
+  "descriptionLong": "Diálogo con el Alma: Mahler en Tiempos de Inmutabilidad\n\nGustav Mahler escribió sus Lieder como cartas al universo: confesiones líricas cargadas de nostalgia, amor efímero y la angustia existencial. En esta grabación, Filip Bandžak no canta; dialoga con cada palabra, entregando cada frase con una honestidad vocal que rara vez se escucha en el repertorio contemporáneo.\n\nUna Colaboración Transnacional\n\nAnton Aslamas, desde el piano, construye un paisaje sonoro que no acompaña, sino que responde, sostiene y amplifica cada matiz del texto. Nacido en Venezuela y formado en la tradición orquestal de El Sistema, Aslamas aporta una calidez tímbrica que equilibra la densidad emocional de Mahler, creando una lectura que es a la vez fiel y profundamente personal.\n\nUn Legado Certificado\n\nPublicado por DAG Klassical, este álbum no se limita a la alta fidelidad. Cada pista está certificada en blockchain, garantizando que esta interpretación —fruto del encuentro entre Praga, Caracas y el alma de Mahler— permanecerá accesible, auténtica e inmutable para las generaciones futuras. Esta no es solo una grabación: es un acto de preservación cultural.",
+  "coverImage": "/covers/cover-filip-bandzak-mahler-lieder.webp",
+  "demoAvailable": false,
+  "fullAlbumAvailable": true,
+  "sheetMusicAvailable": false,
+  "platforms": {
+    "spotify": null,
+    "apple": "https://music.apple.com/cz/album/mahler-lieder-feat-anton-aslamas/1644560465",
+    "youtube": null,
+    "tidal": null,
+    "deezer": null
+  },
+  "tracks": [
+    {
+      "number": "001",
+      "title": "Ich bin der Welt abhanden gekommen",
+      "duration": "5:20",
+      "demo": null,
+      "protected": null,
+      "composer": "Gustav Mahler",
+      "workCatalogue": "de Rückert-Lieder"
+    },
+    {
+      "number": "002",
+      "title": "Um Mitternacht",
+      "duration": "4:45",
+      "demo": null,
+      "protected": null,
+      "composer": "Gustav Mahler",
+      "workCatalogue": null
+    },
+    {
+      "number": "003",
+      "title": "Liebst du um Schönheit",
+      "duration": "3:10",
+      "demo": null,
+      "protected": null,
+      "composer": "Gustav Mahler",
+      "workCatalogue": "de Rückert-Lieder"
+    },
+    {
+      "number": "004",
+      "title": "Nicht wiedersehen!",
+      "duration": "3:50",
+      "demo": null,
+      "protected": null,
+      "composer": "Gustav Mahler",
+      "workCatalogue": null
+    },
+    {
+      "number": "005",
+      "title": "Revelge",
+      "duration": "5:00",
+      "demo": null,
+      "protected": null,
+      "composer": "Gustav Mahler",
+      "workCatalogue": "de Des Knaben Wunderhorn"
+    }
+  ],
+  "duration": "22:05",
+  "commentary": "Mahler no es música para oídos, sino para almas que han conocido la soledad.",
+  "commentaryAuthor": "Filip Bandžak",
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:$(uuidgen)",
+    "timestamp": "2025-12-31T09:30:00Z",
+    "operator": "cto@dagklassical.com"
+  },
+  "bioExtended": null
+}

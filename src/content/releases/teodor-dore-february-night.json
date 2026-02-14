@@ -1,0 +1,124 @@
+{
+  "id": "teodor-dore-february-night",
+  "workTitle": "February Night",
+  "composer": "",
+  "performers": [],
+  "title": "February Night",
+  "artistIds": [
+    "teodor-dore"
+  ],
+  "genre": [
+    "música-contemporánea"
+  ],
+  "releaseDate": "2025-01-17",
+  "type": "álbum",
+  "status": "lanzado",
+  "description": "Grabado en los legendarios estudios Abbey Road de Londres, \"Rachmaninoff Variations\" es la obra cumbre del pianista Teodor Doré. Inspirado en los diarios íntimos de Sergei Rachmaninoff, este álbum trasciende la interpretación clásica para convertirse en un diálogo espiritual entre dos épocas. Con una técnica impecable y una sensibilidad desgarradora, Doré materializa las palabras del genio ruso en sonido puro. Lanzado por DAG Klassical, el sello líder de su género en Latinoamérica, esta producción es un activo cultural de clase mundial, ahora inmutable y eterno gracias a la tecnología blockchain.",
+  "descriptionLong": "Rachmaninoff Variations: Ecos de un Diario en Abbey Road\n\n\"Rachmaninoff Variations\" no es simplemente un álbum de piano; es la culminación de un viaje introspectivo que comenzó en la vibrante Barcelona de 2022 y cristalizó un año después en la meca de la grabación mundial: Abbey Road Studios.\n\nLa Génesis: De la Palabra al Sonido\n\nEl proyecto nace de una inmersión profunda de Teodor Doré en los diarios personales de Sergei Rachmaninoff. Lo que el compositor ruso plasmó en papel —sus dudas, sus anhelos, su melancolía—, Doré lo ha traducido al lenguaje universal de las teclas. Cada variación es un \"eco emocional\", una respuesta contemporánea a los pensamientos de un genio del pasado, creando una intimidad que rara vez se logra en una grabación de estudio.\n\nUn Hito para la Música Académica Latinoamericana\n\nBajo el sello DAG Klassical, la casa discográfica más importante del género en la región, este lanzamiento marca un antes y un después. La gira internacional que acompañó al disco confirmó lo que la crítica especializada ya señalaba: Doré ha logrado imprimir su sello distintivo sin sacrificar la esencia romántica de la obra original. Es un homenaje que respira modernidad y respeto.\n\nEl Valor de lo Colectivo y lo Eterno\n\n\"Mi más sincero agradecimiento a cada miembro del equipo que me acompañó durante todo este viaje\", declara el artista. Este espíritu de colaboración, unido a la acústica perfecta de Abbey Road y la seguridad de la tecnología blockchain, convierte a \"Rachmaninoff Variations\" en una obra de arte total. Una pieza de colección que invita a la reflexión y que permanecerá inalterable en el tiempo como testimonio de la excelencia musical.",
+  "coverImage": "/covers/cover-february-night-01.webp",
+  "demoAvailable": true,
+  "fullAlbumAvailable": false,
+  "sheetMusicAvailable": false,
+  "platforms": {
+    "spotify": "https://open.spotify.com/album/3eIJyhYATYcwYvaqCZxHr5?go=1&nd=1&dlsi=4525725440174164",
+    "apple": "https://music.apple.com/ve/album/february-night-var-on-a-prelude-in-c-sharp-minor-op/1784946934?at=1l3vpUI&ct=LFV_98d3c40bdec546ce1a7520d0440a97c0&itsct=catchall_p2&itscg=30440&ls=1",
+    "youtube": "https://music.youtube.com/playlist?list=OLAK5uy_nK4BzThO-m3i1sM5yfAYdPHepVyIcf_RQ",
+    "tidal": null,
+    "deezer": "https://www.deezer.com/us/album/683008951?app_id=140685&utm_source=partner_linkfire&utm_campaign=98d3c40bdec546ce1a7520d0440a97c0&utm_medium=Original&utm_term=lujo-network-3439&utm_content=album-683008951"
+  },
+  "tracks": [
+    {
+      "number": "001",
+      "title": "From the Diaries of Sergei Rachmaninoff",
+      "duration": "1:00",
+      "demo": "dore-february-from-the-diaries-of-sergei-rachmaninoff-demo.mp3",
+      "protected": "001-dore-february-from-the-diaries-of-sergei-rachmaninoff.flac",
+      "composer": null,
+      "workCatalogue": null
+    },
+    {
+      "number": "002",
+      "title": "February Night",
+      "duration": "7:31",
+      "demo": "dore-february-february-night-demo.mp3",
+      "protected": "002-dore-february-february-night.flac",
+      "composer": null,
+      "workCatalogue": null
+    },
+    {
+      "number": "003",
+      "title": "Émigré’s Letter from Istanbul",
+      "duration": "2:15",
+      "demo": "dore-february-emigres-letter-from-istanbul-demo.mp3",
+      "protected": "003-dore-february-emigres-letter-from-istanbul.flac",
+      "composer": null,
+      "workCatalogue": null
+    },
+    {
+      "number": "004",
+      "title": "Andante Allegro",
+      "duration": "3:54",
+      "demo": "dore-february-andante-allegro-demo.mp3",
+      "protected": "004-dore-february-andante-allegro.flac",
+      "composer": null,
+      "workCatalogue": null
+    },
+    {
+      "number": "005",
+      "title": "Émigré’s Letter from Tbilisi",
+      "duration": "3:40",
+      "demo": "dore-february-emigres-letter-from-tbilisi-demo.mp3",
+      "protected": "005-dore-february-emigres-letter-from-tbilisi.flac",
+      "composer": null,
+      "workCatalogue": null
+    },
+    {
+      "number": "006",
+      "title": "September: Verkhny Lars",
+      "duration": "3:30",
+      "demo": "dore-february-september-verkhniylars-demo.mp3",
+      "protected": "006-dore-february-september-verkhniylars.flac",
+      "composer": null,
+      "workCatalogue": null
+    },
+    {
+      "number": "007",
+      "title": "Refugee’s Letter from Boston",
+      "duration": "4:12",
+      "demo": "dore-february-refugees-letter-from-boston-demo.mp3",
+      "protected": "007-dore-february-refugees-letter-from-boston.flac",
+      "composer": null,
+      "workCatalogue": null
+    },
+    {
+      "number": "008",
+      "title": "December: New Home, New Hope",
+      "duration": "4:40",
+      "demo": "dore-february-december-newhome-newhope-demo.mp3",
+      "protected": "008-dore-february-december-newhome-newhope.flac",
+      "composer": null,
+      "workCatalogue": null
+    },
+    {
+      "number": "009",
+      "title": "From the Diaries of Sergei Rachmaninoff (Nro. 2)",
+      "duration": "2:44",
+      "demo": "dore-february-from-the-diaries-of-sergei-rachmaninoff-nro-2-demo.mp3",
+      "protected": "009-dore-february-from-the-diaries-of-sergei-rachmaninoff-nro-2.flac",
+      "composer": null,
+      "workCatalogue": null
+    }
+  ],
+  "duration": "42:05",
+  "commentary": "Cada pieza es una carta sonora escrita desde el umbral del exilio, donde la música se convierte en el único puente con la patria perdida.",
+  "commentaryAuthor": "Teodor Doré",
+  "musicCards": [
+    "mc-2025-teodor-dore-february-night-std"
+  ],
+  "metadata": {
+    "uuid": "urn:uuid:ccc6726b-ed17-44c5-b4dc-243b357be75b",
+    "timestamp": "2025-11-28T11:00:00Z",
+    "operator": "cto@dagklassical.com"
+  },
+  "bioExtended": "La grabación de ‘February Night’ se realizó en Mansa Studio, Lechería, Venezuela, bajo la producción artística de Danilo Álvarez. Teodor trabajó con un piano Steinway & Sons de cola, capturado con micrófonos Neumann U87 en configuración binaural..."
+}

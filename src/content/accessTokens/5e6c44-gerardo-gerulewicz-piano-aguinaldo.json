@@ -14,7 +14,46 @@
       "url": "https://audio.dagklassical.com/protected/audio/gerulewicz-piano-aguinaldo/gerulewicz-partitura.pdf",
       "format": "pdf",
       "signed": true
-    }
+    },
+    "tracks": [
+      { 
+        "number": "1", 
+        "file": "001-dore-february-from-the-diaries-of-sergei-rachmaninoff.flac", 
+        "title": "From the Diaries of Sergei Rachmaninoff" 
+      },
+      { "number": "2", 
+        "file": "002-dore-february-february-night.flac", 
+        "title": "February Night" 
+      },
+      { "number": "3", 
+        "file": "003-dore-february-emigres-letter-from-istanbul.flac", 
+        "title": "Émigré's Letter from Istanbul" 
+      },
+      { "number": "4", 
+        "file": "004-dore-february-andante-allegro.flac", 
+        "title": "Andante Allegro" 
+      },
+      { "number": "5", 
+        "file": "005-dore-february-emigres-letter-from-tbilisi.flac", 
+        "title": "Émigré's Letter from Tbilisi" 
+      },
+      { "number": "6", 
+        "file": "006-dore-february-september-verkhniylars.flac", 
+        "title": "September: Verkhny Lars" 
+      },
+      { "number": "7", 
+        "file": "007-dore-february-refugees-letter-from-boston.flac", 
+        "title": "Refugee's Letter from Boston" 
+      },
+      { "number": "8", 
+        "file": "008-dore-february-december-newhome-newhope.flac", 
+        "title": "December: New Home, New Hope" 
+      },
+      { "number": "9", 
+        "file": "009-dore-february-from-the-diaries-of-sergei-rachmaninoff-nro-2.flac", 
+        "title": "From the Diaries of Sergei Rachmaninoff (Nro. 2)" 
+      }
+    ]
   },
   "access": {
     "method": "token_url"
