@@ -1,8 +1,13 @@
 ---
 // src/pages/blockchain/acceso/cdb244-virginia-ramirez-capitulos.astro
 import Layout from '../../../layouts/Layout.astro';
-import releases from '../../../data/releases.json';
-import artists from '../../../data/artists.json';
+
+import { getCollection, getEntry } from 'astro:content';
+const allArtists = await getCollection('artists');
+const artists = allArtists.map(a => a.data);
+
+const allReleases = await getCollection('releases');
+const releases = allReleases.map(r => r.data);
 
 // ✅ Obtener release y artista
 const releaseId = 'virginia-ramirez-capitulos';

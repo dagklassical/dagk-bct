@@ -1,4 +1,4 @@
-// src/content/config.ts - VERSIÓN COMPLETA CON KEBAB-CASE
+// src/content/config.ts - VERSIÓN COMPLETA Y CORREGIDA
 import { defineCollection, z } from 'astro:content';
 
 const metadataSchema = z.object({
@@ -15,24 +15,25 @@ const artistsCollection = defineCollection({
     name: z.string(),
     role: z.string(),
     country: z.string(),
-    city: z.string().optional(),
+    city: z.union([z.string(), z.null()]).optional().transform(val => val === null ? undefined : val),
     genre: z.array(z.string()),
     bio: z.string(),
     bioLong: z.string(),
     avatar: z.string(),
-    website: z.string().url(),
+    website: z.union([z.string().url(), z.literal(''), z.null()]).optional().transform(val => val === '' || val === null ? undefined : val),
     social: z.object({
-      instagram: z.string().url().optional(),
-      youtube: z.string().url().optional()
+      instagram: z.union([z.string().url(), z.literal(''), z.null()]).optional().transform(val => val === '' || val === null ? undefined : val),
+      youtube: z.union([z.string().url(), z.literal(''), z.null()]).optional().transform(val => val === '' || val === null ? undefined : val),
+      facebook: z.union([z.string().url(), z.literal(''), z.null()]).optional().transform(val => val === '' || val === null ? undefined : val)
     }).optional(),
     releases: z.array(z.string()),
     musicCards: z.array(z.string()),
     metadata: metadataSchema,
-    tagline: z.string().optional()
+    tagline: z.union([z.string(), z.null()]).optional().transform(val => val === null ? undefined : val)
   })
 });
 
-// ============ RELEASES ============
+// ============ RELEASES - CON CAMPOS FALTANTES ============
 const releasesCollection = defineCollection({
   type: 'data',
   schema: z.object({
@@ -42,28 +43,32 @@ const releasesCollection = defineCollection({
     performers: z.array(z.string()),
     title: z.string(),
     artistIds: z.array(z.string()),
-    genre: z.union([z.string(), z.array(z.string())]).optional(),  // ← Ambos
+    genre: z.union([z.string(), z.array(z.string())]).optional(),
     releaseDate: z.string(),
     type: z.enum(['álbum', 'ep', 'single', 'compilation']),
     status: z.enum(['lanzado', 'anunciado', 'proximamente']),
     description: z.string(),
     descriptionLong: z.string(),
     coverImage: z.string(),
+    // ✅ NUEVO: demoBasePath que faltaba
+    demoBasePath: z.string().optional(),
     demoAvailable: z.boolean().default(false),
     fullAlbumAvailable: z.boolean().default(false),
     sheetMusicAvailable: z.boolean().default(false),
     platforms: z.object({
-      spotify: z.string().url().nullable(),
-      apple: z.string().url().nullable(),
-      youtube: z.string().url().nullable(),
-      tidal: z.string().url().nullable(),
-      deezer: z.string().url().nullable()
+      spotify: z.union([z.string().url(), z.null()]).optional(),
+      apple: z.union([z.string().url(), z.null()]).optional(),
+      youtube: z.union([z.string().url(), z.null()]).optional(),
+      tidal: z.union([z.string().url(), z.null()]).optional(),
+      deezer: z.union([z.string().url(), z.null()]).optional()
     }),
     tracks: z.array(
       z.object({
         title: z.string(),
         duration: z.string(),
+        // ✅ AMBOS: demo (schema original) y demoFile (usado en JSON)
         demo: z.string().optional().nullable(),
+        demoFile: z.string().optional().nullable(),
         protected: z.string().optional().nullable(),
         composer: z.string().optional().nullable(),
         workCatalogue: z.string().optional().nullable()
@@ -78,7 +83,7 @@ const releasesCollection = defineCollection({
   })
 });
 
-// ============ MUSIC-CARDS (kebab-case en export) ============
+// ============ MUSIC-CARDS ============
 const musicCardsCollection = defineCollection({
   type: 'data',
   schema: z.object({
@@ -93,7 +98,6 @@ const musicCardsCollection = defineCollection({
     totalSupply: z.number().int(),
     available: z.number().int(),
     blockchain: z.literal('Polygon'),
-    contractAddress: z.string().regex(/^0x[a-fA-F0-9]{40}$/),
     tokenId: z.string(),
     price: z.string(),
     status: z.enum(['disponible', 'agotado', 'proximamente', 'próximo', 'vendida']),
@@ -103,7 +107,7 @@ const musicCardsCollection = defineCollection({
     socialLinks: z.array(
       z.object({
         platform: z.string(),
-        url: z.string().url().or(z.literal(''))
+        url: z.union([z.string().url(), z.literal('')])
       })
     ),
     metadata: metadataSchema
@@ -157,7 +161,7 @@ const noticiasCollection = defineCollection({
   })
 });
 
-// ============ EXPORTS CON KEBAB-CASE ============
+// ============ EXPORTS ============
 export const collections = {
   artists: artistsCollection,
   releases: releasesCollection,

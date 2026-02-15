@@ -1,0 +1,52 @@
+{
+  "id": "mc-2025-edc247-teodor-dore-february-night-std",
+  "title": "February Night",
+  "workTitle": "February Night",
+  "composer": "",
+  "artist": "Teodor Dore",
+  "performers": [],
+  "edition": "Estándar",
+  "associatedRelease": "teodor-dore-february-night",
+  "totalSupply": 75,
+  "available": 75,
+  "blockchain": "Polygon",
+  "tokenId": "0",
+  "price": "0.15 MATIC",
+  "status": "disponible",
+  "workType": "",
+  "benefits": [
+    "Audio FLAC 24-bit/192kHz",
+    "Partitura digital firmada",
+    "Acceso a lanzamiento exclusivo",
+    "Contenido detrás de cámaras",
+    "Partitura digital firmada"
+  ],
+  "cardImage": "/cards/mc-2025-teodor-rachmaninoff-variations.webp",
+  "socialLinks": [
+    {
+      "platform": "Spotify",
+      "url": "https://open.spotify.com/album/3eIJyhYATYcwYvaqCZxHr5?go=1&nd=1&dlsi=4525725440174164"
+    },
+    {
+      "platform": "Apple Music",
+      "url": "https://music.apple.com/ve/album/february-night-var-on-a-prelude-in-c-sharp-minor-op/1784946934?at=1l3vpUI&ct=LFV_98d3c40bdec546ce1a7520d0440a97c0&itsct=catchall_p2&itscg=30440&ls=1"
+    },
+    {
+      "platform": "YouTube Music",
+      "url": "https://music.youtube.com/playlist?list=OLAK5uy_nK4BzThO-m3i1sM5yfAYdPHepVyIcf_RQ"
+    },
+    {
+      "platform": "Tidal",
+      "url": ""
+    },
+    {
+      "platform": "Deezer",
+      "url": "https://www.deezer.com/us/album/683008951?app_id=140685&utm_source=partner_linkfire&utm_campaign=98d3c40bdec546ce1a7520d0440a97c0&utm_medium=Original&utm_term=lujo-network-3439&utm_content=album-683008951"
+    }
+  ],
+  "metadata": {
+    "uuid": "urn:uuid:1e8b7144-7d3c-42d3-8a07-f78d4d652e9c",
+    "timestamp": "2025-11-28T11:00:00Z",
+    "operator": "cto@dagklassical.com"
+  }
+}

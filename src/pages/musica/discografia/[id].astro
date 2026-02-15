@@ -2,62 +2,84 @@
 // src/pages/musica/discografia/[id].astro
 import Layout from '../../../layouts/Layout.astro';
 import ImmutableStamp from '../../../components/ImmutableStamp.astro';
-import releases from '../../../data/releases.json';
-import artists from '../../../data/artists.json';
-import musicCards from '../../../data/music-cards.json';
+import { getCollection, getEntry } from 'astro:content';
 
 export const prerender = true;
 
+// ✅ getStaticPaths PRIMERO con sus propias variables
 export async function getStaticPaths() {
-  return releases.map(release => ({ params: { id: release.id } }));
+  const allReleases = await getCollection('releases');
+  const releases = allReleases.map(r => r.data);
+  
+  return releases.map(release => ({ 
+    params: { id: release.id } 
+  }));
 }
 
+// ✅ Ahora las variables para el resto del componente
+const allReleases = await getCollection('releases');
+const releases = allReleases.map(r => r.data);
+
+const allMusicCards = await getCollection('music-cards');
+const musicCards = allMusicCards.map(m => m.data);
+
+const allArtists = await getCollection('artists');
+const artists = allArtists.map(a => a.data);
+
 const { id } = Astro.params;
-const release = releases.find(r => r.id === id);
+const releaseEntry = await getEntry('releases', id);
+const release = releaseEntry?.data;
 
 if (!release) {
   return Astro.redirect('/musica/discografia');
 }
 
-// === Navegación Anterior/Siguiente entre releases ===
-const currentIndex = releases.findIndex(r => r.id === id);
-const prevRelease = currentIndex > 0 ? releases[currentIndex - 1] : null;
-const nextRelease = currentIndex < releases.length - 1 ? releases[currentIndex + 1] : null;
+// ✅ VARIABLES QUE FALTABAN:
 
-// === Datos para el contenido ===
-const releaseArtists = release.artistIds.map(artistId => {
-  return artists.find(a => a.id === artistId) || { id: artistId, name: artistId };
-});
+// 1. artistNames (usado en línea 77)
+const artistNames = release.artistIds?.map((artistId: string) => 
+  artists.find(a => a.id === artistId)?.name
+).filter(Boolean).join(', ') || 'Intérpretes no especificados';
 
-// ✅ Combina el género del release + géneros de los artistas (máx. 3, sin duplicados)
-const releaseGenre = release.genre ? [release.genre] : [];
-const artistGenres: string[] = [];
+// 2. releaseArtists (usado en líneas 156, 164, 198, 202)
+const releaseArtists = release.artistIds?.map((artistId: string) => 
+  artists.find(a => a.id === artistId)
+).filter(Boolean) || [];
 
-for (const artistId of release.artistIds || []) {
-  const artist = artists.find(a => a.id === artistId);
-  if (artist && artist.genre) {
-    if (Array.isArray(artist.genre)) {
-      artistGenres.push(...artist.genre);
-    } else {
-      artistGenres.push(artist.genre);
-    }
-  }
-}
+// 3. allGenres (usado en líneas 169, 171)
+const allGenres = Array.isArray(release.genre) 
+  ? release.genre 
+  : release.genre 
+    ? [release.genre] 
+    : [];
 
-const allGenres = [...new Set([...releaseGenre, ...artistGenres])].slice(0, 3);
+// 4. descriptionParagraphs (usado en líneas 188, 190)
+const descriptionParagraphs = release.descriptionLong 
+  ? release.descriptionLong.split('\n\n') 
+  : release.description 
+    ? [release.description] 
+    : [];
 
-const artistNames = releaseArtists.map(a => a.name).join(', ');
-const descriptionParagraphs = release.descriptionLong
-  ? release.descriptionLong.split('\n\n').filter(p => p.trim() !== '')
-  : null;
+// 5. associatedMusicCard (usado en líneas 223, 229) - renombrado de associatedCards[0]
+const associatedCards = musicCards.filter((card: any) => 
+  card.associatedRelease === release.id
+);
+const associatedMusicCard = associatedCards[0] || null;
 
-const associatedMusicCard = musicCards.find(card => card.associatedRelease === release.id);
+// 6. Navegación prevRelease/nextRelease (usado en líneas 268, 279)
+const sortedReleases = [...releases].sort((a, b) => 
+  new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime()
+);
+const currentIndex = sortedReleases.findIndex(r => r.id === id);
+const prevRelease = currentIndex > 0 ? sortedReleases[currentIndex - 1] : null;
+const nextRelease = currentIndex < sortedReleases.length - 1 ? sortedReleases[currentIndex + 1] : null;
 
+// Breadcrumbs
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
   { label: 'Música', href: '/musica' },
   { label: 'Discografía', href: '/musica/discografia' },
-  { label: release.title, href: `/musica/discografia/${id}` },
+  { label: release.workTitle || release.title, href: `/musica/discografia/${id}` },
 ];
 ---
 
@@ -143,16 +165,16 @@ const breadcrumbs = [
         <p class="text-xl text-slate-600 mb-2">
           por{' '}
           {releaseArtists.map((artist, i) => (
-            <span>
-              <a 
-                href={`/musica/artistas/${artist.id}`} 
-                class="text-dag-burgundy hover:underline"
-              >
-                {artist.name}
-              </a>
-              {i < releaseArtists.length - 1 && ', '}
-            </span>
-          ))}
+  <span>
+    <a 
+      href={`/musica/artistas/${artist?.id}`}   
+      class="text-dag-burgundy hover:underline"
+    >
+      {artist?.name}  <!-- ✅ artist?.name -->
+    </a>
+    {i < releaseArtists.length - 1 && ', '}
+  </span>
+))}
         </p>
 
         {allGenres.length > 0 && (
@@ -189,9 +211,9 @@ const breadcrumbs = [
             <h3 class="text-lg font-semibold mb-3">Artistas</h3>
             <div class="space-y-4">
               {releaseArtists.map(artist => (
-                <div class="border-l-2 border-dag-burgundy/30 pl-3">
-                  <h4 class="font-medium">{artist.name}</h4>
-                </div>
+                  <div class="border-l-2 border-dag-burgundy/30 pl-3">
+                    <h4 class="font-medium">{artist?.name}</h4>  <!-- ✅ artist?.name -->
+                  </div>
               ))}
             </div>
           </section>

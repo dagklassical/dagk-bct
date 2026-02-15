@@ -1,0 +1,23 @@
+{
+  "id": "goulnara-galimchina",
+  "name": "Goulnara Galímchina",
+  "role": "Pianista",
+  "country": "Rusia",
+  "genre": [
+    "música-clásica",
+    "romanticismo"
+  ],
+  "bio": "Goulnara Galimchina es una virtuosa pianista y organista rusa, cuya trayectoria es un testimonio de excelencia académica y entrega pedagógica. Graduada con honores del Conservatorio Tchaikovsky de Moscú bajo la tutela de Vera Gornostáyeva, su dualidad técnica la ha llevado a escenarios de Europa y Estados Unidos. Radicada en Venezuela desde 1993 por invitación del Maestro José Antonio Abreu, Galimchina se ha consolidado como una figura esencial del Sistema de Orquestas y de instituciones como el Conservatorio Emil Friedman. Su presencia en DAG Klassical representa la unión entre la tradición moscovita y el florecimiento del talento latinoamericano.",
+  "bioLong": "Goulnara Galimchina: Virtuosismo Ruso y Legado Pedagógico en Venezuela\n\nNacida en Ufa en 1965, Goulnara Galimchina personifica la disciplina y la profundidad emocional de la escuela pianística rusa. Iniciada en el piano a los cuatro años, su ascenso fue meteórico, culminando en el epicentro del conocimiento musical global: el Conservatorio Estatal P.I. Tchaikovsky de Moscú.\n\nDoble Maestría: Piano y Órgano\n\nGalimchina no solo dominó el piano bajo la dirección de la legendaria Vera Gornostáyeva, obteniendo su posgrado en 1990, sino que también alcanzó la excelencia en el órgano bajo la guía de Natalia Gureeva. Esta formación dual le otorga una comprensión única del repertorio clásico, permitiéndole navegar con igual destreza por la música de cámara, el acompañamiento vocal y el virtuosismo solista en festivales internacionales desde Berlín hasta Los Ángeles.\n\nUn Vínculo Histórico con Venezuela\n\nEn 1993, la historia musical de Venezuela se enriqueció con su llegada. Junto a su esposo, el reconocido pianista Igor Lavrov, Galimchina se integró al movimiento musical venezolano por invitación del Maestro José Antonio Abreu. Desde entonces, ha sido una pieza fundamental en la estructura docente del país, dejando una huella imborrable en el Conservatorio de la Orquesta Simón Bolívar y la Academia Latinoamericana de Canto.\n\nCompromiso con la Excelencia\n\nSu labor actual como docente en el Conservatorio Emil Friedman y la Escuela Experimental de Música \"Manuel Alberto López\", sumado a su rol como Asesora Pedagógica en el Centro UNESCO, la posicionan como una guardiana del estándar interpretativo. Su juicio crítico es frecuentemente requerido en los jurados de los concursos de piano más prestigiosos de la nación.\n\nEn DAG Klassical, la obra de Goulnara Galimchina se registra en blockchain no solo como una ejecución técnica impecable, sino como un documento inmutable de una de las pedagogas y ejecutantes más influyentes en la transición del siglo XX al XXI en la región.",
+  "avatar": "/artists/profile-goulnara-galimchina-01.webp",
+  "releases": [
+    "goulnara-galimchina-schubert-d960-d780"
+  ],
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:f22200b2-6166-4f63-8c98-f0c2c74ffa19",
+    "timestamp": "2025-11-27T16:00:00Z",
+    "operator": "cto@dagklassical.com"
+  },
+  "tagline": ""
+}

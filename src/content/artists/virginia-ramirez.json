@@ -1,0 +1,25 @@
+{
+  "id": "virginia-ramirez",
+  "name": "Virginia Ramírez",
+  "role": "Pianista, Cantante y Artista Multidisciplinaria",
+  "country": "Venezuela",
+  "genre": [
+    "jazz",
+    "latin-jazz",
+    "música-instrumental",
+    "improvisación"
+  ],
+  "bio": "Virginia Ramírez es una artista creativa, valiente y atrevida cuyo lenguaje se basa en el cambio y la experimentación. Su expresión artística fusiona el canto, el piano y las artes circenses, adentrándose en la improvisación, el ritmo y la esencia de la cultura venezolana con un sello propio e irrepetible.",
+  "bioLong": "Virginia Ramírez: Entre la Tradición y la Vanguardia\n\nVirginia Ramírez es una artista creativa, valiente y atrevida cuyo lenguaje se basa en el cambio y la experimentación. Sus ideas vuelan más allá de los convencionalismos, moviéndose intensamente por los distintos caminos del arte: el canto, el piano y las artes circenses. Se adentra en el lenguaje de la improvisación y el ritmo, en la esencia de la cultura venezolana y en el corazón mismo de la música para expresarse siempre con un sello propio y original.\n\nVirginia representa de manera brillante y audaz a las nuevas generaciones de artistas venezolanos. Su formación particularmente amplia fusiona el inmenso prisma académico del conservatorio con la libertad, historia y corazón del jazz y la música popular. Como resultado tenemos a una artista joven, vibrante y creadora cuyo único fin es plasmar sus ideas renovadoras en sonidos y música trascendental, que va más allá de todas las fronteras transmitiendo un mensaje de paz y luz a todo el universo.",
+  "avatar": "/artists/profile-virginia-ramirez-01.jpeg",
+  "releases": [
+    "virginia-ramirez-capitulos"
+  ],
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:b0bd5ea4-cdb2-441a-9286-e3b7be3d7003",
+    "timestamp": "2025-11-27T18:00:00Z",
+    "operator": "cto@dagklassical.com"
+  },
+  "tagline": "Entre la Tradición y la Vanguardia"
+}

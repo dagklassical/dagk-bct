@@ -1,0 +1,32 @@
+{
+  "id": "filip-bandzak",
+  "name": "Filip Bandžak",
+  "role": "Cantante lírico",
+  "country": "República Checa",
+  "city": "Pardubice",
+  "genre": [
+    "música-clásica",
+    "ópera",
+    "lied-alemán",
+    "música-contemporánea"
+  ],
+  "bio": "Filip Bandžak es un renombrado cantante lírico checo, laureado en los concursos internacionales más prestigiosos, incluyendo el Maria Callas Grand Prix y el Concurso Dvořák. Su voz de barítono ha resonado en escenarios de Europa, Asia y las Américas. En DAG Klassical, interpreta con profundidad emocional y rigor académico las Lieder de Gustav Mahler, transformando cada canción en un legado inmutable en blockchain.",
+  "bioLong": "Filip Bandžak: La Voz Como Puente Entre Culturas\n\nNacido en Pardubice, República Checa, Filip Bandžak es una figura de talla internacional en el panorama del canto lírico contemporáneo. Su carrera comenzó en el legendario Coro Infantil del Conservatorio de Praga, pero su verdadero despegue llegó con su premio en el European Grand Prix en Tolosa (1998), lo que lo catapultó a una sólida carrera operística y de concierto. Desde su debut a los once años en el Teatro Nacional de Praga hasta sus actuaciones en el Mariinski de San Petersburgo, Bandžak ha cultivado una presencia artística que trasciende fronteras.\n\nEducación y Reconocimiento Global\n\nFormado en psicología y música en la Universidad de Pilsen, y perfeccionado en la Academia GITIS de Moscú bajo la tutela de maestros como Yevgeny Nesterenko, Bandžak combina una técnica vocal impecable con una inteligencia interpretativa rara. Su palmarés incluye el Grand Prix en el Concurso Internacional de Canto de Nigbo (China), el Maria Callas Grand Prix 2009 en Atenas, y la Primera Medalla en el Concurso Antonín Dvořák. Ha actuado en más de 30 países y es embajador cultural de la República Checa.\n\nColaboración con DAG Klassical\n\nEn DAG Klassical, Bandžak nos entrega una versión íntima y poderosa de las Lieder de Gustav Mahler, acompañado por el pianista Anton Aslamas. Cada frase está tejida con el dolor existencial, la nostalgia y la belleza trascendental que caracterizan al compositor vienés. Esta grabación, certificada en blockchain, no es solo un documento sonoro: es una obra de arte inmutable que preserva para las generaciones futuras el encuentro entre la sensibilidad eslava y la profundidad germana.\n\nFilip Bandžak representa el ideal DAG Klassical: excelencia técnica, autenticidad emocional y compromiso con la inmutabilidad del legado artístico.",
+  "avatar": "/artists/profile-filip-bandzak-02.webp",
+  "website": "https://www.filipbandzak.com/",
+  "social": {
+    "instagram": "https://www.instagram.com/filipbandzak/",
+    "youtube": "https://www.youtube.com/channel/UChjolr_5fZ6P5HVEKwYkARQ",
+    "facebook": "https://www.facebook.com/FilipBandzak/"
+  },
+  "releases": [
+    "filip-bandzak-mahler-lieder"
+  ],
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:bae18af8-29ba-4e0f-81df-dd6880b0fe08",
+    "timestamp": "2025-12-31T08:00:00Z",
+    "operator": "cto@dagklassical.com"
+  },
+  "tagline": ""
+}

@@ -30,11 +30,8 @@ bustling-belt/
 # vercel
 .vercel/
 
-# scripts
-scripts/remove-astro-keys.mjs
-scripts/build-album-safe.sh
-scripts/build-album.sh
-scripts/migrate-releases-urls-to-filenames.js
+# scripts generales y de migración temporales
+scripts/
 
 # snippets
 snippets/

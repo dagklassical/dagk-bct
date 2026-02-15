@@ -1,8 +1,12 @@
 ---
-// src/pages/musica/artistas/index.astro
+// src/pages/musica/artistas/index.astro - VERSIÓN MIGRADA
 import Layout from '../../../layouts/Layout.astro';
-import artists from '../../../data/artists.json';
+import { getCollection } from 'astro:content';
 import SectionHeader from '../../../components/SectionHeader.astro';
+
+// ✅ Obtener artistas de Content Collections
+const allArtists = await getCollection('artists');
+const artists = allArtists.map(a => a.data);
 
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
@@ -18,17 +22,6 @@ const breadcrumbs = [
     <p class="text-dag-burgundy mt-2">Cada obra en DAG Klassical nace de la visión de creadores excepcionales. Conoce a quienes dan vida a nuestra música.</p>
   </header>
 
-  <!-- Filtros (opcional por ahora, pero con espacio) -->
-  <!--
-  <div class="flex justify-center gap-4 mb-8 text-sm">
-    <button class="px-3 py-1 border border-platinum rounded">Todos</button>
-    <button class="px-3 py-1 text-slate-500">Clásica</button>
-    <button class="px-3 py-1 text-slate-500">Espiritual</button>
-    <button class="px-3 py-1 text-slate-500">Navideña</button>
-  </div>
-  -->
-
-  <!-- Grid de artistas -->
   <div class="max-w-6xl mx-auto px-6 pt-2 pb-6">
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 py-6">
       {artists.map(artist => (
@@ -57,7 +50,4 @@ const breadcrumbs = [
       ))}
     </div>
   </div>
-
-  <!-- Botón "Ver todos" (opcional si hay paginación futura) -->
-  <!-- Por ahora no es necesario si muestras todos -->
 </Layout>

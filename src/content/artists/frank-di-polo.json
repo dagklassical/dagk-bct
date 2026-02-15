@@ -1,0 +1,27 @@
+{
+  "id": "frank-di-polo",
+  "name": "Frank Di Polo",
+  "role": "Violinista, Violista, Educador musical",
+  "country": "",
+  "genre": [],
+  "bio": "Frank Di Polo es un arquitecto sonoro venezolano cuyo legado se teje entre las cuerdas del violín y las teclas del piano. Fundador histórico de El Sistema junto al Maestro Abreu, su duelo artístico con Rubén Riera trasciende géneros, fundiendo el barroco con el tango y el jazz en conversaciones musicales que resuenan como puentes entre tradiciones. En DAG KLASSICAL, su voz inmortalizada en blockchain celebra cinco décadas de pasión por transformar el alma venezolana en sonido eterno.",
+  "bioLong": "Frank Di Polo: Donde las Cuerdas Tejen Historia\n\nNacido en 1944, Frank Di Polo es una de las voces fundamentales de la música venezolana contemporánea. Su destino musical comenzó a los cuatro años con el violín, para luego abrazar la viola y el piano, instrumentos que dominó con una pasión que lo llevó a conocer al Maestro José Antonio Abreu a los doce años de edad. Esta amistad, que perduró toda una vida, lo convirtió en uno de los fundadores históricos de El Sistema en 1975, donde su visión ayudó a construir el sueño de democratizar la música para miles de niños venezolanos.\n\nComo intérprete, Di Polo ha trazado caminos únicos. Su dúo con el violinista Rubén Riera representa una de las uniones artísticas más fecundas de Venezuela, donde la elegancia del barroco se abraza con la pasión del tango y la sofisticación del jazz. Tres años dedicaron ambos músicos a desempolvar y reinventar repertorios que van desde Bach hasta Piazzolla, creando conversaciones sonoras que evocan los clubes nocturnos de Nueva York y las noches caraqueñas con igual intensidad. Su virtuosismo lo ha llevado a participar en orquestas de prestigio tanto nacionales como internacionales, siempre manteniendo el sello inconfundible de su identidad musical latinoamericana. \n\nEn DAG KLASSICAL, el legado de Frank Di Polo trasciende el tiempo. Cada nota de sus interpretaciones se preserva en blockchain como patrimonio cultural inmutable, asegurando que su contribución al arte —desde las aulas de El Sistema hasta los escenarios más prestigiosos— permanezca accesible para las generaciones futuras. Su música no es solo técnica impecable; es el testimonio vivo de cómo el arte puede transformar sociedades, construir puentes entre géneros y épocas, y convertir el alma venezolana en un legado sonoro que trasciende fronteras y generaciones.",
+  "avatar": "/artists/profile-frank-di-polo-02.webp",
+  "website": "https://elsistema.org.ve/tag/frank-di-polo/",
+  "social": {
+    "instagram": "https://www.instagram.com/frank_di_polo/",
+    "facebook": "https://www.facebook.com/frank.di.polo.67600/",
+    "youtube": "https://www.youtube.com/channel/UCGHnbDzbqZdyr11cfdJaQ7g"
+  },
+  "releases": [
+    "mc-2026-tema-con-variazioni",
+    "dipolo-riera-tema-con-variazioni"
+  ],
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:afcbfd18-a5d5-4926-be5e-fe45309f4a2d",
+    "timestamp": "2025-11-22T09:00:02Z",
+    "operator": "cto@dagklassical.com"
+  },
+  "tagline": ""
+}

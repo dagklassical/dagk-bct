@@ -1,0 +1,28 @@
+{
+  "id": "jesus-anibal-bello",
+  "name": "Jesús Aníbal Bello",
+  "role": "Sacerdote Salesiano y Músico",
+  "country": "Venezuela",
+  "city": "Valera, Edo. Trujillo",
+  "genre": [
+    "música-cristiana",
+    "adoración",
+    "espiritual-contemporánea"
+  ],
+  "bio": "El Presbítero Salesiano Jesús Aníbal Bello es un hombre de fe profundamente arraigado en su vocación y servicio comunitario. Venezolano de Puerto La Cruz, ha dejado una huella imborrable en cada comunidad donde ha ejercido su ministerio pastoral. Su dedicación y cercanía lo han convertido en un sacerdote querido y respetado, actualmente sirviendo en Valera, Edo. Trujillo, como guía espiritual y apoyo para su comunidad.",
+  "bioLong": "Presbítero Jesús Aníbal Bello: La Fe como Melodía\n\nEl Presbítero Salesiano Jesús Aníbal Bello es un hombre de fe profundamente arraigado en su vocación y en el servicio a la comunidad. Venezolano de la ciudad de Puerto La Cruz, su camino hacia el sacerdocio comenzó con sus estudios en la ciudad de Los Teques, donde sentó las bases de su formación religiosa y humana. A lo largo de su ministerio, el padre Bello ha dejado una huella imborrable en cada lugar donde ha ejercido su labor pastoral.\n\nSu dedicación y cercanía lo han convertido en un sacerdote muy querido y respetado por las comunidades a las que ha servido. Entre sus destinos pastorales se encuentran la parroquia de Táriba, estado Táchira, donde su labor dejó profundas raíces, y su regreso a Puerto La Cruz, su ciudad natal, donde continuó su labor pastoral.\n\nActualmente, ejerce su ministerio en Valera, Edo. Trujillo, donde sigue siendo un guía espiritual y un apoyo fundamental para la comunidad. Su presencia y su carisma han hecho de él un referente en cada una de estas localidades, demostrando que el auténtico servicio pastoral se construye día a día en el encuentro con las personas.",
+  "avatar": "/artists/profile-jesus-anibal-bello.webp",
+  "social": {
+    "facebook": "https://www.facebook.com/padre.anibalbello"
+  },
+  "releases": [
+    "jesus-anibal-bello-te-hare-pescador"
+  ],
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:37a96f15-2ac2-4e1f-8ab0-49a5f681d868",
+    "timestamp": "2025-11-27T16:00:00Z",
+    "operator": "cto@dagklassical.com"
+  },
+  "tagline": ""
+}

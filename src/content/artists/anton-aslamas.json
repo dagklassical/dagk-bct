@@ -1,0 +1,30 @@
+{
+  "id": "anton-aslamas",
+  "name": "Anton Aslamas",
+  "role": "Pianista",
+  "country": "Venezuela",
+  "city": "Caracas",
+  "genre": [
+    "música-clásica",
+    "música-de-cámara",
+    "lied-alemán",
+    "música-académica"
+  ],
+  "bio": "Anton Aslamas es un destacado pianista venezolano, reconocido por su sensibilidad y rigor en la música de cámara y el acompañamiento de lied. Su colaboración con el barítono checo Filip Bandžak en la interpretación de las Lieder de Gustav Mahler para DAG Klassical representa un diálogo íntimo entre la tradición centroeuropea y la excelencia pedagógica latinoamericana, ahora preservado en blockchain como patrimonio cultural inmutable.",
+  "bioLong": "Anton Aslamas: El Arte del Acompañamiento como Diálogo Musical\n\nFormado en la rica tradición del sistema educativo musical venezolano, Anton Aslamas ha desarrollado una carrera centrada en la música de cámara y el lied, géneros que exigen no solo técnica, sino una profunda empatía con la voz. Su formación lo ha llevado a profundizar en el repertorio germano-austríaco, con especial atención a los grandes ciclos de Schubert, Schumann y, en particular, Mahler.\n\nColaboración Internacional\n\nSu asociación artística con Filip Bandžak, una de las voces más respetadas del canto lírico europeo, es un testimonio de su madurez interpretativa. En el álbum \"Mahler: Lieder\", Aslamas no se limita a acompañar: construye con el piano un paisaje sonoro que dialoga, sostiene y responde a cada matiz vocal. Cada acorde está cargado de intención dramática, convirtiendo la ejecución en una narrativa conjunta.\n\nCompromiso con el Legado Sonoro\n\nComo artista de DAG Klassical, Anton Aslamas abraza la fusión entre la pureza acústica y la tecnología. Su trabajo no solo se preserva en alta fidelidad, sino que se certifica en blockchain, asegurando que esta interpretación de Mahler permanezca como referente artístico para futuras generaciones. En su piano, la tradición se vuelve inmutable, y el acompañamiento se eleva a la categoría de co-autoría.\n\nAslamas representa la nueva generación de músicos venezolanos que, sin renunciar a sus raíces, alcanzan estándares internacionales de excelencia en los géneros más exigentes del repertorio clásico.",
+  "avatar": "/artists/profile-anton-aslamas.webp",
+  "social": {
+    "instagram": "https://www.instagram.com/antonaslamas/",
+    "youtube": "https://www.youtube.com/@antonaslamas3312"
+  },
+  "releases": [
+    "filip-bandzak-mahler-lieder"
+  ],
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:3637510a-b696-4b35-a205-45c991a15acb",
+    "timestamp": "2025-12-31T08:00:00Z",
+    "operator": "cto@dagklassical.com"
+  },
+  "tagline": ""
+}

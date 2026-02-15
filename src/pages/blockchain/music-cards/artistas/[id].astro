@@ -1,14 +1,22 @@
 ---
 // src/pages/blockchain/music-cards/artistas/[id].astro
 import Layout from '../../../../layouts/Layout.astro';
-import musicCards from '../../../../data/music-cards.json';
-import releases from '../../../../data/releases.json';
-import artists from '../../../../data/artists.json';
+import { getCollection } from 'astro:content';
 
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const artistIds = new Set();
+  // ✅ Todo debe estar DENTRO de getStaticPaths
+  const allMusicCards = await getCollection('music-cards');
+  const musicCards = allMusicCards.map(m => m.data);
+  
+  const allReleases = await getCollection('releases');
+  const releases = allReleases.map(r => r.data);
+  
+  const allArtists = await getCollection('artists');
+  const artists = allArtists.map(a => a.data);
+
+  const artistIds = new Set<string>();
   for (const card of musicCards) {
     if (card.associatedRelease) {
       const release = releases.find(r => r.id === card.associatedRelease);
@@ -21,6 +29,16 @@ export async function getStaticPaths() {
   }
   return Array.from(artistIds).map(id => ({ params: { id } }));
 }
+
+// ✅ Ahora SÍ podemos usar getCollection fuera también
+const allMusicCards = await getCollection('music-cards');
+const musicCards = allMusicCards.map(m => m.data);
+
+const allReleases = await getCollection('releases');
+const releases = allReleases.map(r => r.data);
+
+const allArtists = await getCollection('artists');
+const artists = allArtists.map(a => a.data);
 
 const id = Astro.params.id as string;
 const artist = artists.find(a => a.id === id);

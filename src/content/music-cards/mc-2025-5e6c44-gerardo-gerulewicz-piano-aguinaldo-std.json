@@ -1,0 +1,52 @@
+{
+  "id": "mc-2025-5e6c44-gerardo-gerulewicz-piano-aguinaldo-std",
+  "title": "Piano Aguinaldo",
+  "workTitle": "Piano Aguinaldo",
+  "composer": "",
+  "artist": "Gerardo Gerulewicz",
+  "performers": [],
+  "edition": "Estándar",
+  "associatedRelease": "gerulewicz-piano-aguinaldo",
+  "totalSupply": 100,
+  "available": 85,
+  "blockchain": "Polygon",
+  "tokenId": "2001",
+  "price": "0.12 MATIC",
+  "status": "disponible",
+  "workType": "Obra para piano",
+  "benefits": [
+    "Audio FLAC 24-bit/192kHz",
+    "Partitura digital firmada",
+    "Acceso a lanzamiento exclusivo",
+    "Contenido detrás de cámaras",
+    "Partitura digital firmada"
+  ],
+  "cardImage": "/cards/mc-2025-gerardo-piano-aguinaldo.webp",
+  "socialLinks": [
+    {
+      "platform": "Spotify",
+      "url": "https://open.spotify.com/album/2BCg5vssPqRIj1Epu4QBTI?go=1&nd=1&dlsi=b7e2e8c9db7c44db"
+    },
+    {
+      "platform": "Apple Music",
+      "url": ""
+    },
+    {
+      "platform": "YouTube Music",
+      "url": "https://music.youtube.com/playlist?list=OLAK5uy_mm45TQxN_qAsZ8xpUSOW7o9C3GnWNzDAQ"
+    },
+    {
+      "platform": "Tidal",
+      "url": "https://tidal.com/album/334998371"
+    },
+    {
+      "platform": "Deezer",
+      "url": "https://www.deezer.com/us/album/523340862?app_id=140685&utm_source=partner_linkfire&utm_campaign=731bfdd9710383cd13601f9d7fcffd4b&utm_medium=Original&utm_term=lujo-network-3439&utm_content=album-523340862"
+    }
+  ],
+  "metadata": {
+    "uuid": "urn:uuid:3dd88874-8038-4178-93b0-92a3dba1e0bf",
+    "timestamp": "2025-11-25T10:00:00Z",
+    "operator": "cto@dagklassical.com"
+  }
+}

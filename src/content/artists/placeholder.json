@@ -4,7 +4,10 @@
   "role": "Intérprete",
   "country": "VE",
   "city": "Caracas",
-  "genre": ["Clásica", "Contemporánea"],
+  "genre": [
+    "Clásica",
+    "Contemporánea"
+  ],
   "bio": "Artista placeholder para estructura de contenido.",
   "bioLong": "Biografía extendida del artista placeholder. Esta entrada sirve para mantener la integridad de la colección mientras se prepara contenido real.",
   "avatar": "/images/placeholder-artist.jpg",

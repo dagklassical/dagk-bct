@@ -1,7 +1,10 @@
 ---
 // src/pages/store/reservar.astro
 import Layout from '../../layouts/Layout.astro';
-import musicCards from '../../data/music-cards.json';
+import { getCollection } from 'astro:content';
+
+const allMusicCards = await getCollection('music-cards');
+const musicCards = allMusicCards.map(m => m.data);
 
 const urlParams = new URL(Astro.request.url).searchParams;
 const cardId = urlParams.get('card') || '';
@@ -37,7 +40,6 @@ const selectedCard = cardId ? musicCards.find(card => card.id === cardId) : null
       </p>
     </div>
 
-    <!-- Formulario sin action (envío por AJAX) -->
     <form id="reservation-form" class="space-y-5">
       <input type="hidden" name="card_id" value={cardId} />
       
@@ -79,7 +81,6 @@ const selectedCard = cardId ? musicCards.find(card => card.id === cardId) : null
         </select>
       </div>
 
-      <!-- Honeypot anti-bot -->
       <div class="hidden">
         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
       </div>
@@ -97,7 +98,6 @@ const selectedCard = cardId ? musicCards.find(card => card.id === cardId) : null
     </p>
   </div>
 
-  <!-- ✅ Script AJAX seguro y sin warnings -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const form = document.getElementById('reservation-form');
@@ -107,12 +107,11 @@ const selectedCard = cardId ? musicCards.find(card => card.id === cardId) : null
         e.preventDefault();
         
         const formData = new FormData(form);
-        // Convertir todos los valores a string para evitar errores de tipo File
         const data = Object.fromEntries(
           Array.from(formData.entries()).map(([key, value]) => [key, value.toString()])
         );
         
-        if (data._gotcha) return; // anti-bot
+        if (data._gotcha) return;
         
         try {
           const res = await fetch('https://formspree.io/f/xlglddqy', {

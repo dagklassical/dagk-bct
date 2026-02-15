@@ -1,0 +1,32 @@
+{
+  "id": "nareh-arghamanyan",
+  "name": "Nareh Arghamanyan",
+  "role": "Pianista",
+  "country": "Armenia",
+  "city": "Ereván",
+  "genre": [
+    "música-clásica",
+    "música-armenia",
+    "piano-solo",
+    "música-contemporánea"
+  ],
+  "bio": "Nareh Arghamanyan es una destacada pianista armenia, ganadora del Primer Premio en el Concurso Internacional de Piano Montreal en 2008. Su técnica impecable y su profunda conexión con el repertorio armenio la han convertido en embajadora global de la música de su país. En DAG Klassical, su álbum dedicado a compositores armenos se preserva en blockchain como testimonio inmutable de una identidad cultural vibrante y resistente.",
+  "bioLong": "Nareh Arghamanyan: Embajadora del Sonido Armenio\n\nNacida en Ereván, Armenia, Nareh Arghamanyan se formó en la prestigiosa Escuela Central de Música de Moscú y posteriormente en la Academia Sibelius de Helsinki. Su consagración internacional llegó en 2008 al convertirse en la primera mujer en ganar el Primer Premio del Concurso Internacional de Piano de Montreal, un hito que abrió las puertas de los grandes auditorios del mundo. Desde entonces, ha actuado con orquestas como la BBC Symphony, la NDR Elbphilharmonie y la Filarmónica de Montreal, bajo la dirección de maestros como Kent Nagano y Hannu Lintu.\n\nCompromiso con la Música Armenia\n\nMás allá de su dominio del repertorio clásico universal, Arghamanyan ha hecho del rescate y la difusión de la música armenia su misión artística. Su álbum “Piano Works by Armenian Composers”, publicado por DAG Klassical, reúne piezas de compositores como Aram Jachaturián, Ghazaros Saryan y Edvard Baghdasaryan, ofreciendo una visión íntima y poderosa de una tradición que fusiona lo folclórico, lo litúrgico y lo moderno. Cada obra es un homenaje a la resistencia cultural de un pueblo cuya memoria se transmite a través del sonido.\n\nPresencia Global y Pedagogía\n\nAdemás de su carrera concertística, Arghamanyan es docente activa y figura inspiradora para nuevas generaciones. Su canal de YouTube (@Narehpiano) y su presencia en redes sociales la acercan a un público global, democratizando el acceso a la música clásica con autenticidad y calidez.\n\nEn DAG Klassical, su legado no solo se graba en alta fidelidad, sino que se certifica en blockchain: una garantía de inmutabilidad para una obra que trasciende lo musical y se erige como patrimonio cultural.",
+  "avatar": "/artists/profile-nareh-arghamanyan-02.webp",
+  "website": "https://nareh.net/",
+  "social": {
+    "instagram": "https://www.instagram.com/narehpiano/",
+    "youtube": "https://www.youtube.com/@Narehpiano",
+    "facebook": "https://www.facebook.com/nareh.arghamanyan/"
+  },
+  "releases": [
+    "nareh-arghamanyan-piano-works-armenian-composers"
+  ],
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:182f0e49-66c6-49fb-96e9-4ee4d9b1ce83",
+    "timestamp": "2025-12-31T09:00:00Z",
+    "operator": "cto@dagklassical.com"
+  },
+  "tagline": ""
+}

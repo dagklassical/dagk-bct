@@ -1,8 +1,14 @@
 ---
-// src/pages/musica/discografia/index.astro
+// src/pages/musica/discografia/index.astro - VERSIÓN MIGRADA
 import Layout from '../../../layouts/Layout.astro';
-import releases from '../../../data/releases.json';
-import artists from '../../../data/artists.json';
+import { getCollection } from 'astro:content';
+
+// ✅ Obtener datos de Content Collections
+const allReleases = await getCollection('releases');
+const allArtists = await getCollection('artists');
+
+const releases = allReleases.map(r => r.data);
+const artists = allArtists.map(a => a.data);
 
 // Helper: obtener nombres de intérpretes
 const getPerformerNames = (release: typeof releases[0]) => {
@@ -39,6 +45,7 @@ const breadcrumbs = [
   description="Explora nuestra colección de obras musicales certificadas en blockchain, con audio en alta resolución y metadatos inmutables."
   breadcrumbs={breadcrumbs}
 >
+  <!-- El resto del template permanece IGUAL -->
   <header class="bg-white text-center py-10 px-4 mb-8">
     <h1 class="text-h1 font-advent">Nuestra Discografía</h1>
     <p class="text-dag-burgundy max-w-4xl mx-auto mt-3">
@@ -49,7 +56,6 @@ const breadcrumbs = [
   <main class="bg-gray95 pb-12">
     <div class="max-w-6xl mx-auto px-8">
       
-      <!-- Barra de filtros por género -->
       {allGenres.length > 0 && (
         <div class="mb-6 flex flex-wrap gap-2 justify-center">
           <button 
@@ -69,7 +75,6 @@ const breadcrumbs = [
         </div>
       )}
 
-      <!-- Grid de discografía -->
       <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-5">
         {sortedReleases.map(release => {
           const performers = getPerformerNames(release);
@@ -77,7 +82,6 @@ const breadcrumbs = [
             ? release.genre 
             : (release.genre ? [release.genre] : []);
           
-          // Mostrar máximo 2 géneros + "+X" si hay más
           const displayGenres = genres.slice(0, 2);
           const extraCount = genres.length - 2;
           if (extraCount > 0) {
@@ -97,7 +101,6 @@ const breadcrumbs = [
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
-                {/* Etiquetas de género */}
                 <div class="absolute top-2 left-2 flex flex-wrap gap-1">
                   {displayGenres.map((g, i) => (
                     <span
@@ -145,7 +148,7 @@ const breadcrumbs = [
     </div>
   </main>
 
-  <!-- Script de filtrado con reset de scroll -->
+  <!-- El script de filtrado permanece IGUAL -->
   <script>
   document.addEventListener('DOMContentLoaded', () => {
     const filterButtons = document.querySelectorAll('[data-filter]') as NodeListOf<HTMLElement>;
@@ -156,18 +159,15 @@ const breadcrumbs = [
       button.addEventListener('click', () => {
         const filter = button.dataset.filter;
         
-        // Reset scroll
         if (container) {
           container.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
         
-        // Actualizar botones activos
         filterButtons.forEach(btn => 
           btn.classList.remove('bg-dag-burgundy', 'text-white')
         );
         button.classList.add('bg-dag-burgundy', 'text-white');
         
-        // Filtrar tarjetas
         cards.forEach(card => {
           const genresStr = card.dataset.genres;
           const genres = genresStr ? JSON.parse(genresStr) : [];

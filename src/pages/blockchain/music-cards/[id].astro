@@ -3,17 +3,29 @@
 import Layout from '../../../layouts/Layout.astro';
 import ImmutableStamp from '../../../components/ImmutableStamp.astro';
 import ExclusiveAccessGate from '../../../components/ExclusiveAccessGate.astro';
-import musicCards from '../../../data/music-cards.json';
-import releases from '../../../data/releases.json';
-import artists from '../../../data/artists.json';
+import { getCollection } from 'astro:content';
 
 export const prerender = true;
 
+// ✅ getStaticPaths PRIMERO, con sus propias declaraciones internas
 export async function getStaticPaths() {
+  const allMusicCards = await getCollection('music-cards');
+  const musicCards = allMusicCards.map(m => m.data);
+  
   return musicCards
     .filter(card => card.status === 'disponible' || card.status === 'próximo')
     .map(card => ({ params: { id: card.id } }));
 }
+
+// ✅ Ahora las declaraciones para el resto del componente
+const allMusicCards = await getCollection('music-cards');
+const musicCards = allMusicCards.map(m => m.data);
+
+const allReleases = await getCollection('releases');
+const releases = allReleases.map(r => r.data);
+
+const allArtists = await getCollection('artists');
+const artists = allArtists.map(a => a.data);
 
 const { id } = Astro.params;
 const card = musicCards.find(c => c.id === id && (c.status === 'disponible' || c.status === 'próximo'));
@@ -42,7 +54,7 @@ const artistNames = artistList.map(a => a.name).join(', ') || 'Artista no identi
 
 // ✅ Construir base URL para demos (absoluta)
 const BASE_URL_DEMO = release?.demoBasePath 
-  ? `https://audio.dagklassical.com/audio/demo/${release.demoBasePath}/`
+  ? `https://audio.dagklassical.com/audio/demo/ ${release.demoBasePath}/`
   : null;
 
 // ✅ Generar tracks con URLs de demo completas

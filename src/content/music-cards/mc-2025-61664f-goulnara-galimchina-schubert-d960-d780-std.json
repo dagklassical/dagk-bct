@@ -1,0 +1,52 @@
+{
+  "id": "mc-2025-61664f-goulnara-galimchina-schubert-d960-d780-std",
+  "title": "Schubert",
+  "workTitle": "Schubert",
+  "composer": "",
+  "artist": "Goulnara Galimchina",
+  "performers": [],
+  "edition": "Estándar",
+  "associatedRelease": "goulnara-galimchina-schubert-d960-d780",
+  "totalSupply": 100,
+  "available": 100,
+  "blockchain": "Polygon",
+  "tokenId": "0",
+  "price": "0.10 MATIC",
+  "status": "disponible",
+  "workType": "",
+  "benefits": [
+    "Audio de colección. FLAC 24-bit/192kHz",
+    "Notas interpretativas exclusivas",
+    "Acceso a masterclass privada",
+    "Certificación inmutable en blockchain",
+    "Partitura digital firmada"
+  ],
+  "cardImage": "/covers/cover-mc-galimchina-schubert.webp",
+  "socialLinks": [
+    {
+      "platform": "Spotify",
+      "url": "https://open.spotify.com/album/4N42gl9w4gZY4IyLElsKYi?go=1&nd=1&dlsi=d87d58eb297a4c0b"
+    },
+    {
+      "platform": "Apple Music",
+      "url": "https://music.apple.com/ve/album/schubert/1653639785?at=1l3vpUI&ct=LFV_94378caae938da0bceab3768688de132&itsct=catchall_p2&itscg=30440&ls=1"
+    },
+    {
+      "platform": "YouTube Music",
+      "url": "https://music.youtube.com/playlist?list=OLAK5uy_kkIHfFa5V5jKF2XqqW6B5WuDXGE9VR-M8"
+    },
+    {
+      "platform": "Tidal",
+      "url": "https://tidal.com/album/259294070"
+    },
+    {
+      "platform": "Deezer",
+      "url": "https://www.deezer.com/us/album/324503107?app_id=140685&utm_source=partner_linkfire&utm_campaign=94378caae938da0bceab3768688de132&utm_medium=Original&utm_term=lujo-network-3439&utm_content=album-324503107"
+    }
+  ],
+  "metadata": {
+    "uuid": "urn:uuid:fb421624-d5be-4f0c-92a3-a5e67ed0c92e",
+    "timestamp": "2025-11-28T10:00:00Z",
+    "operator": "cto@dagklassical.com"
+  }
+}

@@ -1,8 +1,13 @@
 ---
 // src/pages/musica/discografia/completa.astro
 import Layout from '../../../layouts/Layout.astro';
-import releases from '../../../data/releases.json';
-import artists from '../../../data/artists.json';
+import { getCollection } from 'astro:content';
+
+const allReleases = await getCollection('releases');
+const releases = allReleases.map(r => r.data);
+
+const allArtists = await getCollection('artists');
+const artists = allArtists.map(a => a.data);
 
 // ✅ Tipado explícito para evitar errores de índice
 interface ArtistMap {

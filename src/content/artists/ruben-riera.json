@@ -1,0 +1,26 @@
+{
+  "id": "ruben-riera",
+  "name": "Rubén Riera",
+  "role": "Guitarrista",
+  "country": "",
+  "genre": [],
+  "bio": "Rubén Riera es un maestro de las seis cuerdas que desde Caracas ha tejido puentes entre lo clásico y lo popular. Graduado del Real Conservatorio de Madrid y formado en la Guildhall School, su guitarra respira con la esencia venezolana mientras dialoga con el jazz y el folclor universal. Su carrera solista y su labor pedagógica en la Universidad de las Artes han moldeado generaciones. En DAG KLASSICAL, cada nota de su legado se preserva inmutable en blockchain, transformando su arte en patrimonio cultural eterno.",
+  "bioLong": "Rubén Riera: La Voz de las Seis Cuerdas Venezolanas\n\nNacido en Caracas en 1957, Rubén Riera ha construido una trayectoria que redefine el arte de la guitarra en América Latina. Su formación académica lo llevó al Real Conservatorio de Música y Declamación de Madrid, donde estudió bajo la tutela de Antonio Ortega, perfeccionando posteriormente su técnica en instituciones de prestigio como la Guildhall School of Music And Drama. Este rigor académico se fusiona con una sensibilidad profundamente latinoamericana, creando un estilo único donde la guitarra clásica respira con los ritmos de nuestro continente.\n\nComo solista, Riera ha trascendido fronteras, llevando la música venezolana a escenarios internacionales, incluyendo giras por Australia donde es reconocido como uno de los guitarristas clásicos más destacados de su generación. Su labor pedagógica en la Universidad de las Artes ha sido fundamental para formar nuevas generaciones de músicos comprometidos con la excelencia y la identidad cultural. Si bien su colaboración con Frank Di Polo ha dado frutos excepcionales, su carrera como intérprete solista y su dedicación a la música de cámara lo posicionan como una figura independiente y esencial en el panorama musical venezolano.\n\nEn DAG KLASSICAL, el legado de Rubén Riera se transforma en patrimonio inmutable. Cada grabación, cada interpretación, se certifica en blockchain como activo cultural eterno, asegurando que su contribución a la música —desde las salas de concierto hasta las aulas— permanezca accesible para las generaciones futuras. Su obra es un testimonio vivo de cómo el arte puede construir puentes entre tradiciones, géneros y tiempos, convirtiendo cada acorde en un legado que trasciende lo efímero.",
+  "avatar": "/artists/profile-ruben-riera-01.webp",
+  "website": "https://elsistema.org.ve/?s=ruben+riera",
+  "social": {
+    "facebook": "https://www.facebook.com/ruben.riera.16/",
+    "youtube": "https://www.youtube.com/@rubenriera"
+  },
+  "releases": [
+    "mc-2026-sonata-violin",
+    "dipolo-riera-tema-con-variazioni"
+  ],
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:cdbc570a-4cf1-48c0-94f1-046d269ad91b",
+    "timestamp": "2025-11-22T09:00:03Z",
+    "operator": "cto@dagklassical.com"
+  },
+  "tagline": ""
+}

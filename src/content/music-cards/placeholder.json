@@ -4,18 +4,22 @@
   "workTitle": "Obra Placeholder",
   "composer": "Compositor Anónimo",
   "artist": "Placeholder Artist",
-  "performers": ["Placeholder Artist"],
+  "performers": [
+    "Placeholder Artist"
+  ],
   "edition": "Estándar",
   "associatedRelease": "placeholder",
   "totalSupply": 100,
   "available": 100,
   "blockchain": "Polygon",
-  "contractAddress": "0x0000000000000000000000000000000000000000",
   "tokenId": "PLACEHOLDER-001",
   "price": "0.00",
   "status": "proximamente",
   "workType": "Pieza instrumental",
-  "benefits": ["Acceso al audio maestro", "Partitura digital"],
+  "benefits": [
+    "Acceso al audio maestro",
+    "Partitura digital"
+  ],
   "cardImage": "/images/placeholder-card.jpg",
   "socialLinks": [
     {
