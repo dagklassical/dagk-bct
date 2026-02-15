@@ -54,7 +54,7 @@ const artistNames = artistList.map(a => a.name).join(', ') || 'Artista no identi
 
 // ✅ Construir base URL para demos (absoluta)
 const BASE_URL_DEMO = release?.demoBasePath 
-  ? `https://audio.dagklassical.com/audio/demo/ ${release.demoBasePath}/`
+  ? `https://audio.dagklassical.com/audio/demo/${release.demoBasePath}/`
   : null;
 
 // ✅ Generar tracks con URLs de demo completas

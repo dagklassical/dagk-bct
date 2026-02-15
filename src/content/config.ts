@@ -66,8 +66,6 @@ const releasesCollection = defineCollection({
       z.object({
         title: z.string(),
         duration: z.string(),
-        // ✅ AMBOS: demo (schema original) y demoFile (usado en JSON)
-        demo: z.string().optional().nullable(),
         demoFile: z.string().optional().nullable(),
         protected: z.string().optional().nullable(),
         composer: z.string().optional().nullable(),

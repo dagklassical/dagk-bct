@@ -48,3 +48,4 @@ public/audio/demo/
 # Backups temporales
 *.backup.json
 **/placeholder.json
+backups/

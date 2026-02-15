@@ -31,100 +31,100 @@
       "number": "001",
       "title": "Preludio para Boby",
       "duration": "5:43",
-      "demo": "ramirez-capitulos-preludio-para-boby",
       "protected": "001-ramirez-capitulos-preludio-para-boby.flac",
       "composer": "Virginia Ramírez",
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "ramirez-capitulos-preludio-para-boby-demo.mp3"
     },
     {
       "number": "002",
       "title": "Blues con Sangueo",
       "duration": "4:51",
-      "demo": "ramirez-capitulos-blues-con-sangueo-demo.mp3",
       "protected": "002-ramirez-capitulos-blues-con-sangueo.flac",
       "composer": "Virginia Ramírez",
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "ramirez-capitulos-blues-con-sangueo-demo.mp3"
     },
     {
       "number": "003",
       "title": "Domingo por la Tarde",
       "duration": "6:31",
-      "demo": "ramirez-capitulos-domingo-por-la-tarde-demo.mp3",
       "protected": "003-ramirez-capitulos-domingo-por-la-tarde.flac",
       "composer": "Virginia Ramírez",
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "ramirez-capitulos-domingo-por-la-tarde-demo.mp3"
     },
     {
       "number": "004",
       "title": "Días de Julio",
       "duration": "7:34",
-      "demo": "ramirez-capitulos-dias-de-julio-demo.mp3",
       "protected": "004-ramirez-capitulos-dias-de-julio.flac",
       "composer": "Virginia Ramírez",
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "ramirez-capitulos-dias-de-julio-demo.mp3"
     },
     {
       "number": "005",
       "title": "Don Alen",
       "duration": "5:01",
-      "demo": "ramirez-capitulos-don-alen-demo.mp3",
       "protected": "005-ramirez-capitulos-don-alen.flac",
       "composer": "Virginia Ramírez",
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "ramirez-capitulos-don-alen-demo.mp3"
     },
     {
       "number": "006",
       "title": "Dulcinea",
       "duration": "6:36",
-      "demo": "ramirez-capitulos-dulcinea-demo-mp3",
       "protected": "006-ramirez-capitulos-dulcinea.flac",
       "composer": "Virginia Ramírez",
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "ramirez-capitulos-dulcinea-demo-mp3"
     },
     {
       "number": "007",
       "title": "Espiral de Fuego",
       "duration": "6:55",
-      "demo": "ramirez-capitulos-espiral-de-fuego-demo.mp3",
       "protected": "007-ramirez-capitulos-espiral-de-fuego.flac",
       "composer": "Virginia Ramírez",
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "ramirez-capitulos-espiral-de-fuego-demo.mp3"
     },
     {
       "number": "008",
       "title": "Guasipati",
       "duration": "4:36",
-      "demo": "ramirez-capitulos-guasipati-demo.mp3",
       "protected": "008-ramirez-capitulos-guasipati.flac",
       "composer": "Virginia Ramírez",
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "ramirez-capitulos-guasipati-demo.mp3"
     },
     {
       "number": "009",
       "title": "Manos y Alma",
       "duration": "4:36",
-      "demo": "ramirez-capitulos-manos-y-alma-demo.mp3",
       "protected": "009-ramirez-capitulos-manos-y-alma.flac",
       "composer": "Virginia Ramírez",
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "ramirez-capitulos-manos-y-alma-demo.mp3"
     },
     {
       "number": "010",
       "title": "Azul y Verde",
       "duration": "8:09",
-      "demo": "ramirez-capitulos-azul-y-verde-demo.mp3",
       "protected": "010-ramirez-capitulos-azul-y-verde.flac",
       "composer": "Virginia Ramírez",
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "ramirez-capitulos-azul-y-verde-demo.mp3"
     },
     {
       "number": "011",
       "title": "Rapguinaldo",
       "duration": "3:17",
-      "demo": "ramirez-capitulos-rapguinaldo-demo.mp3",
       "protected": "011-ramirez-capitulos-rapguinaldo.flac",
       "composer": "Virginia Ramírez",
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "ramirez-capitulos-rapguinaldo-demo.mp3"
     }
   ],
   "duration": "1:03:49",
@@ -138,5 +138,6 @@
     "timestamp": "2025-11-27T18:00:00Z",
     "operator": "cto@dagklassical.com"
   },
-  "bioExtended": "La grabación de 'Capítulos' se realizó en Mansa Studio, Lechería, Venezuela, bajo la producción artística de Danilo Álvarez. Virginia trabajó con un piano Steinway & Sons de cola modelo D-274, capturado con una configuración de micrófonos Neumann U87 en modo binaural para preservar la espacialidad acústica del instrumento.\n\nEl proceso de mastering se ejecutó en 24-bit/192kHz en DAG Klassical Studios, utilizando conversores dCS y monitores Genelec 8351B, garantizando la máxima fidelidad al sonido original. Cada track fue procesado individualmente para resaltar las sutilezas dinámicas y armónicas características del lenguaje pianístico de Virginia Ramírez.\n\nEsta obra representa el primer álbum de Virginia certificado en blockchain, convirtiéndolo en un activo cultural inmutable para las generaciones futuras. Como poseedor de esta Music Card, tienes acceso exclusivo al álbum completo en formato FLAC sin pérdida, junto con contenido adicional que se añadirá próximamente."
+  "bioExtended": "La grabación de 'Capítulos' se realizó en Mansa Studio, Lechería, Venezuela, bajo la producción artística de Danilo Álvarez. Virginia trabajó con un piano Steinway & Sons de cola modelo D-274, capturado con una configuración de micrófonos Neumann U87 en modo binaural para preservar la espacialidad acústica del instrumento.\n\nEl proceso de mastering se ejecutó en 24-bit/192kHz en DAG Klassical Studios, utilizando conversores dCS y monitores Genelec 8351B, garantizando la máxima fidelidad al sonido original. Cada track fue procesado individualmente para resaltar las sutilezas dinámicas y armónicas características del lenguaje pianístico de Virginia Ramírez.\n\nEsta obra representa el primer álbum de Virginia certificado en blockchain, convirtiéndolo en un activo cultural inmutable para las generaciones futuras. Como poseedor de esta Music Card, tienes acceso exclusivo al álbum completo en formato FLAC sin pérdida, junto con contenido adicional que se añadirá próximamente.",
+  "demoBasePath": "virginia-ramirez/capitulos"
 }

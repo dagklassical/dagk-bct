@@ -31,82 +31,82 @@
       "number": "001",
       "title": "From the Diaries of Sergei Rachmaninoff",
       "duration": "1:00",
-      "demo": "dore-february-from-the-diaries-of-sergei-rachmaninoff-demo.mp3",
       "protected": "001-dore-february-from-the-diaries-of-sergei-rachmaninoff.flac",
       "composer": null,
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "dore-february-from-the-diaries-of-sergei-rachmaninoff-demo.mp3"
     },
     {
       "number": "002",
       "title": "February Night",
       "duration": "7:31",
-      "demo": "dore-february-february-night-demo.mp3",
       "protected": "002-dore-february-february-night.flac",
       "composer": null,
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "dore-february-february-night-demo.mp3"
     },
     {
       "number": "003",
       "title": "Émigré’s Letter from Istanbul",
       "duration": "2:15",
-      "demo": "dore-february-emigres-letter-from-istanbul-demo.mp3",
       "protected": "003-dore-february-emigres-letter-from-istanbul.flac",
       "composer": null,
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "dore-february-emigres-letter-from-istanbul-demo.mp3"
     },
     {
       "number": "004",
       "title": "Andante Allegro",
       "duration": "3:54",
-      "demo": "dore-february-andante-allegro-demo.mp3",
       "protected": "004-dore-february-andante-allegro.flac",
       "composer": null,
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "dore-february-andante-allegro-demo.mp3"
     },
     {
       "number": "005",
       "title": "Émigré’s Letter from Tbilisi",
       "duration": "3:40",
-      "demo": "dore-february-emigres-letter-from-tbilisi-demo.mp3",
       "protected": "005-dore-february-emigres-letter-from-tbilisi.flac",
       "composer": null,
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "dore-february-emigres-letter-from-tbilisi-demo.mp3"
     },
     {
       "number": "006",
       "title": "September: Verkhny Lars",
       "duration": "3:30",
-      "demo": "dore-february-september-verkhniylars-demo.mp3",
       "protected": "006-dore-february-september-verkhniylars.flac",
       "composer": null,
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "dore-february-september-verkhniylars-demo.mp3"
     },
     {
       "number": "007",
       "title": "Refugee’s Letter from Boston",
       "duration": "4:12",
-      "demo": "dore-february-refugees-letter-from-boston-demo.mp3",
       "protected": "007-dore-february-refugees-letter-from-boston.flac",
       "composer": null,
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "dore-february-refugees-letter-from-boston-demo.mp3"
     },
     {
       "number": "008",
       "title": "December: New Home, New Hope",
       "duration": "4:40",
-      "demo": "dore-february-december-newhome-newhope-demo.mp3",
       "protected": "008-dore-february-december-newhome-newhope.flac",
       "composer": null,
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "dore-february-december-newhome-newhope-demo.mp3"
     },
     {
       "number": "009",
       "title": "From the Diaries of Sergei Rachmaninoff (Nro. 2)",
       "duration": "2:44",
-      "demo": "dore-february-from-the-diaries-of-sergei-rachmaninoff-nro-2-demo.mp3",
       "protected": "009-dore-february-from-the-diaries-of-sergei-rachmaninoff-nro-2.flac",
       "composer": null,
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "dore-february-from-the-diaries-of-sergei-rachmaninoff-nro-2-demo.mp3"
     }
   ],
   "duration": "42:05",
@@ -120,5 +120,6 @@
     "timestamp": "2025-11-28T11:00:00Z",
     "operator": "cto@dagklassical.com"
   },
-  "bioExtended": "La grabación de ‘February Night’ se realizó en Mansa Studio, Lechería, Venezuela, bajo la producción artística de Danilo Álvarez. Teodor trabajó con un piano Steinway & Sons de cola, capturado con micrófonos Neumann U87 en configuración binaural..."
+  "bioExtended": "La grabación de ‘February Night’ se realizó en Mansa Studio, Lechería, Venezuela, bajo la producción artística de Danilo Álvarez. Teodor trabajó con un piano Steinway & Sons de cola, capturado con micrófonos Neumann U87 en configuración binaural...",
+  "demoBasePath": "teodor-dore/february-night/"
 }

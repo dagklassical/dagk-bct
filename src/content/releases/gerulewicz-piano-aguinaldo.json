@@ -16,6 +16,7 @@
   "description": "En \"Piano Aguinaldo\", Gerardo Gerulewicz transforma la tradición navideña venezolana en una obra de cámara contemporánea. Con un toque pianístico delicado y arreglos de jazz refinado, clásicos como \"Niño Lindo\" y \"Corre Caballito\" se elevan a piezas de arte sonoro. Cada interpretación, ahora inmutable en blockchain, es un homenaje a la memoria colectiva y a la innovación musical latinoamericana.",
   "descriptionLong": "Piano Aguinaldo: Donde la Tradición se Vuelve Inmutable\n\nGerardo Gerulewicz nos regala con \"Piano Aguinaldo\" una joya musical que captura la esencia de la Navidad venezolana y la viste con un elegante traje de jazz. Este álbum es una reinterpretación profunda de los aguinaldos tradicionales, presentada no como simple celebración, sino como una propuesta artística para la escucha atenta y el disfrute pausado.\n\nDesde el primer acorde, Gerulewicz sumerge al oyente en una atmósfera íntima y cálida, como una reunión familiar alrededor del piano en una noche de diciembre. La familiaridad de melodías como \"Niño Lindo\", \"Corre Caballito\" y \"De Contento\" se entrelaza con la improvisación y la armonía del jazz, creando una simbiosis perfecta entre lo popular y lo académico.\n\nSu toque al piano es delicado, preciso y vibrante, capaz de transformar cada aguinaldo en una pequeña obra de arte. Lejos de reproducir, Gerulewicz reimagina: añade acordes inesperados, ritmos sincopados y solos que enriquecen sin traicionar el espíritu original.\n\nEn DAG Klassical, esta grabación no solo se preserva en alta fidelidad, sino que se certifica en blockchain como un activo cultural inmutable. \"Piano Aguinaldo\" trasciende el género y el tiempo: es un regalo para los amantes de la música venezolana, del jazz y de la belleza que nace cuando la tradición se encuentra con la maestría.",
   "coverImage": "/covers/gerulewicz-piano-aguinaldo.webp",
+  "demoBasePath": "gerardo-gerulewicz/piano-aguinaldo",
   "demoAvailable": true,
   "fullAlbumAvailable": true,
   "sheetMusicAvailable": false,
@@ -31,7 +32,7 @@
       "number": "001",
       "title": "Corre Caballito",
       "duration": "2:45",
-      "demo": "gerulewicz-aguinaldo-corre-caballito-demo.mp3",
+      "demoFile": "gerulewicz-aguinaldo-corre-caballito-demo.mp3",
       "protected": "001-gerulewicz-aguinaldo-corre-caballito.flac",
       "composer": "Tradicional",
       "workCatalogue": null
@@ -40,136 +41,136 @@
       "number": "002",
       "title": "Din, Din, Din",
       "duration": "3:10",
-      "demo": "gerulewicz-aguinaldo-din-din-din-demo.mp3",
       "protected": "002-gerulewicz-aguinaldo-din-din-din.flac",
       "composer": "Tradicional",
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "gerulewicz-aguinaldo-din-din-din-demo.mp3"
     },
     {
       "number": "003",
       "title": "Niño Lindo",
       "duration": "2:55",
-      "demo": "gerulewicz-aguinaldo-nino-lindo-demo.mp3",
       "protected": "003-gerulewicz-aguinaldo-nino-lindo.flac",
       "composer": "Tradicional",
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "gerulewicz-aguinaldo-nino-lindo-demo.mp3"
     },
     {
       "number": "004",
       "title": "Pascua Florida",
       "duration": "3:20",
-      "demo": "gerulewicz-aguinaldo-pascua-florida-demo.mp3",
       "protected": "004-gerulewicz-aguinaldo-pascua-florida.flac",
       "composer": "Tradicional",
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "gerulewicz-aguinaldo-pascua-florida-demo.mp3"
     },
     {
       "number": "005",
       "title": "Venid Pastorcillos",
       "duration": "3:00",
-      "demo": "gerulewicz-aguinaldo-venid-pastorcillos-demo.mp3",
       "protected": "005-gerulewicz-aguinaldo-venid-pastorcillos.flac",
       "composer": "Tradicional",
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "gerulewicz-aguinaldo-venid-pastorcillos-demo.mp3"
     },
     {
       "number": "006",
       "title": "Precioso Querube",
       "duration": "2:50",
-      "demo": "gerulewicz-aguinaldo-precioso-querube-demo.mp3",
       "protected": "006-gerulewicz-aguinaldo-precioso-querube.flac",
       "composer": "Tradicional",
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "gerulewicz-aguinaldo-precioso-querube-demo.mp3"
     },
     {
       "number": "007",
       "title": "Casta Paloma",
       "duration": "3:15",
-      "demo": "gerulewicz-aguinaldo-casta-paloma-demo.mp3",
       "protected": "007-gerulewicz-aguinaldo-casta-paloma.flac",
       "composer": "Tradicional",
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "gerulewicz-aguinaldo-casta-paloma-demo.mp3"
     },
     {
       "number": "008",
       "title": "Sublime Ideal",
       "duration": "3:30",
-      "demo": "gerulewicz-aguinaldo-sublime-ideal-demo.mp3",
       "protected": "008-gerulewicz-aguinaldo-sublime-ideal.flac",
       "composer": "Tradicional",
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "gerulewicz-aguinaldo-sublime-ideal-demo.mp3"
     },
     {
       "number": "009",
       "title": "De Contento",
       "duration": "2:40",
-      "demo": "gerulewicz-aguinaldo-de-contento-demo.mp3",
       "protected": "009-gerulewicz-aguinaldo-de-contento.flac",
       "composer": "Tradicional",
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "gerulewicz-aguinaldo-de-contento-demo.mp3"
     },
     {
       "number": "010",
       "title": "Salve Salve",
       "duration": "3:05",
-      "demo": "gerulewicz-aguinaldo-salve-salve-demo.mp3",
       "protected": "010-gerulewicz-aguinaldo-salve-salve.flac",
       "composer": "Tradicional",
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "gerulewicz-aguinaldo-salve-salve-demo.mp3"
     },
     {
       "number": "011",
       "title": "Aguinaldo Caraqueño",
       "duration": "2:55",
-      "demo": "gerulewicz-aguinaldo-aguinaldo-caraqueno-demo.mp3",
       "protected": "011-gerulewicz-aguinaldo-aguinaldo-caraqueno.flac",
       "composer": "Tradicional",
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "gerulewicz-aguinaldo-aguinaldo-caraqueno-demo.mp3"
     },
     {
       "number": "012",
       "title": "A ti te cantamos preciosa María",
       "duration": "3:14",
-      "demo": "gerulewicz-aguinaldo-a-ti-te-cantamos-demo.mp3",
       "protected": "012-gerulewicz-aguinaldo-a-ti-te-cantamos.flac",
       "composer": "Tradicional",
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "gerulewicz-aguinaldo-a-ti-te-cantamos-demo.mp3"
     },
     {
       "number": "013",
       "title": "La Cabra Mocha",
       "duration": "2:30",
-      "demo": "gerulewicz-aguinaldo-la-cabra-mocha-demo.mp3",
       "protected": "013-gerulewicz-aguinaldo-la-cabra-mocha.flac",
       "composer": "Tradicional",
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "gerulewicz-aguinaldo-la-cabra-mocha-demo.mp3"
     },
     {
       "number": "014",
       "title": "Aguinaldo Margariteño",
       "duration": "3:25",
-      "demo": "gerulewicz-aguinaldo-aguinaldo-margariteno-demo.mp3",
       "protected": "014-gerulewicz-aguinaldo-aguinaldo-margariteno.flac",
       "composer": "Tradicional",
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "gerulewicz-aguinaldo-aguinaldo-margariteno-demo.mp3"
     },
     {
       "number": "015",
       "title": "Cantemos",
       "duration": "2:50",
-      "demo": "gerulewicz-aguinaldo-cantemos-demo.mp3",
       "protected": "015-gerulewicz-aguinaldo-cantemos.flac",
       "composer": "Tradicional",
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "gerulewicz-aguinaldo-cantemos-demo.mp3"
     },
     {
       "number": "016",
       "title": "Canción De Cuna (Himno Nacional)",
       "duration": "4:00",
-      "demo": "gerulewicz-aguinaldo-himno-de-venezuela-cancion-de-cuna-demo.mp3",
       "protected": "016-gerulewicz-aguinaldo-himno-de-venezuela-cancion-de-cuna.flac",
       "composer": "Tradicional",
-      "workCatalogue": null
+      "workCatalogue": null,
+      "demoFile": "gerulewicz-aguinaldo-himno-de-venezuela-cancion-de-cuna-demo.mp3"
     }
   ],
   "duration": "46:30",

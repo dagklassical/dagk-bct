@@ -84,5 +84,6 @@
     "timestamp": "2025-12-31T09:30:00Z",
     "operator": "cto@dagklassical.com"
   },
-  "bioExtended": null
+  "bioExtended": null,
+  "demoBasePath": "/audio/demos"
 }
