@@ -4,6 +4,80 @@
       "source": "/blockchain/musicCards/:path*",
       "destination": "/blockchain/music-cards/:path*",
       "permanent": true
+    },
+    {
+      "source": "/music-cards/:path*",
+      "destination": "/blockchain/music-cards/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/premium/:path*",
+      "destination": "/blockchain/acceso/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/acceso/:path*",
+      "destination": "/blockchain/acceso/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/blockchain/music-cards/mc-2025-5e6c44-gerardo-gerulewicz-piano-aguinaldo-std",
+      "destination": "/blockchain/music-cards/mc-2023-5e6c44-gerardo-gerulewicz-piano-aguinaldo-std",
+      "permanent": true
+    },
+    {
+      "source": "/blockchain/music-cards/5e6c44-gerardo-gerulewicz-piano-aguinaldo",
+      "destination": "/blockchain/music-cards/mc-2023-5e6c44-gerardo-gerulewicz-piano-aguinaldo-std",
+      "permanent": true
+    },
+    {
+      "source": "/blockchain/music-cards/mc-2025-edc247-teodor-dore-february-night-std",
+      "destination": "/blockchain/music-cards/mc-2025-edc247-teodor-dore-february-night-std",
+      "permanent": true
+    },
+    {
+      "source": "/blockchain/music-cards/edc247-teodor-dore-february-night",
+      "destination": "/blockchain/music-cards/mc-2025-edc247-teodor-dore-february-night-std",
+      "permanent": true
+    },
+    {
+      "source": "/blockchain/music-cards/mc-2025-cdb244-virginia-ramirez-capitulos-std",
+      "destination": "/blockchain/music-cards/mc-2025-cdb244-virginia-ramirez-capitulos-std",
+      "permanent": true
+    },
+    {
+      "source": "/blockchain/music-cards/cdb244-virginia-ramirez-capitulos",
+      "destination": "/blockchain/music-cards/mc-2025-cdb244-virginia-ramirez-capitulos-std",
+      "permanent": true
+    },
+    {
+      "source": "/blockchain/music-cards/mc-2025-61664f-goulnara-galimchina-schubert-d960-d780-std",
+      "destination": "/blockchain/music-cards/mc-2022-61664f-goulnara-galimchina-schubert-d960-d780-std",
+      "permanent": true
+    },
+    {
+      "source": "/blockchain/music-cards/61664f-goulnara-galimchina-schubert-d960-d780",
+      "destination": "/blockchain/music-cards/mc-2022-61664f-goulnara-galimchina-schubert-d960-d780-std",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
     }
   ]
 }
