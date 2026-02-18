@@ -1,0 +1,32 @@
+{
+  "id": "61664f-goulnara-galimchina-schubert-d960-d780",
+  "type": "album",
+  "status": "active",
+  "associatedRelease": "goulnara-galimchina-schubert-d960-d780",
+  "associatedArtists": ["goulnara-galimchina"],
+  "content": {
+    "audio": {
+      "baseUrl": "https://audio.dagklassical.com/protected/audio/goulnara-galimchina-schubert-d960-d780/",
+      "format": "flac",
+      "quality": "24/192"
+    },
+    "score": {
+      "url": "https://audio.dagklassical.com/protected/audio/goulnara-galimchina-schubert-d960-d780/goulnara-partitura.pdf",
+      "format": "pdf",
+      "signed": true
+    }
+  },
+  "access": {
+    "method": "token_url"
+  },
+  "theme": {
+    "heroImage": "https://audio.dagklassical.com/images/heros/hero-galimchina-schubert.webp",
+    "fallbackHero": "/hero/hero-galimchina-schubert.webp",
+    "primaryColor": "#800020"
+  },
+  "metadata": {
+    "uuid": "urn:uuid:61664f00-0000-0000-0000-000000000001",
+    "timestamp": "2022-11-15T14:30:00Z",
+    "operator": "cto@dagklassical.com"
+  }
+}

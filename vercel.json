@@ -61,21 +61,27 @@
       "permanent": true
     }
   ],
+  "rewrites": [
+    {
+      "source": "/sitemap-index.xml",
+      "destination": "/client/sitemap-index.xml"
+    },
+    {
+      "source": "/sitemap-:id(\\d+).xml",
+      "destination": "/client/sitemap-:id.xml"
+    }
+  ],
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/sitemap-:id(\\d+)?\\.xml",
       "headers": [
         {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
         },
         {
-          "key": "X-Frame-Options",
-          "value": "DENY"
-        },
-        {
-          "key": "Referrer-Policy",
-          "value": "strict-origin-when-cross-origin"
+          "key": "Content-Type",
+          "value": "application/xml; charset=utf-8"
         }
       ]
     }

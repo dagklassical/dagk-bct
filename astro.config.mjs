@@ -1,29 +1,31 @@
 // astro.config.mjs
 import { defineConfig } from 'astro/config';
 import vercel from '@astrojs/vercel';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  // ✅ Activa Server-Side Rendering (SSR) para rutas dinámicas como /[token]
-  //    Las páginas con `prerender = true` se generan estáticamente.
-  output: 'server',
-
-  // ✅ Usa el adaptador oficial de Vercel (sin deprecación)
+  output: 'server', // ← Mantener 'server' (única opción válida en Astro 3.x)
   adapter: vercel(),
-
-  // ✅ Elimina trailing slashes en todas las URLs
   trailingSlash: 'never',
-
-  // ✅ Opcional: si usas Tailwind CSS, asegúrate de que esté bien integrado
-  // vite: {
-  //   build: {
-  //     sourcemap: true,
-  //   },
-  // },
-
-  // ✅ Si usas contenido estático (noticias, etc.), esto mejora el rendimiento
-  //    (no es obligatorio, pero recomendado)
+  site: 'https://www.dagklassical.com',
   integrations: [
-    // Ejemplo si usas Astro Content Collections:
-    // contentCollections(),
+    sitemap({
+      filter: (page) => 
+        !page.includes('test') && 
+        !page.includes('preview') &&
+        !page.includes('store/reservar') &&
+        !page.includes('api/'),
+      customPages: [
+        'https://www.dagklassical.com/blockchain',
+        'https://www.dagklassical.com/blockchain/music-cards',
+        'https://www.dagklassical.com/contacto',
+        'https://www.dagklassical.com/inversion'
+      ]
+    })
   ],
+  vite: {
+    build: {
+      sourcemap: true,
+    },
+  },
 });

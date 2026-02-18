@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@area44/astro-audionaut": "github:AREA44/astro-audionaut#main",
-    "@astrojs/sitemap": "^3.6.0",
+    "@astrojs/sitemap": "^3.7.0",
     "@astrojs/tailwind": "^6.0.2",
     "@splidejs/splide": "^4.1.4",
     "astro": "^5.16.3",
