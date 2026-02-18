@@ -6,12 +6,12 @@
   "associatedArtists": ["goulnara-galimchina"],
   "content": {
     "audio": {
-      "baseUrl": "https://audio.dagklassical.com/protected/audio/goulnara-galimchina-schubert-d960-d780/",
+      "baseUrl": "https://audio.dagklassical.com/stream/goulnara-galimchina-schubert/",
       "format": "flac",
       "quality": "24/192"
     },
     "score": {
-      "url": "https://audio.dagklassical.com/protected/audio/goulnara-galimchina-schubert-d960-d780/goulnara-partitura.pdf",
+      "url": "https://audio.dagklassical.com/protected/audio/goulnara-galimchina-schubert/goulnara-partitura.pdf",
       "format": "pdf",
       "signed": true
     }
@@ -26,7 +26,7 @@
   },
   "metadata": {
     "uuid": "urn:uuid:61664f00-0000-0000-0000-000000000001",
-    "timestamp": "2022-11-15T14:30:00Z",
+    "timestamp": "2022-01-31T00:00:00Z",
     "operator": "cto@dagklassical.com"
   }
 }

@@ -24,6 +24,9 @@ const breadcrumbs = generateBreadcrumbs(Astro.url.pathname);
       rel="stylesheet"
     />
 
+    <!--- Detección + flac.js como fallback --->
+    <script src="https://cdn.jsdelivr.net/npm/flac.js@0.0.7/dist/flac.min.js" defer></script>
+
     <!-- Asegúrate de que Tailwind u otros estilos estén configurados en astro.config.mjs -->
   </head>
   <body class="font-['Montserrat'] min-h-screen bg-gray95 text-slate-900 flex flex-col">
