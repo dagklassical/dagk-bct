@@ -243,332 +243,99 @@ const releaseMeta = release.data;
   </div>
 
   <script define:vars={{ tracksJson }}>
-  document.addEventListener('DOMContentLoaded', () => {
-    const tracks = JSON.parse(tracksJson);
-    let currentTrackIndex = -1;
-    let sound = null;
-    let isPlaying = false;
-    let useFlacJS = false;
-    let audioContext = null;
-    let currentSource = null;
-    
-    // === Detección de soporte FLAC nativo ===
-    function supportsFlacNative() {
-      const audio = document.createElement('audio');
-      return audio.canPlayType('audio/flac') !== '' || 
-             audio.canPlayType('audio/x-flac') !== '';
-    }
-    
-    // === Detección de Safari/iOS ===
-    function isSafariOrIOS() {
-      const ua = navigator.userAgent;
-      return /iPad|iPhone|iPod/.test(ua) || 
-             (/Mac/.test(ua) && 'ontouchend' in document);
-    }
-    
-    // Usar flac.js si es Safari/iOS o no soporta FLAC nativo
-    if (isSafariOrIOS() || !supportsFlacNative()) {
-      useFlacJS = true;
-      console.log('🍎 Safari/iOS detectado - usando flac.js');
-    } else {
-      console.log('✅ FLAC nativo soportado');
-    }
-    
-    const playPauseBtn = document.getElementById('play-pause-btn');
-    const playIcon = document.getElementById('play-icon');
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
-    const currentTrackEl = document.getElementById('current-track');
-    const currentTimeEl = document.getElementById('current-time');
-    const totalTimeEl = document.getElementById('total-time');
-    const progressBar = document.getElementById('progress-bar');
-    const progressContainer = document.getElementById('progress-container');
-    const audioPlayer = document.getElementById('fixed-player');
-    
-    function formatTime(secs) {
-      const minutes = Math.floor(secs / 60) || 0;
-      const seconds = Math.floor(secs - minutes * 60) || 0;
-      return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
-    }
-    
-    function updateProgress() {
-      if (useFlacJS) {
-        // flac.js no tiene progreso preciso en streaming, usar estimado
-        if (isPlaying) {
-          requestAnimationFrame(updateProgress);
+    document.addEventListener('DOMContentLoaded', () => {
+      const tracks = JSON.parse(tracksJson);
+      let currentTrackIndex = -1;
+      const trackNameElement = document.getElementById('current-track');
+
+      function playTrack(index) {
+        if (index < 0 || index >= tracks.length || !tracks[index].file) return;
+        
+        const audioPlayer = document.getElementById('fixed-player');
+        if (!(audioPlayer instanceof HTMLAudioElement)) return;
+        
+        audioPlayer.src = tracks[index].file;
+        audioPlayer.load();
+        audioPlayer.play().catch(err => console.warn('Reproducción fallida:', err));
+        
+        if (trackNameElement) {
+          trackNameElement.textContent = `${index + 1}. ${tracks[index].title}`;
         }
-        return;
+        currentTrackIndex = index;
+      }
+
+      // Navegación
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+      
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          if (currentTrackIndex > 0) playTrack(currentTrackIndex - 1);
+        });
       }
       
-      if (audioPlayer && audioPlayer.duration) {
-        const seek = audioPlayer.currentTime || 0;
-        const duration = audioPlayer.duration || 0;
-        currentTimeEl.textContent = formatTime(seek);
-        totalTimeEl.textContent = formatTime(duration);
-        
-        if (duration > 0) {
-          const percent = (seek / duration) * 100;
-          progressBar.style.width = percent + '%';
-        }
-        
-        if (isPlaying) {
-          requestAnimationFrame(updateProgress);
-        }
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          if (currentTrackIndex < tracks.length - 1) playTrack(currentTrackIndex + 1);
+        });
       }
-    }
-    
-    function setActiveTrack(index) {
-      document.querySelectorAll('#tracklist li').forEach(function(li) {
-        li.classList.remove('bg-dag-burgundy/10');
+
+      // Tracklist
+      document.querySelectorAll('button[data-track-index]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const target = e.currentTarget;
+          if (!(target instanceof Element)) return;
+          
+          const indexStr = target.getAttribute('data-track-index');
+          if (indexStr === null) return;
+          
+          const index = parseInt(indexStr, 10);
+          if (!isNaN(index)) playTrack(index);
+        });
       });
-      
-      const activeLi = document.querySelector('[data-track-index="' + index + '"]');
-      if (activeLi) {
-        activeLi.classList.add('bg-dag-burgundy/10');
-      }
-    }
-    
-    function playTrack(index) {
-      if (index < 0 || index >= tracks.length || !tracks[index].file) return;
-      
-      currentTrackIndex = index;
-      
-      if (useFlacJS && typeof FLAC !== 'undefined') {
-        // === Reproducción con flac.js (fallback para Safari/iOS) ===
-        console.log('Reproduciendo con flac.js:', tracks[index].file);
-        
-        // Detener reproducción anterior si existe
-        if (currentSource) {
-          try { currentSource.stop(); } catch(e) {}
-          currentSource = null;
-        }
-        if (audioContext && audioContext.state === 'running') {
-          audioContext.suspend();
-        }
-        
-        // Mostrar estado de carga
-        currentTrackEl.textContent = (index + 1) + '. ' + tracks[index].title + ' (cargando...)';
-        
-        fetch(tracks[index].file)
-          .then(response => {
-            if (!response.ok) throw new Error('HTTP ' + response.status);
-            return response.arrayBuffer();
-          })
-          .then(arrayBuffer => {
-            return FLAC.decode(arrayBuffer);
-          })
-          .then(audioBuffer => {
-            // Inicializar AudioContext si no existe
-            if (!audioContext) {
-              audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            }
-            
-            // Crear buffer source
-            const source = audioContext.createBufferSource();
-            source.buffer = audioBuffer;
-            source.connect(audioContext.destination);
-            
-            // Guardar referencia para control
-            currentSource = source;
-            
-            // Actualizar UI
-            isPlaying = true;
-            playIcon.textContent = '⏸';
-            currentTrackEl.textContent = (index + 1) + '. ' + tracks[index].title;
-            setActiveTrack(index);
-            totalTimeEl.textContent = formatTime(audioBuffer.duration);
-            updateProgress();
-            
-            // Manejar fin de pista
-            source.onended = () => {
-              isPlaying = false;
-              playIcon.textContent = '▶';
-              progressBar.style.width = '0%';
-              if (currentTrackIndex < tracks.length - 1) {
-                playTrack(currentTrackIndex + 1);
-              }
-            };
-            
-            // Iniciar reproducción
-            if (audioContext.state === 'suspended') {
-              audioContext.resume().then(() => source.start(0));
-            } else {
-              source.start(0);
-            }
-          })
-          .catch(err => {
-            console.error('Error con flac.js:', err);
-            currentTrackEl.textContent = 'Error al cargar';
-            isPlaying = false;
-            playIcon.textContent = '▶';
-          });
-          
-      } else {
-        // === Reproducción nativa (Chrome/Firefox/Edge) ===
-        if (audioPlayer instanceof HTMLAudioElement) {
-          // Detener flac.js si estaba activo
-          if (currentSource) {
-            try { currentSource.stop(); } catch(e) {}
-            currentSource = null;
+
+      // Scroll suave
+      const heroCta = document.getElementById('hero-cta');
+      if (heroCta) {
+        heroCta.addEventListener('click', (e) => {
+          e.preventDefault();
+          const target = document.getElementById('descargas-section');
+          if (target) {
+            const offsetTop = target.offsetTop - 85;
+            window.scrollTo({ top: offsetTop, behavior: 'smooth' });
           }
-          
-          audioPlayer.src = tracks[index].file;
-          audioPlayer.load();
-          
-          audioPlayer.play().catch(err => {
-            console.warn('Reproducción nativa fallida:', err);
-            // Fallback automático a flac.js si está disponible
-            if (typeof FLAC !== 'undefined') {
-              console.log('Fallback a flac.js');
-              useFlacJS = true;
-              playTrack(index);
-            }
-          });
-          
-          audioPlayer.onloadedmetadata = () => {
-            totalTimeEl.textContent = formatTime(audioPlayer.duration);
-          };
-          
-          audioPlayer.ontimeupdate = () => {
-            currentTimeEl.textContent = formatTime(audioPlayer.currentTime);
-            if (audioPlayer.duration) {
-              const percent = (audioPlayer.currentTime / audioPlayer.duration) * 100;
-              progressBar.style.width = percent + '%';
-            }
-          };
-          
-          audioPlayer.onended = () => {
-            isPlaying = false;
-            playIcon.textContent = '▶';
-            progressBar.style.width = '0%';
-            if (currentTrackIndex < tracks.length - 1) {
-              playTrack(currentTrackIndex + 1);
-            }
-          };
-          
-          isPlaying = true;
-          playIcon.textContent = '⏸';
-          currentTrackEl.textContent = (index + 1) + '. ' + tracks[index].title;
-          setActiveTrack(index);
-          updateProgress();
-        }
+        });
       }
-    }
-    
-    function togglePlay() {
-      if (currentTrackIndex === -1) {
-        if (tracks.length > 0) playTrack(0);
-        return;
-      }
+
+      // Fade in/out biografía
+      const toggleBtn = document.getElementById('toggle-bio-btn');
+      const bioContainer = document.getElementById('full-bio-container');
+      const bioText = document.getElementById('bio-toggle-text');
+      const arrow = document.getElementById('bio-arrow');
       
-      if (useFlacJS) {
-        // flac.js: no tiene pause nativo, detener y reiniciar
-        if (isPlaying && currentSource) {
-          try { currentSource.stop(); } catch(e) {}
-          currentSource = null;
-          isPlaying = false;
-          playIcon.textContent = '▶';
-        } else {
-          playTrack(currentTrackIndex);
-        }
-      } else {
-        // Reproducción nativa
-        if (audioPlayer instanceof HTMLAudioElement) {
-          if (isPlaying) {
-            audioPlayer.pause();
-            isPlaying = false;
-            playIcon.textContent = '▶';
+      if (toggleBtn && bioContainer && bioText && arrow) {
+        toggleBtn.addEventListener('click', () => {
+          const isExpanded = bioContainer.style.maxHeight !== '0px';
+          
+          if (!isExpanded) {
+            const content = bioContainer.querySelector('div');
+            const height = content ? content.scrollHeight : 0;
+            bioContainer.style.maxHeight = height + 'px';
+            bioContainer.style.opacity = '1';
+            bioContainer.style.paddingTop = '0.75rem';
+            bioContainer.style.paddingBottom = '0.75rem';
+            bioText.textContent = 'Ver menos';
+            arrow.style.transform = 'rotate(180deg)';
           } else {
-            audioPlayer.play();
-            isPlaying = true;
-            playIcon.textContent = '⏸';
+            bioContainer.style.maxHeight = '0';
+            bioContainer.style.opacity = '0';
+            bioContainer.style.paddingTop = '0';
+            bioContainer.style.paddingBottom = '0';
+            bioText.textContent = 'Ver historia exclusiva de esta obra';
+            arrow.style.transform = 'rotate(0deg)';
           }
-        }
+        });
       }
-    }
-    
-    // Event listeners para controles
-    if (playPauseBtn) {
-      playPauseBtn.addEventListener('click', togglePlay);
-    }
-    
-    if (prevBtn) {
-      prevBtn.addEventListener('click', () => {
-        if (currentTrackIndex > 0) {
-          playTrack(currentTrackIndex - 1);
-        }
-      });
-    }
-    
-    if (nextBtn) {
-      nextBtn.addEventListener('click', () => {
-        if (currentTrackIndex < tracks.length - 1) {
-          playTrack(currentTrackIndex + 1);
-        }
-      });
-    }
-    
-    // Progress bar click (solo para reproducción nativa)
-    if (progressContainer && !useFlacJS) {
-      progressContainer.addEventListener('click', (e) => {
-        if (!audioPlayer) return;
-        const rect = progressContainer.getBoundingClientRect();
-        const percent = (e.clientX - rect.left) / rect.width;
-        audioPlayer.currentTime = audioPlayer.duration * percent;
-      });
-    }
-    
-    // Tracklist click handlers
-    document.querySelectorAll('#tracklist li').forEach(function(li) {
-      li.addEventListener('click', function() {
-        const index = parseInt(this.dataset.trackIndex);
-        if (!isNaN(index)) {
-          playTrack(index);
-        }
-      });
     });
-    
-    // Hero CTA smooth scroll
-    const heroCta = document.getElementById('hero-cta');
-    if (heroCta) {
-      heroCta.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.getElementById('descargas-section');
-        if (target) {
-          const offsetTop = target.offsetTop - 85;
-          window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-        }
-      });
-    }
-    
-    // Bio toggle animation
-    const toggleBtn = document.getElementById('toggle-bio-btn');
-    const bioContainer = document.getElementById('full-bio-container');
-    const bioText = document.getElementById('bio-toggle-text');
-    const arrow = document.getElementById('bio-arrow');
-    
-    if (toggleBtn && bioContainer && bioText && arrow) {
-      toggleBtn.addEventListener('click', () => {
-        const isExpanded = bioContainer.style.maxHeight !== '0px';
-        
-        if (!isExpanded) {
-          const content = bioContainer.querySelector('div');
-          bioContainer.style.maxHeight = content ? content.scrollHeight + 'px' : '500px';
-          bioContainer.style.opacity = '1';
-          bioContainer.style.paddingTop = '0.75rem';
-          bioContainer.style.paddingBottom = '0.75rem';
-          bioText.textContent = 'Ver menos';
-          arrow.style.transform = 'rotate(180deg)';
-        } else {
-          bioContainer.style.maxHeight = '0';
-          bioContainer.style.opacity = '0';
-          bioContainer.style.paddingTop = '0';
-          bioContainer.style.paddingBottom = '0';
-          bioText.textContent = 'Ver historia exclusiva de esta obra';
-          arrow.style.transform = 'rotate(0deg)';
-        }
-      });
-    }
-  });
-</script>
+  </script>
 </Layout>

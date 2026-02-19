@@ -17,7 +17,7 @@
   "descriptionLong": "",
   "coverImage": "/covers/cover-schubert-01.webp",
   "demoAvailable": true,
-  "fullAlbumAvailable": true,
+  "fullAlbumAvailable": false,
   "sheetMusicAvailable": false,
   "platforms": {
     "spotify": "https://open.spotify.com/album/4N42gl9w4gZY4IyLElsKYi?go=1&nd=1&dlsi=d87d58eb297a4c0b",
