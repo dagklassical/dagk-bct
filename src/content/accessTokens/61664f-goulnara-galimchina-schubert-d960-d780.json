@@ -6,7 +6,7 @@
   "associatedArtists": ["goulnara-galimchina"],
   "content": {
     "audio": {
-      "baseUrl": "https://audio.dagklassical.com/protected/audio/goulnara-galimchina-schubert-d960-d780/",
+      "baseUrl": "https://audio.dagklassical.com/stream/goulnara-galimchina-schubert/",
       "format": "flac",
       "quality": "24/192"
     },
