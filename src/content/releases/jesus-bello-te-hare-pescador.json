@@ -1,53 +1,110 @@
 {
   "id": "jesus-bello-te-hare-pescador",
-  "workTitle": "Tema con Variazioni in Dm",
-  "composer": "Marin Marais",
-  "performers": [
-    "Frank Di Polo",
-    "Rubén Riera"
-  ],
-  "title": "Tema con Variazioni in Dm",
-  "artistIds": [
-    "frank-di-polo",
-    "ruben-riera"
-  ],
-  "genre": "barroco-frances",
+  "workTitle": "Te Haré Pescador",
+  "composer": "Jesús Aníbal Bello",
+  "performers": ["Jesús Aníbal Bello"],
+  "title": "Te Haré Pescador",
+  "artistIds": ["jesus-anibal-bello"],
+  "genre": "música-cristiana",
   "releaseDate": "2023-10-15",
   "type": "álbum",
   "status": "lanzado",
-  "description": "\"Tema con Variazioni in Dm\" de Marin Marais revive bajo las manos maestras de Frank Di Polo en viola y Rubén Riera en tiorba. Esta joya del barroco francés, grabada en 2023 con producción de Danilo Álvarez, teje un diálogo entre épocas donde la elegancia histórica se encuentra con la sensibilidad latinoamericana. En DAG KLASSICAL, cada variación se preserva inmutable en blockchain, transformando esta conversación musical entre maestros en un legado cultural eterno.",
-  "descriptionLong": "Tema con Variazioni in Dm: Donde el Barroco Francés se Acerca a Venezuela.\n\nLa obra maestra de Marin Marais (1656-1728), uno de los más grandes compositores para viola da gamba de la historia, encuentra una nueva vida en las manos de dos leyendas venezolanas. Frank Di Polo, con su viola, y Rubén Riera, con su tiorba, recrean el \"Tema con variazioni en Re menor\" con una sensibilidad que trasciende el tiempo. Esta grabación de 2023, producida por Danilo Álvarez, no es simplemente una interpretación histórica, sino un puente sonoro entre la corte francesa del siglo XVII y la profundidad musical latinoamericana.\n\nLa elección de este repertorio no es casual. Marin Marais, discípulo de Lully y maestro del barroco francés, compuso esta pieza como un ejercicio de virtuosismo y expresión emocional. Di Polo y Riera, con su perfecto acoplamiento y dominio técnico, revelan cada matiz de las variaciones, donde la viola canta con una voz cálida y la tiorba responde con armonías que evocan salones iluminados por velas. Su interpretación honra la elegancia francesa mientras infunde un alma latinoamericana que convierte cada nota en una conversación entre culturas.\n\nEn DAG KLASSICAL, esta grabación se convierte en patrimonio cultural inmutable. La tecnología blockchain asegura que la maestría de estos dos músicos venezolanos, herederos de El Sistema y guardianes de la tradición clásica, permanezca accesible para generaciones futuras. Cada variación, cada respiración entre las frases musicales, se preserva con la misma nitidez que la noche de su grabación, transformando lo efímero en eterno. Esta obra no solo celebra el genio de Marais, sino el legado de dos artistas que han dedicado sus vidas a construir puentes sonoros entre épocas y continentes.",
-  "coverImage": "/covers/cover-dipolo-riera-tema-con-variazioni-01.webp",
-  "demoAvailable": false,
+  "description": "\"Te Haré Pescador\" es un álbum de adoración cristiana compuesto e interpretado por el Presbítero Salesiano Jesús Aníbal Bello. Nueve cantos de fe que nacen del corazón pastoral y resuenan con la espiritualidad venezolana, grabados con producción de Danilo Álvarez en Mansa Studio®.",
+  "descriptionLong": "Te Haré Pescador: Fe que se Hace Canción\n\nEl Presbítero Jesús Aníbal Bello, sacerdote salesiano venezolano, transforma su ministerio pastoral en melodía con este álbum de adoración cristiana. Cada canto nace de años de servicio comunitario en Puerto La Cruz, Táriba y Valera, donde la fe se vive en encuentro con el pueblo.\n\n\"Bendita Sangre\", \"Me Siento Amado\", \"Yawhe\" y las demás piezas de este álbum no son solo canciones: son oraciones cantadas, himnos de esperanza …la sensibilidad de quien ha caminado junto a su comunidad. La producción de Danilo Álvarez captura la calidez de la voz del padre Bello y la intimidad de cada interpretación, preservando la autenticidad de un ministerio que se expresa en música.\n\nEn DAG KLASSICAL, este álbum se convierte en patrimonio espiritual inmutable. La tecnología blockchain asegura que estos cantos de fe permanezcan accesibles para generaciones futuras, transformando lo efímero de una interpretación en legado eterno.",
+  "coverImage": "/covers/cover-bello-te-hare-pescador.webp",
+  "demoBasePath": "jesus-anibal-bello/te-hare-pescador",
+  "demoAvailable": true,
   "fullAlbumAvailable": true,
   "sheetMusicAvailable": false,
   "platforms": {
-    "spotify": "https://open.spotify.com/intl-es/track/1fCKRxLdh4OTWX10wtAJjw?si=fd6e29a4ce82478f",
-    "apple": "https://classical.music.apple.com/au/album/1688401696",
-    "youtube": "https://www.youtube.com/watch?v=1v5ayuz2raM",
+    "spotify": null,
+    "apple": null,
+    "youtube": "https://www.youtube.com/@padre.anibalbello",
     "tidal": null,
     "deezer": null
   },
   "tracks": [
     {
-      "number": "001",
-      "title": "Tema con Variazioni in Dm",
-      "duration": "26:40",
-      "demo": null,
-      "protected": null,
-      "composer": "Marin Marais",
+      "title": "Bendita Sangre",
+      "duration": "4:47",
+      "demoFile": "001-bello-pescador-bendita-sangre-demo.mp3",
+      "protected": "001-bello-pescador-bendita-sangre.flac",
+      "composer": "Jesús Aníbal Bello",
+      "workCatalogue": null
+    },
+    {
+      "title": "Bendito Sea Dios",
+      "duration": "1:17",
+      "demoFile": "002-bello-pescador-bendito-sea-dios-demo.mp3",
+      "protected": "002-bello-pescador-bendito-sea-dios.flac",
+      "composer": "Jesús Aníbal Bello",
+      "workCatalogue": null
+    },
+    {
+      "title": "Me Siento Amado",
+      "duration": "2:43",
+      "demoFile": "003-bello-pescador-me-siento-amado-demo.mp3",
+      "protected": "003-bello-pescador-me-siento-amado.flac",
+      "composer": "Jesús Aníbal Bello",
+      "workCatalogue": null
+    },
+    {
+      "title": "Mi Mayor Riqueza",
+      "duration": "3:52",
+      "demoFile": "004-bello-pescador-mi-mayor-riqueza-demo.mp3",
+      "protected": "004-bello-pescador-mi-mayor-riqueza.flac",
+      "composer": "Jesús Aníbal Bello",
+      "workCatalogue": null
+    },
+    {
+      "title": "Quiero Contemplarte",
+      "duration": "3:35",
+      "demoFile": "005-bello-pescador-quiero-comtemplarte-demo.mp3",
+      "protected": "005-bello-pescador-quiero-comtemplarte.flac",
+      "composer": "Jesús Aníbal Bello",
+      "workCatalogue": null
+    },
+    {
+      "title": "Repiquen las Campanas",
+      "duration": "4:28",
+      "demoFile": "006-bello-pescador-repiquen-las-campanas-demo.mp3",
+      "protected": "006-bello-pescador-repiquen-las-campanas.flac",
+      "composer": "Jesús Aníbal Bello",
+      "workCatalogue": null
+    },
+    {
+      "title": "Unción Divina",
+      "duration": "3:58",
+      "demoFile": "007-bello-pescador-unción-divina-demo.mp3",
+      "protected": "007-bello-pescador-unción-divina.flac",
+      "composer": "Jesús Aníbal Bello",
+      "workCatalogue": null
+    },
+    {
+      "title": "Vengo Ante Ti",
+      "duration": "4:05",
+      "demoFile": "008-bello-pescador-vengo-ante-ti-demo.mp3",
+      "protected": "008-bello-pescador-vengo-ante-ti.flac",
+      "composer": "Jesús Aníbal Bello",
+      "workCatalogue": null
+    },
+    {
+      "title": "Yawhe",
+      "duration": "3:01",
+      "demoFile": "009-bello-pescador-yawhe-demo.mp3",
+      "protected": "009-bello-pescador-yawhe.flac",
+      "composer": "Jesús Aníbal Bello",
       "workCatalogue": null
     }
   ],
-  "duration": "26:40",
-  "commentary": "Una joya del barroco francés reinterpretada con sensibilidad venezolana. La elegancia de Marais se funde con el alma latinoamericana de Di Polo y Riera.",
+  "duration": "3145",
+  "commentary": "Cantos de fe que nacen del corazón pastoral del Presbítero Jesús Aníbal Bello.",
   "commentaryAuthor": "DAG Klassical",
   "musicCards": [],
   "metadata": {
-    "uuid": "urn:uuid:99c14df8-ba36-42c0-ad62-55c077924dde",
-    "timestamp": "2025-11-27T18:00:00Z",
+    "uuid": "urn:uuid:37a96f15-2ac2-4e1f-8ab0-49a5f681d868",
+    "timestamp": "2024-02-16T00:00:00Z",
     "operator": "cto@dagklassical.com"
   },
-  "bioExtended": null,
-  "demoBasePath": "jesus-anibal-bello/te-hare-pescador"
+  "bioExtended": "El Presbítero Jesús Aníbal Bello: Un Ministerio que Canta\n\nMás allá de su labor pastoral, el padre Bello ha encontrado en la música un lenguaje universal para transmitir esperanza. \"Te Haré Pescador\" no es un proyecto discográfico convencional: es el fruto de décadas de escucha activa, de acompañar a familias en momentos de alegría y dolor, de celebrar la vida en comunidades que han aprendido a confiar en su guía.\n\nCada canción de este álbum refleja una faceta de su ministerio: la gratitud en \"Bendito Sea Dios\", la consolación en \"Me Siento Amado\", la contemplación en \"Quiero Contemplarte\", la celebración en \"Repiquen las Campanas\". No hay virtuosismo técnico buscado por sí mismo; hay sinceridad, hay presencia, hay fe hecha melodía.\n\nEste álbum es, en esencia, una invitación: a detenerse, a respirar, a recordar que, en medio del ruido del mundo, siempre hay una voz que canta: \"Te haré pescador de hombres\". Y esa voz, hoy, es la del padre Bello."
 }

@@ -1,0 +1,27 @@
+{
+  "id": "2ac24e-jesus-bello-te-hare-pescador",
+  "type": "album",
+  "status": "active",
+  "associatedRelease": "jesus-bello-te-hare-pescador",
+  "associatedArtists": ["jesus-anibal-bello"],
+  "content": {
+    "audio": {
+      "baseUrl": "https://audio.dagklassical.com/stream/jesus-bello-pescador/",
+      "format": "flac",
+      "quality": "24/192"
+    }
+  },
+  "access": {
+    "method": "token_url"
+  },
+  "theme": {
+    "heroImage": "https://audio.dagklassical.com/images/heros/hero-bello-pescador.webp",
+    "fallbackHero": "/hero/hero-bello-pescador.webp",
+    "primaryColor": "#800020"
+  },
+  "metadata": {
+    "uuid": "urn:uuid:f9b1a668-1a66-4c89-a44a-c37a95ad77bd",
+    "timestamp": "2024-02-16T00:00:00Z",
+    "operator": "cto@dagklassical.com"
+  }
+}

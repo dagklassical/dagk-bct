@@ -55,6 +55,17 @@ const albumInfo = {
   })) || []
 };
 
+// DEBUG: Verificar cadena de datos
+console.log('🔍 Debug Jesús Aníbal Bello:', {
+  accessTokenId: accessToken?.data?.id,
+  associatedArtists: accessToken?.data?.associatedArtists,
+  artistsDataCount: artistsData?.length,
+  foundArtist: artistsData?.find(a => a.data.id === 'jesus-anibal-bello')?.data?.id,
+  primaryArtist: primaryArtist?.data?.id,
+  bioShort: albumInfo.bioShort?.slice(0, 50) + '...',
+  bioExtended: albumInfo.bioExtended?.slice(0, 50) + '...'
+});
+
 const tracksJson = JSON.stringify(albumInfo.tracks);
 const tokenMeta = accessToken.data;
 const releaseMeta = release.data;

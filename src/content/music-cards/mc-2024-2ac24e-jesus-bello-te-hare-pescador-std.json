@@ -1,0 +1,39 @@
+{
+  "id": "mc-2024-2ac24e-jesus-bello-te-hare-pescador-std",
+  "title": "Te Haré Pescador",
+  "workTitle": "Te Haré Pescador",
+  "composer": "Jesús Aníbal Bello",
+  "artist": "Jesús Aníbal Bello",
+  "performers": ["Jesús Aníbal Bello"],
+  "edition": "Estándar",
+  "associatedRelease": "jesus-bello-te-hare-pescador",
+  "totalSupply": 100,
+  "available": 100,
+  "blockchain": "Polygon",
+  "tokenId": "3001",
+  "price": "0.12 MATIC",
+  "status": "disponible",
+  "workType": "Álbum de adoración cristiana",
+  "benefits": [
+    "Audio FLAC 24-bit/192kHz",
+    "Acceso a lanzamiento exclusivo",
+    "Contenido detrás de cámaras",
+    "Metadatos inmutables en blockchain"
+  ],
+  "cardImage": "/cards/mc-2024-jesus-te-hare-pescador.webp",
+  "socialLinks": [
+    {
+      "platform": "YouTube",
+      "url": "https://www.youtube.com/@padre.anibalbello"
+    },
+    {
+      "platform": "Facebook",
+      "url": "https://www.facebook.com/padre.anibalbello"
+    }
+  ],
+  "metadata": {
+    "uuid": "urn:uuid:37a96f15-2ac2-4e1f-8ab0-49a5f681d868",
+    "timestamp": "2024-02-16T00:00:00Z",
+    "operator": "cto@dagklassical.com"
+  }
+}
