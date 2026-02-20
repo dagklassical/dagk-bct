@@ -10,95 +10,109 @@ const breadcrumbs = [
 ];
 ---
 
-<Layout title="Tecnología Blockchain | DAG Klassical" description="Descubre la tecnología detrás de DAG Klassical: Polygon, NFTs y nuestros innovadores MFTs, diseñados para revolucionar la industria musical." breadcrumbs={breadcrumbs}>
+<Layout 
+  title="Tecnología Blockchain | DAG Klassical" 
+  description="Descubre la tecnología detrás de DAG Klassical: Polygon, NFTs y nuestros CATs, llaves de acceso al catálogo musical preservado en blockchain." 
+  breadcrumbs={breadcrumbs}
+>
   <!-- ===================================
          HERO
          =================================== -->
   <header class="text-center mb-8 py-6 bg-white">
     <h1 class="text-h1 font-advent">Tecnología al Servicio del Arte</h1>
     <p class="text-dag-burgundy mt-2">
-      Con blockchain un ecosistema musical más transparente, justo y conectado.
+      Con blockchain, construimos un ecosistema musical más transparente, justo y conectado.
     </p>
   </header>     
 
-<!-- ===================================
-     SECCIÓN 1: ¿Por qué Polygon?
-     =================================== -->
-<section class="py-16 bg-gray95">
-  <div class="max-w-5xl mx-auto px-4">
-    <!-- Contenedor flex con dos columnas -->
-    <div class="flex flex-col md:flex-row gap-8 items-start">
-
-      <!-- Columna izquierda: texto -->
-      <div class="md:w-2/3 bg-white p-6 rounded-lg">
-        <h2 class="text-h2 font-advent font-semibold text-slate-900 mb-4">La Base de Nuestra Revolución</h2>
-        <p class="text-slate-700 mb-4">
-          Elegimos la red Polygon por su compromiso con la sostenibilidad, la velocidad y las bajas comisiones. Esto nos permite ofrecer una experiencia fluida y accesible, sin los altos costos y el impacto ambiental de otras blockchains.
-        </p>
-        <p class="text-slate-700">
-          Para nosotros, la tecnología debe ser un puente, no una barrera. Polygon es el puente perfecto para llevar la música clásica al futuro.
-        </p>
-      </div>
-
-      <!-- Columna derecha: imagen -->
-      <div class="md:w-1/3 flex justify-center items-start">
-        <picture>
-          <source srcset="/images/polygon-logo.webp" type="image/webp" />
-          <img 
-            src="/images/polygon-logo.webp" 
-            alt="Powered by Polygon"
-            class="w-270px h-auto object-contain"
-          />
-        </picture>
-      </div>
-
-    </div>
-  </div>
-</section>
-
   <!-- ===================================
-         SECCIÓN 2: NFT vs MFT (FONDO COMPLETO)
-         =================================== -->
-  <section class="py-16 bg-platinum">
-    <div class="max-w-6xl mx-auto px-4">
-      <SectionHeader 
-        title="Más Allá del NFT: Introduciendo los MFT"
-        subtitle="Mientras que los NFTs son perfectos para lo único, utilizamos los MFTs (Music Fungible Tokens) para representar activos colectivos e intercambiables."
-      />
-
-      <div class="grid md:grid-cols-2 gap-8 mx-16">
-        <!-- Tarjeta NFT -->
-        <div class="bg-white p-6 rounded-lg border-2 border-slate-200">
-          <h3 class="font-bold text-h3 mb-3 text-slate-900">NFTs (No Fungible Tokens)</h3>
+       SECCIÓN 1: ¿Por qué Polygon?
+       =================================== -->
+  <section class="py-16 bg-gray95">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="flex flex-col md:flex-row gap-8 items-start">
+        <!-- Columna izquierda: texto -->
+        <div class="md:w-2/3 bg-white p-6 rounded-lg">
+          <h2 class="text-h2 font-advent font-semibold text-slate-900 mb-4">La Base de Nuestra Revolución</h2>
           <p class="text-slate-700 mb-4">
-            Son activos digitales <strong class="font-semibold">únicos e irremplazables</strong>. Ideales para certificar la propiedad de items exclusivos.
+            Elegimos la red Polygon por su compromiso con la sostenibilidad, la velocidad y las bajas comisiones. Esto nos permite ofrecer una experiencia fluida y accesible, sin los altos costos y el impacto ambiental de otras blockchains.
           </p>
-          <ul class="space-y-2 text-sm text-slate-600">
-            <li>✓ Una entrada específica para un concierto.</li>
-            <li>✓ La partitura original firmada por un compositor.</li>
-            <li>✓ Un cover art único de un álbum.</li>
-          </ul>
+          <p class="text-slate-700">
+            Para nosotros, la tecnología debe ser un puente, no una barrera. Polygon es el puente perfecto para llevar la música clásica al futuro.
+          </p>
         </div>
 
-        <!-- Tarjeta MFT -->
-        <div class="bg-dag-burgundy/10 p-6 rounded-lg">
-          <h3 class="font-bold text-h3 mb-3 text-dag-burgundy">MFTs (Music Fungible Tokens)</h3>
-          <p class="text-slate-700 mb-4">
-            Son tokens <strong class="font-semibold">intercambiables e idénticos</strong> entre sí. Perfectos para representar acciones o derechos compartidos.
-          </p>
-          <ul class="space-y-2 text-sm text-slate-600">
-            <li>✓ Derechos sobre las regalías de una canción.</li>
-            <li>✓ Una porción de los ingresos de un tour.</li>
-            <li>✓ Acceso a una suscripción de contenido.</li>
-          </ul>
+        <!-- Columna derecha: imagen -->
+        <div class="md:w-1/3 flex justify-center items-start">
+          <picture>
+            <source srcset="/images/polygon-logo.webp" type="image/webp" />
+            <img 
+              src="/images/polygon-logo.webp" 
+              alt="Powered by Polygon"
+              class="w-270px h-auto object-contain"
+            />
+          </picture>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ===================================
-         SECCIÓN 3: Cómo Funciona
-         =================================== -->
+       SECCIÓN 2: NFT vs CAT (FONDO COMPLETO)
+       =================================== -->
+  <section class="py-16 bg-platinum">
+    <div class="max-w-6xl mx-auto px-4">
+      <SectionHeader 
+        title="Más Allá de lo Único: Dos Formas de Pertenecer"
+        subtitle="En DAG Klassical, cada obra merece el tipo de vínculo que la honra. Por eso ofrecemos dos caminos de coleccionismo, ambos certificados en blockchain."
+      />
+
+      <div class="grid md:grid-cols-2 gap-8 mx-16">
+        <!-- Tarjeta NFT / Music Cards -->
+        <div class="bg-white p-6 rounded-lg border-2 border-slate-200">
+          <h3 class="font-bold text-h3 mb-3 text-slate-900">🎼 Music Cards (NFTs)</h3>
+          <p class="text-slate-700 mb-4">
+            Activos digitales <strong class="font-semibold">únicos e irremplazables</strong>. Cada Music Card es un testimonio de que tú fuiste parte de esta obra.
+          </p>
+          <ul class="space-y-2 text-sm text-slate-600">
+            <li>✓ Una interpretación maestra en FLAC 24-bit/192kHz</li>
+            <li>✓ Partitura digital firmada por el compositor</li>
+            <li>✓ Tu nombre como coleccionista del ejemplar #37 de 101</li>
+          </ul>
+          <p class="mt-4 text-xs text-slate-500 italic">
+            *"Coleccionar una Music Card no es poseer un archivo. Es custodiar un momento de belleza que decidió hacerse eterno."*
+          </p>
+        </div>
+
+        <!-- Tarjeta CAT -->
+        <div class="bg-dag-burgundy/10 p-6 rounded-lg">
+          <h3 class="font-bold text-h3 mb-3 text-dag-burgundy">🔁 CATs (Cultural Access Tokens)</h3>
+          <p class="text-slate-700 mb-4">
+            Tokens fungibles (ERC-20 en Polygon) que funcionan como <strong class="font-semibold">llaves de acceso al catálogo cultural</strong>.
+          </p>
+          <ul class="space-y-2 text-sm text-slate-600">
+            <li>✓ Acceso a partituras con número de catálogo verificado (K., BWV, D., Op.)</li>
+            <li>✓ Suscripción a ensayos musicológicos o análisis de obras</li>
+            <li>✓ Entrada digital transferible para experiencias en vivo</li>
+          </ul>
+          <p class="mt-4 text-xs text-slate-500 italic">
+            *"Schubert tiene su D. Bach tiene su BWV. Tú tienes tu CAT."*
+          </p>
+        </div>
+      </div>
+
+      <!-- Nota académica: ¿Por qué "CAT"? -->
+      <div class="mt-8 bg-white/60 p-4 rounded-lg border border-platinum">
+        <p class="text-sm text-slate-700">
+          <strong class="text-dag-burgundy">¿Por qué "CAT"?</strong> En musicología, el número de catálogo es sagrado. Un <strong>CAT</strong> no es solo un token: es la llave que dice <em>"Esta obra está catalogada, preservada y accesible para ti."</em>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================
+       SECCIÓN 3: Cómo Funciona
+       =================================== -->
   <section class="py-16 bg-gray95">
     <div class="max-w-6xl mx-auto px-4">
       <SectionHeader 
@@ -111,17 +125,17 @@ const breadcrumbs = [
           <div>
             <div class="bg-white text-slate-900 text-3xl font-bold w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">1</div>
             <h3 class="font-bold text-lg mb-2">Creación</h3>
-            <p class="opacity-90">Un artista - o compañía musical - crea un activo (NFT o MFT) en nuestra plataforma, quedando registrado en la blockchain de Polygon.</p>
+            <p class="opacity-90">Un artista crea una Music Card (NFT) o emite CATs para acceso compartido. Cada activo queda registrado en Polygon con metadatos inmutables.</p>
           </div>
           <div>
             <div class="bg-white text-slate-900 text-3xl font-bold w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">2</div>
-            <h3 class="font-bold text-lg mb-2">Transacción</h3>
-            <p class="opacity-90">Tú, como fan o coleccionista, compras o intercambias ese activo de forma segura, transparente y con bajos costes.</p>
+            <h3 class="font-bold text-lg mb-2">Acceso</h3>
+            <p class="opacity-90">Tú, como coleccionista o investigador, accedes al contenido de forma segura, transparente y con bajas comisiones.</p>
           </div>
           <div>
             <div class="bg-white text-slate-900 text-3xl font-bold w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">3</div>
             <h3 class="font-bold text-lg mb-2">Verificación</h3>
-            <p class="opacity-90">La propiedad y el historial del activo son públicos y verificables por cualquiera, creando un ecosistema de confianza total.</p>
+            <p class="opacity-90">La propiedad, el historial y el número de catálogo de cada obra son públicos y verificables en Polygonscan. Confianza total, sin intermediarios.</p>
           </div>
         </div>
       </div>
@@ -129,21 +143,29 @@ const breadcrumbs = [
   </section>
 
   <!-- ===================================
-         SECCIÓN 4: Llamado a la acción
-         =================================== -->
+       SECCIÓN 4: Llamado a la acción
+       =================================== -->
   <section class="py-16 bg-gray95 text-center">
     <div class="max-w-6xl mx-auto px-4">
       <SectionHeader 
-        title="La Innovación a tu alcance"
-        subtitle="Explora nuestras Music Cards y descubre cómo esta tecnología está dando vida a nuevas formas de disfrutar, coleccionar y apoyar la música clásica."
+        title="La Innovación a tu Alcance"
+        subtitle="Explora nuestras Music Cards y CATs. Descubre cómo esta tecnología está dando vida a nuevas formas de disfrutar, estudiar y coleccionar la música clásica."
       />
 
-      <a
-        href="/blockchain/music-cards"
-        class="inline-block bg-dag-burgundy text-white text-lg font-semibold px-10 py-4 rounded-lg hover:bg-opacity-90 transition-all transform hover:scale-105"
-      >
-        Explorar Music Cards
-      </a>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mt-6">
+        <a
+          href="/blockchain/music-cards"
+          class="inline-block bg-dag-burgundy text-white text-lg font-semibold px-8 py-3 rounded-lg hover:bg-opacity-90 transition-all transform hover:scale-105"
+        >
+          Explorar Music Cards
+        </a>
+        <a
+          href="/blockchain/acceso"
+          class="inline-block bg-white text-dag-burgundy border-2 border-dag-burgundy text-lg font-semibold px-8 py-3 rounded-lg hover:bg-dag-burgundy/10 transition-all"
+        >
+          Validar un CAT
+        </a>
+      </div>
     </div>
   </section>
 </Layout>
