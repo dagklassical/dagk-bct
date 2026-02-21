@@ -1,0 +1,255 @@
+---
+// src/pages/blockchain/cats.astro
+import Layout from '../../../layouts/Layout.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+
+const breadcrumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Blockchain', href: '/blockchain/' },
+  { label: 'CATs', href: '/blockchain/cats/' },
+];
+---
+
+<Layout 
+  title="CATs | Cultural Access Tokens - DAG Klassical" 
+  description="Los CATs son llaves digitales para experiencias musicales compartidas: preventas, eventos, tickets y previews exclusivos." 
+  breadcrumbs={breadcrumbs}
+>
+  <!-- ===================================
+         HERO
+         =================================== -->
+  <header class="text-center mb-8 py-12 bg-white">
+    <h1 class="text-h1 font-advent">CATs</h1>
+    <p class="text-dag-burgundy mt-2 text-xl">
+      Cultural Access Token. Catalogue Access Token.
+    </p>
+    <p class="text-slate-600 mt-4 max-w-2xl mx-auto">
+      No son NFTs. No buscan ser únicos. Son llaves digitales para experiencias que se viven en comunidad.
+    </p>
+  </header>
+
+  <!-- ===================================
+       SECCIÓN 1: ¿Qué es un CAT?
+       =================================== -->
+  <section class="py-16 bg-gray95">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="bg-white p-8 rounded-lg shadow-lg">
+        <h2 class="text-h2 font-advent font-semibold text-slate-900 mb-6">¿Qué es un CAT?</h2>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="font-bold text-lg mb-3 text-dag-burgundy">Definición Técnica</h3>
+            <p class="text-slate-700 mb-4">
+              Un <strong>CAT (Cultural Access Token)</strong> es un token fungible (ERC-20) en la red Polygon. 
+              Es intercambiable, verificable y diseñado para acceder a experiencias compartidas.
+            </p>
+            <ul class="space-y-2 text-sm text-slate-600">
+              <li>✓ <strong>Estándar:</strong> ERC-20 en Polygon</li>
+              <li>✓ <strong>Transferible:</strong> Puedes compartirlo o venderlo</li>
+              <li>✓ <strong>Verificable:</strong> Todo el historial está en blockchain</li>
+              <li>✓ <strong>Temporal o permanente:</strong> Según lo defina el emisor</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="font-bold text-lg mb-3 text-dag-burgundy">¿Por qué "CAT"?</h3>
+            <p class="text-slate-700 mb-4">
+              En musicología, el <strong>número de catálogo</strong> es sagrado: Köchel (K.) para Mozart, 
+              BWV para Bach, D. para Schubert.
+            </p>
+            <p class="text-slate-700">
+              Un CAT es la llave que dice: <em>"Esta obra está catalogada, preservada y accesible para ti."</em>
+            </p>
+          </div>
+        </div>
+        
+        <div class="mt-6 p-4 bg-dag-burgundy/10 rounded-lg border border-dag-burgundy/30">
+          <p class="text-slate-700 italic">
+            *"Schubert tiene su D. Bach tiene su BWV. Tú tienes tu CAT."*
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================
+       SECCIÓN 2: Casos de Uso Reales
+       =================================== -->
+  <section class="py-16 bg-platinum">
+    <div class="max-w-6xl mx-auto px-4">
+      <SectionHeader 
+        title="Lo Que Ofrecemos Hoy"
+        subtitle="Los CATs no son promesas futuristas. Son herramientas que ya usamos para conectar artistas y audiencias."
+      />
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Preventa -->
+        <div class="bg-white p-6 rounded-lg border-2 border-slate-200 hover:border-dag-burgundy transition-colors">
+          <div class="text-4xl mb-4">🎫</div>
+          <h3 class="font-bold text-lg mb-3 text-slate-900">Preventas Exclusivas</h3>
+          <p class="text-slate-700 text-sm">
+            Acceso anticipado a nuevas Music Cards antes del lanzamiento público. Solo para poseedores de CATs.
+          </p>
+          <p class="text-xs text-slate-500 mt-4 italic">Ej: Pre-venta de la próxima Music Card de Gerardo Gerulewicz</p>
+        </div>
+
+        <!-- Tickets -->
+        <div class="bg-white p-6 rounded-lg border-2 border-slate-200 hover:border-dag-burgundy transition-colors">
+          <div class="text-4xl mb-4">🎟️</div>
+          <h3 class="font-bold text-lg mb-3 text-slate-900">Tickets Digitales</h3>
+          <p class="text-slate-700 text-sm">
+            Entradas verificables para conciertos, lanzamientos o encuentros con artistas. Transferibles y sin reventa especulativa.
+          </p>
+          <p class="text-xs text-slate-500 mt-4 italic">Ej: Concierto de Goulnara Galimchina en Caracas</p>
+        </div>
+
+        <!-- Eventos -->
+        <div class="bg-white p-6 rounded-lg border-2 border-slate-200 hover:border-dag-burgundy transition-colors">
+          <div class="text-4xl mb-4">🎻</div>
+          <h3 class="font-bold text-lg mb-3 text-slate-900">Eventos Exclusivos</h3>
+          <p class="text-slate-700 text-sm">
+            Acceso a ensayos abiertos, charlas con compositores, masterclasses o presentaciones privadas.
+          </p>
+          <p class="text-xs text-slate-500 mt-4 italic">Ej: Ensayo abierto de Jesús Aníbal Bello + conversación</p>
+        </div>
+
+        <!-- Previews -->
+        <div class="bg-white p-6 rounded-lg border-2 border-slate-200 hover:border-dag-burgundy transition-colors">
+          <div class="text-4xl mb-4">🎧</div>
+          <h3 class="font-bold text-lg mb-3 text-slate-900">Previews de Music Cards</h3>
+          <p class="text-slate-700 text-sm">
+            Escucha anticipada de tracks exclusivos antes del lanzamiento oficial. Solo para coleccionistas con CAT.
+          </p>
+          <p class="text-xs text-slate-500 mt-4 italic">Ej: Preview de 30 segundos del nuevo álbum de Teodor Doré</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================
+       SECCIÓN 3: CAT vs Music Card
+       =================================== -->
+  <section class="py-16 bg-gray95">
+    <div class="max-w-5xl mx-auto px-4">
+      <SectionHeader 
+        title="¿CAT o Music Card?"
+        subtitle="Ambos son tokens en blockchain. Pero cumplen propósitos diferentes."
+      />
+
+      <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+        <table class="w-full">
+          <thead class="bg-slate-900 text-white">
+            <tr>
+              <th class="py-4 px-6 text-left">Característica</th>
+              <th class="py-4 px-6 text-left">🎼 Music Card (NFT)</th>
+              <th class="py-4 px-6 text-left">🔁 CAT</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200">
+            <tr>
+              <td class="py-4 px-6 font-semibold text-slate-900">Tipo de token</td>
+              <td class="py-4 px-6 text-slate-700">NFT (ERC-721)</td>
+              <td class="py-4 px-6 text-slate-700">Fungible (ERC-20)</td>
+            </tr>
+            <tr>
+              <td class="py-4 px-6 font-semibold text-slate-900">Unicidad</td>
+              <td class="py-4 px-6 text-slate-700">Único, numerado (ej: #37 de 101)</td>
+              <td class="py-4 px-6 text-slate-700">Idéntico, intercambiable</td>
+            </tr>
+            <tr>
+              <td class="py-4 px-6 font-semibold text-slate-900">Propósito</td>
+              <td class="py-4 px-6 text-slate-700">Coleccionar, poseer, custodiar</td>
+              <td class="py-4 px-6 text-slate-700">Acceder, experimentar, compartir</td>
+            </tr>
+            <tr>
+              <td class="py-4 px-6 font-semibold text-slate-900">Duración</td>
+              <td class="py-4 px-6 text-slate-700">Permanente</td>
+              <td class="py-4 px-6 text-slate-700">Temporal o de un solo uso</td>
+            </tr>
+            <tr>
+              <td class="py-4 px-6 font-semibold text-slate-900">Transferencia</td>
+              <td class="py-4 px-6 text-slate-700">Sí, como activo de colección</td>
+              <td class="py-4 px-6 text-slate-700">Sí, como entrada o beneficio</td>
+            </tr>
+            <tr>
+              <td class="py-4 px-6 font-semibold text-slate-900">Ejemplo</td>
+              <td class="py-4 px-6 text-slate-700">Music Card de Goulnara Galimchina</td>
+              <td class="py-4 px-6 text-slate-700">Ticket para concierto + backstage</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================
+       SECCIÓN 4: Cómo Obtener un CAT
+       =================================== -->
+  <section class="py-16 bg-platinum">
+    <div class="max-w-5xl mx-auto px-4">
+      <SectionHeader 
+        title="¿Cómo Obtengo un CAT?"
+        subtitle="Hay varias formas de conseguir un Cultural Access Token:"
+      />
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-lg">
+          <div class="bg-dag-burgundy text-white text-2xl font-bold w-12 h-12 rounded-full flex items-center justify-center mb-4">1</div>
+          <h3 class="font-bold text-lg mb-2 text-slate-900">Compra Directa</h3>
+          <p class="text-slate-700 text-sm">
+            Algunos CATs están disponibles para compra directa en nuestra plataforma o en marketplaces asociados.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg">
+          <div class="bg-dag-burgundy text-white text-2xl font-bold w-12 h-12 rounded-full flex items-center justify-center mb-4">2</div>
+          <h3 class="font-bold text-lg mb-2 text-slate-900">Bonus con Music Cards</h3>
+          <p class="text-slate-700 text-sm">
+            Al comprar ciertas Music Cards, recibes CATs como beneficio adicional (ej: acceso a evento de lanzamiento).
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg">
+          <div class="bg-dag-burgundy text-white text-2xl font-bold w-12 h-12 rounded-full flex items-center justify-center mb-4">3</div>
+          <h3 class="font-bold text-lg mb-2 text-slate-900">Promociones Especiales</h3>
+          <p class="text-slate-700 text-sm">
+            Newsletter, redes sociales o eventos presenciales. Los CATs también son herramientas de comunidad.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================
+       SECCIÓN 5: Llamado a la acción
+       =================================== -->
+  <section class="py-16 bg-gray95 text-center">
+    <div class="max-w-6xl mx-auto px-4">
+      <SectionHeader 
+        title="Empieza a Coleccionar Experiencias"
+        subtitle="Los CATs no son solo tokens. Son invitaciones a ser parte de algo más grande."
+      />
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mt-6">
+        <a
+          href="/blockchain/music-cards"
+          class="inline-block bg-dag-burgundy text-white text-lg font-semibold px-8 py-3 rounded-lg hover:bg-opacity-90 transition-all transform hover:scale-105"
+        >
+          Explorar Music Cards
+        </a>
+        <a
+          href="/blockchain/acceso"
+          class="inline-block bg-white text-dag-burgundy border-2 border-dag-burgundy text-lg font-semibold px-8 py-3 rounded-lg hover:bg-dag-burgundy/10 transition-all"
+        >
+          Validar un CAT
+        </a>
+        <a
+          href="/musica/eventos"
+          class="inline-block bg-slate-800 text-white text-lg font-semibold px-8 py-3 rounded-lg hover:bg-slate-700 transition-all"
+        >
+          Próximos Eventos
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
