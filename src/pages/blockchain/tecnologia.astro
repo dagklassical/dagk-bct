@@ -57,20 +57,21 @@ const breadcrumbs = [
     </div>
   </section>
 
-   <!-- ===================================
+  <!-- ===================================
        SECCIÓN 2: NFT vs CAT (FONDO COMPLETO)
        =================================== -->
   <section class="py-16 bg-platinum">
-    <div class="max-w-6xl mx-auto px-4">
+    <!-- En móvil: sin max-w para que ocupe todo el ancho -->
+    <div class="max-w-6xl mx-auto px-0 md:px-4">
       <SectionHeader 
         title="Más Allá de lo Único: Dos Formas de Pertenecer"
         subtitle="En DAG Klassical, cada obra merece el tipo de vínculo que la honra. Por eso ofrecemos dos caminos de coleccionismo, ambos certificados en blockchain."
       />
 
-      <!-- Grid con márgenes responsivos: mx-4 en móvil, md:mx-16 en desktop -->
-      <div class="grid md:grid-cols-2 gap-8 mx-4 md:mx-16">
+      <!-- Grid: sin márgenes en móvil, grid de 1 columna en móvil -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mx-0 md:mx-16">
         <!-- Tarjeta NFT / Music Cards -->
-        <div class="bg-white p-6 rounded-lg border-2 border-slate-200">
+        <div class="bg-white p-6 rounded-lg border-2 border-slate-200 w-full">
           <h3 class="font-bold text-center text-h3 mb-3 text-slate-900">Music Cards (NFTs)</h3>
           <p class="text-slate-700 mb-4">
             Activos digitales <strong class="font-semibold">únicos e irremplazables</strong>. Cada Music Card es un testimonio de que tú fuiste parte de esta obra.
@@ -86,7 +87,7 @@ const breadcrumbs = [
         </div>
 
         <!-- Tarjeta CAT -->
-        <div class="bg-dag-burgundy/10 p-6 rounded-lg">
+        <div class="bg-dag-burgundy/10 p-6 rounded-lg w-full">
           <h3 class="font-bold text-center text-h3 mb-3 text-dag-burgundy">Cultural Access Tokens (CATs)</h3>
           <p class="text-slate-700 mb-4">
             Tokens fungibles (ERC-20 en Polygon) que funcionan como <strong class="font-semibold">llaves de acceso al catálogo cultural</strong>.
@@ -102,8 +103,8 @@ const breadcrumbs = [
         </div>
       </div>
 
-      <!-- Nota académica: ¿Por qué "CAT"? (también responsiva) -->
-      <div class="mt-8 mx-4 md:mx-8 bg-white/60 p-4 rounded-lg border border-platinum">
+      <!-- Nota académica: ¿Por qué "CAT"? -->
+      <div class="mt-8 mx-4 md:mx-16 bg-white/60 p-4 rounded-lg border border-platinum">
         <p class="text-sm text-center text-slate-700">
           <strong class="text-dag-burgundy">¿Por qué "CAT"?</strong> En musicología, el número de catálogo es sagrado.<br/>
           Un <strong>CAT</strong> no es solo un token: es la llave que dice <em class="text-dag-burgundy">"Esta obra está catalogada, preservada y accesible para ti."</em>

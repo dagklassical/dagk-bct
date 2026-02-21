@@ -132,49 +132,60 @@ const breadcrumbs = [
         subtitle="Ambos son tokens en blockchain. Pero cumplen propósitos diferentes."
       />
 
-      <div class="bg-white rounded-lg overflow-hidden shadow-lg">
-        <table class="w-full">
-          <thead class="bg-slate-900 text-white">
-            <tr>
-              <th class="py-4 px-6 text-left">Característica</th>
-              <th class="py-4 px-6 text-left">Music Card (NFT)</th>
-              <th class="py-4 px-6 text-left">CAT</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-slate-200">
-            <tr>
-              <td class="py-4 px-6 font-semibold text-slate-900">Tipo de token</td>
-              <td class="py-4 px-6 text-slate-700">NFT (ERC-721)</td>
-              <td class="py-4 px-6 text-slate-700">Fungible (ERC-20)</td>
-            </tr>
-            <tr>
-              <td class="py-4 px-6 font-semibold text-slate-900">Unicidad</td>
-              <td class="py-4 px-6 text-slate-700">Único, numerado (ej: #37 de 101)</td>
-              <td class="py-4 px-6 text-slate-700">Idéntico, intercambiable</td>
-            </tr>
-            <tr>
-              <td class="py-4 px-6 font-semibold text-slate-900">Propósito</td>
-              <td class="py-4 px-6 text-slate-700">Coleccionar, poseer, custodiar</td>
-              <td class="py-4 px-6 text-slate-700">Acceder, experimentar, compartir</td>
-            </tr>
-            <tr>
-              <td class="py-4 px-6 font-semibold text-slate-900">Duración</td>
-              <td class="py-4 px-6 text-slate-700">Permanente</td>
-              <td class="py-4 px-6 text-slate-700">Temporal o de un solo uso</td>
-            </tr>
-            <tr>
-              <td class="py-4 px-6 font-semibold text-slate-900">Transferencia</td>
-              <td class="py-4 px-6 text-slate-700">Sí, como activo de colección</td>
-              <td class="py-4 px-6 text-slate-700">Sí, como entrada o beneficio</td>
-            </tr>
-            <tr>
-              <td class="py-4 px-6 font-semibold text-slate-900">Ejemplo</td>
-              <td class="py-4 px-6 text-slate-700">Music Card de Goulnara Galimchina</td>
-              <td class="py-4 px-6 text-slate-700">Ticket para concierto + backstage</td>
-            </tr>
-          </tbody>
-        </table>
+      <!-- Contenedor de scroll: centra la tabla en móvil -->
+      <div class="overflow-x-auto scrollbar-thin scrollbar-thumb-slate-300 scrollbar-track-slate-100">
+        <!-- Wrapper centrado con flexbox -->
+        <div class="flex justify-center min-w-full">
+          <table class="min-w-[600px] md:min-w-[700px] text-left border-collapse bg-white rounded-lg shadow-lg">
+            <thead class="bg-slate-900 text-white">
+              <tr>
+                <th class="py-4 px-6 whitespace-nowrap font-semibold">Característica</th>
+                <th class="py-4 px-6 whitespace-nowrap font-semibold">🎼 Music Card (NFT)</th>
+                <th class="py-4 px-6 whitespace-nowrap font-semibold">🔁 CAT</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200">
+              <tr class="hover:bg-slate-50 transition-colors">
+                <td class="py-4 px-6 font-semibold text-slate-900 whitespace-nowrap">Tipo de token</td>
+                <td class="py-4 px-6 text-slate-700 whitespace-nowrap">NFT (ERC-721)</td>
+                <td class="py-4 px-6 text-slate-700 whitespace-nowrap">Fungible (ERC-20)</td>
+              </tr>
+              <tr class="hover:bg-slate-50 transition-colors">
+                <td class="py-4 px-6 font-semibold text-slate-900 whitespace-nowrap">Unicidad</td>
+                <td class="py-4 px-6 text-slate-700 whitespace-nowrap">Único, numerado (ej: #37 de 101)</td>
+                <td class="py-4 px-6 text-slate-700 whitespace-nowrap">Idéntico, intercambiable</td>
+              </tr>
+              <tr class="hover:bg-slate-50 transition-colors">
+                <td class="py-4 px-6 font-semibold text-slate-900 whitespace-nowrap">Propósito</td>
+                <td class="py-4 px-6 text-slate-700 whitespace-nowrap">Coleccionar, poseer, custodiar</td>
+                <td class="py-4 px-6 text-slate-700 whitespace-nowrap">Acceder, experimentar, compartir</td>
+              </tr>
+              <tr class="hover:bg-slate-50 transition-colors">
+                <td class="py-4 px-6 font-semibold text-slate-900 whitespace-nowrap">Duración</td>
+                <td class="py-4 px-6 text-slate-700 whitespace-nowrap">Permanente</td>
+                <td class="py-4 px-6 text-slate-700 whitespace-nowrap">Temporal o de un solo uso</td>
+              </tr>
+              <tr class="hover:bg-slate-50 transition-colors">
+                <td class="py-4 px-6 font-semibold text-slate-900 whitespace-nowrap">Transferencia</td>
+                <td class="py-4 px-6 text-slate-700 whitespace-nowrap">Sí, como activo de colección</td>
+                <td class="py-4 px-6 text-slate-700 whitespace-nowrap">Sí, como entrada o beneficio</td>
+              </tr>
+              <tr class="hover:bg-slate-50 transition-colors">
+                <td class="py-4 px-6 font-semibold text-slate-900 whitespace-nowrap">Ejemplo</td>
+                <td class="py-4 px-6 text-slate-700 whitespace-nowrap">Music Card de Goulnara Galimchina</td>
+                <td class="py-4 px-6 text-slate-700 whitespace-nowrap">Ticket para concierto + backstage</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
+      
+      <!-- Hint de texto para usuarios (solo móvil) -->
+      <p class="text-xs text-slate-500 mt-3 text-center md:hidden flex items-center justify-center gap-1">
+        <span class="animate-pulse">←</span>
+        Desliza para ver más columnas
+        <span class="animate-pulse">→</span>
+      </p>
     </div>
   </section>
 
