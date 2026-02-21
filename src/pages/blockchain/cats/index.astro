@@ -132,11 +132,11 @@ const breadcrumbs = [
         subtitle="Ambos son tokens en blockchain. Pero cumplen propósitos diferentes."
       />
 
-      <!-- Contenedor de scroll: centra la tabla en móvil -->
+      <!-- Contenedor de scroll: izquierda en móvil, centrado en desktop -->
       <div class="overflow-x-auto scrollbar-thin scrollbar-thumb-slate-300 scrollbar-track-slate-100">
-        <!-- Wrapper centrado con flexbox -->
-        <div class="flex justify-center min-w-full">
-          <table class="min-w-[600px] md:min-w-[700px] text-left border-collapse bg-white rounded-lg shadow-lg">
+        <!-- Wrapper: justify-start en móvil, justify-center en desktop -->
+        <div class="flex justify-start md:justify-center min-w-full">
+          <table class="min-w-[600px] md:min-w-[700px] text-left border-collapse bg-white rounded-lg shadow-lg mx-0 md:mx-4">
             <thead class="bg-slate-900 text-white">
               <tr>
                 <th class="py-4 px-6 whitespace-nowrap font-semibold">Característica</th>
@@ -182,8 +182,8 @@ const breadcrumbs = [
       
       <!-- Hint de texto para usuarios (solo móvil) -->
       <p class="text-xs text-slate-500 mt-3 text-center md:hidden flex items-center justify-center gap-1">
-        <span class="animate-pulse">←</span>
-        Desliza para ver más columnas
+        <span class="animate-pulse">→</span>
+        Desliza hacia la derecha para ver más
         <span class="animate-pulse">→</span>
       </p>
     </div>
