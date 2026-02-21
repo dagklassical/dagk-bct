@@ -89,7 +89,7 @@ const breadcrumbs = [
           <p class="text-slate-700 text-sm">
             Acceso anticipado a nuevas Music Cards antes del lanzamiento público. Solo para poseedores de CATs.
           </p>
-          <p class="text-xs text-slate-500 mt-4 italic">Ej: Pre-venta de la próxima Music Card de Gerardo Gerulewicz</p>
+          <p class="text-xs text-dag-burgundy mt-4 italic">Ej: Pre-venta de la próxima Music Card de Gerardo Gerulewicz</p>
         </div>
 
         <!-- Tickets -->
@@ -98,7 +98,7 @@ const breadcrumbs = [
           <p class="text-slate-700 text-sm">
             Entradas verificables para conciertos, lanzamientos o encuentros con artistas. Transferibles y sin reventa especulativa.
           </p>
-          <p class="text-xs text-slate-500 mt-4 italic">Ej: Concierto de Goulnara Galimchina en Caracas</p>
+          <p class="text-xs text-dag-burgundy mt-4 italic">Ej: Concierto de Goulnara Galimchina en Caracas</p>
         </div>
 
         <!-- Eventos -->
@@ -107,7 +107,7 @@ const breadcrumbs = [
           <p class="text-slate-700 text-sm">
             Acceso a ensayos abiertos, charlas con compositores, masterclasses o presentaciones privadas.
           </p>
-          <p class="text-xs text-slate-500 mt-4 italic">Ej: Ensayo abierto de Jesús Aníbal Bello + conversación</p>
+          <p class="text-xs text-dag-burgundy mt-4 italic">Ej: Ensayo abierto de Jesús Aníbal Bello + conversación</p>
         </div>
 
         <!-- Previews -->
@@ -116,7 +116,7 @@ const breadcrumbs = [
           <p class="text-slate-700 text-sm">
             Escucha anticipada de tracks exclusivos antes del lanzamiento oficial. Solo para coleccionistas con CAT.
           </p>
-          <p class="text-xs text-slate-500 mt-4 italic">Ej: Preview de 30 segundos del nuevo álbum de Teodor Doré</p>
+          <p class="text-xs text-dag-burgundy mt-4 italic">Ej: Preview de 30 segundos del nuevo álbum de Teodor Doré</p>
         </div>
       </div>
     </div>
@@ -137,8 +137,8 @@ const breadcrumbs = [
           <thead class="bg-slate-900 text-white">
             <tr>
               <th class="py-4 px-6 text-left">Característica</th>
-              <th class="py-4 px-6 text-left">🎼 Music Card (NFT)</th>
-              <th class="py-4 px-6 text-left">🔁 CAT</th>
+              <th class="py-4 px-6 text-left">Music Card (NFT)</th>
+              <th class="py-4 px-6 text-left">CAT</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-slate-200">
@@ -190,24 +190,24 @@ const breadcrumbs = [
 
       <div class="grid md:grid-cols-3 gap-6">
         <div class="bg-white p-6 rounded-lg">
-          <div class="bg-dag-burgundy text-white text-2xl font-bold w-12 h-12 rounded-full flex items-center justify-center mb-4">1</div>
-          <h3 class="font-bold text-lg mb-2 text-slate-900">Compra Directa</h3>
+          <div class="bg-dag-burgundy mx-auto text-white text-2xl font-bold w-12 h-12 rounded-full flex items-center justify-center mb-4">1</div>
+          <h3 class="font-bold text-lg mb-2 text-slate-900 text-center">Compra Directa</h3>
           <p class="text-slate-700 text-sm">
             Algunos CATs están disponibles para compra directa en nuestra plataforma o en marketplaces asociados.
           </p>
         </div>
 
         <div class="bg-white p-6 rounded-lg">
-          <div class="bg-dag-burgundy text-white text-2xl font-bold w-12 h-12 rounded-full flex items-center justify-center mb-4">2</div>
-          <h3 class="font-bold text-lg mb-2 text-slate-900">Bonus con Music Cards</h3>
+          <div class="bg-dag-burgundy mx-auto text-white text-2xl font-bold w-12 h-12 rounded-full flex items-center justify-center mb-4">2</div>
+          <h3 class="font-bold text-lg mb-2 text-slate-900 text-center">Bonus con Music Cards</h3>
           <p class="text-slate-700 text-sm">
             Al comprar ciertas Music Cards, recibes CATs como beneficio adicional (ej: acceso a evento de lanzamiento).
           </p>
         </div>
 
         <div class="bg-white p-6 rounded-lg">
-          <div class="bg-dag-burgundy text-white text-2xl font-bold w-12 h-12 rounded-full flex items-center justify-center mb-4">3</div>
-          <h3 class="font-bold text-lg mb-2 text-slate-900">Promociones Especiales</h3>
+          <div class="bg-dag-burgundy mx-auto text-white text-2xl font-bold w-12 h-12 rounded-full flex items-center justify-center mb-4">3</div>
+          <h3 class="font-bold text-lg mb-2 text-slate-900 text-center">Promociones Especiales</h3>
           <p class="text-slate-700 text-sm">
             Newsletter, redes sociales o eventos presenciales. Los CATs también son herramientas de comunidad.
           </p>
@@ -216,9 +216,9 @@ const breadcrumbs = [
     </div>
   </section>
 
-  <!-- ===================================
-       SECCIÓN 5: Llamado a la acción
-       =================================== -->
+  <!--  ===================================
+        SECCIÓN 5: Llamado a la acción
+        =================================== -->
   <section class="py-16 bg-gray95 text-center">
     <div class="max-w-6xl mx-auto px-4">
       <SectionHeader 
@@ -227,25 +227,36 @@ const breadcrumbs = [
       />
 
       <div class="flex flex-col sm:flex-row gap-4 justify-center mt-6">
+        <!-- Music Cards: Activo -->
         <a
           href="/blockchain/music-cards"
           class="inline-block bg-dag-burgundy text-white text-lg font-semibold px-8 py-3 rounded-lg hover:bg-opacity-90 transition-all transform hover:scale-105"
         >
           Explorar Music Cards
         </a>
+        
+        <!-- Validar CAT: Activo -->
         <a
           href="/blockchain/acceso"
           class="inline-block bg-white text-dag-burgundy border-2 border-dag-burgundy text-lg font-semibold px-8 py-3 rounded-lg hover:bg-dag-burgundy/10 transition-all"
         >
           Validar un CAT
         </a>
-        <a
-          href="/musica/eventos"
-          class="inline-block bg-slate-800 text-white text-lg font-semibold px-8 py-3 rounded-lg hover:bg-slate-700 transition-all"
+        
+        <!-- Próximos Eventos: DESACTIVADO -->
+        <span
+          class="inline-block bg-slate-800/50 text-slate-400 text-lg font-semibold px-8 py-3 rounded-lg cursor-not-allowed select-none"
+          title="Próximamente: sección de eventos con acceso vía CAT"
+          aria-disabled="true"
         >
           Próximos Eventos
-        </a>
+        </span>
       </div>
+      
+      <!-- Nota opcional para usuarios -->
+      <p class="mt-4 text-xs text-slate-500">
+        * La sección de eventos estará disponible pronto. Suscríbete al newsletter para ser el primero en saber.
+      </p>
     </div>
   </section>
 </Layout>
