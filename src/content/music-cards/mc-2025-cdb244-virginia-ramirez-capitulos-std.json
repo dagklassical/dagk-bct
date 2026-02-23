@@ -17,9 +17,8 @@
   "benefits": [
     "Audio FLAC 24-bit/192kHz",
     "Partitura digital firmada",
-    "Acceso a lanzamiento exclusivo",
     "Contenido detrás de cámaras",
-    "Partitura digital firmada"
+    "Metadatos inmutables en blockchain"
   ],
   "cardImage": "/cards/mc-2025-virginia-capitulos.webp",
   "socialLinks": [
@@ -46,7 +45,7 @@
   ],
   "metadata": {
     "uuid": "urn:uuid:77fd8dad-0a38-4838-8c09-49973d8344a9",
-    "timestamp": "2025-11-14T10:00:01Z",
+    "timestamp": "2024-11-14T10:00:01Z",
     "operator": "cto@dagklassical.com"
   }
 }
