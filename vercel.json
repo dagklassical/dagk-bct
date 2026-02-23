@@ -21,28 +21,13 @@
       "permanent": true
     },
     {
-      "source": "/blockchain/music-cards/mc-2025-5e6c44-gerardo-gerulewicz-piano-aguinaldo-std",
-      "destination": "/blockchain/music-cards/mc-2023-5e6c44-gerardo-gerulewicz-piano-aguinaldo-std",
-      "permanent": true
-    },
-    {
       "source": "/blockchain/music-cards/5e6c44-gerardo-gerulewicz-piano-aguinaldo",
       "destination": "/blockchain/music-cards/mc-2023-5e6c44-gerardo-gerulewicz-piano-aguinaldo-std",
       "permanent": true
     },
     {
-      "source": "/blockchain/music-cards/mc-2025-edc247-teodor-dore-february-night-std",
-      "destination": "/blockchain/music-cards/mc-2025-edc247-teodor-dore-february-night-std",
-      "permanent": true
-    },
-    {
       "source": "/blockchain/music-cards/edc247-teodor-dore-february-night",
       "destination": "/blockchain/music-cards/mc-2025-edc247-teodor-dore-february-night-std",
-      "permanent": true
-    },
-    {
-      "source": "/blockchain/music-cards/mc-2025-cdb244-virginia-ramirez-capitulos-std",
-      "destination": "/blockchain/music-cards/mc-2025-cdb244-virginia-ramirez-capitulos-std",
       "permanent": true
     },
     {
