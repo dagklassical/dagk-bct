@@ -22,6 +22,12 @@
   },
   "devDependencies": {
     "@astrojs/vercel": "^8.0.4",
-    "@tailwindcss/typography": "^0.5.19"
+    "@nomicfoundation/hardhat-ethers": "^3.0.8",
+    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
+    "@openzeppelin/contracts": "^5.0.2",
+    "@tailwindcss/typography": "^0.5.19",
+    "dotenv": "^17.3.1",
+    "ethers": "^6.13.4",
+    "hardhat": "^2.22.18"
   }
 }
