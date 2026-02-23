@@ -1,0 +1,37 @@
+# ===================================
+# DAG Klassical - Robots.txt
+# ===================================
+# Sitio: https://www.dagklassical.com
+# Contacto: cto@dagklassical.com
+# ===================================
+
+User-agent: *
+Allow: /
+
+# ✅ Permitir indexación de contenido público
+Allow: /musica
+Allow: /musica/artistas
+Allow: /musica/discografia
+Allow: /blockchain
+Allow: /blockchain/music-cards
+Allow: /noticias
+Allow: /nosotros
+Allow: /contacto
+
+# ❌ Bloquear áreas sensibles o privadas
+Disallow: /blockchain/acceso
+Disallow: /protected
+Disallow: /api
+Disallow: /admin
+Disallow: /dashboard
+
+# ❌ Bloquear parámetros de sesión o tracking
+Disallow: /*?*token=
+Disallow: /*?*verified=
+Disallow: /*?*instance=
+
+# 🗺️ Sitemap (generado por Astro o manual)
+Sitemap: https://www.dagklayssical.com/sitemap-index.xml
+
+# ⏰ Cache duration para crawlers
+Crawl-delay: 1
