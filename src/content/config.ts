@@ -1,4 +1,4 @@
-// src/content/config.ts - VERSIÓN COMPLETA Y CORREGIDA
+// src/content/config.ts - VERSIÓN COMPLETA CON SOPORTE NFT
 import { defineCollection, z } from 'astro:content';
 
 const metadataSchema = z.object({
@@ -33,7 +33,7 @@ const artistsCollection = defineCollection({
   })
 });
 
-// ============ RELEASES - CON CAMPOS FALTANTES ============
+// ============ RELEASES ============
 const releasesCollection = defineCollection({
   type: 'data',
   schema: z.object({
@@ -50,7 +50,6 @@ const releasesCollection = defineCollection({
     description: z.string(),
     descriptionLong: z.string(),
     coverImage: z.string(),
-    // ✅ NUEVO: demoBasePath que faltaba
     demoBasePath: z.string().optional(),
     demoAvailable: z.boolean().default(false),
     fullAlbumAvailable: z.boolean().default(false),
@@ -112,7 +111,7 @@ const musicCardsCollection = defineCollection({
   })
 });
 
-// ============ ACCESS TOKENS ============
+// ============ ACCESS TOKENS (CON SOPORTE NFT) ============
 const accessTokensCollection = defineCollection({
   type: 'data',
   schema: z.object({
@@ -143,7 +142,15 @@ const accessTokensCollection = defineCollection({
       fallbackHero: z.string(),
       primaryColor: z.string().default('#800020')
     }),
-    metadata: metadataSchema
+    // ← ← ← MODIFICACIÓN: metadata extendido para aceptar NFT opcional
+    metadata: metadataSchema.extend({
+      nft: z.object({
+        contract: z.string().optional(),
+        tokenId: z.string().optional(),
+        network: z.string().default('Polygon'),
+        explorerUrl: z.string().url().optional()
+      }).optional()
+    }).optional()
   })
 });
 

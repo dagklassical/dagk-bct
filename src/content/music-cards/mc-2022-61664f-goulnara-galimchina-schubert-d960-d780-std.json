@@ -15,11 +15,10 @@
   "status": "disponible",
   "workType": "",
   "benefits": [
-    "Audio de colección. FLAC 24-bit/192kHz",
-    "Notas interpretativas exclusivas",
-    "Acceso a masterclass privada",
-    "Certificación inmutable en blockchain",
-    "Partitura digital firmada"
+    "Audio FLAC 24-bit/192kHz",
+    "Partitura digital firmada",
+    "Contenido detrás de cámaras",
+    "Metadatos inmutables en blockchain"
   ],
   "cardImage": "/covers/cover-mc-galimchina-schubert.webp",
   "socialLinks": [

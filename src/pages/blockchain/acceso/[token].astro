@@ -99,6 +99,40 @@ const releaseMeta = release.data;
       </div>
     </div>
   </div>
+  
+    <!-- NFT Verification Banner (solo si verified=true) -->
+  {Astro.url.searchParams.get('verified') === 'true' && (
+    <div class="bg-gradient-to-r from-dag-burgundy/10 to-platinum border-b border-dag-burgundy/30 py-3 px-4">
+      <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">✅</span>
+          <div>
+            <p class="font-semibold text-slate-900">Acceso verificado via blockchain</p>
+            <p class="text-sm text-slate-600">
+              Tu NFT: #{Astro.url.searchParams.get('instance') || '1'} de 101
+              {tokenMeta.metadata?.nft?.explorerUrl && (
+                <a 
+                  href={tokenMeta.metadata.nft.explorerUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="ml-2 text-dag-burgundy hover:underline text-xs"
+                >
+                  🔗 Ver en Polygonscan
+                </a>
+              )}
+            </p>
+          </div>
+        </div>
+        {tokenMeta.metadata?.nft?.contract && (
+          <code class="text-xs bg-white/80 px-3 py-1 rounded font-mono text-slate-700">
+            {tokenMeta.metadata.nft.contract.slice(0, 6)}...{tokenMeta.metadata.nft.contract.slice(-4)}
+          </code>
+        )}
+      </div>
+    </div>
+  )}
+
+  <article class="max-w-6xl mx-auto px-4 py-12 pb-32">
 
   <article class="max-w-6xl mx-auto px-4 py-12 pb-32">
     <div class="grid lg:grid-cols-2 gap-12">
@@ -207,32 +241,32 @@ const releaseMeta = release.data;
       </div>
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
-        <div class="flex flex-col justify-end">
-          <div class="p-4 border border-platinum rounded-md bg-white/50">
-            <p class="text-xs text-slate-600 font-mono leading-relaxed">
-              <span class="text-dag-burgundy font-semibold">UUID:</span><br/>
-              {tokenMeta.metadata.uuid}
-            </p>
-            <p class="text-xs text-slate-600 font-mono mt-2">
-              <span class="text-dag-burgundy font-semibold">Timestamp:</span><br/>
-              {tokenMeta.metadata.timestamp}
-            </p>
-            <p class="text-xs text-slate-600 font-mono mt-2">
-              <span class="text-dag-burgundy font-semibold">Operador:</span><br/>
-              {tokenMeta.metadata.operator}
-            </p>
-          </div>
-        </div>
-        <div class="md:col-span-2 p-4 border border-platinum rounded-md bg-white/50">
-          <p class="text-xs text-slate-600 font-mono leading-relaxed">
-            <span class="text-dag-burgundy font-semibold">CRÉDITOS: </span>
-            {release.data.performers?.join(', ') || albumInfo.artist} | 
-            Mezcla y mastering: Danilo Álvarez | 
-            Arte: Leo Gerulewicz | Diseño: Lorien Gascón Rojas | 
-            Grabado y masterizado en Mansa Studio®, Lechería, Venezuela.
-          </p>
-        </div>
-      </div>
+  <div class="flex flex-col justify-end">
+    <div class="p-4 border border-platinum rounded-md bg-white/50">
+      <p class="text-xs text-slate-600 font-mono leading-relaxed">
+        <span class="text-dag-burgundy font-semibold">UUID:</span><br/>
+        {tokenMeta.metadata?.uuid || '—'}
+      </p>
+      <p class="text-xs text-slate-600 font-mono mt-2">
+        <span class="text-dag-burgundy font-semibold">Timestamp:</span><br/>
+        {tokenMeta.metadata?.timestamp || '—'}
+      </p>
+      <p class="text-xs text-slate-600 font-mono mt-2">
+        <span class="text-dag-burgundy font-semibold">Operador:</span><br/>
+        {tokenMeta.metadata?.operator || '—'}
+      </p>
+    </div>
+  </div>
+  <div class="md:col-span-2 p-4 border border-platinum rounded-md bg-white/50">
+    <p class="text-xs text-slate-600 font-mono leading-relaxed">
+      <span class="text-dag-burgundy font-semibold">CRÉDITOS: </span>
+      {release.data.performers?.join(', ') || albumInfo.artist} | 
+      Mezcla y mastering: Danilo Álvarez | 
+      Arte: Leo Gerulewicz | Diseño: Lorien Gascón Rojas | 
+      Grabado y masterizado en Mansa Studio®, Lechería, Venezuela.
+    </p>
+  </div>
+</div>
     </div>
   </article>
 

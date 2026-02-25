@@ -31,7 +31,7 @@ bustling-belt/
 .vercel/
 
 # scripts generales y de migración temporales
-scripts/
+#scripts/
 
 # snippets
 snippets/
@@ -49,3 +49,4 @@ public/audio/demo/
 *.backup.json
 **/placeholder.json
 backups/
+.vercel
