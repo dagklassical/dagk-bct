@@ -33,12 +33,12 @@ const breadcrumbs = generateBreadcrumbs(Astro.url.pathname);
       <slot />
     </main>
 
-    <!-- Franja de migas de pan SOBRE el footer -->
+<!-- Franja de migas de pan SOBRE el footer -->
 <div class="bg-slate-800 text-white">
-  <div class="max-w-6xl mx-auto px-4 py-2">
+  <div class="max-w-6xl mx-auto px-4 py-3">
     <nav aria-label="Breadcrumb">
       {Astro.url.pathname === '/' ? (
-        <div class="text-sm text-white font-light mx-4 py-2">
+        <div class="text-sm text-white font-normal py-2 leading-[1.75]">
           Aquí verá&nbsp;&nbsp;su ruta de navegación
         </div>
       ) : (

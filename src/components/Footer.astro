@@ -1,8 +1,9 @@
 ---
 // src/components/Footer.astro
-import { Instagram, Twitter, Youtube } from 'lucide-astro';
+import { Instagram, Facebook, Youtube, Music, Mail, Globe, Copyright } from 'lucide-astro';
 ---
- <footer class="bg-dag-burgundy text-white">
+
+<footer class="bg-dag-burgundy text-white">
   <!-- Contenido principal -->
   <div class="max-w-6xl mx-auto px-4 py-12">
     <!-- Fila única: logo + contenido alineado como en el header -->
@@ -11,13 +12,14 @@ import { Instagram, Twitter, Youtube } from 'lucide-astro';
       <!-- Logo + texto (alineado a la izquierda, como en header) -->
       <div class="md:w-1/2 space-y-4">
         <!-- Logo del footer -->
-          <img 
-            src="/logo-dagklassical-orig-001.svg" 
-            alt="DAG Klassical"
-            loading="lazy"
-            width="60"
-            height="40"
-          />
+        <img 
+          src="/logo-dagklassical-orig-001.svg" 
+          alt="DAG Klassical"
+          loading="lazy"
+          class="w-[60px] h-auto"
+          width="60"
+          height="40"
+        />
         <p class="text-white/90 text-sm max-w-md leading-relaxed">
           Plataforma de música clásica y jazz verificable en blockchain. 
           Calidad de estudio maestro, certificación inmutable y valor garantizado.
@@ -26,42 +28,105 @@ import { Instagram, Twitter, Youtube } from 'lucide-astro';
 
       <!-- Navegación + Contacto (alineado a la derecha) -->
       <div class="grid grid-cols-2 md:w-1/2 gap-8">
+        <!-- Navegación -->
         <div>
           <h3 class="font-advent text-sm font-bold mb-4 uppercase tracking-wider text-white">Navegación</h3>
           <ul class="space-y-2 text-sm text-white/80">
-            <li><a href="/musica" class="hover:text-white">Música</a></li>
-            <li><a href="/blockchain" class="hover:text-white">Blockchain</a></li>
-            <li><a href="/noticias" class="hover:text-white">Noticias</a></li>
-            <li><a href="/nosotros" class="hover:text-white">Nosotros</a></li>
+            <li><a href="/musica" class="hover:text-white transition-colors">Música</a></li>
+            <li><a href="/blockchain" class="hover:text-white transition-colors">Blockchain</a></li>
+            <li><a href="/noticias" class="hover:text-white transition-colors">Noticias</a></li>
+            <li><a href="/nosotros" class="hover:text-white transition-colors">Nosotros</a></li>
           </ul>
         </div>
+        
+        <!-- Contacto + Redes -->
         <div>
-  <h3 class="font-advent text-sm font-semibold mb-4 uppercase tracking-wider text-white">Contacto</h3>
-  <address class="not-italic text-sm text-white/90 space-y-3">
-    <p><a href="mailto:contacto@dagklassical.com">contacto@dagklassical.com</a></p>
-    <div class="flex space-x-4 mt-2">
-      <a href="https://instagram.com/dagklassical" class="text-white/70 hover:text-white transition-colors" aria-label="Instagram">
-      <Instagram size="20" /></a>
-      <a href="https://twitter.com/dagklassical" class="text-white/70 hover:text-white transition-colors" aria-label="Twitter">
-      <Twitter size="20" /></a>
-      <a href="https://youtube.com/@dagklassical" class="text-white/70 hover:text-white transition-colors" aria-label="YouTube">
-      <Youtube size="20" /></a>
+          <h3 class="font-advent text-sm font-semibold mb-4 uppercase tracking-wider text-white">Contacto</h3>
+          <address class="not-italic text-sm text-white/90 space-y-3">
+            <p>
+              <a href="mailto:contacto@dagklassical.com" class="hover:text-white transition-colors">
+                contacto@dagklassical.com
+              </a>
+            </p>
+            
+ <!-- Redes sociales -->
+<div class="flex flex-wrap items-center gap-3 mt-2">
+  <!-- Instagram -->
+  <a 
+    href="https://instagram.com/dagklassical" 
+    class="group relative flex items-center justify-center w-8 h-8 text-white/70 hover:text-white transition-colors" 
+    aria-label="Instagram"
+    title="Instagram"
+    target="_blank" 
+    rel="noopener"
+  >
+    <Instagram size="18" />
+    <!-- Tooltip desktop-only -->
+    <span class="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-2 py-1 text-xs text-white bg-slate-900/95 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hidden sm:block">
+      Instagram
+    </span>
+  </a>
+  
+  <!-- Facebook -->
+  <a 
+    href="https://www.facebook.com/people/Dagklassical/100063061250762/" 
+    class="group relative flex items-center justify-center w-8 h-8 text-white/70 hover:text-white transition-colors" 
+    aria-label="Facebook"
+    title="Facebook"
+    target="_blank" 
+    rel="noopener"
+  >
+    <Facebook size="18" />
+    <span class="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-2 py-1 text-xs text-white bg-slate-900/95 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hidden sm:block">
+      Facebook
+    </span>
+  </a>
+  
+  <!-- YouTube -->
+  <a 
+    href="https://www.youtube.com/@dagklassicalLabel" 
+    class="group relative flex items-center justify-center w-8 h-8 text-white/70 hover:text-white transition-colors" 
+    aria-label="YouTube"
+    title="YouTube"
+    target="_blank" 
+    rel="noopener"
+  >
+    <Youtube size="18" />
+    <span class="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-2 py-1 text-xs text-white bg-slate-900/95 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hidden sm:block">
+      YouTube
+    </span>
+  </a>
+  
+  <!-- Spotify (icono Music) -->
+  <a 
+    href="https://open.spotify.com/intl-es/artist/6BhdkgU5SJGqrhhI8Hok10" 
+    class="group relative flex items-center justify-center w-8 h-8 text-white/70 hover:text-white transition-colors" 
+    aria-label="Spotify"
+    title="Spotify"
+    target="_blank" 
+    rel="noopener"
+  >
+    <Music size="18" />
+    <span class="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-2 py-1 text-xs text-white bg-slate-900/95 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hidden sm:block">
+      Spotify
+    </span>
+  </a>
 </div>
-  </address>
-</div>
+          </address>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Zócalo -->
-  <div class="bg-slate-800 border-t border-dag-burgundy/30">
-    <div class="max-w-6xl mx-auto px-4 py-6 text-center text-xs text-slate-300">
+  <!-- Zócalo inferior (fondo oscuro) -->
+  <div class="bg-slate-800 border-t border-dag-burgundy/30 py-6">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-300">
       <p>
         © {new Date().getFullYear()} Dag Klassical. Todos los derechos reservados. 
-        <a href="/nosotros/terminos" class="hover:underline ml-4">Términos</a>
-        <a href="/politica-privacidad" class="hover:underline ml-4">Privacidad</a>
+        <a href="/nosotros/terminos" class="hover:underline ml-4 transition-colors">Términos</a>
+        <a href="/politica-privacidad" class="hover:underline ml-4 transition-colors">Privacidad</a>
         {import.meta.env.PROD && (
-        <a href="/sitemap-index.xml" class="hover:underline ml-4">Sitemap</a>
+          <a href="/sitemap-index.xml" class="hover:underline ml-4 transition-colors">Sitemap</a>
         )}
       </p>
     </div>

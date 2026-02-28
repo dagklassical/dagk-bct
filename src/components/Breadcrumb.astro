@@ -1,18 +1,29 @@
-<!-- src/components/Breadcrumb.astro -->
 ---
+// src/components/Breadcrumb.astro
 interface Props {
-  items: { label: string; href: string }[];
+  items: { label: string; href?: string }[];
 }
+
 const { items } = Astro.props;
 ---
 
-<div class="flex flex-wrap text-sm">
-  {items.map((item, index) => (
-    <>
-      {index > 0 && <span class="mx-1">/</span>}
-      <a href={item.href} class="hover:underline">
-        {item.label}
-      </a>
-    </>
-  ))}
-</div>
+<nav aria-label="Breadcrumb">
+  <ol class="flex flex-wrap items-center text-sm font-normal py-2 leading-[1.75]">
+    {items.map((item, index) => (
+      <li class="flex items-center">
+        {index > 0 && <span class="mx-2 text-white/50">/</span>}
+        {item.href ? (
+          <a
+            href={item.href}
+            class="text-white hover:text-white/80 transition-colors font-normal"
+            aria-current={index === items.length - 1 ? 'page' : undefined}
+          >
+            {item.label}
+          </a>
+        ) : (
+          <span class="text-white font-normal">{item.label}</span>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>
