@@ -1,0 +1,37 @@
+{
+  "id": "frank-dipolo-ruben-riera-margie",
+  "workTitle": "ruben riera margie",
+  "composer": "Pendiente",
+  "performers": ["Frank Dipolo"],
+  "title": "ruben riera margie",
+  "artistIds": ["frank-dipolo"],
+  "genre": "Classical",
+  "releaseDate": "2025-01-01",
+  "type": "álbum",
+  "status": "proximamente",
+  "description": "Descripción breve pendiente de completar.",
+  "descriptionLong": "Descripción extendida pendiente. Este release forma parte del catálogo de DAG Klassical, con tokenización blockchain y acceso exclusivo para coleccionistas.",
+  "coverImage": "cover-frank-dipolo-ruben-riera-margie.webp",
+  "demoBasePath": "",
+  "demoAvailable": false,
+  "fullAlbumAvailable": false,
+  "sheetMusicAvailable": false,
+  "platforms": {
+    "spotify": null,
+    "apple": null,
+    "youtube": null,
+    "tidal": null,
+    "deezer": null
+  },
+  "tracks": [],
+  "duration": "00:00:00",
+  "commentary": null,
+  "commentaryAuthor": null,
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:361dc10d-34f8-46b6-8454-cfa9adfa1088",
+    "timestamp": "2026-03-12T15:18:59Z",
+    "operator": "cto@dagklassical.com"
+  },
+  "bioExtended": null
+}

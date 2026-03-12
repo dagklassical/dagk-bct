@@ -1,0 +1,37 @@
+{
+  "id": "simon-bolivar-string-quartet-quartetos-paulistas",
+  "workTitle": "string quartet quartetos paulistas",
+  "composer": "Pendiente",
+  "performers": ["Simon Bolivar"],
+  "title": "string quartet quartetos paulistas",
+  "artistIds": ["simon-bolivar"],
+  "genre": "Classical",
+  "releaseDate": "2025-01-01",
+  "type": "álbum",
+  "status": "proximamente",
+  "description": "Descripción breve pendiente de completar.",
+  "descriptionLong": "Descripción extendida pendiente. Este release forma parte del catálogo de DAG Klassical, con tokenización blockchain y acceso exclusivo para coleccionistas.",
+  "coverImage": "cover-simon-bolivar-string-quartet-quartetos-paulistas.webp",
+  "demoBasePath": "",
+  "demoAvailable": false,
+  "fullAlbumAvailable": false,
+  "sheetMusicAvailable": false,
+  "platforms": {
+    "spotify": null,
+    "apple": null,
+    "youtube": null,
+    "tidal": null,
+    "deezer": null
+  },
+  "tracks": [],
+  "duration": "00:00:00",
+  "commentary": null,
+  "commentaryAuthor": null,
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:022b7482-9e48-4aa4-b9c5-443ce6b05006",
+    "timestamp": "2026-03-12T15:19:00Z",
+    "operator": "cto@dagklassical.com"
+  },
+  "bioExtended": null
+}

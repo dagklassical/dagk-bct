@@ -1,0 +1,37 @@
+{
+  "id": "james-strauss-eitler-osv-conexoes-latinas",
+  "workTitle": "eitler osv conexoes latinas",
+  "composer": "Pendiente",
+  "performers": ["James Strauss"],
+  "title": "eitler osv conexoes latinas",
+  "artistIds": ["james-strauss"],
+  "genre": "Classical",
+  "releaseDate": "2025-01-01",
+  "type": "álbum",
+  "status": "proximamente",
+  "description": "Descripción breve pendiente de completar.",
+  "descriptionLong": "Descripción extendida pendiente. Este release forma parte del catálogo de DAG Klassical, con tokenización blockchain y acceso exclusivo para coleccionistas.",
+  "coverImage": "cover-james-strauss-eitler-osv-conexoes-latinas.webp",
+  "demoBasePath": "",
+  "demoAvailable": false,
+  "fullAlbumAvailable": false,
+  "sheetMusicAvailable": false,
+  "platforms": {
+    "spotify": null,
+    "apple": null,
+    "youtube": null,
+    "tidal": null,
+    "deezer": null
+  },
+  "tracks": [],
+  "duration": "00:00:00",
+  "commentary": null,
+  "commentaryAuthor": null,
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:a9d94efc-1e8a-4a0f-b24d-9f2ac5a2e0ad",
+    "timestamp": "2026-03-12T15:18:59Z",
+    "operator": "cto@dagklassical.com"
+  },
+  "bioExtended": null
+}

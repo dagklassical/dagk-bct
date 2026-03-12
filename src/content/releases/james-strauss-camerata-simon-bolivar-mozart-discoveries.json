@@ -1,0 +1,37 @@
+{
+  "id": "james-strauss-camerata-simon-bolivar-mozart-discoveries",
+  "workTitle": "camerata simon bolivar mozart discoveries",
+  "composer": "Pendiente",
+  "performers": ["James Strauss"],
+  "title": "camerata simon bolivar mozart discoveries",
+  "artistIds": ["james-strauss"],
+  "genre": "Classical",
+  "releaseDate": "2025-01-01",
+  "type": "álbum",
+  "status": "proximamente",
+  "description": "Descripción breve pendiente de completar.",
+  "descriptionLong": "Descripción extendida pendiente. Este release forma parte del catálogo de DAG Klassical, con tokenización blockchain y acceso exclusivo para coleccionistas.",
+  "coverImage": "cover-james-strauss-camerata-simon-bolivar-mozart-discoveries.webp",
+  "demoBasePath": "",
+  "demoAvailable": false,
+  "fullAlbumAvailable": false,
+  "sheetMusicAvailable": false,
+  "platforms": {
+    "spotify": null,
+    "apple": null,
+    "youtube": null,
+    "tidal": null,
+    "deezer": null
+  },
+  "tracks": [],
+  "duration": "00:00:00",
+  "commentary": null,
+  "commentaryAuthor": null,
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:bbe3ebe8-6fb0-4051-b364-60e9d96e244b",
+    "timestamp": "2026-03-12T15:18:59Z",
+    "operator": "cto@dagklassical.com"
+  },
+  "bioExtended": null
+}

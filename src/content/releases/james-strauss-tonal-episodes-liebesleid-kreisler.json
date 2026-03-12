@@ -1,0 +1,37 @@
+{
+  "id": "james-strauss-tonal-episodes-liebesleid-kreisler",
+  "workTitle": "tonal episodes liebesleid kreisler",
+  "composer": "Pendiente",
+  "performers": ["James Strauss"],
+  "title": "tonal episodes liebesleid kreisler",
+  "artistIds": ["james-strauss"],
+  "genre": "Classical",
+  "releaseDate": "2025-01-01",
+  "type": "álbum",
+  "status": "proximamente",
+  "description": "Descripción breve pendiente de completar.",
+  "descriptionLong": "Descripción extendida pendiente. Este release forma parte del catálogo de DAG Klassical, con tokenización blockchain y acceso exclusivo para coleccionistas.",
+  "coverImage": "cover-james-strauss-tonal-episodes-liebesleid-kreisler.webp",
+  "demoBasePath": "",
+  "demoAvailable": false,
+  "fullAlbumAvailable": false,
+  "sheetMusicAvailable": false,
+  "platforms": {
+    "spotify": null,
+    "apple": null,
+    "youtube": null,
+    "tidal": null,
+    "deezer": null
+  },
+  "tracks": [],
+  "duration": "00:00:00",
+  "commentary": null,
+  "commentaryAuthor": null,
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:8201514d-6aff-47e3-9818-99ad170774cd",
+    "timestamp": "2026-03-12T15:19:00Z",
+    "operator": "cto@dagklassical.com"
+  },
+  "bioExtended": null
+}

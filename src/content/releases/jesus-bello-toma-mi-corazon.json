@@ -1,0 +1,37 @@
+{
+  "id": "jesus-bello-toma-mi-corazon",
+  "workTitle": "toma mi corazon",
+  "composer": "Pendiente",
+  "performers": ["Jesus Bello"],
+  "title": "toma mi corazon",
+  "artistIds": ["jesus-bello"],
+  "genre": "Classical",
+  "releaseDate": "2025-01-01",
+  "type": "álbum",
+  "status": "proximamente",
+  "description": "Descripción breve pendiente de completar.",
+  "descriptionLong": "Descripción extendida pendiente. Este release forma parte del catálogo de DAG Klassical, con tokenización blockchain y acceso exclusivo para coleccionistas.",
+  "coverImage": "cover-jesus-bello-toma-mi-corazon.webp",
+  "demoBasePath": "",
+  "demoAvailable": false,
+  "fullAlbumAvailable": false,
+  "sheetMusicAvailable": false,
+  "platforms": {
+    "spotify": null,
+    "apple": null,
+    "youtube": null,
+    "tidal": null,
+    "deezer": null
+  },
+  "tracks": [],
+  "duration": "00:00:00",
+  "commentary": null,
+  "commentaryAuthor": null,
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:8e70c684-b1e5-416c-862e-48ba574f85b2",
+    "timestamp": "2026-03-12T15:19:00Z",
+    "operator": "cto@dagklassical.com"
+  },
+  "bioExtended": null
+}

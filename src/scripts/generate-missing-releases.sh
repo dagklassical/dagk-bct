@@ -1,0 +1,107 @@
+#!/bin/bash
+# scripts/generate-missing-releases.sh
+
+cd ~/dev/gitlab/dagklassical/dagk-bct
+
+echo "📦 Obteniendo lista de covers del VPS..."
+ssh daguser@194.163.143.239 "ls /var/www/dagklassical/images/covers/cover-*.webp /var/www/dagklassical/images/covers/cover-*.png 2>/dev/null | xargs -n1 basename | sort" > /tmp/vps-covers.txt
+
+echo "📋 Contando covers en VPS: $(wc -l < /tmp/vps-covers.txt)"
+
+# Lista de JSONs existentes
+existing_jsons=$(ls src/content/releases/*.json 2>/dev/null | xargs -n1 basename | sed 's/.json$//' | sort)
+
+echo "📋 Releases JSON existentes: $(echo "$existing_jsons" | wc -l)"
+
+created=0
+skipped=0
+
+while read -r cover; do
+  # Extraer slug: cover-artist-obra.ext → artist-obra
+  slug=$(echo "$cover" | sed 's/^cover-//' | sed 's/\.[^.]*$//')
+  json_file="src/content/releases/${slug}.json"
+  
+  # Saltar si ya existe
+  if [ -f "$json_file" ]; then
+    echo "⏭️  Existe: ${slug}.json"
+    ((skipped++))
+    continue
+  fi
+  
+  # Parsear artista y título (heurística: primeras 2-3 palabras = artista)
+  parts=($(echo "$slug" | tr '-' ' '))
+  if [ ${#parts[@]} -ge 4 ]; then
+    artist_slug="${parts[0]}-${parts[1]}"
+    artist_name="${parts[0]^} ${parts[1]^}"
+    work_title="${parts[@]:2}"
+  elif [ ${#parts[@]} -eq 3 ]; then
+    artist_slug="${parts[0]}"
+    artist_name="${parts[0]^}"
+    work_title="${parts[1]} ${parts[2]}"
+  else
+    artist_slug="${parts[0]}"
+    artist_name="${parts[0]^}"
+    work_title="${parts[@]:1}"
+  fi
+  
+  # Extraer año si existe en el nombre
+  year=$(echo "$cover" | grep -oP '\d{4}' | head -1)
+  [ -z "$year" ] && year="2025"
+  
+  # Generar UUID
+  uuid=$(cat /proc/sys/kernel/random/uuid 2>/dev/null || echo "00000000-0000-0000-0000-000000000000")
+  timestamp=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+  
+  # Crear JSON con schema COMPLETO (según config.ts)
+  cat > "$json_file" << EOF
+{
+  "id": "${slug}",
+  "workTitle": "${work_title//-/ }",
+  "composer": "Pendiente",
+  "performers": ["${artist_name}"],
+  "title": "${work_title//-/ }",
+  "artistIds": ["${artist_slug}"],
+  "genre": "Classical",
+  "releaseDate": "${year}-01-01",
+  "type": "álbum",
+  "status": "proximamente",
+  "description": "Descripción breve pendiente de completar.",
+  "descriptionLong": "Descripción extendida pendiente. Este release forma parte del catálogo de DAG Klassical, con tokenización blockchain y acceso exclusivo para coleccionistas.",
+  "coverImage": "${cover}",
+  "demoBasePath": "",
+  "demoAvailable": false,
+  "fullAlbumAvailable": false,
+  "sheetMusicAvailable": false,
+  "platforms": {
+    "spotify": null,
+    "apple": null,
+    "youtube": null,
+    "tidal": null,
+    "deezer": null
+  },
+  "tracks": [],
+  "duration": "00:00:00",
+  "commentary": null,
+  "commentaryAuthor": null,
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:${uuid}",
+    "timestamp": "${timestamp}",
+    "operator": "cto@dagklassical.com"
+  },
+  "bioExtended": null
+}
+EOF
+  
+  echo "✅ Creado: ${slug}.json"
+  ((created++))
+  
+done < /tmp/vps-covers.txt
+
+echo ""
+echo "=== RESUMEN ==="
+echo "Covers en VPS: $(wc -l < /tmp/vps-covers.txt)"
+echo "JSONs existentes: $(ls src/content/releases/*.json 2>/dev/null | wc -l)"
+echo "Nuevos creados: $created"
+echo "Saltados (ya existen): $skipped"
+echo "Total final: $(ls src/content/releases/*.json 2>/dev/null | wc -l)"

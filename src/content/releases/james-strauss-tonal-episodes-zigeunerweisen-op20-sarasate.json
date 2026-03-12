@@ -1,0 +1,37 @@
+{
+  "id": "james-strauss-tonal-episodes-zigeunerweisen-op20-sarasate",
+  "workTitle": "tonal episodes zigeunerweisen op20 sarasate",
+  "composer": "Pendiente",
+  "performers": ["James Strauss"],
+  "title": "tonal episodes zigeunerweisen op20 sarasate",
+  "artistIds": ["james-strauss"],
+  "genre": "Classical",
+  "releaseDate": "2025-01-01",
+  "type": "álbum",
+  "status": "proximamente",
+  "description": "Descripción breve pendiente de completar.",
+  "descriptionLong": "Descripción extendida pendiente. Este release forma parte del catálogo de DAG Klassical, con tokenización blockchain y acceso exclusivo para coleccionistas.",
+  "coverImage": "cover-james-strauss-tonal-episodes-zigeunerweisen-op20-sarasate.webp",
+  "demoBasePath": "",
+  "demoAvailable": false,
+  "fullAlbumAvailable": false,
+  "sheetMusicAvailable": false,
+  "platforms": {
+    "spotify": null,
+    "apple": null,
+    "youtube": null,
+    "tidal": null,
+    "deezer": null
+  },
+  "tracks": [],
+  "duration": "00:00:00",
+  "commentary": null,
+  "commentaryAuthor": null,
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:b9e72446-0542-42a4-8443-49544db3e190",
+    "timestamp": "2026-03-12T15:19:00Z",
+    "operator": "cto@dagklassical.com"
+  },
+  "bioExtended": null
+}

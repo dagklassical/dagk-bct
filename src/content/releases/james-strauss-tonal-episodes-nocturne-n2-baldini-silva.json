@@ -1,0 +1,37 @@
+{
+  "id": "james-strauss-tonal-episodes-nocturne-n2-baldini-silva",
+  "workTitle": "tonal episodes nocturne n2 baldini silva",
+  "composer": "Pendiente",
+  "performers": ["James Strauss"],
+  "title": "tonal episodes nocturne n2 baldini silva",
+  "artistIds": ["james-strauss"],
+  "genre": "Classical",
+  "releaseDate": "2025-01-01",
+  "type": "álbum",
+  "status": "proximamente",
+  "description": "Descripción breve pendiente de completar.",
+  "descriptionLong": "Descripción extendida pendiente. Este release forma parte del catálogo de DAG Klassical, con tokenización blockchain y acceso exclusivo para coleccionistas.",
+  "coverImage": "cover-james-strauss-tonal-episodes-nocturne-n2-baldini-silva.webp",
+  "demoBasePath": "",
+  "demoAvailable": false,
+  "fullAlbumAvailable": false,
+  "sheetMusicAvailable": false,
+  "platforms": {
+    "spotify": null,
+    "apple": null,
+    "youtube": null,
+    "tidal": null,
+    "deezer": null
+  },
+  "tracks": [],
+  "duration": "00:00:00",
+  "commentary": null,
+  "commentaryAuthor": null,
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:ffa0046b-3fb3-4711-b0d4-f635881f8ffa",
+    "timestamp": "2026-03-12T15:19:00Z",
+    "operator": "cto@dagklassical.com"
+  },
+  "bioExtended": null
+}

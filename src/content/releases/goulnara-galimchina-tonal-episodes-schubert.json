@@ -1,0 +1,37 @@
+{
+  "id": "goulnara-galimchina-tonal-episodes-schubert",
+  "workTitle": "tonal episodes schubert",
+  "composer": "Pendiente",
+  "performers": ["Goulnara Galimchina"],
+  "title": "tonal episodes schubert",
+  "artistIds": ["goulnara-galimchina"],
+  "genre": "Classical",
+  "releaseDate": "2025-01-01",
+  "type": "álbum",
+  "status": "proximamente",
+  "description": "Descripción breve pendiente de completar.",
+  "descriptionLong": "Descripción extendida pendiente. Este release forma parte del catálogo de DAG Klassical, con tokenización blockchain y acceso exclusivo para coleccionistas.",
+  "coverImage": "cover-goulnara-galimchina-tonal-episodes-schubert.webp",
+  "demoBasePath": "",
+  "demoAvailable": false,
+  "fullAlbumAvailable": false,
+  "sheetMusicAvailable": false,
+  "platforms": {
+    "spotify": null,
+    "apple": null,
+    "youtube": null,
+    "tidal": null,
+    "deezer": null
+  },
+  "tracks": [],
+  "duration": "00:00:00",
+  "commentary": null,
+  "commentaryAuthor": null,
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:b8afa922-6ab9-4dd0-8b38-6bde650cc544",
+    "timestamp": "2026-03-12T15:18:59Z",
+    "operator": "cto@dagklassical.com"
+  },
+  "bioExtended": null
+}

@@ -1,0 +1,37 @@
+{
+  "id": "marcella-roggeri-sonata-tonal-episodes-scarlatti",
+  "workTitle": "sonata tonal episodes scarlatti",
+  "composer": "Pendiente",
+  "performers": ["Marcella Roggeri"],
+  "title": "sonata tonal episodes scarlatti",
+  "artistIds": ["marcella-roggeri"],
+  "genre": "Classical",
+  "releaseDate": "2025-01-01",
+  "type": "álbum",
+  "status": "proximamente",
+  "description": "Descripción breve pendiente de completar.",
+  "descriptionLong": "Descripción extendida pendiente. Este release forma parte del catálogo de DAG Klassical, con tokenización blockchain y acceso exclusivo para coleccionistas.",
+  "coverImage": "cover-marcella-roggeri-sonata-tonal-episodes-scarlatti.webp",
+  "demoBasePath": "",
+  "demoAvailable": false,
+  "fullAlbumAvailable": false,
+  "sheetMusicAvailable": false,
+  "platforms": {
+    "spotify": null,
+    "apple": null,
+    "youtube": null,
+    "tidal": null,
+    "deezer": null
+  },
+  "tracks": [],
+  "duration": "00:00:00",
+  "commentary": null,
+  "commentaryAuthor": null,
+  "musicCards": [],
+  "metadata": {
+    "uuid": "urn:uuid:944d9330-645d-4ba8-bcaa-899fc58cacb6",
+    "timestamp": "2026-03-12T15:19:00Z",
+    "operator": "cto@dagklassical.com"
+  },
+  "bioExtended": null
+}
