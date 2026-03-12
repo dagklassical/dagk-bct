@@ -4,12 +4,17 @@ import Layout from '../../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import { resolveCover } from '../../../lib/asset-resolver';
 
+export const prerender = true;
+
 // ✅ Obtener datos de Content Collections
 const allReleases = await getCollection('releases');
 const allArtists = await getCollection('artists');
 
 const releases = allReleases.map(r => r.data);
 const artists = allArtists.map(a => a.data);
+
+// ✅ Filtrar solo publicados para mostrar por defecto
+const publishedReleases = releases.filter(r => r.status === 'lanzado');
 
 // Helper: obtener nombres de intérpretes
 const getPerformerNames = (release: typeof releases[0]) => {
@@ -22,14 +27,55 @@ const getPerformerNames = (release: typeof releases[0]) => {
   return 'Intérpretes no especificados';
 };
 
-// Ordenar por fecha (más recientes primero)
-const sortedReleases = [...releases].sort((a, b) => 
-  new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime()
-);
+// ✅ Obtener parámetros de URL para filtros
+const url = new URL(Astro.request.url);
+const filterGenre = url.searchParams.get('genre');
+const filterArtist = url.searchParams.get('artist');
+const filterType = url.searchParams.get('type');
+const searchQuery = url.searchParams.get('q')?.toLowerCase() || '';
+const sortBy = url.searchParams.get('sort') || 'date-desc';
 
-// Extraer todos los géneros únicos (soporte para arrays y strings)
+// ✅ Filtrar releases según parámetros
+let filteredReleases = [...publishedReleases];
+
+if (filterGenre) {
+  filteredReleases = filteredReleases.filter(r => 
+    Array.isArray(r.genre) ? r.genre.includes(filterGenre) : r.genre === filterGenre
+  );
+}
+
+if (filterArtist) {
+  filteredReleases = filteredReleases.filter(r => 
+    r.artistIds?.includes(filterArtist)
+  );
+}
+
+if (filterType) {
+  filteredReleases = filteredReleases.filter(r => r.type === filterType);
+}
+
+if (searchQuery) {
+  filteredReleases = filteredReleases.filter(r => 
+    r.title.toLowerCase().includes(searchQuery) ||
+    r.workTitle.toLowerCase().includes(searchQuery) ||
+    r.composer.toLowerCase().includes(searchQuery) ||
+    getPerformerNames(r).toLowerCase().includes(searchQuery)
+  );
+}
+
+// ✅ Ordenar
+if (sortBy === 'date-asc') {
+  filteredReleases.sort((a, b) => new Date(a.releaseDate).getTime() - new Date(b.releaseDate).getTime());
+} else if (sortBy === 'alpha') {
+  filteredReleases.sort((a, b) => a.title.localeCompare(b.title));
+} else {
+  // date-desc (default)
+  filteredReleases.sort((a, b) => new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime());
+}
+
+// ✅ Extraer todos los géneros únicos
 const allGenres = [...new Set(
-  sortedReleases
+  publishedReleases
     .flatMap(r => Array.isArray(r.genre) ? r.genre : (r.genre ? [r.genre] : []))
     .filter(Boolean)
 )].sort();
@@ -56,89 +102,179 @@ const breadcrumbs = [
   <main class="bg-gray95 pb-12">
     <div class="max-w-6xl mx-auto px-8">
       
-      {allGenres.length > 0 && (
-        <div class="mb-6 flex flex-wrap gap-2 justify-center">
-          <button 
-            data-filter="all"
-            class="px-3 py-1.5 rounded-lg text-sm border border-platinum bg-white hover:bg-dag-burgundy hover:text-white transition-colors"
-          >
-            Todos
-          </button>
-          {allGenres.map(genre => (
-            <button
-              data-filter={genre}
-              class="px-3 py-1.5 rounded-lg text-sm border border-platinum bg-white hover:bg-dag-burgundy hover:text-white transition-colors"
+      <!-- ===================================
+           PANEL DE FILTROS
+           =================================== -->
+      <section class="bg-white rounded-xl shadow-sm p-6 mb-8 border border-platinum">
+        
+        <!-- Fila 1: Búsqueda + Género -->
+        <div class="grid md:grid-cols-3 gap-4 mb-4">
+          
+          <!-- Búsqueda por texto -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-600 mb-1">Buscar</label>
+            <input 
+              type="text" 
+              id="search-input"
+              value={searchQuery}
+              placeholder="Título, compositor..." 
+              class="w-full px-3 py-2 border border-platinum rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-dag-burgundy/50"
+            />
+          </div>
+          
+          <!-- Filtro por género -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-600 mb-1">Género</label>
+            <select 
+              id="filter-genre"
+              class="w-full px-3 py-2 border border-platinum rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-dag-burgundy/50"
             >
-              {genre.replace(/-/g, ' ')}
-            </button>
-          ))}
+              <option value="">Todos los géneros</option>
+              {allGenres.map(genre => (
+                <option value={genre} selected={filterGenre === genre}>
+                  {genre.replace(/-/g, ' ')}
+                </option>
+              ))}
+            </select>
+          </div>
+          
+          <!-- Filtro por tipo -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-600 mb-1">Tipo</label>
+            <select 
+              id="filter-type"
+              class="w-full px-3 py-2 border border-platinum rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-dag-burgundy/50"
+            >
+              <option value="">Todos</option>
+              <option value="álbum" selected={filterType === 'álbum'}>Álbum</option>
+              <option value="single" selected={filterType === 'single'}>Single</option>
+              <option value="ep" selected={filterType === 'ep'}>EP</option>
+              <option value="compilation" selected={filterType === 'compilation'}>Compilación</option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- Fila 2: Artista + Orden -->
+        <div class="grid md:grid-cols-2 gap-4">
+          
+          <!-- Filtro por artista -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-600 mb-1">Artista</label>
+            <select 
+              id="filter-artist"
+              class="w-full px-3 py-2 border border-platinum rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-dag-burgundy/50"
+            >
+              <option value="">Todos los artistas</option>
+              {artists.map(artist => (
+                <option value={artist.id} selected={filterArtist === artist.id}>
+                  {artist.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          
+          <!-- Ordenar -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-600 mb-1">Ordenar por</label>
+            <select 
+              id="sort-by"
+              class="w-full px-3 py-2 border border-platinum rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-dag-burgundy/50"
+            >
+              <option value="date-desc" selected={sortBy === 'date-desc'}>Más recientes primero</option>
+              <option value="date-asc" selected={sortBy === 'date-asc'}>Más antiguos primero</option>
+              <option value="alpha" selected={sortBy === 'alpha'}>Alfabético (A-Z)</option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- Fila 3: Contador + Limpiar filtros -->
+        <div class="flex justify-between items-center mt-4 pt-4 border-t border-platinum">
+          <p class="text-sm text-slate-600">
+            <span class="font-semibold text-dag-burgundy">{filteredReleases.length}</span> releases encontrados
+          </p>
+          <a 
+            href="/musica/discografia" 
+            class="text-sm text-dag-burgundy hover:underline"
+          >
+            Limpiar filtros
+          </a>
+        </div>
+      </section>
+
+      <!-- ===================================
+           GRID DE RELEASES
+           =================================== -->
+      {filteredReleases.length === 0 ? (
+        <div class="text-center py-12 bg-white rounded-xl border border-platinum">
+          <p class="text-slate-600 mb-4">No se encontraron releases con estos filtros.</p>
+          <a href="/musica/discografia" class="btn-primary inline-block px-6 py-3">
+            Ver todos los releases
+          </a>
+        </div>
+      ) : (
+        <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+          {filteredReleases.map(release => {
+            const performers = getPerformerNames(release);
+            const genres = Array.isArray(release.genre) 
+              ? release.genre 
+              : (release.genre ? [release.genre] : []);
+            
+            const displayGenres = genres.slice(0, 2);
+            const extraCount = genres.length - 2;
+            if (extraCount > 0) {
+              displayGenres.push(`+${extraCount}`);
+            }
+
+            const coverUrl = resolveCover(release.coverImage);
+
+            return (
+              <a 
+                href={`/musica/discografia/${release.id}`} 
+                class="block group bg-white rounded-md overflow-hidden shadow-sm hover:shadow-lg transition-shadow h-full"
+              >
+                <div class="aspect-[1/1] relative">
+                  <img 
+                    src={coverUrl || '/images/placeholder-cover.webp'} 
+                    alt={`${release.workTitle || release.title} por ${performers}`}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                  <div class="absolute top-2 left-2 flex flex-wrap gap-1">
+                    {displayGenres.map((g, i) => (
+                      <span
+                        class={`text-xs px-1.5 py-0.5 rounded ${
+                          g.startsWith('+') 
+                            ? 'bg-gray/70 text-slate-700' 
+                            : 'bg-white/70 text-slate-900 border border-platinum'
+                        } group-hover:bg-dag-burgundy group-hover:text-white transition-colors`}
+                      >
+                        {g.replace(/-/g, ' ')}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div class="p-3">
+                  <h3 class="font-advent font-semibold text-slate-900 group-hover:text-dag-burgundy text-h4 sm:text-lg mb-1">
+                    {release.workTitle || release.title}
+                  </h3>
+                  {release.composer && (
+                    <p class="text-xs text-slate-500 mb-1 line-clamp-1">Obra de {release.composer}</p>
+                  )}
+                  <p class="text-xs text-slate-600 mb-1 line-clamp-1">{performers}</p>
+                  <p class="text-xs text-dag-burgundy mt-1">
+                    {release.type} • {release.duration}
+                    {release.releaseDate && (
+                      <span class="text-[10px] text-slate-500 ml-1">
+                        • {new Date(release.releaseDate).toLocaleDateString('es-ES')}
+                      </span>
+                    )}
+                  </p>
+                </div>
+              </a>
+            );
+          })}
         </div>
       )}
-
-      <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-5">
-        {sortedReleases.map(release => {
-          const performers = getPerformerNames(release);
-          const genres = Array.isArray(release.genre) 
-            ? release.genre 
-            : (release.genre ? [release.genre] : []);
-          
-          const displayGenres = genres.slice(0, 2);
-          const extraCount = genres.length - 2;
-          if (extraCount > 0) {
-            displayGenres.push(`+${extraCount}`);
-          }
-
-          // ✅ RESOLVER COVER URL AQUÍ
-          const coverUrl = resolveCover(release.coverImage);
-
-          return (
-            <a 
-              href={`/musica/discografia/${release.id}`} 
-              class="block group bg-white rounded-md overflow-hidden shadow-sm hover:shadow-lg transition-shadow h-full"
-              data-genres={JSON.stringify(genres)}
-            >
-              <div class="aspect-[1/1] relative">
-                <img 
-                  src={coverUrl || '/images/placeholder-cover.webp'} 
-                  alt={`${release.workTitle || release.title} por ${performers}`}
-                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
-                <div class="absolute top-2 left-2 flex flex-wrap gap-1">
-                  {displayGenres.map((g, i) => (
-                    <span
-                      class={`text-xs px-1.5 py-0.5 rounded ${
-                        g.startsWith('+') 
-                          ? 'bg-gray/70 text-slate-700' 
-                          : 'bg-white/70 text-slate-900 border border-platinum'
-                      } group-hover:bg-dag-burgundy group-hover:text-white transition-colors`}
-                    >
-                      {g.replace(/-/g, ' ')}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div class="p-3">
-                <h3 class="font-advent font-semibold text-slate-900 group-hover:text-dag-burgundy text-h4 sm:text-lg mb-1">
-                  {release.workTitle || release.title}
-                </h3>
-                {release.composer && (
-                  <p class="text-xs text-slate-500 mb-1 line-clamp-1">Obra de {release.composer}</p>
-                )}
-                <p class="text-xs text-slate-600 mb-1 line-clamp-1">{performers}</p>
-                <p class="text-xs text-dag-burgundy mt-1">
-                  {release.type} • {release.duration}
-                  {release.releaseDate && (
-                    <span class="text-[10px] text-slate-500 ml-1">
-                      • {new Date(release.releaseDate).toLocaleDateString('es-ES')}
-                    </span>
-                  )}
-                </p>
-              </div>
-            </a>
-          );
-        })}
-      </div>
     </div>
 
     <div class="text-center mt-8 sm:mt-10">
@@ -151,33 +287,46 @@ const breadcrumbs = [
     </div>
   </main>
 
+  <!-- ===================================
+       SCRIPT PARA FILTROS EN TIEMPO REAL
+       =================================== -->
   <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const filterButtons = document.querySelectorAll('[data-filter]') as NodeListOf<HTMLElement>;
-    const cards = document.querySelectorAll('[data-genres]') as NodeListOf<HTMLElement>;
-    const container = document.querySelector('.max-w-6xl') as HTMLElement | null;
-    
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const filter = button.dataset.filter;
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('search-input') as HTMLInputElement;
+      const filterGenre = document.getElementById('filter-genre') as HTMLSelectElement;
+      const filterArtist = document.getElementById('filter-artist') as HTMLSelectElement;
+      const filterType = document.getElementById('filter-type') as HTMLSelectElement;
+      const sortBy = document.getElementById('sort-by') as HTMLSelectElement;
+      
+      // Función para aplicar filtros y actualizar URL
+      function applyFilters() {
+        const params = new URLSearchParams();
         
-        if (container) {
-          container.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        if (searchInput.value) params.set('q', searchInput.value);
+        if (filterGenre.value) params.set('genre', filterGenre.value);
+        if (filterArtist.value) params.set('artist', filterArtist.value);
+        if (filterType.value) params.set('type', filterType.value);
+        if (sortBy.value !== 'date-desc') params.set('sort', sortBy.value);
         
-        filterButtons.forEach(btn => 
-          btn.classList.remove('bg-dag-burgundy', 'text-white')
-        );
-        button.classList.add('bg-dag-burgundy', 'text-white');
+        const newUrl = params.toString() 
+          ? `/musica/discografia?${params.toString()}` 
+          : '/musica/discografia';
         
-        cards.forEach(card => {
-          const genresStr = card.dataset.genres;
-          const genres = genresStr ? JSON.parse(genresStr) : [];
-          const matches = (filter === 'all') || genres.includes(filter);
-          (card as HTMLElement).style.display = matches ? 'block' : 'none';
-        });
+        // Actualizar URL sin recargar
+        window.history.pushState({}, '', newUrl);
+      }
+      
+      // Escuchar cambios en selects
+      [filterGenre, filterArtist, filterType, sortBy].forEach(el => {
+        el.addEventListener('change', applyFilters);
+      });
+      
+      // Búsqueda en tiempo real (con debounce)
+      let debounceTimer: ReturnType<typeof setTimeout>;
+      searchInput.addEventListener('input', () => {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(applyFilters, 500);
       });
     });
-  });
-</script>
+  </script>
 </Layout>
