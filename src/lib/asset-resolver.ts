@@ -1,15 +1,52 @@
 // src/lib/asset-resolver.ts
+
 export const ASSET_DOMAIN = 'https://audio.dagklassical.com';
 
-export function resolveAsset(path: string, type: 'cover' | 'card' | 'hero' | 'avatar'): string {
-  // Avatares de artistas se quedan en Vercel (CDN)
-  if (type === 'avatar') {
-    return path.startsWith('/') ? path : `/${path}`;
+export function resolveCover(filename: string): string {
+  if (filename.startsWith('http')) {
+    return filename;
   }
   
-  // Todo lo demás va al subdominio de audio
-  const cleanPath = path.replace(/^\/?(covers|cards|hero|images)\//, '');
-  const folder = type === 'cover' ? 'covers' : type === 'card' ? 'cards' : 'heros';
+  const cleanName = filename
+    .replace(/^\/covers\//, '')
+    .replace(/^\/images\/covers\//, '');
   
-  return `${ASSET_DOMAIN}/images/${folder}/${cleanPath}`;
+  return `${ASSET_DOMAIN}/images/covers/${cleanName}`;
+}
+
+export function resolveCard(filename: string): string {
+  if (filename.startsWith('http')) {
+    return filename;
+  }
+  
+  const cleanName = filename
+    .replace(/^\/cards\//, '')
+    .replace(/^\/images\/cards\//, '');
+  
+  return `${ASSET_DOMAIN}/images/cards/${cleanName}`;
+}
+
+export function resolveAvatar(filename: string): string {
+  if (filename.startsWith('http')) {
+    return filename;
+  }
+  
+  const cleanName = filename
+    .replace(/^\/artists\//, '')
+    .replace(/^\/images\/artists\//, '');
+  
+  return `/artists/${cleanName}`;
+}
+
+export function resolveAsset(filename: string, type: 'cover' | 'card' | 'avatar'): string {
+  switch (type) {
+    case 'cover':
+      return resolveCover(filename);
+    case 'card':
+      return resolveCard(filename);
+    case 'avatar':
+      return resolveAvatar(filename);
+    default:
+      return filename;
+  }
 }

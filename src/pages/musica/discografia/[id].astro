@@ -3,6 +3,7 @@
 import Layout from '../../../layouts/Layout.astro';
 import ImmutableStamp from '../../../components/ImmutableStamp.astro';
 import { getCollection, getEntry } from 'astro:content';
+import { resolveCover } from '../../../lib/asset-resolver';  // ← CAMBIO 1: Import agregado
 
 export const prerender = true;
 
@@ -33,6 +34,9 @@ const release = releaseEntry?.data;
 if (!release) {
   return Astro.redirect('/musica/discografia');
 }
+
+// ← CAMBIO 2: Variable coverUrl (dentro del frontmatter, después de definir release)
+const coverUrl = resolveCover(release.coverImage);
 
 // ✅ VARIABLES QUE FALTABAN:
 
@@ -96,42 +100,43 @@ const breadcrumbs = [
   <article class="max-w-4xl mx-auto px-4 pt-6 pb-10">
     <div class="flex flex-col md:flex-row gap-6">
       <div class="md:w-1/3">
+        <!-- ← CAMBIO 3: src={coverUrl} en vez de src={release.coverImage} -->
         <img
-          src={release.coverImage}
+          src={coverUrl}
           alt={release.title}
           class="w-full rounded-md mx-auto shadow-md mt-4"
           onerror="this.src='https://placehold.co/300x300/cccccc/999999?text=Cover'"
         />
         <!-- Íconos de plataformas: justo debajo de la portada -->
-{release.platforms && (
-  <div class="mt-6 flex justify-center gap-4 flex-wrap">
-    {release.platforms.spotify && (
-      <a href={release.platforms.spotify} target="_blank" rel="noopener" aria-label="Spotify" class="block w-7 h-7 hover:scale-110 transition-transform">
-        <img src="/icons/spotify-color-icon.svg" alt="Spotify" class="w-full h-full" />
-      </a>
-    )}
-    {release.platforms.apple && (
-      <a href={release.platforms.apple} target="_blank" rel="noopener" aria-label="Apple Music" class="block w-7 h-7 hover:scale-110 transition-transform">
-        <img src="/icons/apple-music-color-icon.svg" alt="Apple Music" class="w-full h-full" />
-      </a>
-    )}
-    {release.platforms.youtube && (
-      <a href={release.platforms.youtube} target="_blank" rel="noopener" aria-label="YouTube Music" class="block w-7 h-7 hover:scale-110 transition-transform">
-        <img src="/icons/youtube-music-color-icon.svg" alt="YouTube Music" class="w-full h-full" />
-      </a>
-    )}
-    {release.platforms.tidal && (
-      <a href={release.platforms.tidal} target="_blank" rel="noopener" aria-label="Tidal" class="block w-7 h-7 hover:scale-110 transition-transform">
-        <img src="/icons/tidal-icon.svg" alt="Tidal" class="w-full h-full" />
-      </a>
-    )}
-    {release.platforms.deezer && (
-      <a href={release.platforms.deezer} target="_blank" rel="noopener" aria-label="Deezer" class="block w-7 h-7 hover:scale-110 transition-transform">
-        <img src="/icons/deezer-color-icon.svg" alt="Deezer" class="w-full h-full" />
-      </a>
-    )}
-  </div>
-)}
+        {release.platforms && (
+          <div class="mt-6 flex justify-center gap-4 flex-wrap">
+            {release.platforms.spotify && (
+              <a href={release.platforms.spotify} target="_blank" rel="noopener" aria-label="Spotify" class="block w-7 h-7 hover:scale-110 transition-transform">
+                <img src="/icons/spotify-color-icon.svg" alt="Spotify" class="w-full h-full" />
+              </a>
+            )}
+            {release.platforms.apple && (
+              <a href={release.platforms.apple} target="_blank" rel="noopener" aria-label="Apple Music" class="block w-7 h-7 hover:scale-110 transition-transform">
+                <img src="/icons/apple-music-color-icon.svg" alt="Apple Music" class="w-full h-full" />
+              </a>
+            )}
+            {release.platforms.youtube && (
+              <a href={release.platforms.youtube} target="_blank" rel="noopener" aria-label="YouTube Music" class="block w-7 h-7 hover:scale-110 transition-transform">
+                <img src="/icons/youtube-music-color-icon.svg" alt="YouTube Music" class="w-full h-full" />
+              </a>
+            )}
+            {release.platforms.tidal && (
+              <a href={release.platforms.tidal} target="_blank" rel="noopener" aria-label="Tidal" class="block w-7 h-7 hover:scale-110 transition-transform">
+                <img src="/icons/tidal-icon.svg" alt="Tidal" class="w-full h-full" />
+              </a>
+            )}
+            {release.platforms.deezer && (
+              <a href={release.platforms.deezer} target="_blank" rel="noopener" aria-label="Deezer" class="block w-7 h-7 hover:scale-110 transition-transform">
+                <img src="/icons/deezer-color-icon.svg" alt="Deezer" class="w-full h-full" />
+              </a>
+            )}
+          </div>
+        )}
         {release.tracks?.length > 0 && (
           <section class="mt-6 pt-4 border-t border-platinum">
             <h3 class="text-xl font-bold text-slate-700 mb-2">Tracklist</h3>
@@ -165,32 +170,32 @@ const breadcrumbs = [
         <p class="text-xl text-slate-600 mb-2">
           por{' '}
           {releaseArtists.map((artist, i) => (
-  <span>
-    <a 
-      href={`/musica/artistas/${artist?.id}`}   
-      class="text-dag-burgundy hover:underline"
-    >
-      {artist?.name}  <!-- ✅ artist?.name -->
-    </a>
-    {i < releaseArtists.length - 1 && ', '}
-  </span>
-))}
+            <span>
+              <a 
+                href={`/musica/artistas/${artist?.id}`}   
+                class="text-dag-burgundy hover:underline"
+              >
+                {artist?.name}
+              </a>
+              {i < releaseArtists.length - 1 && ', '}
+            </span>
+          ))}
         </p>
 
         {allGenres.length > 0 && (
-  <div class="flex flex-wrap gap-1 my-2">
-    {allGenres.map(genre => {
-      const genreString = Array.isArray(genre) ? genre[0] : genre;
-      return (
-        <span
-          class="text-xs bg-white text-slate-800 px-2 py-0.5 rounded border border-platinum font-medium"
-        >
-          {genreString.replace(/-/g, ' ')}
-        </span>
-      );
-    })}
-  </div>
-)}
+          <div class="flex flex-wrap gap-1 my-2">
+            {allGenres.map(genre => {
+              const genreString = Array.isArray(genre) ? genre[0] : genre;
+              return (
+                <span
+                  class="text-xs bg-white text-slate-800 px-2 py-0.5 rounded border border-platinum font-medium"
+                >
+                  {genreString.replace(/-/g, ' ')}
+                </span>
+              );
+            })}
+          </div>
+        )}
 
         <p class="text-slate-500 mb-4 text-sm">
           Lanzamiento • {new Date(release.releaseDate).toLocaleDateString('es-VE', { day: '2-digit', month: '2-digit', year: 'numeric' })} • {release.type}
@@ -211,9 +216,9 @@ const breadcrumbs = [
             <h3 class="text-lg font-semibold mb-3">Artistas</h3>
             <div class="space-y-4">
               {releaseArtists.map(artist => (
-                  <div class="border-l-2 border-dag-burgundy/30 pl-3">
-                    <h4 class="font-medium">{artist?.name}</h4>  <!-- ✅ artist?.name -->
-                  </div>
+                <div class="border-l-2 border-dag-burgundy/30 pl-3">
+                  <h4 class="font-medium">{artist?.name}</h4>
+                </div>
               ))}
             </div>
           </section>

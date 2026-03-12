@@ -1,7 +1,8 @@
 ---
-// src/pages/blockchain/music-cards/index.astro - VERSIÓN MIGRADA
+// src/pages/blockchain/music-cards/index.astro
 import Layout from '../../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import { resolveCard } from '../../../lib/asset-resolver';
 
 export const prerender = true;
 
@@ -119,6 +120,9 @@ const breadcrumbs = artist
                   .join(', ')
               : 'Artista';
             
+            // ✅ RESOLVER CARD IMAGE URL AQUÍ
+            const cardUrl = resolveCard(card.cardImage);
+            
             return (
               <a 
                 href={`/blockchain/music-cards/${card.id}`} 
@@ -126,7 +130,7 @@ const breadcrumbs = artist
               >
                 <div class="aspect-[5/8]">
                   <img 
-                    src={card.cardImage || '/images/placeholder-card.jpg'} 
+                    src={cardUrl || '/images/placeholder-card.jpg'} 
                     alt={card.title}
                     class="w-full h-full object-cover"
                     loading="lazy"

@@ -2,11 +2,11 @@
 // src/pages/blockchain/music-cards/artistas/[id].astro
 import Layout from '../../../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import { resolveCard } from '../../../../lib/asset-resolver';
 
 export const prerender = true;
 
 export async function getStaticPaths() {
-  // ✅ Todo debe estar DENTRO de getStaticPaths
   const allMusicCards = await getCollection('music-cards');
   const musicCards = allMusicCards.map(m => m.data);
   
@@ -30,7 +30,6 @@ export async function getStaticPaths() {
   return Array.from(artistIds).map(id => ({ params: { id } }));
 }
 
-// ✅ Ahora SÍ podemos usar getCollection fuera también
 const allMusicCards = await getCollection('music-cards');
 const musicCards = allMusicCards.map(m => m.data);
 
@@ -79,10 +78,13 @@ const breadcrumbs = [
               ? release.artistIds.map(id => artists.find(a => a.id === id)?.name).filter(Boolean).join(', ')
               : 'Artista';
             
+            // ✅ RESOLVER CARD IMAGE URL AQUÍ
+            const cardUrl = resolveCard(card.cardImage);
+            
             return (
               <a href={`/blockchain/music-cards/${card.id}`} class="group block bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
                 <div class="aspect-[5/8]">
-                  <img src={card.cardImage || '/images/placeholder-card.jpg'} alt={card.title} class="w-full h-full object-cover" loading="lazy" />
+                  <img src={cardUrl || '/images/placeholder-card.jpg'} alt={card.title} class="w-full h-full object-cover" loading="lazy" />
                 </div>
                 <div class="p-3">
                   <h4 class="text-sm font-bold font-advent text-slate-900 group-hover:text-dag-burgundy truncate">{card.title}</h4>

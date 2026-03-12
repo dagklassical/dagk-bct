@@ -2,6 +2,7 @@
 // src/pages/musica/discografia/completa.astro
 import Layout from '../../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import { resolveCover } from '../../../lib/asset-resolver';
 
 const allReleases = await getCollection('releases');
 const releases = allReleases.map(r => r.data);
@@ -9,12 +10,10 @@ const releases = allReleases.map(r => r.data);
 const allArtists = await getCollection('artists');
 const artists = allArtists.map(a => a.data);
 
-// ✅ Tipado explícito para evitar errores de índice
 interface ArtistMap {
   [id: string]: {
     id: string;
     name: string;
-    // Puedes añadir otros campos si los usas
   };
 }
 
@@ -41,53 +40,57 @@ const breadcrumbs = [
   </header>
 
   <div class="max-w-6xl mx-auto px-4">
-    <!-- Mantiene el mismo grid que la página principal -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {releases.map(release => (
-        <a 
-          href={`/musica/discografia/${release.id}`} 
-          class="block group border border-slate-200 rounded-xl p-5 hover:border-dag-burgundy transition-colors bg-white shadow-sm"
-        >
-          <div class="aspect-square w-full bg-slate-100 rounded-lg overflow-hidden mb-4">
-            {release.coverImage ? (
-              <img 
-                src={release.coverImage} 
-                alt={release.title}
-                class="w-full h-full object-cover"
-                loading="lazy"
-              />
-            ) : (
-              <div class="w-full h-full flex items-center justify-center text-slate-400 text-xs">
-                Sin portada
-              </div>
-            )}
-          </div>
+      {releases.map(release => {
+        // ✅ RESOLVER COVER URL AQUÍ
+        const coverUrl = resolveCover(release.coverImage);
 
-          <div class="px-3 space-y-1.5">
-            <h3 class="text-lg font-semibold text-slate-800 group-hover:text-dag-burgundy">
-              {release.title}
-            </h3>
-            
-            {release.artistIds?.[0] && (
-              <p class="text-slate-600 text-sm">
-                por {artistMap[release.artistIds[0]]?.name || 'Artista desconocido'}
-              </p>
-            )}
+        return (
+          <a 
+            href={`/musica/discografia/${release.id}`} 
+            class="block group border border-slate-200 rounded-xl p-5 hover:border-dag-burgundy transition-colors bg-white shadow-sm"
+          >
+            <div class="aspect-square w-full bg-slate-100 rounded-lg overflow-hidden mb-4">
+              {coverUrl ? (
+                <img 
+                  src={coverUrl} 
+                  alt={release.title}
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              ) : (
+                <div class="w-full h-full flex items-center justify-center text-slate-400 text-xs">
+                  Sin portada
+                </div>
+              )}
+            </div>
 
-            {release.genre && (
-              <p class="text-xs text-platinum bg-dag-burgundy/10 px-2 py-1 rounded inline-block">
-                {release.genre}
-              </p>
-            )}
+            <div class="px-3 space-y-1.5">
+              <h3 class="text-lg font-semibold text-slate-800 group-hover:text-dag-burgundy">
+                {release.title}
+              </h3>
+              
+              {release.artistIds?.[0] && (
+                <p class="text-slate-600 text-sm">
+                  por {artistMap[release.artistIds[0]]?.name || 'Artista desconocido'}
+                </p>
+              )}
 
-            {release.description && (
-              <p class="text-slate-600 text-sm line-clamp-2">
-                {release.description}
-              </p>
-            )}
-          </div>
-        </a>
-      ))}
+              {release.genre && (
+                <p class="text-xs text-platinum bg-dag-burgundy/10 px-2 py-1 rounded inline-block">
+                  {release.genre}
+                </p>
+              )}
+
+              {release.description && (
+                <p class="text-slate-600 text-sm line-clamp-2">
+                  {release.description}
+                </p>
+              )}
+            </div>
+          </a>
+        );
+      })}
     </div>
   </div>
 </Layout>

@@ -1,7 +1,8 @@
 ---
-// src/pages/musica/discografia/index.astro - VERSIÓN MIGRADA
+// src/pages/musica/discografia/index.astro
 import Layout from '../../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import { resolveCover } from '../../../lib/asset-resolver';
 
 // ✅ Obtener datos de Content Collections
 const allReleases = await getCollection('releases');
@@ -45,7 +46,6 @@ const breadcrumbs = [
   description="Explora nuestra colección de obras musicales certificadas en blockchain, con audio en alta resolución y metadatos inmutables."
   breadcrumbs={breadcrumbs}
 >
-  <!-- El resto del template permanece IGUAL -->
   <header class="bg-white text-center py-10 px-4 mb-8">
     <h1 class="text-h1 font-advent">Nuestra Discografía</h1>
     <p class="text-dag-burgundy max-w-4xl mx-auto mt-3">
@@ -88,6 +88,9 @@ const breadcrumbs = [
             displayGenres.push(`+${extraCount}`);
           }
 
+          // ✅ RESOLVER COVER URL AQUÍ
+          const coverUrl = resolveCover(release.coverImage);
+
           return (
             <a 
               href={`/musica/discografia/${release.id}`} 
@@ -96,7 +99,7 @@ const breadcrumbs = [
             >
               <div class="aspect-[1/1] relative">
                 <img 
-                  src={release.coverImage || '/images/placeholder-cover.webp'} 
+                  src={coverUrl || '/images/placeholder-cover.webp'} 
                   alt={`${release.workTitle || release.title} por ${performers}`}
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
@@ -148,7 +151,6 @@ const breadcrumbs = [
     </div>
   </main>
 
-  <!-- El script de filtrado permanece IGUAL -->
   <script>
   document.addEventListener('DOMContentLoaded', () => {
     const filterButtons = document.querySelectorAll('[data-filter]') as NodeListOf<HTMLElement>;
