@@ -1,12 +1,12 @@
 {
-  "id": "mc-2025-edc247-teodor-dore-february-night-std",
-  "title": "February Night",
-  "workTitle": "February Night",
+  "id": "mc-2025-edc247-teodor-dore-rachmaninoff-variations-std",
+  "title": "Rachmaninoff Variations",
+  "workTitle": "Rachmaninoff Variations",
   "composer": "Sergei Rachmaninoff",
   "artist": "Teodor Doré",
   "performers": [],
   "edition": "Estándar",
-  "associatedRelease": "teodor-dore-february-night",
+  "associatedRelease": "teodor-dore-rachmaninoff-variations",
   "totalSupply": 75,
   "available": 75,
   "blockchain": "Polygon",
@@ -20,7 +20,7 @@
     "Contenido detrás de cámaras",
     "Metadatos inmutables en blockchain"
   ],
-  "cardImage": "/cards/mc-2025-teodor-rachmaninoff-variations.webp",
+  "cardImage": "mc-2025-teodor-dore-rachmaninoff-variations.webp",
   "socialLinks": [
     {
       "platform": "Spotify",

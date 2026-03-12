@@ -1,9 +1,9 @@
 {
-  "id": "teodor-dore-february-night",
-  "workTitle": "February Night",
+  "id": "teodor-dore-rachmaninoff-variations",
+  "workTitle": "Rachmaninoff Variations",
   "composer": "",
   "performers": [],
-  "title": "February Night",
+  "title": "Rachmaninoff Variations",
   "artistIds": [
     "teodor-dore"
   ],
@@ -113,13 +113,13 @@
   "commentary": "Cada pieza es una carta sonora escrita desde el umbral del exilio, donde la música se convierte en el único puente con la patria perdida.",
   "commentaryAuthor": "Teodor Doré",
   "musicCards": [
-    "mc-2025-teodor-dore-february-night-std"
+    "mc-2025-teodor-dore-rachmaninoff-variations-std"
   ],
   "metadata": {
     "uuid": "urn:uuid:ccc6726b-ed17-44c5-b4dc-243b357be75b",
     "timestamp": "2025-11-28T11:00:00Z",
     "operator": "cto@dagklassical.com"
   },
-  "bioExtended": "La grabación de ‘February Night’ se realizó en Mansa Studio, Lechería, Venezuela, bajo la producción artística de Danilo Álvarez. Teodor trabajó con un piano Steinway & Sons de cola, capturado con micrófonos Neumann U87 en configuración binaural...",
-  "demoBasePath": "teodor-dore/february-night/"
+  "bioExtended": "La grabación de ‘Rachmaninoff Variations’ se realizó en Mansa Studio, Lechería, Venezuela, bajo la producción artística de Danilo Álvarez. Teodor trabajó con un piano Steinway & Sons de cola, capturado con micrófonos Neumann U87 en configuración binaural...",
+  "demoBasePath": "teodor-dore/rachmaninoff-variations/"
 }
