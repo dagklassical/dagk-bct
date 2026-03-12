@@ -2,6 +2,7 @@
 // src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import { resolveCard } from '../lib/asset-resolver';
 
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
@@ -163,29 +164,34 @@ const latestNews = allNoticias
       </div>
       
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-        {latestReleases.map((card) => (
-          <a 
-            href={`/blockchain/music-cards/${card.id}`} 
-            class="group block bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden"
-          >
-            <div class="aspect-[5/8]">
-              <img 
-                src={card.cardImage || '/images/placeholder-card.jpg'} 
-                alt={card.title}
-                class="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div class="p-4">
-              <h4 class="text-sm font-bold font-advent text-slate-900 group-hover:text-dag-burgundy truncate">
-                {card.title}
-              </h4>
-              <p class="text-xs text-slate-500 truncate mt-1">
-                {card.artist || 'Artista'}
-              </p>
-            </div>
-          </a>
-        ))}
+        {latestReleases.map((card) => {
+          // ✅ RESOLVER CARD IMAGE URL AQUÍ
+          const cardUrl = resolveCard(card.cardImage);
+          
+          return (
+            <a 
+              href={`/blockchain/music-cards/${card.id}`} 
+              class="group block bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden"
+            >
+              <div class="aspect-[5/8]">
+                <img 
+                  src={cardUrl || '/images/placeholder-card.jpg'} 
+                  alt={card.title}
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div class="p-4">
+                <h4 class="text-sm font-bold font-advent text-slate-900 group-hover:text-dag-burgundy truncate">
+                  {card.title}
+                </h4>
+                <p class="text-xs text-slate-500 truncate mt-1">
+                  {card.artist || 'Artista'}
+                </p>
+              </div>
+            </a>
+          );
+        })}
       </div>
       
       <div class="text-center mt-8">
@@ -303,7 +309,5 @@ const latestNews = allNoticias
       </div>
     </div>
   </section>
-
-
 
 </Layout>
