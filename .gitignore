@@ -51,3 +51,4 @@ public/audio/demo/
 backups/
 .vercel
 .local-backup/
+public/api-index.json
