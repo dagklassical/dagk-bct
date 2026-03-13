@@ -2,20 +2,17 @@
   "id": "orquesta-academica-de-moscu-momentos-musicales-vol-2",
   "workTitle": "Momentos Musicales Vol. 2: Clásico Austriaco",
   "composer": "Wolfgang Amadeus Mozart",
-  "performers": [
-    "Orquesta Académica de Moscú"
-  ],
+  "performers": ["Orquesta Académica de Moscú"],
   "title": "Momentos Musicales Vol. 2: Clásico Austriaco",
-  "artistIds": [
-    "orquesta-academica-de-moscu"
-  ],
+  "artistIds": ["orquesta-academica-de-moscu"],
   "genre": "clasico-austriaco",
   "releaseDate": "2025-04-03",
   "type": "álbum",
   "status": "lanzado",
   "description": "Un viaje al corazón del período clásico vienés con la Sinfonía Nº29 de Mozart, obra maestra de equilibrio, claridad y emoción contenida, interpretada con elegancia y rigor por la Orquesta Académica de Moscú.",
-  "descriptionLong": "",
-  "coverImage": "cover-orquesta-academica-de-moscu-momentos-musicales-vol-2.webp",
+  "descriptionLong": "La Madurez Temprana de Mozart\n\nCompuesta en 1774, cuando Mozart tenía apenas 18 años, la Sinfonía No. 29 en La mayor (K. 201) representa un punto de inflexión en su producción sinfónica. Lejos de la pompa de sus obras posteriores, esta pieza privilegia la intimidad, el contrapunto refinado y una elegancia que no excluye la profundidad emocional.\n\nEquilibrio Vienés en Cuatro Movimientos\n\nEl primer movimiento, Allegro moderato, abre con un tema de cuerdas que combina gracia y sofisticación armónica. El Andante ofrece un lirismo delicado, con diálogos entre violines y vientos que anticipan la madurez del Mozart posterior. El Menuetto recupera la danza de corte con un trío de oboes y cornos, mientras el Finale, Allegro con spirito, cierra con energía contrapuntística que demuestra el dominio técnico del joven compositor.\n\nPrecisión Rusa, Alma Vienesa\n\nLa Orquesta Académica de Moscú aborda esta partitura con la claridad de la tradición rusa: cuerdas con vibrato contenido, vientos precisos, tempi que respetan la respiración clásica. El resultado es una interpretación que honra la estética de la Viena de 1774 sin sacrificar la resonancia moderna.\n\nSerie 'Momentos Musicales'\n\nComo segundo volumen de esta serie curada por DAG Klassical, este álbum certifica en blockchain una obra esencial del repertorio clásico, preservando para las generaciones futuras una lectura que equilibra rigor histórico y belleza atemporal.",
+  "coverImage": "/covers/cover-orquesta-academica-de-moscu-momentos-musicales-vol-2.webp",
+  "demoBasePath": "/audio/demos",
   "demoAvailable": false,
   "fullAlbumAvailable": true,
   "sheetMusicAvailable": false,
@@ -31,7 +28,7 @@
       "number": "001",
       "title": "Allegro moderato",
       "duration": "6:30",
-      "demo": null,
+      "demoFile": null,
       "protected": null,
       "composer": "Wolfgang Amadeus Mozart",
       "workCatalogue": "KV 201"
@@ -40,7 +37,7 @@
       "number": "002",
       "title": "Andante",
       "duration": "5:15",
-      "demo": null,
+      "demoFile": null,
       "protected": null,
       "composer": "Wolfgang Amadeus Mozart",
       "workCatalogue": "KV 201"
@@ -49,7 +46,7 @@
       "number": "003",
       "title": "Menuetto. Allegro",
       "duration": "2:40",
-      "demo": null,
+      "demoFile": null,
       "protected": null,
       "composer": "Wolfgang Amadeus Mozart",
       "workCatalogue": "KV 201"
@@ -58,7 +55,7 @@
       "number": "004",
       "title": "Allegro con spirito",
       "duration": "4:20",
-      "demo": null,
+      "demoFile": null,
       "protected": null,
       "composer": "Wolfgang Amadeus Mozart",
       "workCatalogue": "KV 201"
@@ -69,10 +66,9 @@
   "commentaryAuthor": "Orquesta Académica de Moscú",
   "musicCards": [],
   "metadata": {
-    "uuid": "urn:uuid:$(uuidgen)",
+    "uuid": "urn:uuid:2a9f3c7e-8b1d-4f6a-9e2c-5d8a7b3f1c4e",
     "timestamp": "2025-12-31T10:00:00Z",
     "operator": "cto@dagklassical.com"
   },
-  "bioExtended": null,
-  "demoBasePath": "/audio/demos"
+  "bioExtended": null
 }

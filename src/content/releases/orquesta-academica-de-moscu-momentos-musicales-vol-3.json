@@ -2,20 +2,17 @@
   "id": "orquesta-academica-de-moscu-momentos-musicales-vol-3",
   "workTitle": "Momentos Musicales Vol. 3: Nacionalismo Ruso",
   "composer": "Mijaíl Glinka",
-  "performers": [
-    "Orquesta Académica de Moscú"
-  ],
+  "performers": ["Orquesta Académica de Moscú"],
   "title": "Momentos Musicales Vol. 3: Nacionalismo Ruso",
-  "artistIds": [
-    "orquesta-academica-de-moscu"
-  ],
+  "artistIds": ["orquesta-academica-de-moscu"],
   "genre": "nacionalismo-ruso",
   "releaseDate": "2025-05-02",
   "type": "álbum",
   "status": "lanzado",
   "description": "Un homenaje a las raíces de la música rusa con 'Kamarinskaya' de Glinka, la obra que, según Tchaikovsky, sembró toda la escuela nacional rusa. Interpretada con orgullo y fuerza telúrica por la Orquesta Académica de Moscú.",
-  "descriptionLong": "",
-  "coverImage": "cover-orquesta-academica-de-moscu-momentos-musicales-vol-3.webp",
+  "descriptionLong": "La Semilla de la Sinfonía Rusa\n\nCompuesta en 1848, 'Kamarinskaya' de Mijaíl Glinka no es solo una obra orquestal: es el acto fundacional de la música clásica rusa. Basada en dos melodías folclóricas —una canción de boda ('Iz-za gor') y una danza festiva ('Kamarinskaya')—, esta pieza demuestra cómo el material popular puede transformarse en arquitectura sinfónica sin perder su alma.\n\nTchaikovsky lo resumió con precisión: 'Toda la escuela sinfónica rusa está contenida en Kamarinskaya, como el roble entero está en la bellota'. Glinka no imita modelos occidentales; extrae de la tradición oral rusa un lenguaje propio, donde las variaciones no decoran, sino que desarrollan.\n\nFuerza Telúrica, Precisión Académica\n\nLa Orquesta Académica de Moscú aborda esta partitura con la autoridad de quien conoce tanto el folclore como la técnica orquestal. Las cuerdas ejecutan los ritmos asimétricos con elasticidad rusa, mientras los vientos destacan los colores modales característicos de las melodias originales. El resultado es una interpretación que honra la raíz popular sin sacrificar el rigor académico.\n\nSerie 'Momentos Musicales'\n\nComo tercer volumen de esta serie curada por DAG Klassical, este álbum certifica en blockchain una obra esencial del repertorio ruso, preservando para las generaciones futuras una lectura que equilibra identidad cultural y excelencia interpretativa.",
+  "coverImage": "/covers/cover-orquesta-academica-de-moscu-momentos-musicales-vol-3.webp",
+  "demoBasePath": "/audio/demos",
   "demoAvailable": false,
   "fullAlbumAvailable": true,
   "sheetMusicAvailable": false,
@@ -31,7 +28,7 @@
       "number": "001",
       "title": "Kamarinskaya",
       "duration": "8:50",
-      "demo": null,
+      "demoFile": null,
       "protected": null,
       "composer": "Mijaíl Glinka",
       "workCatalogue": null
@@ -42,10 +39,9 @@
   "commentaryAuthor": "Orquesta Académica de Moscú",
   "musicCards": [],
   "metadata": {
-    "uuid": "urn:uuid:$(uuidgen)",
+    "uuid": "urn:uuid:7c4e9b2a-3f1d-4a8c-9e5b-2d7a6c8f3e1b",
     "timestamp": "2025-12-31T10:00:00Z",
     "operator": "cto@dagklassical.com"
   },
-  "bioExtended": null,
-  "demoBasePath": "/audio/demos"
+  "bioExtended": null
 }

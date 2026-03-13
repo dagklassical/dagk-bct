@@ -2,20 +2,17 @@
   "id": "orquesta-academica-de-moscu-momentos-musicales-vol-1",
   "workTitle": "Momentos Musicales Vol. 1: Barroco Inglés",
   "composer": "Georg Frideric Handel",
-  "performers": [
-    "Orquesta Académica de Moscú"
-  ],
+  "performers": ["Orquesta Académica de Moscú"],
   "title": "Momentos Musicales Vol. 1: Barroco Inglés",
-  "artistIds": [
-    "orquesta-academica-de-moscu"
-  ],
+  "artistIds": ["orquesta-academica-de-moscu"],
   "genre": "barroco-ingles",
   "releaseDate": "2025-03-06",
   "type": "álbum",
   "status": "lanzado",
   "description": "Una inmersión en la elegancia y el esplendor de la corte inglesa del siglo XVIII, con la Suite Nº1 en Fa mayor de la 'Water Music' de Handel, interpretada con precisión histórica y brillo sonoro por la Orquesta Académica de Moscú.",
   "descriptionLong": "El Nacimiento de una Tradición Sinfónica\n\nLa 'Water Music' de Handel no fue solo música de entretenimiento; fue un acto político y cultural que marcó el nacimiento de la música orquestal pública en Inglaterra. Compuesta para el rey Jorge I, esta suite combina danzas francesas, aires italianos y una pompa británica única.\n\nUna Interpretación de Referencia\n\nLa Orquesta Académica de Moscú aborda esta obra con un enfoque que equilibra la fidelidad histórica y la resonancia moderna. Cada entrada de trompa, cada frase de violín, está calibrada para evocar las aguas del Támesis y la grandeza de una monarquía en auge.\n\nPrimera Entrega de una Serie Esencial\n\nComo inicio de la serie 'Momentos Musicales', este volumen establece el estándar: grabaciones de alta fidelidad, contextualización curatorial y una misión clara: hacer del repertorio académico una experiencia accesible, profunda y eterna, ahora certificada en blockchain por DAG Klassical.",
-  "coverImage": "cover-orquesta-academica-de-moscu-momentos-musicales-vol-1.webp",
+  "coverImage": "/covers/cover-orquesta-academica-de-moscu-momentos-musicales-vol-1.webp",
+  "demoBasePath": "/audio/demos",
   "demoAvailable": false,
   "fullAlbumAvailable": true,
   "sheetMusicAvailable": false,
@@ -31,7 +28,7 @@
       "number": "001",
       "title": "Overture (Largo - Allegro)",
       "duration": "3:20",
-      "demo": null,
+      "demoFile": null,
       "protected": null,
       "composer": "Georg Frideric Handel",
       "workCatalogue": "HWV 348"
@@ -40,7 +37,7 @@
       "number": "002",
       "title": "Adagio",
       "duration": "1:45",
-      "demo": null,
+      "demoFile": null,
       "protected": null,
       "composer": "Georg Frideric Handel",
       "workCatalogue": "HWV 348"
@@ -49,7 +46,7 @@
       "number": "003",
       "title": "Allegro - Andante",
       "duration": "2:10",
-      "demo": null,
+      "demoFile": null,
       "protected": null,
       "composer": "Georg Frideric Handel",
       "workCatalogue": "HWV 348"
@@ -58,7 +55,7 @@
       "number": "004",
       "title": "Minuet",
       "duration": "2:00",
-      "demo": null,
+      "demoFile": null,
       "protected": null,
       "composer": "Georg Frideric Handel",
       "workCatalogue": "HWV 348"
@@ -67,7 +64,7 @@
       "number": "005",
       "title": "Air",
       "duration": "1:50",
-      "demo": null,
+      "demoFile": null,
       "protected": null,
       "composer": "Georg Frideric Handel",
       "workCatalogue": "HWV 348"
@@ -78,10 +75,9 @@
   "commentaryAuthor": "Orquesta Académica de Moscú",
   "musicCards": [],
   "metadata": {
-    "uuid": "urn:uuid:$(uuidgen)",
+    "uuid": "urn:uuid:14861e8c-507a-4a88-ad3c-6e5aab5b213d",
     "timestamp": "2025-12-31T10:00:00Z",
     "operator": "cto@dagklassical.com"
   },
-  "bioExtended": null,
-  "demoBasePath": "/audio/demos"
+  "bioExtended": null
 }

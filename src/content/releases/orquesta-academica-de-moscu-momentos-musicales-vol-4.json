@@ -2,20 +2,17 @@
   "id": "orquesta-academica-de-moscu-momentos-musicales-vol-4",
   "workTitle": "Momentos Musicales Vol. 4: Barroco Italiano",
   "composer": "Arcangelo Corelli",
-  "performers": [
-    "Orquesta Académica de Moscú"
-  ],
+  "performers": ["Orquesta Académica de Moscú"],
   "title": "Momentos Musicales Vol. 4: Barroco Italiano",
-  "artistIds": [
-    "orquesta-academica-de-moscu"
-  ],
+  "artistIds": ["orquesta-academica-de-moscu"],
   "genre": "barroco-italiano",
   "releaseDate": "2025-06-06",
   "type": "álbum",
   "status": "lanzado",
   "description": "Un tributo al maestro del concerto grosso con la Concerto Grosso Op. 6 Nº8 'Christmas Concerto' de Corelli, joya del barroco romano interpretada con gracia y rigor por la Orquesta Académica de Moscú.",
-  "descriptionLong": "",
-  "coverImage": "cover-orquesta-academica-de-moscu-momentos-musicales-vol-4.webp",
+  "descriptionLong": "La Navidad en el Barroco Romano\n\nCompuesto alrededor de 1690 y publicado póstumamente en 1714, el Concerto Grosso Op. 6 No. 8 de Arcangelo Corelli —conocido como 'Christmas Concerto'— es una de las obras más emblemáticas del barroco italiano. Su movimiento final, la Pastorale (Largo), evoca con delicadeza las melodías de los zampognari, los gaiteros que descendían de los Apeninos para tocar en las calles de Roma durante la Navidad.\n\nCorelli no compuso música programática en el sentido moderno; más bien, capturó una atmósfera: la serenidad contemplativa de la Nochebuena romana, filtrada a través de la elegancia formal del concerto grosso. El diálogo entre concertino (dos violines y violonchelo) y ripieno (orquesta completa) crea una textura que es a la vez íntima y ceremonial.\n\nGracia y Rigor Académico\n\nLa Orquesta Académica de Moscú aborda esta partitura con la claridad de la tradición rusa: tempi que respetan la respiración barroca, ornamentación contenida, y un equilibrio entre el concertino y el ripieno que permite escuchar cada línea contrapuntística. La Pastorale final se ejecuta con una delicadeza que honra su carácter devocional sin caer en lo sentimental.\n\nCierre de la Serie 'Momentos Musicales'\n\nComo cuarto y último volumen de esta serie inaugural, este álbum certifica en blockchain una obra esencial del repertorio barroco, completando un arco curatorial que abarca Inglaterra, Austria, Rusia e Italia. DAG Klassical preserva así, para las generaciones futuras, una lectura que equilibra fidelidad histórica y belleza atemporal.",
+  "coverImage": "/covers/cover-orquesta-academica-de-moscu-momentos-musicales-vol-4.webp",
+  "demoBasePath": "/audio/demos",
   "demoAvailable": false,
   "fullAlbumAvailable": true,
   "sheetMusicAvailable": false,
@@ -31,7 +28,7 @@
       "number": "001",
       "title": "Sinfonia (Largo - Allegro)",
       "duration": "2:30",
-      "demo": null,
+      "demoFile": null,
       "protected": null,
       "composer": "Arcangelo Corelli",
       "workCatalogue": "Op. 6 No. 8"
@@ -40,7 +37,7 @@
       "number": "002",
       "title": "Allemanda (Allegro)",
       "duration": "2:10",
-      "demo": null,
+      "demoFile": null,
       "protected": null,
       "composer": "Arcangelo Corelli",
       "workCatalogue": "Op. 6 No. 8"
@@ -49,7 +46,7 @@
       "number": "003",
       "title": "Adagio",
       "duration": "1:50",
-      "demo": null,
+      "demoFile": null,
       "protected": null,
       "composer": "Arcangelo Corelli",
       "workCatalogue": "Op. 6 No. 8"
@@ -58,7 +55,7 @@
       "number": "004",
       "title": "Sarabanda (Vivace)",
       "duration": "2:00",
-      "demo": null,
+      "demoFile": null,
       "protected": null,
       "composer": "Arcangelo Corelli",
       "workCatalogue": "Op. 6 No. 8"
@@ -67,7 +64,7 @@
       "number": "005",
       "title": "Allegro",
       "duration": "1:40",
-      "demo": null,
+      "demoFile": null,
       "protected": null,
       "composer": "Arcangelo Corelli",
       "workCatalogue": "Op. 6 No. 8"
@@ -76,7 +73,7 @@
       "number": "006",
       "title": "Pastorale (Largo)",
       "duration": "3:20",
-      "demo": null,
+      "demoFile": null,
       "protected": null,
       "composer": "Arcangelo Corelli",
       "workCatalogue": "Op. 6 No. 8"
@@ -87,10 +84,9 @@
   "commentaryAuthor": "Orquesta Académica de Moscú",
   "musicCards": [],
   "metadata": {
-    "uuid": "urn:uuid:$(uuidgen)",
+    "uuid": "urn:uuid:9e2f5a8c-1b4d-4c7a-8f3e-6d9b2a5c8e1f",
     "timestamp": "2025-12-31T10:00:00Z",
     "operator": "cto@dagklassical.com"
   },
-  "bioExtended": null,
-  "demoBasePath": "/audio/demos"
+  "bioExtended": null
 }
