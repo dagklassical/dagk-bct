@@ -1,37 +1,173 @@
 {
   "id": "gerardo-gerulewicz-villancicos-polacos",
-  "workTitle": "villancicos polacos",
-  "composer": "Pendiente",
+  "workTitle": "Llegó Navidad, Villancicos Polacos",
+  "composer": "Tradicional Polaco (Kolędy)",
   "performers": ["Gerardo Gerulewicz"],
-  "title": "villancicos polacos",
+  "title": "Llegó Navidad, Villancicos Polacos",
   "artistIds": ["gerardo-gerulewicz"],
-  "genre": "Classical",
-  "releaseDate": "2025-01-01",
+  "genre": "música-clásica",
+  "releaseDate": "2022-12-09",
   "type": "álbum",
-  "status": "proximamente",
-  "description": "Descripción breve pendiente de completar.",
-  "descriptionLong": "Descripción extendida pendiente. Este release forma parte del catálogo de DAG Klassical, con tokenización blockchain y acceso exclusivo para coleccionistas.",
-  "coverImage": "cover-gerardo-gerulewicz-villancicos-polacos.webp",
+  "status": "lanzado",
+  "description": "Gerardo Gerulewicz adapta la rica tradición de las kolędy (villancicos polacos) al piano, ofreciendo una perspectiva clásica y emotiva de estas piezas históricas navideñas.",
+  "descriptionLong": "Kolędy Polacas: Navidad en el Piano\n\n'Llegó Navidad, Villancicos Polacos' es un homenaje a la tradición navideña de Polonia, donde los villancicos (kolędy) son una parte fundamental de la Wigilia (Nochebuena), el día más importante de sus festividades. Gerardo Gerulewicz, compositor y pianista, adapta 15 de estas melodías centenarias al piano, preservando su esencia emotiva mientras las reinterpreta con sensibilidad contemporánea.\n\nEl repertorio incluye piezas emblemáticas como 'W żłobie leży' (una de las melodías más antiguas y queridas de Polonia), 'Mizerna cicha' (Humilde Silencio), y 'Wesołą nowinę' (Alegres Noticias). Cada villancico captura un aspecto diferente de la Navidad polaca: desde la contemplación serena del nacimiento hasta la celebración comunitaria.\n\nContexto Cultural\n\nPolonia cuenta con más de 500 villancicos registrados, algunos con melodías que datan del siglo XVI. Esta colección de Gerulewicz no solo preserva esa herencia musical, sino que la hace accesible a nuevas generaciones a través del lenguaje universal del piano.\n\nSin Music Cards ni demos disponibles, este álbum se mantiene como un registro histórico en el catálogo de DAG Klassical, certificado en blockchain para las generaciones futuras.",
+  "coverImage": "/covers/cover-gerardo-gerulewicz-villancicos-polacos.webp",
   "demoBasePath": "",
   "demoAvailable": false,
   "fullAlbumAvailable": false,
   "sheetMusicAvailable": false,
   "platforms": {
-    "spotify": null,
-    "apple": null,
-    "youtube": null,
+    "spotify": "https://open.spotify.com/album/4ei1JSvcNmd2QwBrfDbJN8",
+    "apple": "https://music.apple.com/de/album/lleg%C3%B3-navidad-villancicos-polacos/1658140899",
+    "youtube": "https://music.youtube.com/browse/MPREb_cyFLGtizWVW",
     "tidal": null,
     "deezer": null
   },
-  "tracks": [],
-  "duration": "00:00:00",
-  "commentary": null,
-  "commentaryAuthor": null,
+  "tracks": [
+    {
+      "number": "001",
+      "title": "Dzisiaj w Betlejem – Hoy en Belén",
+      "duration": "1:38",
+      "demoFile": null,
+      "protected": null,
+      "composer": "Tradicional Polaco",
+      "workCatalogue": "Kolęda"
+    },
+    {
+      "number": "002",
+      "title": "Wśród nocnej ciszy – En el Silencio de la Noche",
+      "duration": "1:55",
+      "demoFile": null,
+      "protected": null,
+      "composer": "Tradicional Polaco",
+      "workCatalogue": "Kolęda"
+    },
+    {
+      "number": "003",
+      "title": "Gdy się Chrystus rodzi – Cuando Nació Cristo",
+      "duration": "1:54",
+      "demoFile": null,
+      "protected": null,
+      "composer": "Tradicional Polaco",
+      "workCatalogue": "Kolęda"
+    },
+    {
+      "number": "004",
+      "title": "Jezus malusieńki – Jesús Pequeñito",
+      "duration": "1:43",
+      "demoFile": null,
+      "protected": null,
+      "composer": "Tradicional Polaco",
+      "workCatalogue": "Kolęda"
+    },
+    {
+      "number": "005",
+      "title": "W żłobie leży – Está Acostado en el Pesebre",
+      "duration": "1:22",
+      "demoFile": null,
+      "protected": null,
+      "composer": "Tradicional Polaco",
+      "workCatalogue": "Kolęda"
+    },
+    {
+      "number": "006",
+      "title": "Mizerna cicha – Humilde Silencio",
+      "duration": "2:16",
+      "demoFile": null,
+      "protected": null,
+      "composer": "Tradicional Polaco",
+      "workCatalogue": "Kolęda"
+    },
+    {
+      "number": "007",
+      "title": "Do szopy, hej pasterze – Al Cobertizo Pastores",
+      "duration": "2:01",
+      "demoFile": null,
+      "protected": null,
+      "composer": "Tradicional Polaco",
+      "workCatalogue": "Kolęda"
+    },
+    {
+      "number": "008",
+      "title": "Wesołą nowinę – Alegres Noticias",
+      "duration": "2:28",
+      "demoFile": null,
+      "protected": null,
+      "composer": "Tradicional Polaco",
+      "workCatalogue": "Kolęda"
+    },
+    {
+      "number": "009",
+      "title": "Pójdźmy wszyscy do stajenki – Vamos Todos al Establo",
+      "duration": "2:08",
+      "demoFile": null,
+      "protected": null,
+      "composer": "Tradicional Polaco",
+      "workCatalogue": "Kolęda"
+    },
+    {
+      "number": "010",
+      "title": "Ach, ubogi żłobie – Oh Pobre Pesebre",
+      "duration": "1:57",
+      "demoFile": null,
+      "protected": null,
+      "composer": "Tradicional Polaco",
+      "workCatalogue": "Kolęda"
+    },
+    {
+      "number": "011",
+      "title": "Lulajże Jezuniu – Duerme Pequeño Jesús",
+      "duration": "2:23",
+      "demoFile": null,
+      "protected": null,
+      "composer": "Tradicional Polaco",
+      "workCatalogue": "Kolęda"
+    },
+    {
+      "number": "012",
+      "title": "Anioł pasterzom mówił – El Ángel Habló a los Pastores",
+      "duration": "2:07",
+      "demoFile": null,
+      "protected": null,
+      "composer": "Tradicional Polaco",
+      "workCatalogue": "Kolęda"
+    },
+    {
+      "number": "013",
+      "title": "Oj, maluśki maluśki – Oh, Pequeño Pequeñito",
+      "duration": "3:33",
+      "demoFile": null,
+      "protected": null,
+      "composer": "Tradicional Polaco",
+      "workCatalogue": "Kolęda"
+    },
+    {
+      "number": "014",
+      "title": "Gdy śliczna Panna – Cuando la Hermosa Virgen",
+      "duration": "2:31",
+      "demoFile": null,
+      "protected": null,
+      "composer": "Tradicional Polaco",
+      "workCatalogue": "Kolęda"
+    },
+    {
+      "number": "015",
+      "title": "Jeszcze Polska nie zginęła – Polonia no Ha Desaparecido",
+      "duration": "2:34",
+      "demoFile": null,
+      "protected": null,
+      "composer": "Tradicional Polaco",
+      "workCatalogue": "Kolęda"
+    }
+  ],
+  "duration": "32:35",
+  "commentary": "Los villancicos polacos no son solo música; son la memoria sonora de una nación que celebra la Navidad el 24 de diciembre, en la Wigilia. Aquí los preservamos para la eternidad.",
+  "commentaryAuthor": "Gerardo Gerulewicz",
   "musicCards": [],
   "metadata": {
     "uuid": "urn:uuid:f126854b-9c35-4a56-95ae-51dfaf151e51",
-    "timestamp": "2026-03-12T15:18:59Z",
+    "timestamp": "2022-12-09T00:00:00Z",
     "operator": "cto@dagklassical.com"
   },
-  "bioExtended": null
+  "bioExtended": "Álbum lanzado el 9 de diciembre de 2022 por DAG Klassical. Sin demos ni archivos protegidos disponibles. Registro histórico de kolędy polacas adaptadas al piano."
 }
