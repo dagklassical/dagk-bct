@@ -1,37 +1,47 @@
 {
   "id": "frank-dipolo-ruben-riera-margie",
-  "workTitle": "ruben riera margie",
-  "composer": "Pendiente",
-  "performers": ["Frank Dipolo"],
-  "title": "ruben riera margie",
-  "artistIds": ["frank-dipolo"],
-  "genre": "Classical",
-  "releaseDate": "2025-01-01",
-  "type": "álbum",
-  "status": "proximamente",
-  "description": "Descripción breve pendiente de completar.",
-  "descriptionLong": "Descripción extendida pendiente. Este release forma parte del catálogo de DAG Klassical, con tokenización blockchain y acceso exclusivo para coleccionistas.",
-  "coverImage": "cover-frank-dipolo-ruben-riera-margie.webp",
-  "demoBasePath": "",
+  "workTitle": "Margie",
+  "composer": "Francisco \"Pacho\" Flores",
+  "performers": ["Frank Di Polo", "Rubén Riera"],
+  "title": "Margie",
+  "artistIds": ["frank-di-polo", "ruben-riera"],
+  "genre": "música-de-cámara",
+  "releaseDate": "2023-10-06",
+  "type": "single",
+  "status": "lanzado",
+  "description": "Un danzón venezolano reinterpretado con instrumentos de época: Frank Di Polo (viola d'amore) y Rubén Riera (tiorba) fusionan rigor académico y expresividad popular en esta producción de Danilo Álvarez para DAG Klassical.",
+  "descriptionLong": "Margie: Danzón Venezolano con Alma Barroca\n\nCompuesto por el aclamado trompetista venezolano Francisco \"Pacho\" Flores, \"Margie\" es un danzón que trasciende su origen popular para convertirse en una pieza de cámara de refinada elegancia. Esta versión de Frank Di Polo y Rubén Riera no busca replicar grabaciones tradicionales; más bien, explora la melodía desde una perspectiva histórica: viola d'amore y tiorba dialogan con la sensibilidad contemporánea, creando un puente entre el barroco y la identidad musical venezolana.\n\nProducida por Danilo Álvarez y capturada en alta fidelidad, esta grabación preserva las sutilezas de instrumentos de época: el vibrato contenido de la viola d'amore, la resonancia cálida de la tiorba, y un espacio acústico que invita a la escucha atenta.\n\nContexto Curatorial\n\nEste single forma parte de un esfuerzo curatorial más amplio por revitalizar obras antiguas con notoriedad actual. En el mismo periodo de producción, el dúo trabajó en el \"Tema con Variazioni en Re menor\" de Marin Marais, confirmando su compromiso con la integración del rigor académico y la expresividad popular.\n\nCertificación Blockchain\n\nComo parte del catálogo de DAG Klassical, este registro se certifica en blockchain como activo cultural inmutable, preservando para las generaciones futuras una interpretación que honra tanto la tradición venezolana como la excelencia interpretativa.",
+  "coverImage": "/covers/cover-frank-dipolo-ruben-riera-margie.webp",
+  "demoBasePath": "frank-dipolo-ruben-riera/margie/",
   "demoAvailable": false,
-  "fullAlbumAvailable": false,
+  "fullAlbumAvailable": true,
   "sheetMusicAvailable": false,
   "platforms": {
-    "spotify": null,
-    "apple": null,
+    "spotify": "https://open.spotify.com/album/4P8n5jg48ekHMNu9Twi5yi?go=1&nd=1&dlsi=ac12502a147f4b39",
+    "apple": "https://music.apple.com/ve/album/margie-single/1707564249?at=1l3vpUI&ct=LFV_1eaeb921b96d8b147f915598723b0c5f&itsct=catchall_p3&itscg=30440&ls=1",
     "youtube": null,
     "tidal": null,
-    "deezer": null
+    "deezer": "https://www.deezer.com/us/album/488336725?app_id=140685&utm_source=partner_linkfire&utm_campaign=1eaeb921b96d8b147f915598723b0c5f&utm_medium=Original&utm_term=lujo-network-3439&utm_content=album-488336725"
   },
-  "tracks": [],
-  "duration": "00:00:00",
-  "commentary": null,
-  "commentaryAuthor": null,
+  "tracks": [
+    {
+      "number": "001",
+      "title": "Margie",
+      "duration": "3:20",
+      "demoFile": null,
+      "protected": null,
+      "composer": "Francisco \"Pacho\" Flores",
+      "workCatalogue": "ISRC: ESA112317026"
+    }
+  ],
+  "duration": "3:20",
+  "commentary": "Margie no es solo un danzón; es un diálogo entre la tradición venezolana y la sensibilidad barroca que nosotros traducimos al presente.",
+  "commentaryAuthor": "Frank Di Polo & Rubén Riera",
   "musicCards": [],
   "metadata": {
     "uuid": "urn:uuid:361dc10d-34f8-46b6-8454-cfa9adfa1088",
     "timestamp": "2026-03-12T15:18:59Z",
     "operator": "cto@dagklassical.com"
   },
-  "bioExtended": null
+  "bioExtended": "Grabación producida por Danilo Álvarez para DAG Klassical. Frank Di Polo interpreta viola d'amore; Rubén Riera, tiorba y guitarra clásica. Capturada en alta fidelidad para preservar la resonancia de instrumentos de época."
 }
