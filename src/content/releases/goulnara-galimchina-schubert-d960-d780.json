@@ -1,21 +1,18 @@
 {
   "id": "goulnara-galimchina-schubert-d960-d780",
   "workTitle": "Schubert: Sonata D960 & Momentos Musicales D780",
-  "composer": "",
-  "performers": [],
+  "composer": "Franz Schubert",
+  "performers": ["Goulnara Galimchina"],
   "title": "Schubert: Sonata D960 & Momentos Musicales D780",
-  "artistIds": [
-    "goulnara-galimchina"
-  ],
-  "genre": [
-    "música-clásica"
-  ],
+  "artistIds": ["goulnara-galimchina"],
+  "genre": "música-clásica",
   "releaseDate": "2022-01-28",
   "type": "álbum",
   "status": "lanzado",
   "description": "En \"Schubert\", la maestra Goulnara Galimchina nos invita a un refugio de introspección y belleza pura. Interpretando la monumental Sonata D. 960 y los \"Momentos Musicales\" D. 780, Galimchina se aleja del virtuosismo vacío para ofrecer una ejecución de claridad cristalina y honestidad emocional. Cada nota revela la fragilidad humana, capturada ahora como un registro inmutable en el catálogo de DAG Klassical.",
-  "descriptionLong": "",
-  "coverImage": "cover-goulnara-galimchina-schubert-d960-v01.webp",
+  "descriptionLong": "La Última Sonata de Schubert: Un Testamento de Serenidad\n\nCompuesta en septiembre de 1828, apenas dos meses antes de su muerte, la Sonata en Si bemol mayor D. 960 es la cumbre de la producción pianística de Schubert. No es una obra de despedida trágica, sino de aceptación serena: el primer movimiento abre con un tema de una belleza casi sobrenatural, interrumpido por un trémolo grave que evoca un presagio lejano. El Andante sostenuto es una meditación lírica de profundidad conmovedora, mientras el Scherzo combina delicadeza y energía en un equilibrio típicamente schubertiano.\n\nLos Momentos Musicales D. 780, compuestos entre 1823 y 1828, complementan la Sonata con destellos de intimidad lírica. Cada pieza es un mundo en miniatura: desde la serenidad contemplativa del No. 1 en Do mayor hasta la melancolía contenida del No. 4 en Fa menor.\n\nClaridad Cristalina, Emoción Contenida\n\nGoulnara Galimchina aborda este repertorio con una filosofía interpretativa que privilegia la transparencia sobre el virtuosismo exhibicionista. Su toque revela la arquitectura interna de Schubert sin sacrificar la calidez emocional: los fraseos respiran, los silencios tienen peso, y cada dinámica sirve a la narrativa musical. La grabación, capturada en alta fidelidad, preserva las sutilezas de su técnica para una escucha inmersiva.\n\nCertificación Blockchain\n\nEste álbum, parte del catálogo curado de DAG Klassical, se certifica en blockchain como activo cultural inmutable. La Music Card asociada otorga acceso exclusivo al audio en formato FLAC 24-bit/192kHz, preservando para las generaciones futuras una interpretación que honra la esencia lírica de Schubert.",
+  "coverImage": "/covers/cover-goulnara-galimchina-schubert-d960-v01.webp",
+  "demoBasePath": "goulnara-galimchina/schubert/",
   "demoAvailable": true,
   "fullAlbumAvailable": true,
   "sheetMusicAvailable": false,
@@ -31,86 +28,83 @@
       "number": "001",
       "title": "I. Molto moderato",
       "duration": "12:30",
+      "demoFile": "001-galimchina-sonata-d960-1er-mov-molto-moderato-demo.mp3",
       "protected": "001-galimchina-sonata-d960-1er-mov-molto-moderato.flac",
       "composer": "Franz Schubert",
-      "workCatalogue": "Sonata D960",
-      "demoFile": "001-galimchina-sonata-d960-1er-mov-molto-moderato-demo.mp3"
+      "workCatalogue": "Sonata D960"
     },
     {
       "number": "002",
       "title": "II. Andante sostenuto",
       "duration": "8:45",
+      "demoFile": "002-galimchina-sonata-d960-2do-mov-andante-sostenuto-demo.mp3",
       "protected": "002-galimchina-sonata-d960-2do-mov-andante-sostenuto.flac",
       "composer": "Franz Schubert",
-      "workCatalogue": "Sonata D960",
-      "demoFile": "002-galimchina-sonata-d960-2do-mov-andante-sostenuto-demo.mp3"
+      "workCatalogue": "Sonata D960"
     },
     {
       "number": "003",
       "title": "III. Scherzo. Allegro vivace con delicatezza",
       "duration": "4:20",
+      "demoFile": "003-galimchina-sonata-d960-3er-mov-scherzo-allegro-vivace-con-delicatezza-demo.mp3",
       "protected": "003-galimchina-sonata-d960-3er-mov-scherzo-allegro-vivace-con-delicatezza.flac",
       "composer": "Franz Schubert",
-      "workCatalogue": "Sonata D960",
-      "demoFile": "003-galimchina-sonata-d960-3er-mov-scherzo-allegro-vivace-con-delicatezza-demo.mp3"
+      "workCatalogue": "Sonata D960"
     },
     {
       "number": "004",
       "title": "IV. Allegro, ma non troppo",
       "duration": "7:50",
+      "demoFile": "004-galimchina-sonata-d960-4to-mov-allegro-ma-non-troppo-demo.mp3",
       "protected": "004-galimchina-sonata-d960-4to-mov-allegro-ma-non-troppo.flac",
       "composer": "Franz Schubert",
-      "workCatalogue": "Sonata D960",
-      "demoFile": "004-galimchina-sonata-d960-4to-mov-allegro-ma-non-troppo-demo.mp3"
+      "workCatalogue": "Sonata D960"
     },
     {
       "number": "005",
       "title": "Momento musical No. 1 en Do mayor",
       "duration": "3:40",
+      "demoFile": "005-galimchina-momento-musical-1-op-94-d780-moderatto-demo.mp3",
       "protected": "005-galimchina-momento-musical-1-op-94-d780-moderatto.flac",
       "composer": "Franz Schubert",
-      "workCatalogue": "D780",
-      "demoFile": "005-galimchina-momento-musical-1-op-94-d780-moderatto-demo.mp3"
+      "workCatalogue": "D780"
     },
     {
       "number": "006",
       "title": "Momento musical No. 2 en La bemol mayor",
       "duration": "3:15",
+      "demoFile": "006-galimchina-momento-musical-2-op-94-d780-andantino-demo.mp3",
       "protected": "006-galimchina-momento-musical-2-op-94-d780-andantino.flac",
       "composer": "Franz Schubert",
-      "workCatalogue": "D780",
-      "demoFile": "006-galimchina-momento-musical-2-op-94-d780-andantino-demo.mp3"
+      "workCatalogue": "D780"
     },
     {
       "number": "007",
       "title": "Momento musical No. 4 en Fa menor",
       "duration": "2:50",
+      "demoFile": "007-galimchina-momento-musical-4-op-94-d780-moderatto-demo.mp3",
       "protected": "007-galimchina-momento-musical-4-op-94-d780-moderatto.flac",
       "composer": "Franz Schubert",
-      "workCatalogue": "D780",
-      "demoFile": "007-galimchina-momento-musical-4-op-94-d780-moderatto-demo.mp3"
+      "workCatalogue": "D780"
     },
     {
       "number": "008",
       "title": "Momento musical No. 6 en La bemol mayor",
       "duration": "2:30",
+      "demoFile": "008-galimchina-momento-musical-6-op-94-d780-allegretto-demo.mp3",
       "protected": "008-galimchina-momento-musical-6-op-94-d780-allegretto.flac",
       "composer": "Franz Schubert",
-      "workCatalogue": "D780",
-      "demoFile": "008-galimchina-momento-musical-6-op-94-d780-allegretto-demo.mp3"
+      "workCatalogue": "D780"
     }
   ],
   "duration": "46:00",
   "commentary": "Schubert en su máxima expresión lírica y estructural. La Sonata D960, compuesta semanas antes de su muerte, es un testamento sonoro de serenidad y despedida. Los Momentos Musicales, en tanto, capturan destellos de belleza introspectiva.",
-  "commentaryAuthor": "Goulnara Galímchina",
-  "musicCards": [
-    "mc-2025-goulnara-schubert-std"
-  ],
+  "commentaryAuthor": "Goulnara Galimchina",
+  "musicCards": ["mc-2025-goulnara-schubert-std"],
   "metadata": {
     "uuid": "urn:uuid:1abcbf08-b30d-4a65-be99-ab0f97bd993b",
     "timestamp": "2025-11-28T09:00:00Z",
     "operator": "cto@dagklassical.com"
   },
-  "bioExtended": null,
-  "demoBasePath": "goulnara-galimchina/schubert/"
+  "bioExtended": null
 }
