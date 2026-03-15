@@ -52,3 +52,4 @@ backups/
 .vercel
 .local-backup/
 public/api-index.json
+.kanbn_boards/
