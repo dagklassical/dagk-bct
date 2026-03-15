@@ -8,55 +8,45 @@ const url = new URL(Astro.request.url);
 const tokenParam = url.searchParams.get('token');
 const errorParam = url.searchParams.get('error');
 
-// ✅ FIX 1: URL limpia, sin espacios
-const API_URL = 'https://audio.dagklassical.com/api/validate';
-
-// ✅ FIX 2: Declarar variables en scope superior para evitar errores TS
-let validation: any = null;
-let apiError: string | null = null;
+// ✅ Endpoint CORRECTO: Fastify en /tokens/:id (proxy por nginx en 443)
+const API_BASE_URL = 'https://audio.dagklassical.com/tokens';
 
 // Validación vía API (solo si hay token y no hay error previo)
-// Nota: En DEV, quitamos && import.meta.env.PROD para poder probar localmente
 if (tokenParam && !errorParam) {
   try {
-    console.log('🔐 Validando token:', tokenParam);
+    // ✅ GET con token en la URL (no POST con body)
+    const tokenClean = tokenParam.trim().toUpperCase();
+    const apiUrl = `${API_BASE_URL}/${encodeURIComponent(tokenClean)}`;
     
-    const response = await fetch(API_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ token: tokenParam.toUpperCase() }),
+    const response = await fetch(apiUrl, {
+      method: 'GET',
+      headers: { 
+        'Origin': 'https://www.dagklassical.com',
+        'Accept': 'application/json'
+      },
       signal: AbortSignal.timeout(5000)
     });
-    
-    console.log('📡 Status API:', response.status);
-    
+
     if (response.ok) {
-      validation = await response.json();
-      console.log('✅ Token válido:', validation);
-    } else {
-      const data = await response.json();
-      apiError = data.error || 'token_invalido';
-      console.warn('❌ API error:', apiError);
+      const result = await response.json();
+      
+      // ✅ Verificar token válido
+      if (result.valid && result.token?.cardId) {
+        // ✅ Redirigir al slug correcto (ej: 61664f-goulnara-galimchina-schubert-d960-d780)
+        const slug = result.token.cardId;
+        return Astro.redirect(`/blockchain/acceso/${slug}`);
+      }
     }
+    
+    // ❌ Token inválido o respuesta inesperada
+    return Astro.redirect(`/blockchain/acceso?error=token_invalido&token=${encodeURIComponent(tokenParam)}`);
   } catch (e) {
-    const err = e as Error;
-    apiError = 'error_conexion';
-    console.error('⚠️ Excepción en fetch:', err.message);
+    // ❌ Error de conexión o timeout
+    return Astro.redirect(`/blockchain/acceso?error=error_conexion&token=${encodeURIComponent(tokenParam)}`);
   }
-
-  // Si hubo error en la validación, recargar con mensaje
-  if (apiError || !validation?.valid) {
-    const errorMsg = apiError || 'token_invalido';
-    return Astro.redirect(`/blockchain/acceso?error=${errorMsg}&token=${encodeURIComponent(tokenParam)}`);
-  }
-
-  // ✅ Token válido: redirigir al slug real + parámetros de verificación
-  const slug = validation.music_card_id;
-  const instance = validation.instance_number || 1;
-  return Astro.redirect(`/blockchain/acceso/${slug}?verified=true&instance=${instance}`);
 }
 
-// Si no hay token válido, mostrar formulario con mensajes de error
+// Mensajes de error
 let title = 'Acceso a Contenido Exclusivo';
 let headline = 'Verificación de Acceso';
 let message = 'Ingresa tu token de acceso para disfrutar de contenido exclusivo.';
@@ -115,16 +105,17 @@ const breadcrumbs = [
         <form action="/blockchain/acceso" method="get" class="space-y-4 mb-8">
           <div>
             <label for="token-input" class="block text-sm font-medium text-slate-700 mb-2">
-              {errorParam ? 'Intentar con otro token:' : 'Ingresa tu token:'}
+              {errorParam ? 'Intentar con otro token:' : 'Ingresa tu token de acceso:'}
             </label>
             <input
               id="token-input"
               type="text"
               name="token"
-              placeholder="XXXX-XXX-XXXXXXXX"
+              placeholder="Ej: GOULNARA-001-HOUSE"
               class="w-full px-4 py-3 border border-platinum rounded focus:outline-none focus:ring-2 focus:ring-dag-burgundy focus:border-transparent font-mono text-sm"
               required
               autocomplete="off"
+              autocapitalize="off"
             />
           </div>
           
@@ -132,24 +123,18 @@ const breadcrumbs = [
             type="submit"
             class="w-full bg-dag-burgundy text-white py-3 rounded hover:bg-opacity-90 transition-colors font-medium"
           >
-            {errorParam ? 'Verificar Acceso' : 'Ingresar'}
+            {errorParam ? 'Verificar otro token' : 'Acceder'}
           </button>
         </form>
       )}
 
       <!-- Enlaces de navegación -->
       <div class="pt-6 border-t border-slate-300 space-y-3">
-        <button 
-          onclick="history.back()"
-          class="w-full text-center text-dag-burgundy hover:text-opacity-80 font-medium py-2 transition-colors"
-        >
-          ← Volver a la página anterior
-        </button>
         <a 
           href="/blockchain/music-cards"
-          class="block w-full text-center text-slate-600 hover:text-dag-burgundy text-sm py-2 transition-colors"
+          class="block w-full text-center text-dag-burgundy hover:text-opacity-80 font-medium py-2 transition-colors"
         >
-          Explorar Music Cards disponibles
+          ← Explorar Music Cards disponibles
         </a>
       </div>
 
