@@ -2,13 +2,9 @@
   "id": "gerardo-gerulewicz-piano-aguinaldo",
   "workTitle": "Piano Aguinaldo",
   "composer": "Tradicional (arreglos de Gerardo Gerulewicz)",
-  "performers": [
-    "Gerardo Gerulewicz"
-  ],
+  "performers": ["Gerardo Gerulewicz"],
   "title": "Piano Aguinaldo",
-  "artistIds": [
-    "gerardo-gerulewicz"
-  ],
+  "artistIds": ["gerardo-gerulewicz"],
   "genre": "música-navideña",
   "releaseDate": "2023-12-13",
   "type": "álbum",
