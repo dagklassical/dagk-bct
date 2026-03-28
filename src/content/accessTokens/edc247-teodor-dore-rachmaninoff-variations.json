@@ -1,0 +1,32 @@
+{
+  "id": "edc247-teodor-dore-rachmaninoff-variations",
+  "type": "album",
+  "status": "active",
+  "associatedRelease": "teodor-dore-rachmaninoff-variations",
+  "associatedArtists": ["teodor-dore"],
+  "content": {
+    "audio": {
+      "baseUrl": "https://audio.dagklassical.com/stream/teodor-dore-rachmaninoff-variations/",
+      "format": "flac",
+      "quality": "24/192"
+    },
+    "score": {
+      "url": "https://audio.dagklassical.com/protected/audio/teodor-dore-rachmaninoff-variations/teodor-partitura.pdf",
+      "format": "pdf",
+      "signed": true
+    }
+  },
+  "access": {
+    "method": "token_url"
+  },
+  "theme": {
+    "heroImage": "https://audio.dagklassical.com/protected/audio/teodor-dore-rachmaninoff-variations/hero-teodor-dore-rachmaninoff.webp",
+    "fallbackHero": "/hero/hero-teodor-dore-rachmaninoff.webp",
+    "primaryColor": "#800020"
+  },
+  "metadata": {
+    "uuid": "urn:uuid:84d84ec3-335e-47b5-8ac6-8c065351bc14",
+    "timestamp": "2026-02-15T10:00:00Z",
+    "operator": "cto@dagklassical.com"
+  }
+}
