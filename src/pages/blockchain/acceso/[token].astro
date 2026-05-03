@@ -55,17 +55,6 @@ const albumInfo = {
   })) || []
 };
 
-// DEBUG: Verificar cadena de datos
-console.log('🔍 Debug Jesús Aníbal Bello:', {
-  accessTokenId: accessToken?.data?.id,
-  associatedArtists: accessToken?.data?.associatedArtists,
-  artistsDataCount: artistsData?.length,
-  foundArtist: artistsData?.find(a => a.data.id === 'jesus-anibal-bello')?.data?.id,
-  primaryArtist: primaryArtist?.data?.id,
-  bioShort: albumInfo.bioShort?.slice(0, 50) + '...',
-  bioExtended: albumInfo.bioExtended?.slice(0, 50) + '...'
-});
-
 const tracksJson = JSON.stringify(albumInfo.tracks);
 const tokenMeta = accessToken.data;
 const releaseMeta = release.data;
@@ -131,8 +120,6 @@ const releaseMeta = release.data;
       </div>
     </div>
   )}
-
-  <article class="max-w-6xl mx-auto px-4 py-12 pb-32">
 
   <article class="max-w-6xl mx-auto px-4 py-12 pb-32">
     <div class="grid lg:grid-cols-2 gap-12">
@@ -241,32 +228,32 @@ const releaseMeta = release.data;
       </div>
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
-  <div class="flex flex-col justify-end">
-    <div class="p-4 border border-platinum rounded-md bg-white/50">
-      <p class="text-xs text-slate-600 font-mono leading-relaxed">
-        <span class="text-dag-burgundy font-semibold">UUID:</span><br/>
-        {tokenMeta.metadata?.uuid || '—'}
-      </p>
-      <p class="text-xs text-slate-600 font-mono mt-2">
-        <span class="text-dag-burgundy font-semibold">Timestamp:</span><br/>
-        {tokenMeta.metadata?.timestamp || '—'}
-      </p>
-      <p class="text-xs text-slate-600 font-mono mt-2">
-        <span class="text-dag-burgundy font-semibold">Operador:</span><br/>
-        {tokenMeta.metadata?.operator || '—'}
-      </p>
-    </div>
-  </div>
-  <div class="md:col-span-2 p-4 border border-platinum rounded-md bg-white/50">
-    <p class="text-xs text-slate-600 font-mono leading-relaxed">
-      <span class="text-dag-burgundy font-semibold">CRÉDITOS: </span>
-      {release.data.performers?.join(', ') || albumInfo.artist} | 
-      Mezcla y mastering: Danilo Álvarez | 
-      Arte: Leo Gerulewicz | Diseño: Lorien Gascón Rojas | 
-      Grabado y masterizado en Mansa Studio®, Lechería, Venezuela.
-    </p>
-  </div>
-</div>
+        <div class="flex flex-col justify-end">
+          <div class="p-4 border border-platinum rounded-md bg-white/50">
+            <p class="text-xs text-slate-600 font-mono leading-relaxed">
+              <span class="text-dag-burgundy font-semibold">UUID:</span><br/>
+              {tokenMeta.metadata?.uuid || '—'}
+            </p>
+            <p class="text-xs text-slate-600 font-mono mt-2">
+              <span class="text-dag-burgundy font-semibold">Timestamp:</span><br/>
+              {tokenMeta.metadata?.timestamp || '—'}
+            </p>
+            <p class="text-xs text-slate-600 font-mono mt-2">
+              <span class="text-dag-burgundy font-semibold">Operador:</span><br/>
+              {tokenMeta.metadata?.operator || '—'}
+            </p>
+          </div>
+        </div>
+        <div class="md:col-span-2 p-4 border border-platinum rounded-md bg-white/50">
+          <p class="text-xs text-slate-600 font-mono leading-relaxed">
+            <span class="text-dag-burgundy font-semibold">CRÉDITOS: </span>
+            {release.data.performers?.join(', ') || albumInfo.artist} | 
+            Mezcla y mastering: Danilo Álvarez | 
+            Arte: Leo Gerulewicz | Diseño: Lorien Gascón Rojas | 
+            Grabado y masterizado en Mansa Studio®, Lechería, Venezuela.
+          </p>
+        </div>
+      </div>
     </div>
   </article>
 
@@ -292,11 +279,11 @@ const releaseMeta = release.data;
       const tracks = JSON.parse(tracksJson);
       let currentTrackIndex = -1;
       const trackNameElement = document.getElementById('current-track');
+      const audioPlayer = document.getElementById('fixed-player');
 
       function playTrack(index) {
         if (index < 0 || index >= tracks.length || !tracks[index].file) return;
         
-        const audioPlayer = document.getElementById('fixed-player');
         if (!(audioPlayer instanceof HTMLAudioElement)) return;
         
         audioPlayer.src = tracks[index].file;
@@ -307,6 +294,15 @@ const releaseMeta = release.data;
           trackNameElement.textContent = `${index + 1}. ${tracks[index].title}`;
         }
         currentTrackIndex = index;
+      }
+
+      // ✅ Reproducir automáticamente el siguiente track al finalizar
+      if (audioPlayer) {
+        audioPlayer.addEventListener('ended', () => {
+          if (currentTrackIndex >= 0 && currentTrackIndex < tracks.length - 1) {
+            playTrack(currentTrackIndex + 1);
+          }
+        });
       }
 
       // Navegación
