@@ -66,14 +66,16 @@ const emailFull = `${emailUser}@${emailDomain}`;
       const link = section.querySelector('.email-link');
       if (!link) return;
       
-      const user = link.dataset.user;
-      const domain = link.dataset.domain;
+      // ✅ Casting a HTMLElement para acceder a dataset
+      const linkEl = link as HTMLElement;
+      const user = linkEl.dataset.user;
+      const domain = linkEl.dataset.domain;
       
       // Insertar partes del email (ofuscado en HTML estático)
       const userSpan = link.querySelector('.email-user');
       const domainSpan = link.querySelector('.email-domain');
-      if (userSpan) userSpan.textContent = user;
-      if (domainSpan) domainSpan.textContent = domain;
+      if (userSpan) userSpan.textContent = user || '';
+      if (domainSpan) domainSpan.textContent = domain || '';
       
       // Botón copiar
       const copyBtn = section.querySelector('.copy-btn-compact');
@@ -82,7 +84,9 @@ const emailFull = `${emailUser}@${emailDomain}`;
       if (copyBtn) {
         copyBtn.addEventListener('click', async (e) => {
           e.stopPropagation();
-          const email = `${user}@${domain}`;
+          // ✅ Casting para dataset en botón
+          const email = (copyBtn as HTMLElement).dataset.email || '';
+          
           try {
             await navigator.clipboard.writeText(email);
             if (feedback) {
