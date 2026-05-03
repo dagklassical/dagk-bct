@@ -138,3 +138,70 @@
     @apply ml-0 mr-0 border-l-2 pl-4 py-3;
   }
 }
+
+/* Contacto vertical - emails ofuscados */
+.contact-section {
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.contact-section:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.email-container {
+  padding: 0.5rem 0;
+}
+
+.email-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.1em;
+}
+
+/* Ofuscación visual: @ y dominio en opacity reducida (opcional) */
+.email-at {
+  opacity: 0.8;
+}
+
+.copy-btn-compact {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  white-space: nowrap;
+}
+
+.copy-feedback {
+  transition: opacity 0.2s ease;
+  animation: fadeIn 0.2s ease;
+}
+
+.copy-feedback.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-2px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive: en móvil, apilar mejor */
+@media (max-width: 768px) {
+  .email-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .copy-btn-compact {
+    margin-left: 0;
+  }
+}
+
+/* Accesibilidad: focus visible */
+.email-link:focus-visible,
+.copy-btn-compact:focus-visible {
+  outline: 2px solid #0d9488;
+  outline-offset: 2px;
+}
