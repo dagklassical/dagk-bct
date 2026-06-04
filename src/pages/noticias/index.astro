@@ -53,7 +53,7 @@ const allTags = [...new Set(
       <!-- Grid con altura variable, orden cronológico respetado -->
 <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
   {allNoticias
-    .sort((a, b) => new Date(b.data.date) - new Date(a.data.date)) // más reciente primero
+    .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()) // más reciente primero
     .map((post) => {
       const cleanTags = (post.data.tags || []).filter(t => t).join(' ') || '';
       return <article 
@@ -100,7 +100,7 @@ const allTags = [...new Set(
 </section>
 
       <!-- Script de filtrado -->
-      <script hoist>
+      <script>
         document.addEventListener('DOMContentLoaded', function() {
           var tagButtons = document.querySelectorAll('[data-tag]');
           var newsCards = document.querySelectorAll('.news-card');
