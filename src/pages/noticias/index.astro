@@ -101,40 +101,43 @@ const allTags = [...new Set(
 
       <!-- Script de filtrado -->
       <script>
-        document.addEventListener('DOMContentLoaded', function() {
-          var tagButtons = document.querySelectorAll('[data-tag]');
-          var newsCards = document.querySelectorAll('.news-card');
+  document.addEventListener('DOMContentLoaded', function() {
+    var tagButtons = document.querySelectorAll('[data-tag]');
+    var newsCards = document.querySelectorAll('.news-card');
 
-          function normalize(str) {
-            return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
-          }
+    function normalize(str: string): string {
+      return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    }
 
-          function applyTagFilter(selectedTag) {
-            var normSelected = normalize(selectedTag);
-            tagButtons.forEach(function(btn) {
-              var isActive = btn.dataset.tag === selectedTag;
-              if (isActive) {
-                btn.className = 'tag-btn px-2 py-1 text-xs font-medium rounded-sm border border-dag-burgundy bg-dag-burgundy text-white transition-all';
-              } else {
-                btn.className = 'tag-btn px-2 py-1 text-xs font-medium rounded-sm border border-platinum bg-white text-slate-700 hover:bg-dag-burgundy/10 hover:text-dag-burgundy transition-all';
-              }
-            });
-            newsCards.forEach(function(card) {
-              var tags = (card.dataset.tags || '').split(' ');
-              var show = selectedTag === 'todos' || tags.some(function(t) {
-                return normalize(t) === normSelected;
-              });
-              card.style.display = show ? 'block' : 'none';
-            });
-          }
-
-          tagButtons.forEach(function(btn) {
-            btn.addEventListener('click', function() {
-              applyTagFilter(btn.dataset.tag);
-            });
-          });
+    function applyTagFilter(selectedTag: string) {
+      var normSelected = normalize(selectedTag);
+      tagButtons.forEach(function(btn) {
+        var htmlBtn = btn as HTMLElement;
+        var isActive = htmlBtn.dataset.tag === selectedTag;
+        if (isActive) {
+          htmlBtn.className = 'tag-btn px-2 py-1 text-xs font-medium rounded-sm border border-dag-burgundy bg-dag-burgundy text-white transition-all';
+        } else {
+          htmlBtn.className = 'tag-btn px-2 py-1 text-xs font-medium rounded-sm border border-platinum bg-white text-slate-700 hover:bg-dag-burgundy/10 hover:text-dag-burgundy transition-all';
+        }
+      });
+      newsCards.forEach(function(card) {
+        var htmlCard = card as HTMLElement;
+        var tags = (htmlCard.dataset.tags || '').split(' ');
+        var show = selectedTag === 'todos' || tags.some(function(t: string) {
+          return normalize(t) === normSelected;
         });
-      </script>
+        htmlCard.style.display = show ? 'block' : 'none';
+      });
+    }
+
+    tagButtons.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var htmlBtn = btn as HTMLElement;
+        applyTagFilter(htmlBtn.dataset.tag || 'todos');
+      });
+    });
+  });
+</script>
     </div>
   </main>
 </Layout>

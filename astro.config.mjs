@@ -2,13 +2,18 @@
 import { defineConfig } from 'astro/config';
 import vercel from '@astrojs/vercel';
 import sitemap from '@astrojs/sitemap';
+import react from '@astrojs/react';
+import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  output: 'server', // ← Mantener 'server' (única opción válida en Astro 3.x)
+  output: 'server',
   adapter: vercel(),
   trailingSlash: 'never',
   site: 'https://www.dagklassical.com',
+  middleware: './src/middleware.ts',
   integrations: [
+    react(),
+    tailwind(),
     sitemap({
       filter: (page) => 
         !page.includes('test') && 
