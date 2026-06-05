@@ -1,8 +1,6 @@
-// astro.config.mjs
 import { defineConfig } from 'astro/config';
 import vercel from '@astrojs/vercel';
 import sitemap from '@astrojs/sitemap';
-import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
@@ -10,9 +8,7 @@ export default defineConfig({
   adapter: vercel(),
   trailingSlash: 'never',
   site: 'https://www.dagklassical.com',
-  middleware: './src/middleware.ts',
   integrations: [
-    react(),
     tailwind(),
     sitemap({
       filter: (page) => 

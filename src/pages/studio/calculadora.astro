@@ -1,0 +1,235 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import artistsData from '../../data/artists.json';
+
+const title = 'Calculadora Music Card - DAG KLASSICAL';
+const description = 'Calcula el valor de reventa de tu Music Card';
+---
+
+<Layout title={title} description={description}>
+  <div class="min-h-screen bg-gray95 py-8 px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-6">
+        <h1 class="text-3xl font-bold text-dag-burgundy uppercase tracking-wide">
+          DAG KLASSICAL
+        </h1>
+        <p class="text-gray-600 text-sm mt-1">Calculadora de Valoración</p>
+      </div>
+      
+      <!-- Contenedor para la calculadora -->
+      <div id="calculator-root" class="bg-white rounded shadow-lg p-8 border-2 border-dag-burgundy">
+        <!-- Artista -->
+        <div class="mb-5">
+          <label class="block mb-2 text-gray-800 font-bold text-sm uppercase">Artista</label>
+          <select id="artist-select" class="w-full p-3 border-2 border-gray-200 rounded focus:border-dag-burgundy focus:outline-none">
+            <option value="">Selecciona un artista</option>
+          </select>
+        </div>
+
+        <!-- Contenido -->
+        <div class="mb-5 p-4 border-2 border-dag-burgundy rounded">
+          <h3 class="text-dag-burgundy font-bold text-sm uppercase mb-3 text-center">Contenido</h3>
+          <div class="space-y-3">
+            <div>
+              <label class="block mb-1 text-sm font-bold">ÁLBUM [$15]</label>
+              <select id="album-select" class="w-full p-2 border-2 border-gray-200 rounded">
+                <option value="">Selecciona</option>
+              </select>
+            </div>
+            <div>
+              <label class="block mb-1 text-sm font-bold">SINGLE [$8]</label>
+              <select id="single-select" class="w-full p-2 border-2 border-gray-200 rounded">
+                <option value="">Selecciona</option>
+              </select>
+            </div>
+            <div>
+              <label class="block mb-1 text-sm font-bold">E.P. [$12]</label>
+              <select id="ep-select" class="w-full p-2 border-2 border-gray-200 rounded">
+                <option value="">Selecciona</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Colección y Edición -->
+        <div class="grid grid-cols-2 gap-4 mb-5">
+          <div>
+            <label class="block mb-1 text-xs text-gray-600">Colección</label>
+            <select id="collection-select" class="w-full p-2 border-2 border-gray-200 rounded text-center">
+              <option value="">--</option>
+              <option value="1">Colección 1</option>
+              <option value="2">Colección 2</option>
+            </select>
+          </div>
+          <div>
+            <label class="block mb-1 text-xs text-gray-600">Edición</label>
+            <select id="edition-select" class="w-full p-2 border-2 border-gray-200 rounded text-center">
+              <option value="">--</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Seguidores -->
+        <div class="mb-5 p-4 border-2 border-dag-burgundy rounded">
+          <h3 class="text-dag-burgundy font-bold text-sm uppercase mb-3 text-center">Seguidores</h3>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block mb-1 text-xs font-bold">INSTAGRAM</label>
+              <input type="number" id="instagram" class="w-full p-2 border-2 border-gray-200 rounded" value="0" min="0">
+            </div>
+            <div>
+              <label class="block mb-1 text-xs font-bold">FACEBOOK</label>
+              <input type="number" id="facebook" class="w-full p-2 border-2 border-gray-200 rounded" value="0" min="0">
+            </div>
+            <div>
+              <label class="block mb-1 text-xs font-bold">TIKTOK</label>
+              <input type="number" id="tiktok" class="w-full p-2 border-2 border-gray-200 rounded" value="0" min="0">
+            </div>
+            <div>
+              <label class="block mb-1 text-xs font-bold">YOUTUBE</label>
+              <input type="number" id="youtube" class="w-full p-2 border-2 border-gray-200 rounded" value="0" min="0">
+            </div>
+          </div>
+        </div>
+
+        <!-- Resultado -->
+        <div class="bg-dag-burgundy text-white rounded p-6 text-center border-3 border-dag-black">
+          <div class="text-sm opacity-90 mb-2 uppercase tracking-wide">VALOR DE REVENTA</div>
+          <div id="total-value" class="text-4xl font-bold min-h-[3rem]"></div>
+        </div>
+
+        <!-- Reset -->
+        <button id="reset-btn" class="w-full mt-5 p-3 bg-dag-black text-white font-bold uppercase rounded hover:bg-dag-burgundy transition-colors">
+          Reiniciar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script define:vars={{ artistsData }}>
+    const ARTISTS = artistsData;
+    const RATES = { instagram: 0.001, facebook: 0.001, youtube: 0.001, tiktok: 0.0001 };
+    const DISCO_RATES = { album: 15, single: 8, ep: 12 };
+    const BASE = 15;
+
+    // Inicializar selects
+    const artistSelect = document.getElementById('artist-select');
+    const albumSelect = document.getElementById('album-select');
+    const singleSelect = document.getElementById('single-select');
+    const epSelect = document.getElementById('ep-select');
+    const editionSelect = document.getElementById('edition-select');
+
+    // Llenar artistas
+    ARTISTS.forEach(artist => {
+      const option = document.createElement('option');
+      option.value = artist.nombre;
+      option.textContent = artist.nombre;
+      artistSelect.appendChild(option);
+    });
+
+    // Llenar ediciones (1-25)
+    for (let i = 1; i <= 25; i++) {
+      const option = document.createElement('option');
+      option.value = i;
+      option.textContent = i;
+      editionSelect.appendChild(option);
+    }
+
+    // Actualizar contenido cuando cambia artista
+    artistSelect.addEventListener('change', (e) => {
+      const artist = ARTISTS.find(a => a.nombre === e.target.value);
+      if (!artist) return;
+
+      // Actualizar seguidores
+      document.getElementById('instagram').value = artist.instagram || 0;
+      document.getElementById('facebook').value = artist.facebook || 0;
+      document.getElementById('tiktok').value = artist.tiktok || 0;
+      document.getElementById('youtube').value = artist.youtube || 0;
+
+      // Actualizar selects de contenido
+      updateSelect(albumSelect, artist.albumes, 'Selecciona');
+      updateSelect(singleSelect, artist.singles, 'Selecciona');
+      updateSelect(epSelect, artist.eps, 'Selecciona');
+
+      calculate();
+    });
+
+    function updateSelect(select, items, placeholder) {
+      select.innerHTML = `<option value="">${placeholder}</option>`;
+      items.forEach(item => {
+        const option = document.createElement('option');
+        option.value = item;
+        option.textContent = item;
+        select.appendChild(option);
+      });
+    }
+
+    // Exclusividad: solo un tipo de contenido
+    [albumSelect, singleSelect, epSelect].forEach(select => {
+      select.addEventListener('change', (e) => {
+        if (e.target.value) {
+          [albumSelect, singleSelect, epSelect].forEach(s => {
+            if (s !== e.target) s.value = '';
+          });
+        }
+        calculate();
+      });
+    });
+
+    // Calcular valor
+    function calculate() {
+      const artist = artistSelect.value;
+      const collection = document.getElementById('collection-select').value;
+      const edition = editionSelect.value;
+      const album = albumSelect.value;
+      const single = singleSelect.value;
+      const ep = epSelect.value;
+
+      if (!artist || !collection || !edition || (!album && !single && !ep)) {
+        document.getElementById('total-value').textContent = '';
+        return;
+      }
+
+      let total = BASE;
+
+      // Seguidores
+      ['instagram', 'facebook', 'tiktok', 'youtube'].forEach(platform => {
+        const followers = parseInt(document.getElementById(platform).value) || 0;
+        total += followers * RATES[platform];
+      });
+
+      // Bonus de edición
+      const ed = parseInt(edition);
+      if (ed === 1) total += 7;
+      else if (ed === 2) total += 5;
+      else if (ed >= 4) total += 3;
+
+      // Contenido
+      if (album) total += DISCO_RATES.album;
+      if (single) total += DISCO_RATES.single;
+      if (ep) total += DISCO_RATES.ep;
+
+      document.getElementById('total-value').textContent = '$' + total.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    // Event listeners para cálculo
+    ['instagram', 'facebook', 'tiktok', 'youtube', 'collection-select', 'edition-select'].forEach(id => {
+      document.getElementById(id).addEventListener('input', calculate);
+      document.getElementById(id).addEventListener('change', calculate);
+    });
+
+    // Reset
+    document.getElementById('reset-btn').addEventListener('click', () => {
+      artistSelect.value = '';
+      albumSelect.innerHTML = '<option value="">Selecciona</option>';
+      singleSelect.innerHTML = '<option value="">Selecciona</option>';
+      epSelect.innerHTML = '<option value="">Selecciona</option>';
+      document.getElementById('collection-select').value = '';
+      editionSelect.value = '';
+      ['instagram', 'facebook', 'tiktok', 'youtube'].forEach(id => {
+        document.getElementById(id).value = 0;
+      });
+      document.getElementById('total-value').textContent = '';
+    });
+  </script>
+</Layout>

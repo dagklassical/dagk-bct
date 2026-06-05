@@ -13,25 +13,17 @@
     "@astrojs/sitemap": "^3.7.0",
     "@astrojs/tailwind": "^6.0.2",
     "@splidejs/splide": "^4.1.4",
-    "@supabase/supabase-js": "^2.107.0",
     "@vercel/analytics": "^1.6.1",
     "astro": "^5.16.3",
     "astro-embed": "^0.9.2",
     "fuse.js": "^7.1.0",
     "howler": "^2.2.4",
     "lucide-astro": "^0.554.0",
-    "plyr": "^3.8.4",
-    "react": "^19.2.7",
-    "react-dom": "^19.2.7",
-    "ws": "^8.21.0"
+    "plyr": "^3.8.4"
   },
   "devDependencies": {
-    "@astrojs/react": "^5.0.0",
     "@astrojs/vercel": "^8.0.4",
     "@tailwindcss/typography": "^0.5.19",
-    "@types/react": "^19.2.16",
-    "@types/react-dom": "^19.2.3",
-    "@types/ws": "^8.18.1",
     "tsx": "^4.21.0"
   }
 }
