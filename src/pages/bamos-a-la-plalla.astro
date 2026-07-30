@@ -1,334 +1,323 @@
 ---
 // src/pages/bamos-a-la-plalla.astro
-// Página segura para generación de JSON de artistas (Staging)
+// Página segura para generación de JSON de artistas
+// Acceso: /bamos-a-la-plalla
+// Frase secreta: 'hermano-acuerdate-de-mi'
 
-const SECRET_PHRASE = "hermano-acuerdate-de-mi";
+const ACCESS_PHRASE = "hermano-acuerdate-de-mi";
+const SECRET_OPERATOR_EMAIL = "ceo@dagklassical.com";
 
-interface FormData {
-  name: string;
-  role: string;
-  country: string;
-  city: string;
-  genre: string;
-  bio: string;
-  bioLong: string;
-  website?: string;
-  instagram?: string;
-  youtube?: string;
-  facebook?: string;
+// Generar UUID v4 simple
+function generateUUID() {
+  return 'urn:uuid:' + 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
+  });
 }
 ---
 
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Editor de Artistas - DAG Klassical</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      /* Estilos personalizados si son necesarios */
-      .hidden-field { display: none; }
-    </style>
-  </head>
-  <body class="bg-gray-50 text-slate-800 font-sans min-h-screen p-6">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestión de Artistas - DAG Klassical</title>
+  <!-- Usamos fuentes locales o sistema para evitar dependencias externas -->
+  <style>
+    :root {
+      --primary: #800020; /* Dag Burgundy */
+      --primary-hover: #5a0016;
+      --bg: #f8f9fa;
+      --surface: #ffffff;
+      --text: #334155;
+      --border: #e2e8f0;
+      --success: #10b981;
+      --error: #ef4444;
+    }
+    body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; padding: 2rem; }
+    .container { max-width: 800px; margin: 0 auto; background: var(--surface); padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+    h1 { color: var(--primary); text-align: center; margin-bottom: 1.5rem; }
+    .hidden { display: none !important; }
     
-    <div class="max-w-3xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
-      <!-- Header -->
-      <div class="bg-dag-burgundy text-white p-6">
-        <h1 class="text-2xl font-bold">🎵 Carga de Artistas (Staging)</h1>
-        <p class="text-sm opacity-90 mt-1">Complete los datos para generar el JSON de validación.</p>
+    /* Form Elements */
+    .form-group { margin-bottom: 1.25rem; }
+    label { display: block; font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem; }
+    input[type="text"], input[type="email"], input[type="url"], textarea, select {
+      width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 6px; font-size: 1rem; box-sizing: border-box; transition: border-color 0.2s;
+    }
+    input:focus, textarea:focus { outline: none; border-color: var(--primary); ring: 2px solid var(--primary); }
+    textarea { min-height: 120px; resize: vertical; }
+    
+    /* Buttons */
+    button { cursor: pointer; font-weight: 600; padding: 0.75rem 1.5rem; border: none; border-radius: 6px; transition: all 0.2s; }
+    .btn-primary { background: var(--primary); color: white; width: 100%; }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-secondary { background: #e2e8f0; color: #334155; padding: 0.5rem 1rem; font-size: 0.875rem; }
+    .btn-secondary:hover { background: #cbd5e1; }
+    .btn-icon { background: transparent; color: #64748b; padding: 0.25rem; font-size: 1.2rem; }
+    .btn-icon:hover { color: var(--primary); }
+
+    /* Login Screen */
+    #login-screen { text-align: center; max-width: 400px; margin: 4rem auto; }
+    .password-wrapper { position: relative; display: flex; gap: 0.5rem; }
+    .password-wrapper input { flex: 1; }
+    .password-wrapper button { width: auto; }
+
+    /* Preview Box */
+    .preview-box { background: #f1f5f9; padding: 1rem; border-radius: 6px; margin-top: 0.5rem; font-size: 0.85rem; color: #64748b; border: 1px dashed #cbd5e1; }
+    .preview-row { display: flex; justify-content: space-between; margin-bottom: 0.25rem; }
+    .preview-label { font-weight: 600; }
+
+    /* JSON Output */
+    #output-section { margin-top: 2rem; border-top: 2px solid var(--border); padding-top: 2rem; }
+    .json-container { position: relative; background: #1e293b; color: #e2e8f0; padding: 1rem; border-radius: 6px; overflow-x: auto; font-family: monospace; font-size: 0.85rem; max-height: 400px; overflow-y: auto; }
+    .copy-btn { position: absolute; top: 0.5rem; right: 0.5rem; background: rgba(255,255,255,0.1); color: white; padding: 0.25rem 0.5rem; font-size: 0.75rem; border-radius: 4px; }
+    .copy-btn:hover { background: rgba(255,255,255,0.2); }
+    
+    .helper-text { font-size: 0.75rem; color: #64748b; margin-top: 0.25rem; }
+    .error-msg { color: var(--error); font-size: 0.875rem; margin-top: 0.5rem; display: none; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>🎵 Nuevo Perfil de Artista</h1>
+    
+    <!-- PANTALLA DE LOGIN -->
+    <div id="login-screen">
+      <p>Introduce la frase de acceso para continuar:</p>
+      <div class="password-wrapper">
+        <input type="password" id="accessPhrase" placeholder="Frase secreta..." />
+        <button type="button" onclick="toggleVisibility('accessPhrase')" title="Ver/Ocultar">👁️</button>
+        <button type="button" class="btn-primary" onclick="verifyAccess()">Entrar</button>
       </div>
-
-      <div class="p-6 space-y-6">
-        
-        <!-- Paso 1: Autenticación -->
-        <section id="auth-section" class="space-y-4">
-          <label class="block text-sm font-medium text-slate-700">
-            Frase de Seguridad:
-          </label>
-          <div class="relative">
-            <input 
-              type="password" 
-              id="accessPhrase" 
-              class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-dag-burgundy focus:border-transparent pr-10"
-              placeholder="Ingrese la frase secreta..."
-            />
-            <button 
-              type="button"
-              onclick="togglePassword('accessPhrase', this)"
-              class="absolute right-3 top-3 text-gray-500 hover:text-slate-800 focus:outline-none"
-              aria-label="Mostrar/Ocultar contraseña"
-            >
-              <!-- Icono Ojo Abierto -->
-              <svg id="eye-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-              <!-- Icono Ojo Cerrado (oculto por defecto) -->
-              <svg id="eye-closed" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"/></svg>
-            </button>
-          </div>
-          <button 
-            onclick="verifyAccess()" 
-            class="w-full bg-slate-800 text-white py-3 rounded-md hover:bg-slate-700 transition-colors font-medium"
-          >
-            Acceder al Formulario
-          </button>
-          <p id="auth-error" class="text-red-600 text-sm hidden">❌ Frase incorrecta. Intente nuevamente.</p>
-        </section>
-
-        <!-- Paso 2: Formulario (Oculto inicialmente) -->
-        <section id="form-section" class="hidden space-y-6 border-t pt-6">
-          
-          <!-- Datos Básicos -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-sm font-medium text-slate-700 mb-1">Nombre Completo *</label>
-              <input type="text" id="name" class="w-full p-2 border rounded focus:ring-dag-burgundy focus:border-dag-burgundy" placeholder="Ej: Gerardo Gerulewicz" oninput="updateSlugPreview()" required>
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-slate-700 mb-1">Rol / Instrumento *</label>
-              <input type="text" id="role" class="w-full p-2 border rounded" placeholder="Ej: Compositor y Pianista" required>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-sm font-medium text-slate-700 mb-1">País *</label>
-              <input type="text" id="country" class="w-full p-2 border rounded" value="Venezuela" required>
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-slate-700 mb-1">Ciudad</label>
-              <input type="text" id="city" class="w-full p-2 border rounded" placeholder="Ej: Caracas">
-            </div>
-          </div>
-
-          <div>
-            <label class="block text-sm font-medium text-slate-700 mb-1">Géneros (separados por coma) *</label>
-            <input type="text" id="genre" class="w-full p-2 border rounded" placeholder="Ej: música-navideña, piano-clásico" required>
-            <p class="text-xs text-gray-500 mt-1">Use guiones en lugar de espacios (ej: musica-clasica).</p>
-          </div>
-
-          <div>
-            <label class="block text-sm font-medium text-slate-700 mb-1">Biografía Corta *</label>
-            <textarea id="bio" rows="3" class="w-full p-2 border rounded" placeholder="Resumen de 2-3 líneas para tarjetas." required></textarea>
-          </div>
-
-          <div>
-            <label class="block text-sm font-medium text-slate-700 mb-1">Biografía Extendida *</label>
-            <textarea id="bioLong" rows="8" class="w-full p-2 border rounded" placeholder="Biografía completa. Use doble 'Enter' para separar párrafos." required></textarea>
-          </div>
-
-          <!-- Redes y Web -->
-          <div class="border-t pt-4">
-            <h3 class="text-lg font-semibold mb-3 text-slate-800">Enlaces y Redes</h3>
-            <div class="space-y-3">
-              <input type="url" id="website" class="w-full p-2 border rounded" placeholder="Sitio Web (opcional)">
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-                <input type="url" id="instagram" class="p-2 border rounded" placeholder="Instagram URL">
-                <input type="url" id="youtube" class="p-2 border rounded" placeholder="YouTube URL">
-                <input type="url" id="facebook" class="p-2 border rounded" placeholder="Facebook URL">
-              </div>
-            </div>
-          </div>
-
-          <!-- Preview del Slug y Avatar -->
-          <div class="bg-blue-50 p-4 rounded border border-blue-100">
-            <p class="text-sm text-blue-800 font-medium">Vista Previa de Archivos:</p>
-            <div class="mt-2 text-sm font-mono text-slate-600 space-y-1">
-              <div><span class="font-bold">ID:</span> <span id="preview-id">--</span></div>
-              <div><span class="font-bold">Archivo:</span> <span id="preview-filename">--.json</span></div>
-              <div><span class="font-bold">Avatar Ruta:</span> <span id="preview-avatar">/artists/profile--.webp</span></div>
-            </div>
-          </div>
-
-          <!-- Botones de Acción -->
-          <div class="flex flex-col sm:flex-row gap-4 pt-4 border-t">
-            <button 
-              onclick="generateJSON()" 
-              class="flex-1 bg-green-600 text-white py-3 rounded-md hover:bg-green-700 font-bold shadow-md transition-transform active:scale-95"
-            >
-              💾 Generar y Descargar JSON
-            </button>
-            <button 
-              onclick="resetForm()" 
-              class="px-6 py-3 border border-gray-300 text-slate-700 rounded-md hover:bg-gray-50"
-            >
-              Limpiar
-            </button>
-          </div>
-        </section>
-
-        <!-- Área de Resultado (Oculta hasta generar) -->
-        <section id="result-section" class="hidden border-t pt-6 bg-gray-50 -mx-6 -mb-6 p-6">
-          <div class="flex justify-between items-center mb-2">
-            <h3 class="text-lg font-bold text-slate-800">✅ JSON Generado</h3>
-            <button 
-              onclick="copyJSON()" 
-              class="flex items-center gap-2 text-sm bg-white border border-gray-300 px-3 py-1.5 rounded hover:bg-gray-100 transition-colors"
-              title="Copiar al portapapeles"
-            >
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-              Copiar
-            </button>
-          </div>
-          <pre id="json-output" class="bg-slate-800 text-green-400 p-4 rounded-md overflow-x-auto text-xs font-mono h-64 whitespace-pre-wrap break-all"></pre>
-          <p class="text-xs text-gray-500 mt-2">💡 El archivo se ha descargado automáticamente. Revise el JSON arriba antes de enviarlo.</p>
-        </section>
-
-      </div>
+      <p id="login-error" class="error-msg">Frase incorrecta. Inténtalo de nuevo.</p>
     </div>
 
-    <script>
-      let currentSlug = '';
+    <!-- FORMULARIO PRINCIPAL -->
+    <div id="main-form" class="hidden">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+        <span style="font-size: 0.9rem; color: #64748b;">Modo Edición: <strong>CEO</strong></span>
+        <button type="button" class="btn-secondary" onclick="logout()">Salir</button>
+      </div>
 
-      // Toggle Mostrar/Ocultar Contraseña
-      function togglePassword(inputId, btn) {
-        const input = document.getElementById(inputId);
-        const eyeOpen = btn.querySelector('#eye-open');
-        const eyeClosed = btn.querySelector('#eye-closed');
+      <form id="artistForm" onsubmit="generateJSON(event)">
         
-        if (input.type === 'password') {
-          input.type = 'text';
-          eyeOpen.classList.add('hidden');
-          eyeClosed.classList.remove('hidden');
-        } else {
-          input.type = 'password';
-          eyeOpen.classList.remove('hidden');
-          eyeClosed.classList.add('hidden');
-        }
-      }
+        <!-- Nombre y Slug Automático -->
+        <div class="form-group">
+          <label for="name">Nombre Completo *</label>
+          <input type="text" id="name" name="name" required placeholder="Ej: Gerardo Gerulewicz" oninput="updateSlugPreview()" />
+          <div class="preview-box">
+            <div class="preview-row"><span class="preview-label">ID (Slug):</span> <span id="preview-slug">---</span></div>
+            <div class="preview-row"><span class="preview-label">Archivo:</span> <span id="preview-filename">---.json</span></div>
+            <div class="preview-row"><span class="preview-label">Avatar URL:</span> <span id="preview-avatar">/artists/profile---.webp</span></div>
+          </div>
+        </div>
 
-      // Verificar Acceso
-      function verifyAccess() {
-        const phrase = document.getElementById('accessPhrase').value.trim();
-        const errorMsg = document.getElementById('auth-error');
-        const formSection = document.getElementById('form-section');
-        const authSection = document.getElementById('auth-section');
+        <div class="form-group">
+          <label for="role">Rol Principal *</label>
+          <input type="text" id="role" name="role" required placeholder="Ej: Compositor y Pianista" />
+        </div>
 
-        if (phrase === "hermano-acuerdate-de-mi") {
-          errorMsg.classList.add('hidden');
-          authSection.classList.add('hidden');
-          formSection.classList.remove('hidden');
-          // Enfocar el primer campo
-          document.getElementById('name').focus();
-        } else {
-          errorMsg.classList.remove('hidden');
-          // Animación de error simple
-          authSection.classList.add('animate-pulse');
-          setTimeout(() => authSection.classList.remove('animate-pulse'), 500);
-        }
-      }
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label for="country">País *</label>
+            <input type="text" id="country" name="country" value="Venezuela" required />
+          </div>
+          <div class="form-group">
+            <label for="city">Ciudad</label>
+            <input type="text" id="city" name="city" placeholder="Ej: Caracas" />
+          </div>
+        </div>
 
-      // Generar Slug desde Nombre
-      function updateSlugPreview() {
-        const name = document.getElementById('name').value.trim();
-        if (!name) {
-          currentSlug = '';
-          updatePreviews('--');
-          return;
-        }
+        <div class="form-group">
+          <label for="genre">Géneros (separados por coma)</label>
+          <input type="text" id="genre" name="genre" placeholder="Ej: música-navideña, piano-clásico" />
+          <p class="helper-text">Se convertirán automáticamente en un array.</p>
+        </div>
+
+        <div class="form-group">
+          <label for="bio">Biografía Corta *</label>
+          <textarea id="bio" name="bio" required placeholder="Resumen de 2-3 líneas para tarjetas..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="bioLong">Biografía Larga *</label>
+          <textarea id="bioLong" name="bioLong" required style="min-height: 200px;" placeholder="Escribe la biografía completa. Usa 'Enter' dos veces para separar párrafos."></textarea>
+          <p class="helper-text">Los saltos de línea se conservarán automáticamente.</p>
+        </div>
+
+        <div class="form-group">
+          <label for="tagline">Frase Destacada (Tagline)</label>
+          <input type="text" id="tagline" name="tagline" placeholder="Ej: La arquitectura del sonido" />
+        </div>
+
+        <div class="form-group">
+          <label>Redes Sociales</label>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <input type="url" id="instagram" name="instagram" placeholder="Instagram URL" />
+            <input type="url" id="youtube" name="youtube" placeholder="YouTube URL" />
+          </div>
+        </div>
+
+        <div style="margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 1rem;">
+          <button type="submit" class="btn-primary">✨ Generar JSON y Descargar</button>
+        </div>
+      </form>
+
+      <!-- SALIDA JSON -->
+      <div id="output-section" class="hidden">
+        <h3>✅ JSON Generado Correctamente</h3>
+        <p>Revisa el contenido abajo. El archivo se ha descargado automáticamente.</p>
         
-        // Normalización básica: minúsculas, quitar acentos, espacios a guiones
-        currentSlug = name.toLowerCase()
-          .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Quitar acentos
-          .replace(/[^a-z0-9]+/g, '-') // Reemplazar no alfanuméricos con guion
-          .replace(/^-+|-+$/g, ''); // Quitar guiones extremos
+        <div class="json-container">
+          <button type="button" class="copy-btn" onclick="copyJSON()">📋 Copiar</button>
+          <pre id="json-output"></pre>
+        </div>
+        
+        <div style="margin-top: 1rem; text-align: right;">
+          <button type="button" class="btn-secondary" onclick="resetForm()">Crear Otro Artista</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        updatePreviews(currentSlug);
+  <script>
+    // Exponer funciones al scope global para los onclick del HTML
+    window.toggleVisibility = function(fieldId) {
+      const input = document.getElementById(fieldId);
+      input.type = input.type === 'password' ? 'text' : 'password';
+    };
+
+    window.verifyAccess = function() {
+      const input = document.getElementById('accessPhrase');
+      const errorMsg = document.getElementById('login-error');
+      
+      if (input.value.trim() === "hermano-acuerdate-de-mi") {
+        document.getElementById('login-screen').classList.add('hidden');
+        document.getElementById('main-form').classList.remove('hidden');
+        errorMsg.style.display = 'none';
+        input.value = ''; // Limpiar por seguridad
+      } else {
+        errorMsg.style.display = 'block';
+        input.classList.add('shake'); // Efecto visual opcional
+        setTimeout(() => input.classList.remove('shake'), 500);
+      }
+    };
+
+    window.logout = function() {
+      document.getElementById('main-form').classList.add('hidden');
+      document.getElementById('login-screen').classList.remove('hidden');
+      resetForm();
+    };
+
+    window.updateSlugPreview = function() {
+      const name = document.getElementById('name').value;
+      if (!name) {
+        document.getElementById('preview-slug').textContent = '---';
+        document.getElementById('preview-filename').textContent = '---.json';
+        document.getElementById('preview-avatar').textContent = '/artists/profile---.webp';
+        return;
       }
 
-      function updatePreviews(slug) {
-        document.getElementById('preview-id').textContent = slug || '--';
-        document.getElementById('preview-filename').textContent = `${slug || '--'}.json`;
-        document.getElementById('preview-avatar').textContent = `/artists/profile-${slug || '--'}.webp`;
+      const slug = name.toLowerCase()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // Quitar acentos
+        .replace(/[^a-z0-9]+/g, '-') // Reemplazar espacios/caracteres raros por guion
+        .replace(/^-+|-+$/g, ''); // Quitar guiones extremos
+
+      document.getElementById('preview-slug').textContent = slug;
+      document.getElementById('preview-filename').textContent = `${slug}.json`;
+      document.getElementById('preview-avatar').textContent = `/artists/profile-${slug}.webp`;
+      
+      // Guardar slug en un data attribute para usarlo luego
+      document.getElementById('artistForm').dataset.slug = slug;
+    };
+
+    window.generateJSON = function(e) {
+      e.preventDefault();
+      
+      const form = e.target;
+      const slug = form.dataset.slug;
+      
+      if (!slug) {
+        alert("Por favor escribe un nombre válido para generar el ID.");
+        return;
       }
 
-      // Generar JSON
-      function generateJSON() {
-        if (!currentSlug) {
-          alert("⚠️ Por favor ingrese un nombre válido para generar el ID.");
-          document.getElementById('name').focus();
-          return;
-        }
+      // Procesar géneros
+      const genreInput = document.getElementById('genre').value;
+      const genres = genreInput.split(',').map(g => g.trim()).filter(g => g !== '');
 
-        const getVal = (id) => document.getElementById(id).value.trim();
-        const getOptUrl = (id) => {
-          const val = getVal(id);
-          return val && val.startsWith('http') ? val : "";
-        };
+      // Construir objeto JSON
+      const artistData = {
+        id: slug,
+        name: document.getElementById('name').value.trim(),
+        role: document.getElementById('role').value.trim(),
+        country: document.getElementById('country').value.trim(),
+        city: document.getElementById('city').value.trim() || undefined,
+        genre: genres.length > 0 ? genres : ["clasica"],
+        bio: document.getElementById('bio').value.trim(),
+        bioLong: document.getElementById('bioLong').value.trim(),
+        avatar: `/artists/profile-${slug}.webp`,
+        website: "", 
+        social: {
+          instagram: document.getElementById('instagram').value.trim() || undefined,
+          youtube: document.getElementById('youtube').value.trim() || undefined,
+          facebook: undefined
+        },
+        releases: [],
+        musicCards: [],
+        metadata: {
+          uuid: generateUUID(),
+          timestamp: new Date().toISOString(),
+          operator: "ceo@dagklassical.com"
+        },
+        tagline: document.getElementById('tagline').value.trim() || undefined
+      };
 
-        // Procesar géneros
-        const genres = getVal('genre').split(',').map(g => g.trim().toLowerCase()).filter(g => g);
+      // Limpiar campos vacíos del objeto social para que coincida con el schema estricto si es necesario
+      if(!artistData.social.instagram) delete artistData.social.instagram;
+      if(!artistData.social.youtube) delete artistData.social.youtube;
+      if(!artistData.social.facebook) delete artistData.social.facebook;
 
-        const data = {
-          id: currentSlug,
-          name: getVal('name'),
-          role: getVal('role'),
-          country: getVal('country'),
-          city: getVal('city') || undefined,
-          genre: genres,
-          bio: getVal('bio'),
-          bioLong: getVal('bioLong'),
-          avatar: `/artists/profile-${currentSlug}.webp`,
-          website: getOptUrl('website') || undefined,
-          social: {
-            instagram: getOptUrl('instagram') || undefined,
-            youtube: getOptUrl('youtube') || undefined,
-            facebook: getOptUrl('facebook') || undefined
-          },
-          releases: [],
-          musicCards: [],
-          metadata: {
-            uuid: `urn:uuid:${crypto.randomUUID()}`,
-            timestamp: new Date().toISOString(),
-            operator: "ceo@dagklassical.com"
-          },
-          tagline: "" 
-        };
+      const jsonString = JSON.stringify(artistData, null, 2);
 
-        // Limpieza de campos vacíos en social
-        Object.keys(data.social).forEach(key => {
-          if (!data.social[key]) delete data.social[key];
-        });
+      // 1. Mostrar en pantalla
+      document.getElementById('json-output').textContent = jsonString;
+      document.getElementById('output-section').classList.remove('hidden');
+      
+      // Scroll hacia el resultado
+      document.getElementById('output-section').scrollIntoView({ behavior: 'smooth' });
 
-        const jsonString = JSON.stringify(data, null, 2);
+      // 2. Descargar archivo automáticamente
+      const blob = new Blob([jsonString], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${slug}.json`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    };
 
-        // 1. Mostrar en pantalla
-        const output = document.getElementById('json-output');
-        output.textContent = jsonString;
-        document.getElementById('result-section').classList.remove('hidden');
-        output.scrollIntoView({ behavior: 'smooth' });
+    window.copyJSON = function() {
+      const text = document.getElementById('json-output').textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.querySelector('.copy-btn');
+        const originalText = btn.textContent;
+        btn.textContent = '¡Copiado!';
+        setTimeout(() => btn.textContent = originalText, 2000);
+      });
+    };
 
-        // 2. Descargar archivo
-        const blob = new Blob([jsonString], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `${currentSlug}.json`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-      }
-
-      // Copiar al portapapeles
-      function copyJSON() {
-        const text = document.getElementById('json-output').textContent;
-        navigator.clipboard.writeText(text).then(() => {
-          alert("✅ JSON copiado al portapapeles");
-        }).catch(err => {
-          console.error('Error al copiar', err);
-          alert("❌ No se pudo copiar automáticamente.");
-        });
-      }
-
-      function resetForm() {
-        if(confirm("¿Borrar todos los datos?")) {
-          document.querySelectorAll('input, textarea').forEach(i => i.value = '');
-          document.getElementById('result-section').classList.add('hidden');
-          currentSlug = '';
-          updatePreviews('--');
-          document.getElementById('name').focus();
-        }
-      }
-    </script>
-  </body>
+    window.resetForm = function() {
+      document.getElementById('artistForm').reset();
+      document.getElementById('output-section').classList.add('hidden');
+      document.getElementById('artistForm').dataset.slug = '';
+      updateSlugPreview();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+  </script>
+</body>
 </html>
