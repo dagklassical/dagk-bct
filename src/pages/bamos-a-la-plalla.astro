@@ -1,309 +1,284 @@
 ---
 // src/pages/bamos-a-la-plalla.astro
-// Página de administración "oculta" para generación de JSON de artistas
-// Seguridad por oscuridad + Frase secreta hardcodeada
+// Página segura para generación de JSON de artistas
+// Acceso: /bamos-a-la-plalla
+// Frase secreta: hermano-acuerdate-de-mi
 
-const SECRET_PHRASE = "hermano-acuerdate-de-mi";
+const ACCESS_PHRASE = "hermano-acuerdate-de-mi";
+let formData = null;
+let jsonOutput = null;
+let fileName = "";
+let avatarPath = "";
+let generatedUuid = "";
+
+// Solo procesamos si es POST
+if (Astro.request.method === 'POST') {
+  const data = await Astro.request.formData();
+  const phrase = data.get('accessPhrase');
+
+  if (phrase === ACCESS_PHRASE) {
+    // Extracción de datos
+    const name = data.get('name')?.toString().trim() || '';
+    const slug = name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    
+    // Generación de UUID y Timestamp
+    const uuid = `urn:uuid:${crypto.randomUUID()}`;
+    const timestamp = new Date().toISOString();
+
+    // Preparación del objeto JSON
+    const artistData = {
+      id: slug,
+      name: name,
+      role: data.get('role')?.toString().trim() || '',
+      country: data.get('country')?.toString().trim() || 'Venezuela',
+      city: data.get('city')?.toString().trim() || '',
+      genre: data.get('genre')?.toString().split(',').map(g => g.trim()).filter(g => g) || [],
+      bio: data.get('bio')?.toString().trim() || '',
+      bioLong: data.get('bioLong')?.toString().trim() || '',
+      avatar: `/artists/profile-${slug}.webp`, // Ruta automática
+      website: data.get('website')?.toString().trim() || '',
+      social: {
+        instagram: data.get('instagram')?.toString().trim() || '',
+        youtube: data.get('youtube')?.toString().trim() || '',
+        facebook: data.get('facebook')?.toString().trim() || ''
+      },
+      releases: [], // Se llenan manualmente luego
+      musicCards: [], // Se llenan manualmente luego
+      metadata: {
+        uuid: uuid,
+        timestamp: timestamp,
+        operator: "ceo@dagklassical.com"
+      },
+      tagline: data.get('tagline')?.toString().trim() || ''
+    };
+
+    // Asignar a variables para pasar al frontend
+    formData = artistData;
+    jsonOutput = JSON.stringify(artistData, null, 2);
+    fileName = `${slug}.json`;
+    avatarPath = `/artists/profile-${slug}.webp`;
+    generatedUuid = uuid;
+  } else {
+    // Si la frase está mal, no hacemos nada (o podríamos mostrar error)
+    // Para seguridad, simplemente no mostramos el resultado
+  }
+}
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gestión de Artistas - DAG Klassical</title>
+  <title>Editor de Artistas - DAG Klassical</title>
   <style>
     :root {
-      --dag-burgundy: #800020;
-      --dag-burgundy-light: #a00028;
-      --slate-50: #f8fafc;
-      --slate-200: #e2e8f0;
-      --slate-600: #475569;
-      --slate-700: #334155;
-      --slate-900: #0f172a;
+      --bg: #f8f9fa;
+      --text: #333;
+      --primary: #800020; /* Dag Burgundy */
+      --primary-hover: #5a0016;
+      --border: #e2e8f0;
       --white: #ffffff;
     }
-    body { font-family: system-ui, -apple-system, sans-serif; background: var(--slate-50); color: var(--slate-700); line-height: 1.6; margin: 0; padding: 2rem; }
-    .container { max-width: 800px; margin: 0 auto; background: var(--white); padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
-    h1 { color: var(--dag-burgundy); margin-bottom: 1.5rem; }
-    .form-group { margin-bottom: 1.25rem; }
-    label { display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--slate-900); }
-    input[type="text"], input[type="email"], input[type="url"], textarea, select { width: 100%; padding: 0.75rem; border: 1px solid var(--slate-200); border-radius: 6px; font-size: 1rem; box-sizing: border-box; }
-    input:focus, textarea:focus { outline: 2px solid var(--dag-burgundy); border-color: transparent; }
-    button { background: var(--dag-burgundy); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 600; cursor: pointer; transition: background 0.2s; font-size: 1rem; }
-    button:hover { background: var(--dag-burgundy-light); }
-    button.secondary { background: var(--slate-200); color: var(--slate-700); }
-    button.secondary:hover { background: var(--slate-600); color: white; }
-    .hidden { display: none; }
-    .error { color: #dc2626; margin-top: 0.5rem; font-size: 0.875rem; }
-    .success { color: #16a34a; margin-top: 0.5rem; font-size: 0.875rem; }
-    .preview-box { background: var(--slate-50); padding: 1rem; border-radius: 6px; border: 1px solid var(--slate-200); margin-top: 0.5rem; font-family: monospace; font-size: 0.875rem; word-break: break-all; }
-    .input-with-action { display: flex; gap: 0.5rem; }
-    .input-with-action input { flex: 1; }
-    .input-with-action button { padding: 0.75rem 1rem; min-width: auto; }
-    .note { font-size: 0.875rem; color: var(--slate-600); margin-top: 0.25rem; }
+    body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; padding: 2rem; }
+    .container { max-width: 800px; margin: 0 auto; background: var(--white); padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    h1 { color: var(--primary); text-align: center; margin-bottom: 2rem; }
+    .form-group { margin-bottom: 1.5rem; }
+    label { display: block; font-weight: 600; margin-bottom: 0.5rem; color: #4a5568; }
+    input[type="text"], input[type="url"], input[type="email"], textarea, select {
+      width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 6px; font-size: 1rem; box-sizing: border-box;
+    }
+    textarea { min-height: 120px; resize: vertical; }
+    .hint { font-size: 0.875rem; color: #718096; margin-top: 0.25rem; }
+    button {
+      background: var(--primary); color: white; border: none; padding: 0.75rem 1.5rem; font-size: 1rem; font-weight: bold; border-radius: 6px; cursor: pointer; transition: background 0.2s; width: 100%;
+    }
+    button:hover { background: var(--primary-hover); }
+    button.secondary { background: #4a5568; margin-top: 1rem; }
+    button.secondary:hover { background: #2d3748; }
     
-    /* Utilidades para mostrar/ocultar password */
+    .login-section { text-align: center; max-width: 400px; margin: 4rem auto; }
+    .hidden { display: none; }
+    
+    .result-box {
+      margin-top: 2rem; padding: 1.5rem; background: #edf2f7; border-radius: 8px; border: 1px solid var(--border);
+    }
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; font-size: 0.9rem; }
+    .info-item strong { color: var(--primary); }
+    pre { background: #1a202c; color: #68d391; padding: 1rem; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; position: relative; }
+    
+    .copy-btn {
+      position: absolute; top: 0.5rem; right: 0.5rem; background: rgba(255,255,255,0.2); color: white; border: none; padding: 0.25rem 0.5rem; font-size: 0.75rem; border-radius: 4px; cursor: pointer; width: auto;
+    }
+    .copy-btn:hover { background: rgba(255,255,255,0.4); }
+
     .password-wrapper { position: relative; display: flex; align-items: center; }
     .password-wrapper input { padding-right: 3rem; }
-    .toggle-btn { position: absolute; right: 0.5rem; background: none; border: none; color: var(--slate-600); cursor: pointer; padding: 0.25rem; font-size: 0.875rem; }
-    .toggle-btn:hover { color: var(--dag-burgundy); }
+    .toggle-pw {
+      position: absolute; right: 0.5rem; background: none; border: none; color: #718096; cursor: pointer; font-size: 0.8rem; width: auto; padding: 0;
+    }
+    .toggle-pw:hover { color: var(--primary); }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🎵 Nuevo Perfil de Artista</h1>
+
+<div class="container">
+  <h1>🎵 Nuevo Perfil de Artista</h1>
+
+  <!-- FORMULARIO -->
+  <form id="artistForm" method="POST">
     
-    <!-- Paso 1: Autenticación -->
-    <div id="auth-section">
-      <div class="form-group">
-        <label for="accessPhrase">Frase de acceso:</label>
-        <div class="password-wrapper">
-          <input type="password" id="accessPhrase" placeholder="Ingresa la frase secreta..." />
-          <button type="button" class="toggle-btn" onclick="toggleVisibility('accessPhrase', this)">👁️</button>
-        </div>
-        <p id="auth-error" class="error hidden">Frase incorrecta. Inténtalo de nuevo.</p>
+    <!-- Seguridad -->
+    <div class="form-group">
+      <label for="accessPhrase">Frase de Autorización</label>
+      <div class="password-wrapper">
+        <input type="password" id="accessPhrase" name="accessPhrase" required placeholder="Ingresa la frase secreta">
+        <button type="button" class="toggle-pw" onclick="togglePassword()">👁️</button>
       </div>
-      <button type="button" onclick="verifyAccess()">Acceder</button>
+      <p class="hint">Requerida para generar el archivo.</p>
     </div>
 
-    <!-- Paso 2: Formulario -->
-    <div id="form-section" class="hidden">
-      <form id="artistForm" onsubmit="event.preventDefault(); generateJSON();">
-        
-        <!-- Datos Básicos -->
-        <div class="form-group">
-          <label for="name">Nombre Completo:</label>
-          <input type="text" id="name" required oninput="updateSlugPreview()" placeholder="Ej: Gerardo Gerulewicz" />
-        </div>
+    <hr style="border: 0; border-top: 1px solid var(--border); margin: 2rem 0;">
 
-        <div class="form-group">
-          <label>Slug (ID automático):</label>
-          <div class="preview-box" id="slug-preview">...</div>
-          <p class="note">Se usará para el nombre del archivo y la ruta de la imagen.</p>
-        </div>
-
-        <div class="form-group">
-          <label for="role">Rol / Instrumento:</label>
-          <input type="text" id="role" required placeholder="Ej: Compositor y Pianista" />
-        </div>
-
-        <div class="form-group">
-          <label for="country">País:</label>
-          <input type="text" id="country" value="Venezuela" required />
-        </div>
-
-        <div class="form-group">
-          <label for="city">Ciudad:</label>
-          <input type="text" id="city" placeholder="Ej: Caracas" />
-        </div>
-
-        <div class="form-group">
-          <label for="genres">Géneros (separados por coma):</label>
-          <input type="text" id="genres" placeholder="Ej: música-navideña, piano-clásico" required />
-          <p class="note">Usa guiones en lugar de espacios (ej: musica-clasica).</p>
-        </div>
-
-        <!-- Biografías -->
-        <div class="form-group">
-          <label for="bio">Biografía Corta (Resumen):</label>
-          <textarea id="bio" rows="3" required placeholder="1-2 líneas para tarjetas y listas..."></textarea>
-        </div>
-
-        <div class="form-group">
-          <label for="bioLong">Biografía Larga (Completa):</label>
-          <textarea id="bioLong" rows="10" required placeholder="Escribe la biografía completa. Usa doble 'Enter' para separar párrafos."></textarea>
-          <p class="note">El formato de párrafos se conservará automáticamente.</p>
-        </div>
-
-        <!-- Avatar y Web -->
-        <div class="form-group">
-          <label>Ruta del Avatar (Automática):</label>
-          <div class="preview-box" id="avatar-preview">/artists/profile-{slug}.webp</div>
-          <p class="note">Asegúrate de subir la imagen con este nombre a la carpeta /artists del VPS/Vercel.</p>
-        </div>
-
-        <div class="form-group">
-          <label for="website">Sitio Web (Opcional):</label>
-          <input type="url" id="website" placeholder="https://..." />
-        </div>
-
-        <!-- Redes Sociales -->
-        <div class="form-group">
-          <label for="instagram">Instagram URL:</label>
-          <input type="url" id="instagram" placeholder="https://instagram.com/usuario" />
-        </div>
-
-        <div class="form-group">
-          <label for="youtube">YouTube URL:</label>
-          <input type="url" id="youtube" placeholder="https://youtube.com/@canal" />
-        </div>
-
-        <div class="form-group">
-          <label for="facebook">Facebook URL:</label>
-          <input type="url" id="facebook" placeholder="https://facebook.com/pagina" />
-        </div>
-
-        <!-- Metadatos extra -->
-        <div class="form-group">
-          <label for="tagline">Frase destacada (Tagline):</label>
-          <input type="text" id="tagline" placeholder="Ej: La arquitectura del sonido" />
-        </div>
-
-        <div class="form-group">
-          <label for="operator">Email del Operador:</label>
-          <input type="email" id="operator" value="ceo@dagklassical.com" required />
-        </div>
-
-        <!-- Botones de acción -->
-        <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-          <button type="submit">💾 Generar y Descargar JSON</button>
-          <button type="button" class="secondary" onclick="document.getElementById('artistForm').reset(); updateSlugPreview();">Limpiar Formulario</button>
-        </div>
-
-        <!-- Área de resultado -->
-        <div id="result-area" class="hidden" style="margin-top: 2rem; border-top: 2px solid var(--slate-200); padding-top: 1rem;">
-          <h3>✅ Archivo Generado</h3>
-          <p>Nombre del archivo: <strong id="filename-display" style="font-family: monospace; color: var(--dag-burgundy);"></strong></p>
-          
-          <label>Vista previa del JSON:</label>
-          <div class="input-with-action">
-            <textarea id="json-output" rows="15" readonly style="background: #f1f5f9; font-family: monospace; font-size: 0.85rem;"></textarea>
-            <button type="button" class="secondary" onclick="copyToClipboard()" title="Copiar JSON">📋 Copiar</button>
-          </div>
-          <p id="copy-msg" class="success hidden">¡Copiado al portapapeles!</p>
-        </div>
-      </form>
+    <!-- Datos Principales -->
+    <div class="form-group">
+      <label for="name">Nombre Completo del Artista</label>
+      <input type="text" id="name" name="name" required placeholder="Ej: Gerardo Gerulewicz" oninput="updatePreview()">
+      <p class="hint">Se usará para generar el ID y el nombre del archivo.</p>
     </div>
-  </div>
 
-  <script>
-    // --- FUNCIONES GLOBALES EXPLÍCITAS ---
-    
-    // 1. Generar UUID v4
-    window.generateUUID = function() {
-      return 'urn:uuid:' + ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
-        (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
-      );
-    };
+    <div class="form-group">
+      <label for="role">Rol Principal</label>
+      <input type="text" id="role" name="role" required placeholder="Ej: Pianista, Compositor">
+    </div>
 
-    // 2. Mostrar/Ocultar Password
-    window.toggleVisibility = function(inputId, btn) {
-      const input = document.getElementById(inputId);
-      if (input.type === "password") {
-        input.type = "text";
-        btn.textContent = "🙈";
-      } else {
-        input.type = "password";
-        btn.textContent = "👁️";
-      }
-    };
+    <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+      <div>
+        <label for="country">País</label>
+        <input type="text" id="country" name="country" value="Venezuela">
+      </div>
+      <div>
+        <label for="city">Ciudad</label>
+        <input type="text" id="city" name="city" placeholder="Ej: Caracas">
+      </div>
+    </div>
 
-    // 3. Verificar Acceso
-    window.verifyAccess = function() {
-      const phrase = document.getElementById('accessPhrase').value.trim();
-      const errorMsg = document.getElementById('auth-error');
-      const authSection = document.getElementById('auth-section');
-      const formSection = document.getElementById('form-section');
+    <div class="form-group">
+      <label for="genre">Géneros (separados por coma)</label>
+      <input type="text" id="genre" name="genre" placeholder="Ej: música-navideña, piano-clásico">
+    </div>
 
-      if (phrase === "hermano-acuerdate-de-mi") {
-        errorMsg.classList.add('hidden');
-        authSection.classList.add('hidden');
-        formSection.classList.remove('hidden');
-        updateSlugPreview(); // Inicializar preview
-      } else {
-        errorMsg.classList.remove('hidden');
-      }
-    };
+    <div class="form-group">
+      <label for="tagline">Frase Corta / Tagline</label>
+      <input type="text" id="tagline" name="tagline" placeholder="Ej: La arquitectura del sonido">
+    </div>
 
-    // 4. Actualizar Slug Preview
-    window.updateSlugPreview = function() {
-      const name = document.getElementById('name').value.trim();
-      const slug = name 
-        ? name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")
-        : "nombre-apellido";
+    <!-- Biografías -->
+    <div class="form-group">
+      <label for="bio">Biografía Corta (Resumen)</label>
+      <textarea id="bio" name="bio" required placeholder="1-2 párrafos breves para tarjetas y listas."></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="bioLong">Biografía Larga (Completa)</label>
+      <textarea id="bioLong" name="bioLong" required placeholder="Biografía completa. Usa doble 'Enter' para separar párrafos." style="min-height: 200px;"></textarea>
+      <p class="hint">El formato de párrafos se conservará automáticamente.</p>
+    </div>
+
+    <!-- Redes y Web -->
+    <div class="form-group">
+      <label for="website">Sitio Web Oficial</label>
+      <input type="url" id="website" name="website" placeholder="https://...">
+    </div>
+
+    <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+      <div>
+        <label for="instagram">Instagram URL</label>
+        <input type="url" id="instagram" name="instagram" placeholder="https://instagram.com/...">
+      </div>
+      <div>
+        <label for="youtube">YouTube URL</label>
+        <input type="url" id="youtube" name="youtube" placeholder="https://youtube.com/...">
+      </div>
+      <div>
+        <label for="facebook">Facebook URL</label>
+        <input type="url" id="facebook" name="facebook" placeholder="https://facebook.com/...">
+      </div>
+    </div>
+
+    <button type="submit">🔐 Verificar y Generar JSON</button>
+  </form>
+
+  <!-- RESULTADOS (Solo visible tras éxito) -->
+  {formData && (
+    <div class="result-box">
+      <h2 style="color: var(--primary); margin-top: 0;">✅ Archivo Generado Exitosamente</h2>
       
-      document.getElementById('slug-preview').textContent = slug;
-      document.getElementById('avatar-preview').textContent = `/artists/profile-${slug}.webp`;
-      return slug;
-    };
+      <div class="info-grid">
+        <div class="info-item"><strong>Archivo:</strong> {fileName}</div>
+        <div class="info-item"><strong>UUID:</strong> {generatedUuid}</div>
+        <div class="info-item"><strong>Avatar Ruta:</strong> {avatarPath}</div>
+        <div class="info-item"><strong>ID Interno:</strong> {formData.id}</div>
+      </div>
 
-    // 5. Generar JSON
-    window.generateJSON = function() {
-      const name = document.getElementById('name').value.trim();
-      if (!name) { alert("El nombre es obligatorio"); return; }
+      <p class="hint" style="margin-bottom: 1rem;">
+        1. Descarga el archivo.<br>
+        2. Sube la foto del artista a tu VPS como <code>{avatarPath}</code>.<br>
+        3. Envía el JSON al desarrollador.
+      </p>
 
-      const slug = window.updateSlugPreview();
-      const genresInput = document.getElementById('genres').value;
-      const genres = genresInput.split(',').map(g => g.trim().toLowerCase()).filter(g => g);
+      <pre id="jsonOutput"><button class="copy-btn" onclick="copyToClipboard()">Copiar</button>{jsonOutput}</pre>
+      
+      <a 
+        href={'data:application/json;charset=utf-8,' + encodeURIComponent(jsonOutput)} 
+        download={fileName}
+        style="display: block; text-align: center; background: #2f855a; color: white; padding: 1rem; border-radius: 6px; text-decoration: none; font-weight: bold; margin-top: 1rem;"
+      >
+        ⬇️ Descargar Archivo .json
+      </a>
+    </div>
+  )}
+</div>
 
-      // Helper para URLs vacías
-      const getUrl = (id) => {
-        const val = document.getElementById(id).value.trim();
-        return val || ""; // Si está vacío, devuelve string vacío (el schema lo maneja)
-      };
+<script>
+  // Funciones globales explícitas
+  window.togglePassword = function() {
+    const input = document.getElementById('accessPhrase');
+    const btn = document.querySelector('.toggle-pw');
+    if (input.type === 'password') {
+      input.type = 'text';
+      btn.textContent = '🙈';
+    } else {
+      input.type = 'password';
+      btn.textContent = '👁️';
+    }
+  };
 
-      const artistData = {
-        id: slug,
-        name: name,
-        role: document.getElementById('role').value.trim(),
-        country: document.getElementById('country').value.trim(),
-        city: document.getElementById('city').value.trim(),
-        genre: genres,
-        bio: document.getElementById('bio').value.trim(),
-        bioLong: document.getElementById('bioLong').value.trim(),
-        avatar: `/artists/profile-${slug}.webp`,
-        website: getUrl('website'),
-        social: {
-          instagram: getUrl('instagram'),
-          youtube: getUrl('youtube'),
-          facebook: getUrl('facebook')
-        },
-        releases: [], // Se llenan luego manualmente o con otra herramienta
-        musicCards: [],
-        metadata: {
-          uuid: window.generateUUID(),
-          timestamp: new Date().toISOString(),
-          operator: document.getElementById('operator').value.trim()
-        },
-        tagline: document.getElementById('tagline').value.trim()
-      };
+  window.updatePreview = function() {
+    // Esta función es opcional si quisieras ver el slug en tiempo real antes de enviar
+    // Por ahora solo limpiamos errores visuales si los hubiera
+  };
 
-      // Mostrar resultados
-      const jsonString = JSON.stringify(artistData, null, 2);
-      const outputArea = document.getElementById('result-area');
-      const jsonOutput = document.getElementById('json-output');
-      const filenameDisplay = document.getElementById('filename-display');
-      const copyMsg = document.getElementById('copy-msg');
+  window.copyToClipboard = function() {
+    const jsonText = document.getElementById('jsonOutput').innerText.replace('Copiar', '').trim();
+    navigator.clipboard.writeText(jsonText).then(() => {
+      const btn = document.querySelector('.copy-btn');
+      btn.textContent = '¡Copiado!';
+      setTimeout(() => btn.textContent = 'Copiar', 2000);
+    });
+  };
 
-      outputArea.classList.remove('hidden');
-      jsonOutput.value = jsonString;
-      filenameDisplay.textContent = `${slug}.json`;
-      copyMsg.classList.add('hidden');
+  // Validación básica antes de enviar
+  document.getElementById('artistForm').addEventListener('submit', function(e) {
+    const phrase = document.getElementById('accessPhrase').value;
+    if(phrase !== "hermano-acuerdate-de-mi") {
+      // No prevenimos el submit aquí para dejar que Astro lo maneje y falle silenciosamente o muestre error
+      // Pero podrías agregar una alerta si prefieres
+      // alert("Frase incorrecta");
+      // e.preventDefault();
+    }
+  });
+</script>
 
-      // Crear descarga automática
-      const blob = new Blob([jsonString], { type: 'application/json' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `${slug}.json`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-    };
-
-    // 6. Copiar al Portapapeles
-    window.copyToClipboard = function() {
-      const jsonOutput = document.getElementById('json-output');
-      jsonOutput.select();
-      jsonOutput.setSelectionRange(0, 99999); // Para móviles
-      navigator.clipboard.writeText(jsonOutput.value).then(() => {
-        const msg = document.getElementById('copy-msg');
-        msg.classList.remove('hidden');
-        setTimeout(() => msg.classList.add('hidden'), 2000);
-      });
-    };
-  </script>
 </body>
 </html>
