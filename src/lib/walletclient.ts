@@ -12,7 +12,7 @@ const connectors = connectorsForWallets(
     },
   ],
   {
-    projectId: 'TU_PROJECT_ID_DE_WALLETCONNECT', // Regístrate en https://cloud.walletconnect.com/
+    projectId: import.meta.env.VITE_WALLETCONNECT_PROJECT_ID || '', // Regístrate en https://cloud.walletconnect.com/
     appName: 'Dag Klassical BCT',
   }
 );
