@@ -1,220 +1,206 @@
 ---
 // src/pages/bamos-a-la-plalla.astro
-// Herramienta interna para generación de JSON de artistas
----
+// Página secreta para generación de JSON de artistas sin DB
 
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Administración DAG - Artistas</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-50 text-slate-800 font-sans min-h-screen p-6">
+const SECRET_PHRASE = "hermano-acuerdate-de-mi"; // ← Nueva frase secreta
 
-  <div class="max-w-3xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
-    <!-- Header -->
-    <div class="bg-dag-burgundy text-white p-6">
-      <h1 class="text-2xl font-bold">🎵 Nuevo Perfil de Artista</h1>
-      <p class="text-sm opacity-90 mt-1">Complete los datos para generar el JSON de importación.</p>
-    </div>
+let formData = null;
+let jsonOutput = null;
+let fileName = "";
+let error = "";
 
-    <!-- Login Section -->
-    <div id="login-section" class="p-8 border-b border-gray-200">
-      <label class="block text-sm font-medium text-gray-700 mb-2">Frase de seguridad:</label>
-      <input 
-        type="password" 
-        id="accessPhrase" 
-        class="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-dag-burgundy focus:border-transparent outline-none"
-        placeholder="Ingrese la frase secreta..."
-      />
-      <button 
-        onclick="checkAccess()" 
-        class="mt-4 w-full bg-slate-800 text-white py-3 rounded hover:bg-slate-700 transition font-bold"
-      >
-        Verificar Acceso
-      </button>
-      <p id="login-error" class="text-red-600 mt-2 hidden text-sm">❌ Frase incorrecta. ¡Hermano, acuérdate de mí!</p>
-    </div>
+// Manejo del envío del formulario (Server-side)
+if (Astro.request.method === 'POST') {
+  const formBody = await Astro.request.formData();
+  const accessPhrase = formBody.get('accessPhrase');
 
-    <!-- Form Section (Hidden by default) -->
-    <div id="form-section" class="hidden p-8 space-y-6">
-      
-      <!-- Datos Básicos -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-          <label class="block text-sm font-medium text-gray-700">Nombre Completo</label>
-          <input type="text" id="name" class="mt-1 w-full p-2 border rounded" placeholder="Ej: Gerardo Gerulewicz" required oninput="generateSlug()">
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700">ID (Slug)</label>
-          <input type="text" id="id" class="mt-1 w-full p-2 border rounded bg-gray-100" placeholder="gerardo-gerulewicz" readonly>
-          <p class="text-xs text-gray-500 mt-1">Se genera automáticamente.</p>
-        </div>
-      </div>
+  if (accessPhrase !== SECRET_PHRASE) {
+    error = "🚫 Frase incorrecta. Acceso denegado.";
+  } else {
+    try {
+      // 1. Generar SLUG primero (para usarlo en avatar y nombre de archivo)
+      const nameRaw = formBody.get('name') || "Sin Nombre";
+      const slug = nameRaw.toString()
+        .toLowerCase()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // Quitar acentos
+        .replace(/[^a-z0-9]+/g, '-') // Reemplazar espacios y símbolos por -
+        .replace(/(^-|-$)/g, ''); // Quitar guiones al inicio/final
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-          <label class="block text-sm font-medium text-gray-700">Rol Principal</label>
-          <input type="text" id="role" class="mt-1 w-full p-2 border rounded" placeholder="Ej: Compositor y Pianista">
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700">Géneros (separados por coma)</label>
-          <input type="text" id="genre" class="mt-1 w-full p-2 border rounded" placeholder="música-navideña, piano-clásico">
-        </div>
-      </div>
+      // 2. Procesar géneros (array desde checkbox o texto separado por comas)
+      const genreRaw = formBody.get('genre') || "";
+      const genreArray = genreRaw.toString().split(',').map(g => g.trim()).filter(g => g);
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-          <label class="block text-sm font-medium text-gray-700">País</label>
-          <input type="text" id="country" class="mt-1 w-full p-2 border rounded" value="Venezuela">
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700">Ciudad</label>
-          <input type="text" id="city" class="mt-1 w-full p-2 border rounded" placeholder="Caracas">
-        </div>
-      </div>
-
-      <div>
-        <label class="block text-sm font-medium text-gray-700">Tagline (Frase corta)</label>
-        <input type="text" id="tagline" class="mt-1 w-full p-2 border rounded" placeholder="La arquitectura del sonido">
-      </div>
-
-      <!-- Avatar Info -->
-      <div class="bg-blue-50 p-4 rounded border border-blue-200">
-        <h3 class="font-bold text-blue-800 text-sm">📷 Sobre la Foto de Perfil</h3>
-        <p class="text-sm text-blue-700 mt-1">
-          No necesitas subir la foto aquí. El sistema asumirá que la foto está en: <br>
-          <code class="bg-white px-2 py-1 rounded text-xs block mt-2 break-all">/artists/profile-{slug}.webp</code>
-        </p>
-        <p class="text-xs text-blue-600 mt-2">Asegúrate de subir el archivo <b>.webp</b> con ese nombre exacto a la carpeta pública antes de publicar.</p>
-      </div>
-
-      <!-- Biografías -->
-      <div>
-        <label class="block text-sm font-medium text-gray-700">Biografía Corta (Resumen)</label>
-        <textarea id="bio" rows="3" class="mt-1 w-full p-2 border rounded" placeholder="Breve descripción para tarjetas..."></textarea>
-      </div>
-
-      <div>
-        <label class="block text-sm font-medium text-gray-700">Biografía Larga (Completa)</label>
-        <p class="text-xs text-gray-500 mb-1">Usa "Enter" dos veces para separar párrafos.</p>
-        <textarea id="bioLong" rows="10" class="mt-1 w-full p-2 border rounded" placeholder="Historia completa del artista..."></textarea>
-      </div>
-
-      <!-- Redes Sociales -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div>
-          <label class="block text-sm font-medium text-gray-700">Instagram URL</label>
-          <input type="url" id="instagram" class="mt-1 w-full p-2 border rounded" placeholder="https://instagram.com/...">
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700">YouTube URL</label>
-          <input type="url" id="youtube" class="mt-1 w-full p-2 border rounded" placeholder="https://youtube.com/...">
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700">Facebook URL (Opcional)</label>
-          <input type="url" id="facebook" class="mt-1 w-full p-2 border rounded" placeholder="https://facebook.com/...">
-        </div>
-      </div>
-
-      <!-- Botón de Acción -->
-      <div class="pt-6 border-t border-gray-200">
-        <button 
-          onclick="generateJSON()" 
-          class="w-full bg-green-600 text-white py-4 rounded-lg font-bold text-lg hover:bg-green-700 transition shadow-md flex items-center justify-center gap-2"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-          </svg>
-          Generar y Descargar JSON
-        </button>
-        <p class="text-center text-xs text-gray-500 mt-3">El archivo se descargará como <span id="filename-preview" class="font-mono font-bold">nombre-apellido.json</span></p>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const SECRET_PHRASE = 'hermano-acuerdate-de-mi';
-
-    function checkAccess() {
-      const input = document.getElementById('accessPhrase').value.trim();
-      const errorMsg = document.getElementById('login-error');
-      const formSection = document.getElementById('form-section');
-      const loginSection = document.getElementById('login-section');
-
-      if (input === SECRET_PHRASE) {
-        errorMsg.classList.add('hidden');
-        loginSection.classList.add('hidden');
-        formSection.classList.remove('hidden');
-      } else {
-        errorMsg.classList.remove('hidden');
-      }
-    }
-
-    function generateSlug() {
-      const name = document.getElementById('name').value;
-      const slug = name.toLowerCase()
-        .normalize('NFD').replace(/[\u0300-\u036f]/g, "") // Quitar acentos
-        .replace(/[^a-z0-9]+/g, '-') // Reemplazar espacios/caracteres raros por guiones
-        .replace(/(^-|-$)+/g, ''); // Quitar guiones al inicio/final
-      
-      document.getElementById('id').value = slug;
-      document.getElementById('filename-preview').innerText = slug + '.json';
-    }
-
-    function generateJSON() {
-      // Recolección de datos
-      const id = document.getElementById('id').value;
-      if (!id) { alert('Por favor ingresa un nombre primero'); return; }
-
-      const genreInput = document.getElementById('genre').value;
-      const genres = genreInput.split(',').map(g => g.trim().toLowerCase()).filter(g => g);
-
-      const social = {};
-      const ig = document.getElementById('instagram').value; if(ig) social.instagram = ig;
-      const yt = document.getElementById('youtube').value; if(yt) social.youtube = yt;
-      const fb = document.getElementById('facebook').value; if(fb) social.facebook = fb;
-
-      // Limpieza de saltos de línea (Windows \r\n -> Unix \n)
-      const cleanText = (text) => text ? text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').trim() : '';
-
+      // 3. Construir el objeto JSON
       const data = {
-        id: id,
-        name: document.getElementById('name').value,
-        role: document.getElementById('role').value,
-        country: document.getElementById('country').value,
-        city: document.getElementById('city').value || null,
-        genre: genres,
-        bio: cleanText(document.getElementById('bio').value),
-        bioLong: cleanText(document.getElementById('bioLong').value),
-        avatar: `/artists/profile-${id}.webp`, // Ruta automática
-        website: "", // Dejar vacío por defecto según template
-        social: Object.keys(social).length > 0 ? social : {},
-        releases: [],
+        id: slug,
+        name: nameRaw,
+        role: formBody.get('role') || "Artista",
+        country: formBody.get('country') || "Venezuela",
+        city: formBody.get('city') || "",
+        genre: genreArray,
+        bio: formBody.get('bio') || "",
+        bioLong: formBody.get('bioLong') || "",
+        // Avatar relativo basado en el slug
+        avatar: `/artists/${slug}.webp`, 
+        website: formBody.get('website') || "",
+        social: {
+          instagram: formBody.get('instagram') || "",
+          youtube: formBody.get('youtube') || "",
+          facebook: formBody.get('facebook') || ""
+        },
+        releases: [], // Se llenan después manualmente o con otra herramienta
         musicCards: [],
         metadata: {
           uuid: `urn:uuid:${crypto.randomUUID()}`,
           timestamp: new Date().toISOString(),
-          operator: "ceo@dagklassical.com"
+          operator: formBody.get('operator') || "ceo@dagklassical.com"
         },
-        tagline: document.getElementById('tagline').value || null
+        tagline: formBody.get('tagline') || ""
       };
 
-      // Crear Blob y descargar
-      const jsonString = JSON.stringify(data, null, 2);
-      const blob = new Blob([jsonString], { type: 'application/json' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `${id}.json`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
+      jsonOutput = JSON.stringify(data, null, 2);
+      fileName = `${slug}.json`;
+      formData = data; // Para mostrar en pantalla si se desea
 
-      alert('✅ JSON generado correctamente.\n\nRecuerda:\n1. Subir la foto como profile-' + id + '.webp\n2. Enviarme este archivo JSON.');
+    } catch (e) {
+      console.error(e);
+      error = "Error procesando los datos: " + e.message;
     }
-  </script>
+  }
+}
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Editor Efímero DAG</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-slate-800 font-sans p-6">
+  <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md border border-platinum">
+    <h1 class="text-2xl font-bold mb-2 text-dag-burgundy">🎵 Creador de Artistas (JSON)</h1>
+    <p class="mb-6 text-sm text-slate-500">Herramienta interna para generar perfiles. El archivo se descarga automáticamente.</p>
+
+    {error && (
+      <div class="mb-6 p-4 bg-red-100 text-red-700 border border-red-300 rounded">
+        {error}
+      </div>
+    )}
+
+    <form method="POST" class="space-y-6">
+      <!-- SEGURIDAD -->
+      <div class="p-4 bg-gray-100 rounded border border-gray-300">
+        <label class="block font-bold mb-2">🔑 Frase de Seguridad</label>
+        <input type="password" name="accessPhrase" required class="w-full p-2 border rounded" placeholder="Ingresa la frase secreta..." />
+      </div>
+
+      <!-- DATOS BÁSICOS -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="block font-medium mb-1">Nombre Completo *</label>
+          <input type="text" name="name" required class="w-full p-2 border rounded" placeholder="Ej: Gerardo Gerulewicz" />
+          <p class="text-xs text-slate-500 mt-1">El ID se generará automáticamente desde este nombre.</p>
+        </div>
+        <div>
+          <label class="block font-medium mb-1">Rol / Instrumento *</label>
+          <input type="text" name="role" required class="w-full p-2 border rounded" placeholder="Ej: Pianista y Compositor" />
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div>
+          <label class="block font-medium mb-1">País</label>
+          <input type="text" name="country" value="Venezuela" class="w-full p-2 border rounded" />
+        </div>
+        <div>
+          <label class="block font-medium mb-1">Ciudad</label>
+          <input type="text" name="city" class="w-full p-2 border rounded" placeholder="Ej: Caracas" />
+        </div>
+        <div>
+          <label class="block font-medium mb-1">Géneros (separados por coma)</label>
+          <input type="text" name="genre" class="w-full p-2 border rounded" placeholder="música-navideña, piano-clásico" />
+        </div>
+      </div>
+
+      <!-- BIOGRAFÍAS -->
+      <div>
+        <label class="block font-medium mb-1">Bio Corta (Resumen)</label>
+        <textarea name="bio" rows="3" class="w-full p-2 border rounded" placeholder="Breve descripción para tarjetas..."></textarea>
+      </div>
+      <div>
+        <label class="block font-medium mb-1">Bio Larga (Completa)</label>
+        <textarea name="bioLong" rows="8" class="w-full p-2 border rounded" placeholder="Biografía completa. Usa doble Enter para párrafos."></textarea>
+        <p class="text-xs text-slate-500 mt-1">Los saltos de línea se conservarán automáticamente.</p>
+      </div>
+
+      <!-- TAGLINE Y OPERADOR -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="block font-medium mb-1">Tagline (Frase destacada)</label>
+          <input type="text" name="tagline" class="w-full p-2 border rounded" placeholder="Ej: La arquitectura del sonido" />
+        </div>
+        <div>
+          <label class="block font-medium mb-1">Operator Email</label>
+          <input type="email" name="operator" value="ceo@dagklassical.com" class="w-full p-2 border rounded" />
+        </div>
+      </div>
+
+      <!-- REDES SOCIALES -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div>
+          <label class="block font-medium mb-1">Instagram URL</label>
+          <input type="url" name="instagram" class="w-full p-2 border rounded" placeholder="https://instagram.com/..." />
+        </div>
+        <div>
+          <label class="block font-medium mb-1">YouTube URL</label>
+          <input type="url" name="youtube" class="w-full p-2 border rounded" placeholder="https://youtube.com/..." />
+        </div>
+        <div>
+          <label class="block font-medium mb-1">Facebook URL</label>
+          <input type="url" name="facebook" class="w-full p-2 border rounded" placeholder="https://facebook.com/..." />
+        </div>
+      </div>
+      
+      <div>
+         <label class="block font-medium mb-1">Sitio Web (Opcional)</label>
+         <input type="url" name="website" class="w-full p-2 border rounded" placeholder="https://..." />
+      </div>
+
+      <!-- BOTÓN GENERAR -->
+      <button type="submit" class="w-full bg-dag-burgundy text-white font-bold py-3 rounded hover:bg-opacity-90 transition">
+        ✨ Generar JSON y Descargar
+      </button>
+    </form>
+
+    <!-- RESULTADO (Solo visible tras éxito) -->
+    {jsonOutput && (
+      <div class="mt-8 pt-8 border-t border-platinum">
+        <h2 class="text-xl font-bold mb-4 text-green-700">✅ ¡Éxito! Archivo generado</h2>
+        
+        <div class="bg-gray-900 text-green-400 p-4 rounded font-mono text-sm overflow-x-auto mb-4">
+          <pre>{jsonOutput}</pre>
+        </div>
+
+        <div class="flex gap-4">
+          <a 
+            href={`data:application/json;charset=utf-8,${encodeURIComponent(jsonOutput)}`} 
+            download={fileName}
+            class="bg-green-600 text-white px-6 py-2 rounded font-bold hover:bg-green-700 flex items-center gap-2"
+          >
+            ⬇️ Descargar {fileName}
+          </a>
+          
+          <button onclick="window.location.reload()" class="bg-gray-500 text-white px-6 py-2 rounded hover:bg-gray-600">
+            Crear otro
+          </button>
+        </div>
+        
+        <div class="mt-4 p-4 bg-blue-50 text-blue-800 text-sm rounded border border-blue-200">
+          <strong>📸 Nota sobre la imagen:</strong> Recuerda subir la foto del artista a tu VPS o carpeta local con el nombre: <code class="bg-white px-1 rounded">{fileName.replace('.json', '.webp')}</code>
+        </div>
+      </div>
+    )}
+  </div>
 </body>
 </html>
