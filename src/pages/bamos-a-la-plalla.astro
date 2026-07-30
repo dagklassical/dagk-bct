@@ -1,0 +1,220 @@
+---
+// src/pages/bamos-a-la-plalla.astro
+// 🛡️ Seguridad por oscuridad + Frase secreta hardcodeada
+
+const ACCESS_PHRASE = "hermano-acuerdate-de-mi"; // <--- CAMBIA ESTO si quieres otra frase
+let formData = null;
+let jsonOutput = null;
+let error = null;
+let success = false;
+
+// Manejo del formulario (Server-side)
+if (Astro.request.method === 'POST') {
+  const body = await Astro.request.formData();
+  
+  // 1. Validar frase secreta
+  if (body.get('secret_phrase') !== ACCESS_PHRASE) {
+    error = "❌ Frase incorrecta. Acceso denegado.";
+  } else {
+    try {
+      // 2. Construir el objeto JSON
+      const newArtist = {
+        id: body.get('id')?.toString().toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '') || 'nuevo-artista',
+        name: body.get('name')?.toString() || '',
+        role: body.get('role')?.toString() || '',
+        country: body.get('country')?.toString() || '',
+        city: body.get('city')?.toString() || '',
+        genre: body.get('genre')?.toString().split(',').map(g => g.trim()) || [],
+        bio: body.get('bio')?.toString() || '',
+        bioLong: body.get('bioLong')?.toString() || '',
+        avatar: body.get('avatar')?.toString() || '/images/placeholder-artist.webp',
+        website: body.get('website')?.toString() || '',
+        social: {
+          instagram: body.get('instagram')?.toString() || '',
+          youtube: body.get('youtube')?.toString() || '',
+          facebook: body.get('facebook')?.toString() || ''
+        },
+        releases: [], // Se llenará manualmente luego
+        musicCards: [],
+        metadata: {
+          uuid: `urn:uuid:${crypto.randomUUID()}`,
+          timestamp: new Date().toISOString(),
+          operator: "ceo@dagklassical.com" // O el correo del CEO
+        },
+        tagline: body.get('tagline')?.toString() || ''
+      };
+
+      jsonOutput = JSON.stringify(newArtist, null, 2);
+      success = true;
+      
+    } catch (e) {
+      error = "Error procesando datos: " + e.message;
+    }
+  }
+}
+---
+
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bamos a la Plalla - Admin DAG</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen font-sans">
+
+  <div class="max-w-3xl mx-auto py-10 px-4">
+    
+    <!-- Header -->
+    <div class="mb-8 text-center">
+      <h1 class="text-3xl font-bold text-dag-burgundy mb-2">🎵 Carga de Artistas (Staging)</h1>
+      <p class="text-gray-600">Rellena los datos para generar el JSON listo para revisión.</p>
+    </div>
+
+    <!-- Mensajes de Estado -->
+    {error && (
+      <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
+        {error}
+      </div>
+    )}
+
+    {success && jsonOutput && (
+      <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
+        <h3 class="font-bold text-lg">✅ ¡JSON Generado con Éxito!</h3>
+        <p class="mb-2">El archivo está listo. Haz clic abajo para descargarlo y envíalo al desarrollador.</p>
+        
+        <div class="mt-4 flex gap-3">
+          <a 
+            href={`data:text/json;charset=utf-8,${encodeURIComponent(jsonOutput)}`} 
+            download={`${formData?.get('id') || 'artista'}.json`}
+            class="bg-dag-burgundy text-white px-6 py-2 rounded hover:bg-opacity-90 font-bold shadow-md transition"
+          >
+            📥 Descargar JSON
+          </a>
+          <button 
+            onclick="window.location.reload()" 
+            class="bg-gray-600 text-white px-6 py-2 rounded hover:bg-gray-700 transition"
+          >
+            ➕ Crear Otro
+          </button>
+        </div>
+        
+        <!-- Previsualización (Opcional, colapsable) -->
+        <details class="mt-4 bg-white p-2 rounded border border-gray-200">
+          <summary class="cursor-pointer text-sm text-gray-500">Ver previsualización del código</summary>
+          <pre class="text-xs overflow-auto mt-2 text-left">{jsonOutput}</pre>
+        </details>
+      </div>
+    )}
+
+    <!-- Formulario -->
+    {!success && (
+      <form method="POST" class="bg-white shadow-lg rounded-lg p-8 space-y-6 border border-gray-100">
+        
+        <!-- Paso 1: Seguridad -->
+        <div class="pb-6 border-b border-gray-200">
+          <label class="block text-sm font-medium text-gray-700 mb-2">🔐 Frase de Acceso</label>
+          <input 
+            type="password" 
+            name="secret_phrase" 
+            required 
+            placeholder="Ingresa la frase secreta..."
+            class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-dag-burgundy focus:border-transparent outline-none"
+          />
+          <p class="text-xs text-gray-500 mt-1">Solo el equipo interno conoce esta frase.</p>
+        </div>
+
+        <!-- Paso 2: Datos Básicos -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Nombre Completo</label>
+            <input type="text" name="name" required class="mt-1 w-full px-3 py-2 border rounded focus:ring-dag-burgundy outline-none" placeholder="Ej: Gerardo Gerulewicz" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">ID Único (slug)</label>
+            <input type="text" name="id" required class="mt-1 w-full px-3 py-2 border rounded focus:ring-dag-burgundy outline-none" placeholder="Ej: gerardo-gerulewicz" pattern="[a-z0-9-]+" title="Solo minúsculas, números y guiones" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Rol / Título</label>
+            <input type="text" name="role" required class="mt-1 w-full px-3 py-2 border rounded outline-none" placeholder="Ej: Compositor y Pianista" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Tagline (Frase corta)</label>
+            <input type="text" name="tagline" class="mt-1 w-full px-3 py-2 border rounded outline-none" placeholder="Ej: La arquitectura del sonido" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700">País</label>
+            <input type="text" name="country" required class="mt-1 w-full px-3 py-2 border rounded outline-none" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Ciudad</label>
+            <input type="text" name="city" class="mt-1 w-full px-3 py-2 border rounded outline-none" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Géneros (separados por coma)</label>
+            <input type="text" name="genre" required class="mt-1 w-full px-3 py-2 border rounded outline-none" placeholder="música-navideña, piano-clásico" />
+          </div>
+        </div>
+
+        <!-- Biografías -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Biografía Corta (Resumen)</label>
+          <textarea name="bio" rows="3" required class="mt-1 w-full px-3 py-2 border rounded outline-none"></textarea>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Biografía Larga (Detallada con saltos de línea)</label>
+          <textarea name="bioLong" rows="8" required class="mt-1 w-full px-3 py-2 border rounded outline-none"></textarea>
+        </div>
+
+        <!-- Multimedia y Redes -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700">URL Avatar/Foto</label>
+            <input type="url" name="avatar" class="mt-1 w-full px-3 py-2 border rounded outline-none" placeholder="https://..." />
+            <p class="text-xs text-gray-500">Deja vacío para usar imagen por defecto.</p>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Sitio Web</label>
+            <input type="url" name="website" class="mt-1 w-full px-3 py-2 border rounded outline-none" placeholder="https://..." />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 bg-gray-50 p-4 rounded border">
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Instagram URL</label>
+            <input type="url" name="instagram" class="mt-1 w-full px-3 py-2 border rounded outline-none" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">YouTube URL</label>
+            <input type="url" name="youtube" class="mt-1 w-full px-3 py-2 border rounded outline-none" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Facebook URL</label>
+            <input type="url" name="facebook" class="mt-1 w-full px-3 py-2 border rounded outline-none" />
+          </div>
+        </div>
+
+        <!-- Botón de Envío -->
+        <div class="pt-4">
+          <button 
+            type="submit" 
+            class="w-full bg-dag-burgundy text-white font-bold py-3 px-4 rounded hover:bg-opacity-90 transition shadow-lg transform hover:-translate-y-0.5"
+          >
+            ✨ Generar JSON para Revisión
+          </button>
+        </div>
+      </form>
+    )}
+
+    <footer class="mt-12 text-center text-gray-400 text-sm">
+      <p>Staging Area • Solo uso interno • v1.0</p>
+    </footer>
+  </div>
+</body>
+</html>
